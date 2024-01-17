@@ -1,0 +1,140 @@
+@php
+    $social = \App\Models\contactMd::first();
+    $logoHeader = \App\Models\HomeMd::where('type', 'logo-header')->first();
+    $logoFooter = \App\Models\HomeMd::where('type', 'logo-footer')->first();
+@endphp
+{{-- <div class="social bg-white d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <ul class="right-icons">
+                    <li><a class="icon-social me-1" target="_blank"
+                            @if (@$social->x) href="{{ $social->x }}" @endif><img
+                                src="{{ config('web.folder_prefix') }}/images\icon\x-twitter.png" class="img-fluid"
+                                alt="x-twitter"></a></li>
+                    <li><a class="icon-social me-1" target="_blank"
+                            @if (@$social->fb) href="{{ $social->fb }}" @endif><img
+                                src="{{ config('web.folder_prefix') }}/images\icon\facebook.png" class="img-fluid"
+                                alt="facebook"></a></li>
+                    <li><a class="icon-social me-1" target="_blank"
+                            @if (@$social->ig) href="{{ $social->ig }}" @endif><img
+                                src="{{ config('web.folder_prefix') }}/images\icon\instagram-02.png" class="img-fluid"
+                                alt="instagram"></a></li>
+                    <li><a class="icon-social me-1" target="_blank"
+                            @if (@$social->yt) href="{{ $social->yt }}" @endif><img
+                                src="{{ config('web.folder_prefix') }}/images\icon\youtube.png" class="img-fluid"
+                                alt="youtube"></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+<header class=" sticky-top">
+    <nav class="navbar navbar-expand-md navbar-bg ">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                {{-- <img src="images/logo/logoTCF-colored.png" class="logo"> --}}
+                <img src="@if (@$logoHeader->detail) {{ @$logoHeader->detail }}@else/images/no_image.webp @endif"
+                    class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.php">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.php">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="consultant.php">CONSULTANT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="m&a.php">M&A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blogs.php">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
+                </ul>
+                <div id="google_translate_element"></div>
+            </div>
+
+
+        </div>
+    </nav>
+</header>
+
+<!-- Navbar Start -->
+{{-- <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top ">
+    <div class="container">
+        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center">
+            <img class="img-fluid me-2 logo"
+                src="@if (@$logoHeader->detail) {{ @$logoHeader->detail }}@else/images/no_image.webp @endif"
+                class="logo">
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
+                <a href="{{ url('/service') }}" class="nav-item nav-link">Service</a>
+                <a href="{{ url('/blog') }}" class="nav-item nav-link">Blog</a>
+                <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</nav> --}}
+<!-- Navbar End -->
+
+{{-- <script>
+    var url = window.location.href;
+
+    var els = document.querySelectorAll(".navbar-nav a");
+    for (var i = 0, l = els.length; i < l; i++) {
+        var el = els[i];
+        if (el.href === url) {
+            el.classList.add("active");
+        }
+    }
+</script> --}}
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'auto',
+            includedLanguages: "en,th,ja",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en">
+</script>
+<script>
+    var url = window.location.href;
+
+    var els = document.querySelectorAll(".navbar-nav a");
+    for (var i = 0, l = els.length; i < l; i++) {
+        var el = els[i];
+        console.log(url)
+        console.log(el.href)
+        if (el.href === url || url.includes(el.href.slice(0, -4))) {
+            console.log(el, el.href)
+            el.classList.add("active");
+        }
+    }
+</script>
