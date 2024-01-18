@@ -32,7 +32,7 @@
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
 
 
 </head>
@@ -384,81 +384,51 @@
         <div class="container-fluid c-bg-secondary  py-5">
             <div class="container pb-5 heading-section">
                 <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s">
-                    <span class="subheading mb-2">Accounting Content</span>
+                    <span class="subheading mb-2">Updated Content to boost your business growth</span>
                     <h2 class="mb-5">Blogs</h2>
                 </div>
                 <div class="row g-5 gx-4">
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
-                            <div class="position-relative ">
-                                <!-- <div class="corner-sale"><span>TO SALE</span></div> -->
-                                <img class="img-fluid" src="images/blog-011.jpg" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-tech.php"><span
-                                            class="material-symbols-outlined">
-                                            visibility
-                                        </span></a>
+                    @if (@$blog)
+                        @foreach ($blog->data as $i => $v)
+                            <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp"
+                                data-wow-delay="0.{{ $i }}s">
+                                <div class="blog-item">
+                                    <div class="position-relative">
+                                        <!-- <div class="corner-sale"><span>TO SALE</span></div> -->
+                                        <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                        <div class="blog-overlay">
+                                            <a class="btn btn-square btn-primary rounded-circle m-1"
+                                                href="{{ $v->url }}">
+                                                {{-- <span class="material-symbols-outlined">
+                                                visibility
+                                            </span> --}}
+                                                <i class="far fa-eye fa-lg"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="text-center p-3 blog-card-text">
+                                        <div class="meta mb-2">
+                                            @php
+                                                $dateString = $v->publish;
+                                                $dateTime = new DateTime($dateString);
+                                                $formattedDate = $dateTime->format('F j, Y');
+                                            @endphp
+                                            {{-- <span>September 25, 2023</span> --}}
+                                            <span>{{ $formattedDate }}</span>
+                                        </div>
+                                        <a class="d-block" href="{{ $v->url }}">
+                                            <h3>{{ $v->name }}</h3>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>September 25, 2023</span>
-                                </div>
-                                <a class="d-block" href="m&a-tech.php">
-                                    <h3>Decoding Debits and Credits: Navigating the Basics of Accounting</h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <!-- <div class="corner-sale"><span>TO SALE</span></div> -->
-                                <img class="img-fluid" src="images/blog-022.jpg" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-auto.php"><span
-                                            class="material-symbols-outlined">
-                                            visibility
-                                        </span></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>September 25, 2023</span>
-                                </div>
-                                <a class="d-block" href="m&a-auto.php">
-                                    <h3>Beyond the Numbers: Unraveling the Stories Hidden in Financial Statements</h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <!-- <div class="corner-buy"><span>TO BUY</span></div> -->
-                                <img class="img-fluid" src="images/blog-033.jpg" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1"
-                                        href="m&a-health-care.php"><span class="material-symbols-outlined">
-                                            visibility
-                                        </span></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>September 25, 2023</span>
-                                </div>
-                                <a class="d-block" href="m&a-health-care.php">
-                                    <h3>Tax Talk: Demystifying the Complexities of Income Tax Accounting</h3>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
+                    @endif
 
-                    </div>
                 </div>
             </div>
             <div class="text-center">
-                <a class="btn btn-primary" href="blogs.php">All Blogs</a>
+                <a class="btn btn-primary" href={{ url('/blog') }}>All Blogs</a>
             </div>
         </div>
     </section>

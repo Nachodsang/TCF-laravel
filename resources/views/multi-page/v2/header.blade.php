@@ -47,14 +47,28 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href={{ url('/about') }}>About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="service.php">Service</a>
+
+                    {{-- <a class="nav-link" href={{ url('/service') }}>Service</a> --}}
+                    <li class="dropdown nav-item">
+                        <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-mdb-toggle="dropdown" aria-expanded="false">
+                            Service
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item text-muted" href="#">Accounting & Tax</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">Legal Services</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">Audit</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">Human Resource</a></li>
+                            <li><a class="dropdown-item text-muted" href="#">M&A / IPO</a></li>
+                            <li><a class="dropdown-item text-muted" href={{ url('/service') }}>All</a></li>
+                        </ul>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="consultant.php">CONSULTANT</a>
                     </li>
@@ -62,10 +76,10 @@
                         <a class="nav-link" href="m&a.php">M&A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blogs.php">Blogs</a>
+                        <a class="nav-link" href={{ url('/blog') }}>Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link" href={{ url('/contact') }}>Contact</a>
                     </li>
                 </ul>
                 <div id="google_translate_element"></div>
@@ -100,7 +114,7 @@
 </nav> --}}
 <!-- Navbar End -->
 
-{{-- <script>
+<script>
     var url = window.location.href;
 
     var els = document.querySelectorAll(".navbar-nav a");
@@ -110,7 +124,7 @@
             el.classList.add("active");
         }
     }
-</script> --}}
+</script>
 
 <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -124,7 +138,9 @@
 
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&hl=en">
 </script>
-<script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+{{-- <script>
     var url = window.location.href;
 
     var els = document.querySelectorAll(".navbar-nav a");
@@ -137,4 +153,4 @@
             el.classList.add("active");
         }
     }
-</script>
+</script> --}}

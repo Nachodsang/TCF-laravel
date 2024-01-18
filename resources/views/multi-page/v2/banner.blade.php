@@ -41,10 +41,7 @@
                     <div class="col-12 col-lg-8 col-xl-6">
                         <div class="welcome-text ">
                             <h2 data-animation="bounceInUp" data-delay="100ms">Welcome</h2>
-                            <p data-animation="bounceInUp" data-delay="500ms">Tokyo Consulting Firm is global accounting
-                                firm & CPA firm in Thailand and has over 700 clients all over the world. TCF Thailand
-                                provides professional services in the fields of Accounting, Taxation, Payroll, Audit,
-                                HR, Legal Services and IT Services. </p>
+                            <p data-animation="bounceInUp" data-delay="500ms">{{ $about->description_th }} </p>
                             <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
                                 <a href="service.php" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
                                     Service</a>
@@ -67,10 +64,7 @@
                     <div class="col-12 col-lg-8 col-xl-6">
                         <div class="welcome-text">
                             <h2 data-animation="bounceInDown" data-delay="900ms">Welcome</h2>
-                            <p data-animation="bounceInDown" data-delay="500ms">Tokyo Consulting Firm is global
-                                accounting firm & CPA firm in Thailand and has over 700 clients all over the world. TCF
-                                Thailand provides professional services in the fields of Accounting, Taxation, Payroll,
-                                Audit, HR, Legal Services and IT Services. </p>
+                            <p data-animation="bounceInDown" data-delay="500ms">{{ $about->description_th }} </p>
                             <div class="hero-btn-group" data-animation="bounceInDown" data-delay="100ms">
                                 <a href="service.php" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
                                     Service</a>
@@ -92,10 +86,7 @@
                     <div class="col-12 col-lg-8 col-xl-6">
                         <div class="welcome-text ">
                             <h2 data-animation="bounceInUp" data-delay="100ms">Welcome</h2>
-                            <p data-animation="bounceInUp" data-delay="500ms">Tokyo Consulting Firm is global accounting
-                                firm & CPA firm in Thailand and has over 700 clients all over the world. TCF Thailand
-                                provides professional services in the fields of Accounting, Taxation, Payroll, Audit,
-                                HR, Legal Services and IT Services. </p>
+                            <p data-animation="bounceInUp" data-delay="500ms">{{ $about->description_th }} </p>
                             <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
                                 <a href="service.php" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
                                     Service</a>
