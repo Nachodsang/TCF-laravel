@@ -444,16 +444,7 @@
     @include("$folder_prefix/footer")
 
     <!-- Scripts -->
-    <!-- jQuery 2.2.4 -->
-    <script src="js/jquery.min.js"></script>
-    <!-- <script src="js/bootstrap.js"></script> -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- All Plugins -->
-    <script src="js/alime.bundle.js"></script>
-    <!-- Active -->
-    <script src="js/active.js"></script>
-    <script src="js/wow.min.js"></script>
+
 
 
 

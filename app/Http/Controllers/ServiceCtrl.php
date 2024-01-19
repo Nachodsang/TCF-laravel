@@ -44,4 +44,14 @@ class ServiceCtrl extends Controller
         ];
         return view(config('web.folder_prefix') . "/service-detail", $data);
     }
+
+    public function category(string $url)
+    {
+        $detail = ServiceMd::where(['url' => $url, 'status' => 1])->first();
+        $data = [
+            'folder_prefix' => $this->config['folder_prefix'],
+            'detail' => $detail
+        ];
+        return view($this->config['folder_prefix'] . "/serviceCat", $data);
+    }
 }

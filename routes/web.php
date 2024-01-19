@@ -12,15 +12,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[\App\Http\Controllers\HomeCtrl::class,'index']);
-Route::get('/about',[\App\Http\Controllers\AboutCtrl::class,'index']);
-Route::get('/service',[\App\Http\Controllers\ServiceCtrl::class,'index']);
-Route::get('/service/{url}',[\App\Http\Controllers\ServiceCtrl::class,'detail']);
-Route::get('/blog',[\App\Http\Controllers\BlogCtrl::class,'index']);
-Route::get('/contact',[\App\Http\Controllers\ContactCtrl::class,'index']);
+
+Route::get('/', [\App\Http\Controllers\HomeCtrl::class, 'index']);
+Route::get('/about', [\App\Http\Controllers\AboutCtrl::class, 'index']);
+Route::get('/service', [\App\Http\Controllers\ServiceCtrl::class, 'index']);
+Route::get('/service/{url}', [\App\Http\Controllers\ServiceCtrl::class, 'detail'])->where(['url' => '[0-9A-Za-zก-๙,.()!?"“”_-]+']);
+Route::get('/service/category/{url}', [\App\Http\Controllers\ServiceCtrl::class, 'category'])->where(['url' => '[0-9A-Za-zก-๙,.()!?"“”_-]+']);
+Route::get('/blog', [\App\Http\Controllers\BlogCtrl::class, 'index']);
+Route::get('/contact', [\App\Http\Controllers\ContactCtrl::class, 'index']);
+Route::get('/consultant', [\App\Http\Controllers\ConsultantCtrl::class, 'index']);
+Route::get('/m&a', [\App\Http\Controllers\MaCtrl::class, 'index']);
 
 
-Route::get('clear/cache',function(){
+
+Route::get('clear/cache', function () {
     Artisan::call('config:cache');
     Artisan::call('config:clear');
     Artisan::call('cache:clear');

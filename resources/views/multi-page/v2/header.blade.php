@@ -47,39 +47,50 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
+                        <a name="header-menu" class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={{ url('/about') }}>About</a>
+                        <a name="header-menu" class="nav-link" href={{ url('/about') }}>About</a>
                     </li>
 
                     {{-- <a class="nav-link" href={{ url('/service') }}>Service</a> --}}
                     <li class="dropdown nav-item">
-                        <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
                             Service
-                        </button>
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item text-muted" href="#">Accounting & Tax</a></li>
-                            <li><a class="dropdown-item text-muted" href="#">Legal Services</a></li>
-                            <li><a class="dropdown-item text-muted" href="#">Audit</a></li>
-                            <li><a class="dropdown-item text-muted" href="#">Human Resource</a></li>
-                            <li><a class="dropdown-item text-muted" href="#">M&A / IPO</a></li>
-                            <li><a class="dropdown-item text-muted" href={{ url('/service') }}>All</a></li>
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service/category/accounting-tax') }}>Accounting &
+                                    Tax</a>
+                            </li>
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service/category/legal-service') }}>Legal Services</a>
+                            </li>
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service/category/audit') }}>Audit</a></li>
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service/category/human-resource') }}>Human Resource</a>
+                            </li>
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service/category/ma-ipo') }}>M&A / IPO</a></li>
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service') }}>All</a>
+                            </li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="consultant.php">CONSULTANT</a>
+                        <a name="header-menu" class="nav-link" href={{ url('/consultant') }}>CONSULTANT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="m&a.php">M&A</a>
+                        <a name="header-menu" class="nav-link" href={{ url('/m&a') }}>M&A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={{ url('/blog') }}>Blogs</a>
+                        <a name="header-menu" class="nav-link" href={{ url('/blog') }}>Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href={{ url('/contact') }}>Contact</a>
+                        <a name="header-menu" class="nav-link" href={{ url('/contact') }}>Contact</a>
                     </li>
                 </ul>
                 <div id="google_translate_element"></div>
@@ -118,12 +129,12 @@
     var url = window.location.href;
 
     var els = document.querySelectorAll(".navbar-nav a");
-    for (var i = 0, l = els.length; i < l; i++) {
-        var el = els[i];
-        if (el.href === url) {
-            el.classList.add("active");
-        }
-    }
+    console.log(url)
+    els.forEach((i) => {
+        (i?.href === url || url?.includes(i?.name)) && i.classList.add("active")
+        console.log(i.href === url)
+        console.log(i?.name)
+    })
 </script>
 
 <script type="text/javascript">

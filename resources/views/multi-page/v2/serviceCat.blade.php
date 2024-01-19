@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{-- <head>
-    <meta charset="utf-8">
-    <title>Nankai Express (Thailand) Co., Ltd</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="นำเข้า-ส่งออก, คลังสินค้า, การขนส่ง, บริการด้านโลจิสติกส์" name="keywords">
-    <meta content="Is service facilitator about logistics (Import-Export, Warehouse,Transportation) and include about install machinery by specialist." name="description">
-    <meta content="{{ url('/') }}" name="base">
-    <link href="{{ config('web.folder_prefix') }}/images/logo/logo-nankai-ico.ico" rel="icon">
-    <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ config('web.folder_prefix') }}/css/animated.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/custom.css" rel="stylesheet">
-</head> --}}
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,11 +19,6 @@
 
 <body>
     @include(config('web.folder_prefix') . '/header')
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-    <!-- /Preloader -->
 
     {{-- <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
         <div class="overlay-photo-image-bg parallax" data-bg-img="images/image_11092023-1421591694416919974.jpeg"
@@ -133,6 +111,11 @@
             </div>
         </div>
     </section> --}}
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- /Preloader -->
 
 
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');"
@@ -144,8 +127,8 @@
                     <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.php">Home <span
                                     class="icon material-symbols-outlined">
                                     arrow_forward_ios
-                                </span></a></span> <span>Services</span></p>
-                    <h1 class="mb-0 bread">Services</h1>
+                                </span></a></span> <span>Acounting Services</span></p>
+                    <h1 class="mb-0 bread">Acounting Services</h1>
                 </div>
             </div>
         </div>
@@ -177,22 +160,7 @@
                         <p class="mb-0">For a detailed presentation of our services, please select one of our areas of
                             expertise below .</p>
                     </div>
-
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                            <div class="service-icon btn-square">
-                                <!-- <span class="material-symbols-outlined">
-                   potted_plant
-                </span> -->
-                                <i class="fas fa-seedling fa-3x"></i>
-                            </div>
-                            <h3 class="mb-3">Business Setup</h3>
-                            <p> Tokyo Consulting Firm is composed of highly experienced professionals who specialize in
-                                establishing and registering offices and parent companies in Thailand.</p>
-
-                            <a class="btn px-3 mt-auto mx-auto" href="service-setup-business.php">Read More</a>
-                        </div>
-                    </div>
+                    <!--  -->
 
                     <div class="col-md-4 wow fadeIn" data-wow-delay="0.5s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">
@@ -259,56 +227,7 @@
                             <a class="btn px-3 mt-auto mx-auto" href="service-payroll.php">Read More</a>
                         </div>
                     </div>
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                            <div class="service-icon btn-square">
-                                <i class="fas fa-users fa-3x"></i>
-                            </div>
-                            <h3 class="mb-3">Human Resources</h3>
-                            <p>One of the main issues that companies face in their organizational development is
-                                recruitment and education of new employees. Personnel training strategies, such as
-                                on-the-job training and business manner education, can be achieved through thorough
-                                knowledge and accumulated experience of HR Consultants in Thailand.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="service-hr.php">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                            <div class="service-icon btn-square">
-                                <i class="fas fa-thumbs-up fa-3x"></i>
-                            </div>
-                            <h3 class="mb-3">Social Insurance</h3>
-                            <p>Whether it is accompanying our customers on a regular basis, or providing one-time
-                                consulting services, we have the necessary resources to assist our foreign customers and
-                                help the establishment and development of their business in Thailand.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="service-social-insurance.php">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                            <div class="service-icon btn-square">
-                                <i class="fas fa-handshake fa-3x"></i>
-                            </div>
-                            <h3 class="mb-3">Mergers and Acquisitions</h3>
-                            <p>Mergers and acquisitions have a profitable side that can create potentially enormous
-                                profits for a company, and expose the business to a myriad of financial resources. </p>
 
-                            <a class="btn px-3 mt-auto mx-auto" href="service-m&a.php">Read More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 wow fadeIn" data-wow-delay="0.7s">
-                        <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                            <div class="service-icon btn-square">
-                                <i class="fas fa-cloud-upload-alt fa-3x"></i>
-                            </div>
-                            <h3 class="mb-3">HR Cloud Software</h3>
-                            <p>HR Cloud Software helps in drive business results and improves the employee experience.
-                                Give your HR department an advantage to automate manual processes. Human Resource cloud
-                                software helps organization improve employee experience, transform working culture and
-                                turn employee engagement into a business advantage.</p>
-                            <a class="btn px-3 mt-auto mx-auto" href="service-hr-cloud.php">Read More</a>
-                        </div>
-                    </div>
 
 
                 </div>
@@ -318,19 +237,8 @@
 
     @include(config('web.folder_prefix') . '/footer')
 
-    {{-- <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/animation.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/main.js"></script>
-    <script>
-        document.addEventListener('change', function(e) {
-            const paginate = e.target.closest('.paginate');
-            if (paginate) {
-                window.location.href = paginate.value;
-            }
-        })
-    </script> --}}
+
+
 
 
 
