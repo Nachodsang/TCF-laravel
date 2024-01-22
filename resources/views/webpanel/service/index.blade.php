@@ -21,6 +21,8 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="admin/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+
 
 </head>
 
@@ -94,6 +96,7 @@
     <script src="admin/js/sb-admin-2.min.js"></script>
     <script src="admin/js/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
     <script>
         $(".loading").hide();
 

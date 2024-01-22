@@ -99,14 +99,16 @@
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
 
-                <div class="footer-heading"><a href="index.php">
+                <div class="footer-heading">
+                    <a href="{{ url('/') }}">
                         {{-- <img src="images/logo/logoTCF.png" class="logo"> --}}
                         <img src="@if (@$logoFooter->detail) {{ @$logoFooter->detail }}@else/images/no_image.webp @endif"
                             class="logo">
-                    </a></div>
+                    </a>
+                </div>
 
                 <p class="menu">
-                    <a href="index.php">Home</a>
+                    <a href="{{ url('/') }}">Home</a>
                     <a href="about.php">About</a>
                     <a href="service.php">Service</a>
                     <a href="consultant.php">Consultant</a>

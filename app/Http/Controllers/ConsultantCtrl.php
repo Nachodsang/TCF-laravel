@@ -15,11 +15,25 @@ class ConsultantCtrl extends Controller
     }
     public function index()
     {
-        $data = \App\Models\AboutUsMd::find(1);
-        $client = OurClientMd::all();
+        $data = \App\Models\AboutConsultantMd::find(1);
+        $consultants = \App\Models\ConsultantMd::all();
+        // $client = OurClientMd::all();
         return view($this->config['folder_prefix'] . "/consultant", [
-            'row' => $data,
-            'ourClient' => $client
+            'about' => $data,
+            'consultants' => $consultants
+
+        ]);
+    }
+    public function detail($url)
+    {
+        $data = \App\Models\AboutConsultantMd::find(1);
+        $consultant = \App\Models\ConsultantMd::where(['url' => $url])->first();
+        // $client = OurClientMd::all();
+        return view($this->config['folder_prefix'] . "/consultant-detail", [
+            'about' => $data,
+            'consultant' => $consultant,
+            'test' => "testing"
+
         ]);
     }
 }

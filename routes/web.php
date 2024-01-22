@@ -21,6 +21,7 @@ Route::get('/service/category/{url}', [\App\Http\Controllers\ServiceCtrl::class,
 Route::get('/blog', [\App\Http\Controllers\BlogCtrl::class, 'index']);
 Route::get('/contact', [\App\Http\Controllers\ContactCtrl::class, 'index']);
 Route::get('/consultant', [\App\Http\Controllers\ConsultantCtrl::class, 'index']);
+Route::get('/consultant/{url}', [\App\Http\Controllers\ConsultantCtrl::class, 'detail'])->where(['url' => '[0-9A-Za-zก-๙,.()!?"“”_-]+']);
 Route::get('/m&a', [\App\Http\Controllers\MaCtrl::class, 'index']);
 
 

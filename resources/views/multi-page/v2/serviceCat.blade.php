@@ -20,96 +20,7 @@
 <body>
     @include(config('web.folder_prefix') . '/header')
 
-    {{-- <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
-        <div class="overlay-photo-image-bg parallax" data-bg-img="images/image_11092023-1421591694416919974.jpeg"
-            data-bg-opacity="1"
-            style="background-image: url(&quot;images/image_11092023-1421591694416919974.jpeg&quot;); opacity: 1;">
-        </div>
-        <div class="overlay-color" data-bg-opacity=".75" style="opacity: 0.75;"></div>
-        <div class="container">
-            <div class="hero-text-area centerd">
-                <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">SERVICE</h1>
-                <div class="row">
-                    <div class="col-12 offset-lg-2 col-lg-8 wow fadeInUp" data-wow-delay=".5s">
-                        <p class="text-uppercase">We have a global network to facilitate our customer. However, The
-                            aim of company is develop about logistics service all the time for customer satisfaction.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 
-    {{-- <section class="bg bg-02">
-        <div id="service" class="service section">
-            <div class="container-xxl py-6">
-                @if (@$links['allPage'] > 0)
-                    @foreach ($service as $i => $v)
-                        <div class="row g-5 d-flex justify-content-center py-4">
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <a href="{{ url("service/$v->url") }}" class="service-img">
-                                    <div class="hover-13 service-left">
-                                        <figure>
-                                            <img src="@if (@$v->image) {{ url("$v->image") }}@else{{ url('images/no-image.jpg') }} @endif"
-                                                class="img-fluid" alt="{{ @$v->image_alt }}"
-                                                title="{{ @$v->image_title }}">
-                                        </figure>
-                                    </div>
-                                </a>
-                                <div class="post-logo">
-                                    <img src="{{ config('web.folder_prefix') }}/images/logo/logo-nankai.png">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="section-heading mt-4">
-                                    <a href="{{ url("service/$v->url") }}" class="service-img">
-                                        <h4>{{ $v->service }}</h4>
-                                    </a>
-                                </div>
-                                <p class="c-gray">{{ $v->details }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="col-lg-12 text-center">ไม่พบบริการ</div>
-                @endif
-                @php
-                    $page = Request::get('page');
-                    $prev = $page > 1 ? $page - 1 : 0;
-                    $next = $page == '' ? 2 : $page + 1;
-                    $prevPage = $page > 1 ? "service?page=$prev" : 'javascript:';
-                    $nextPage = $page < $links['allPage'] ? "service?page=$next" : 'javascript:';
-                @endphp
-                @if (@$links['allPage'] > 1)
-                    <div class="pagination-area mt-5">
-                        <div class="container-xxl">
-                            <div class="row d-flex justify-content-between">
-                                <div class="col-auto">
-                                    <a
-                                        href="{{ $prevPage }}"class="prev-page @if ($prev == 0) d-none @endif">ก่อนหน้า</a>
-                                </div>
-                                <div class="col-auto">
-                                    @if (@$links['allPage'])
-                                        <select name="page" class="form-select form-select-sm paginate">
-                                            @for ($i = 1; $i <= $links['allPage']; $i++)
-                                                <option value="service?page={{ $i }}"
-                                                    @if (Request::get('page') == $i) selected @endif>
-                                                    {{ $i }}
-                                                </option>
-                                            @endfor
-                                        </select>
-                                    @endif
-                                </div>
-                                <div class="col-auto">
-                                    <a
-                                        href="{{ $nextPage }}"class="next-page font-weight-bold @if ($page >= $links['allPage']) d-none @endif">ถัดไป</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            </div>
-        </div>
     </section> --}}
     <!-- Preloader -->
     <div id="preloader">
@@ -124,11 +35,12 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
                 <div class="col-md-9 ce-animate pb-5">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.php">Home <span
-                                    class="icon material-symbols-outlined">
+                    <p class="breadcrumbs mb-2"><span class="mr-2">
+                            <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
-                                </span></a></span> <span>Acounting Services</span></p>
-                    <h1 class="mb-0 bread">Acounting Services</h1>
+                                </span></a>
+                        </span> <span>{{ $service_cat->service_cat_name }}</span></p>
+                    <h1 class="mb-0 bread">{{ $service_cat->service_cat_name }}</h1>
                 </div>
             </div>
         </div>

@@ -36,56 +36,16 @@
                             <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
-                        </span> <span>Acounting Services</span></p>
-                    <h1 class="mb-0 bread">Acounting Services</h1>
+                        </span> <a href="{{ url('/consultant') }}">Our Consultants</a></p>
+                    <h1 class="mb-0 bread">{{ $consultant->name }}</h1>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
-        <div class="overlay-photo-image-bg parallax"
-            data-bg-img="{{ config('web.folder_prefix') }}/images/image_11092023-1421591694416919974.jpeg"
-            data-bg-opacity="1"
-            style="background-image: url(&quot;images/image_11092023-1421591694416919974.jpeg&quot;); opacity: 1;">
-        </div>
-        <div class="overlay-color" data-bg-opacity=".75" style="opacity: 0.75;"></div>
-        <div class="container">
-            <div class="hero-text-area centerd">
-                <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">{{ @$detail->service }}</h1>
-                <div class="row">
-                    <div class="col-12 offset-lg-2 col-lg-8 wow fadeInUp" data-wow-delay=".5s">
-                        <p class="text-uppercase">{{ @$detail->seo_description }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="bg bg-02">
-        <div id="service" class="service section">
-            <div class="container-xxl py-6">
-                <div class="row g-5">
-                    <div class="col-12 offset-lg-3 col-lg-6 fadeInUp" data-wow-delay="0.1s">
-                        <div>
-                            <img src="@if (@$detail->image) {{ url("$detail->image") }}@else{{ url('images/no-image.jpg') }} @endif"
-                                alt="{{ @$detail->image_alt }}" title="{{ @$detail->image_title }}"
-                                class="img-fluid border-radius" width="100%">
-                        </div>
 
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="c-gray">
-                            <p>{{ @$detail->details }}</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section> --}}
-
-    <!-- ======= Service Section ======= -->
+    <!-- ======= Consultant Section ======= -->
     <section>
         <div class="section">
             <div class="container article">
@@ -138,61 +98,7 @@
                             fit our customers’ needs.</p>
 
 
-                        <div class=" gallery-section">
-                            <div class="">
 
-                                <div class="row ce-animate">
-                                    <div class="col-md-12">
-                                        <div class="carousel-gallery owl-carousel ftco-owl">
-                                            <div class="item">
-                                                <div class="testimony-wrap py-4">
-                                                    <img src="images/blog-04.jpg" class="img-fluid">
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="testimony-wrap py-4">
-                                                    <img src="images/blog-06.jpg" class="img-fluid">
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="testimony-wrap py-4">
-                                                    <img src="images/blog-011.jpg" class="img-fluid">
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="testimony-wrap py-4">
-                                                    <img src="images/blog-022.jpg" class="img-fluid">
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <div class="testimony-wrap py-4">
-                                                    <img src="images/blog-033.jpg" class="img-fluid">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pt-5 categories_tags ">
-                            <p>Tags: <a href="#">#accountingservice</a>, <a href="#">#thailand</a></p>
-                        </div>
-
-                        <div class="post-single-navigation d-flex align-items-stretch">
-                            <a href="service-tax.php" class="mr-2 w-50 pr-4">
-                                <span class="d-block"><span class="material-symbols-outlined">
-                                        arrow_back_ios
-                                    </span> Previous Service</span>
-                                Tax Services
-                            </a>
-                            <a href="service-internal-audit.php" class="ml-2 w-50 text-right pl-4">
-                                <span class="d-block">Next Service <span class="material-symbols-outlined">
-                                        arrow_forward_ios
-                                    </span></span>
-                                Internal Audit
-                            </a>
-                        </div>
                     </article>
 
                     <div class="col-md-12 col-lg-1 order-lg-1">

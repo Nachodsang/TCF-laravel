@@ -48,94 +48,7 @@
     @include(config('web.folder_prefix') . '/header')
     @include(config('web.folder_prefix') . '/banner')
 
-    {{-- <section class="bg bg-01">
-        <div id="about" class="about section">
-            <div class="container-xxl py-6">
-                {!! @$detail_first->detail !!}
-            </div>
-        </div>
 
-        <div id="service" class="service section">
-            <div class="container-xxl py-6">
-                <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
-                    <h4 class="text-uppercase">Service</h4>
-                </div>
-                <br />
-                <div class="row g-5 d-flex justify-content-center">
-                    @if ($service->count() > 0)
-                        @foreach ($service as $k => $v)
-                            <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
-                                <a href="{{ url("$v->url") }}" class="service-img">
-                                    <div class="hover-14">
-                                        <figure><img src="{{ url($v->image) }}" class="img-fluid"
-                                                alt="{{ $v->image_alt }}" title="{{ $v->image_title }}">
-                                        </figure>
-                                    </div>
-                                    <h5 class="text-center my-3">{{ $v->service }}</h5>
-                                </a>
-                            </div>
-                        @endforeach
-                    @else
-                        @for ($i = 0; $i < 3; $i++)
-                            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="hover-14">
-                                    <figure>
-                                        <img src="{{ url('images/no-cover.jpg') }}" class="img-fluid"
-                                            alt="Nankai Express(Thailand) Co., Ltd.">
-                                    </figure>
-                                </div>
-                            </div>
-                        @endfor
-                    @endif
-                </div>
-                <div class="d-flex justify-content-end mt-5">
-                    <a href="{{ url('service') }}" class="btn btn-primary">View More>></a>
-                </div>
-            </div>
-        </div>
-
-        <div id="" class=" section">
-            <div class="container-xxl py-6">
-                <div class="">
-                    {!! @$detail_secondary->detail !!}
-                </div>
-            </div>
-        </div>
-
-        @include(config('web.folder_prefix') . '/client')
-
-        <div class="container-xxl">
-            <hr>
-        </div>
-
-        <div id="blog" class="blog section">
-            <div class="container-xxl py-6">
-                <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
-                    <h4 class="text-uppercase">blog</h4>
-                </div>
-                <br />
-                <div class="row g-5 d-flex justify-content-center">
-                    @if (@$blog)
-                        @foreach ($blog->data as $k => $v)
-                            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.{{ $k }}s">
-                                <a href="{{ $v->url }}" class="blog-img">
-                                    <div class="hover-14">
-                                        <figure>
-                                            <img src="{{ $v->cover }}" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <h5 class="my-3 text-center">{{ $v->name }}</h5>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-                <div class="d-flex justify-content-end mt-5">
-                    <a href="{{ url('blog') }}" class="btn btn-primary">View More>></a>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 
     <section>
         <div class="container-fluid section">
@@ -144,90 +57,63 @@
                     <div class="col-lg-5 heading-section wow fadeIn" data-wow-delay="0.1s ">
                         <div class="subheading mb-2">TOKYO CONSULTING GROUP</div>
                         <h2 class="mb-4">Our Services</h2>
-                        <p class="mb-4">We have an integrated service philosophy which allows us to provide the best
-                            service by selecting the exact expertise needed for each project from our experienced staff.
-                            Thus, we can deliver the best service possible, from accounting and tax consulting work, to
-                            legal and cultural education about customs and regulations in Thailand. Throughout the wide
-                            range of services we provide, our commitment to our clients is absolute, and we focus on
-                            providing additional value to every engagement. It is our ultimate goal and wish that our
-                            clients become increasingly successful, and contribute to society in an effective way
-                            through our support.</p>
+                        <p class="mb-4">{{ @$about_service->about_service_home }}</p>
                         <a class="btn btn-primary " href="service.php">All Services</a>
                     </div>
                     <div class="col-lg-7">
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="row g-4">
-                                    <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
-                                        <div style="min-height:450px;"
-                                            class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
-                                            <div class="service-icon btn-square">
-                                                <i class="fas fa-handshake fa-3x"></i>
-                                            </div>
-                                            <h3 class="mb-3">Accounting & Tax</h3>
-                                            <p>With our constant support your business in Thailand,we guarantee an
-                                                accurate and timely provision of the records of all the transactions.
-                                            </p>
+                                    @for ($i = 0; $i <= count($service_cat) / 2; $i++)
+                                        <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
+                                            <div style="min-height:450px;"
+                                                class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
+                                                <div class="service-icon btn-square">
+                                                    <i class="fas {{ $service_cat[$i]->service_cat_icon }} fa-3x"></i>
+                                                </div>
+                                                <h3 class="mb-3">{{ $service_cat[$i]->service_cat_name }}</h3>
+                                                <p>{{ $service_cat[$i]->service_cat_description }}</p>
 
-                                            <a class="btn px-3 mt-auto mx-auto" href="m&a.php">Read More</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 wow fadeIn" data-wow-delay="0.5s ">
-                                        <div style="min-height:450px;"
-                                            class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
-                                            <div class="service-icon btn-square">
-                                                <i class="fas fa-seedling fa-3x"></i>
+                                                <a class="btn px-3 mt-auto mx-auto"
+                                                    href="{{ url('/service/category/' . $service_cat[$i]->url) }}">Read
+                                                    More</a>
                                             </div>
-                                            <h3 class="mb-3">Legal Services</h3>
-                                            <p> Tokyo Consulting Firm is composed of highly experienced professionals
-                                                who specialize in establishing and registering offices and parent
-                                                companies in Thailand.</p>
-                                            <a class="btn px-3 mt-auto mx-auto" href="service-consulting.php">Read
-                                                More</a>
                                         </div>
-                                    </div>
-                                    <div class="col-12 wow fadeIn" data-wow-delay="0.5s ">
-                                        <div style="min-height:450px;"
-                                            class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
-                                            <div class="service-icon btn-square">
-                                                <i class="fas fa-seedling fa-3x"></i>
-                                            </div>
-                                            <h3 class="mb-3">Audit</h3>
-                                            <p> Tokyo Consulting Firm is composed of highly experienced professionals
-                                                who specialize in establishing and registering offices and parent
-                                                companies in Thailand.</p>
-                                            <a class="btn px-3 mt-auto mx-auto" href="service-consulting.php">Read
-                                                More</a>
-                                        </div>
-                                    </div>
+                                    @endfor
+
                                 </div>
                             </div>
                             <div class="col-md-6 padding-top-10">
                                 <div class="row g-4">
-                                    <div class="col-12 wow fadeIn" data-wow-delay="0.3s ">
-                                        <div style="min-height:450px;"
-                                            class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
-                                            <div class="service-icon btn-square">
-                                                <i class="fas fa-file-invoice-dollar fa-3x"></i>
-                                            </div>
-                                            <h3 class="mb-3">Human Resource</h3>
-                                            <p>We provide consulting and advising services in various types of
-                                                businesses and industries for foreign and prospective entities setting
-                                                business in Thailand. </p>
+                                    @for ($i = count($service_cat) / 2 + 1; $i < count($service_cat); $i++)
+                                        <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
+                                            <div style="min-height:450px;"
+                                                class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
+                                                <div class="service-icon btn-square">
+                                                    <i class="fas {{ $service_cat[$i]->service_cat_icon }} fa-3x"></i>
+                                                </div>
+                                                <h3 class="mb-3">{{ $service_cat[$i]->service_cat_name }}</h3>
+                                                <p>{{ $service_cat[$i]->service_cat_description }}</p>
 
-                                            <a class="btn px-3 mt-auto mx-auto" href="service-accounting.php">Read
-                                                More</a>
+                                                <a class="btn px-3 mt-auto mx-auto"
+                                                    href="{{ url('/service/category/' . $service_cat[$i]->url) }}">Read
+                                                    More</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endfor
+
                                     <div class="col-12 wow fadeIn" data-wow-delay="0.7s ">
                                         <div style="min-height:450px;"
                                             class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                             <div class="service-icon btn-square">
+
                                                 <i class="fas fa-stream fa-3x"></i>
+
                                             </div>
                                             <h3 class="mb-3">M&A / IPO</h3>
                                             <p>Mergers and acquisitions have a profitable side that can create
-                                                potentially enormous profits for a company, and expose the business to a
+                                                potentially enormous profits for a company, and expose the business
+                                                to a
                                                 myriad of financial resources. </p>
                                             <a class="btn px-3 mt-auto mx-auto" href="service.php">Read More</a>
                                         </div>
@@ -328,8 +214,11 @@
 
     <section class="section">
         <div class="container-fluid   ">
-            <div class="row d-flex align-items-center ">
-                <div class="col-md-6 p-0 d-flex wow fadeIn" data-wow-delay="0.1s">
+            <div class="row d-flex align-items-center " data-wow-delay="0.1s">
+                <div class="container-xxl py-6">
+                    {!! @$detail_first->detail !!}
+                </div>
+                {{-- <div class="col-md-6 p-0 d-flex wow fadeIn" data-wow-delay="0.1s">
                     <div class="image hover-effect img-container  ">
                         <div style=" transform: translate(20px,10px);" class=" rounded-circle shadow c-bg-fouth">
                             <img style="transform: translate(-20px, -10px); " alt=""
@@ -377,11 +266,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
     </section>
 
     <section>
-        <div class="container-fluid c-bg-secondary  py-5">
+        <div class="container-fluid
+                    c-bg-secondary py-5">
             <div class="container pb-5 heading-section">
                 <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s">
                     <span class="subheading mb-2">Updated Content to boost your business growth</span>

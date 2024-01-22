@@ -74,10 +74,11 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
                 <div class="col-md-9 ce-animate pb-5">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.php">Home <span
-                                    class="icon material-symbols-outlined">
+                    <p class="breadcrumbs mb-2"><span class="mr-2">
+                            <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
-                                </span></a></span> <span>About Us</span></p>
+                                </span></a>
+                        </span> <span>About Us</span></p>
                     <h1 class="mb-0 bread">About Us</h1>
                 </div>
             </div>

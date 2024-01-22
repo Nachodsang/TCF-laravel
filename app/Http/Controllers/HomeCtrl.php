@@ -20,6 +20,7 @@ class HomeCtrl extends Controller
     {
         $cover = BannerMd::select(['image', 'title', 'alt', 'url'])->where(['status' => 1])->get();
         $service = ServiceMd::limit(4)->where('status', 1)->orderBy('created_at', 'desc')->get();
+        $service_cat = \App\Models\ServiceCatMd::all();
         $client = OurClientMd::all();
         $blog = Http::get('https://at-once.info/api/blog/company', [
             'id' => $this->config['customerId'],
@@ -27,12 +28,16 @@ class HomeCtrl extends Controller
             'perPage' => 3
         ])->object();
         $about = \App\Models\AboutUsMd::find(1);
+        $about_service = \App\Models\AboutServiceMd::find(1);
+
 
         $data = [
             'about' => $about,
+            'about_service' => $about_service,
             'folder_prefix' => $this->config['folder_prefix'],
             'cover' => $cover,
             'service' => $service,
+            'service_cat' => $service_cat,
             'ourClient' => $client,
             'blog' => $blog,
             'detail_first' => \App\Models\HomeMd::find(1),

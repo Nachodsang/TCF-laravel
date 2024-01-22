@@ -499,8 +499,8 @@
 /*:: breadcrumbs 26/09/2023*/
 
 .ce-animate {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0.9;
+    /* visibility: hidden; */
 }
 
 .breadcrumbs-wrap {

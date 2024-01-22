@@ -72,8 +72,8 @@
                             <li><a name="header-menu" class="dropdown-item text-muted"
                                     href={{ url('/service/category/human-resource') }}>Human Resource</a>
                             </li>
-                            <li><a name="header-menu" class="dropdown-item text-muted"
-                                    href={{ url('/service/category/ma-ipo') }}>M&A / IPO</a></li>
+                            <li><a name="header-menu" class="dropdown-item text-muted" href={{ url('/m&a') }}>M&A /
+                                    IPO</a></li>
                             <li><a name="header-menu" class="dropdown-item text-muted"
                                     href={{ url('/service') }}>All</a>
                             </li>
