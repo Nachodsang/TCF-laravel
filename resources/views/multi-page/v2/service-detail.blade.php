@@ -37,7 +37,7 @@
                                     arrow_forward_ios
                                 </span></a>
                         </span> <span>Acounting Services</span></p>
-                    <h1 class="mb-0 bread">Acounting Services</h1>
+                    <h1 class="mb-0 bread">{{ $detail->service }}</h1>
                 </div>
             </div>
         </div>
@@ -93,50 +93,7 @@
                     <article class="col-lg-8 order-lg-2 px-lg-5 ce-animate ">
 
                         <img src="images/blog-06.jpg" alt="Image" class="img-fluid rounded">
-
-                        <h3>Accounting Services in Thailand</h3>
-                        <p>Upon establishing a subsidiary or branch in Thailand it is crucial for organization to
-                            organize its accounting work and keep managing it properly from the start. Our team of
-                            highly experienced accounting consultants in Thailand and tax specialist will provide best
-                            accounting services in Thailand, we also provide services such as Payroll management,
-                            Auditing and Tax Compliance. With our constant support your business in Thailand will be
-                            guaranteed an accurate and timely provision of the records of all the transactions;
-                            additionally we will consult you on any aspect of the local accounting standards. Upon your
-                            requirement we have the ability to generate financial statements according to US GAAP and
-                            IFRS as well.</p>
-
-                        <p>Ever since its inception in 1998, Tokyo Consulting Firm, Thailand continues to keep its
-                            rigorous and up-to-date knowledge base through market R&D. Owing to our approach and ability
-                            to furnish best quality services to our clients, we have been able to earn recognition as
-                            one of the best Consulting Firms for business setting up in Thailand.</p>
-
-                        <p>Depending on the industry and specificity of your business, our accounting team can work with
-                            customized accounting applications and accounting software to provide you best tailored
-                            accounting services in Thailand.</p>
-                        <p>To fully support your business in Thailand, we offer the following accounting services in
-                            Thailand:</p>
-
-
-                        <ul>
-
-                            <li>Accounting Journal entry and review</li>
-                            <li>Preparation of the B/S and Income Statements</li>
-                            <li>Sales & Purchase Invoice filing, collecting and payment</li>
-                            <li>Petty Cash Review</li>
-                            <li>Bank Reconciliation</li>
-                            <li>Preparation of the general ledger and periodical trial balance</li>
-                            <li>Preparation of the monthly financial statements</li>
-                            <li>Setup of the accounting software and training</li>
-                        </ul>
-                        <p>Additionally, our experienced accounting consultants in Thailand can perform all necessary
-                            accounting compilation tasks. We have the ability to generate financial statements according
-                            to US GAAP and under IFRS (International Financial Reporting Standards).</p>
-                        <p>Finally, our staff is acquainted with main ERP systems, such as SAP, and can produce
-                            statements and records according to the system requested by our customers.</p>
-                        <p>Thus, our accounting consulting services for foreign businesses in Thailand are highly
-                            flexible, as the type, frequency, platform and language of the reports can be customized to
-                            fit our customers’ needs.</p>
-
+                        {!! $detail->details !!}
 
                         <div class=" gallery-section">
                             <div class="">
@@ -180,19 +137,36 @@
                         </div>
 
                         <div class="post-single-navigation d-flex align-items-stretch">
-                            <a href="service-tax.php" class="mr-2 w-50 pr-4">
-                                <span class="d-block"><span class="material-symbols-outlined">
-                                        arrow_back_ios
-                                    </span> Previous Service</span>
-                                Tax Services
-                            </a>
-                            <a href="service-internal-audit.php" class="ml-2 w-50 text-right pl-4">
-                                <span class="d-block">Next Service <span class="material-symbols-outlined">
-                                        arrow_forward_ios
-                                    </span></span>
-                                Internal Audit
-                            </a>
+
+
+                            @if ($next_service === $prev_service)
+                                <a href="{{ url("/service/$next_service->url") }}" class="ml-2 w-50 text-right pl-4">
+                                    <span class="d-block">Next Service <span class="material-symbols-outlined">
+                                            arrow_forward_ios
+                                        </span></span>
+                                    {{ $next_service->service }}
+                                </a>
+                            @else
+                                <a href="{{ url("/service/$prev_service->url") }}" class="mr-2 w-50 pr-4">
+                                    <span class="d-block"><span class="material-symbols-outlined">
+                                            arrow_back_ios
+                                        </span> Previous Service</span>
+                                    {{ $prev_service->service }}
+                                </a>
+
+                                <a href="{{ url("/service/$next_service->url") }}" class="ml-2 w-50 text-right pl-4">
+                                    <span class="d-block">Next Service <span class="material-symbols-outlined">
+                                            arrow_forward_ios
+                                        </span></span>
+                                    {{ $next_service->service }}
+                                </a>
+                            @endif
+
                         </div>
+
+
+
+
                     </article>
 
                     <div class="col-md-12 col-lg-1 order-lg-1">
@@ -229,7 +203,8 @@
                             <div class="h3 mb-3">Get a Quote</div>
                             <div class="mb-3">If You Have Any Query, Please Contact Us</div>
                             <form action="#">
-                                <a href="contact.php" value="Contact Us" class="btn btn-primary btn-block">Contact
+                                <a href="{{ url('/contact') }}" value="Contact Us"
+                                    class="btn btn-primary btn-block">Contact
                                     Us</a>
                             </form>
                         </div>

@@ -15,36 +15,83 @@ class ServiceCtrl extends Controller
 
     public function index(request $request)
     {
-        $perPage = 5;
-        $page = $request->page ? $request->page : 1;
-        $skip = ($page < 2) ? 0 : ($page - 1) * $perPage;
 
-        $service = ServiceMd::where('status', 1);
-        $allPage = ceil($service->get()->count() / $perPage);
-        $queryString = "?page=$page";
+        $service_cat = \App\Models\ServiceCatMd::get();
+
+
+
+        $service = ServiceMd::where(['status' => 1])->get();
+
+        $servicesArray = $service->sortBy('id');
+
+
+        $about_service = \App\Models\AboutServiceMd::find(1);
 
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],
-            'service' => $service->skip($skip)->take($perPage)->get(),
+            'check_type' => gettype($servicesArray),
+
+            'services' => $servicesArray,
+            'service_detail' => $about_service->service_page_detail,
             'links' => [
-                'allPage' => $allPage,
-                'perPage' => $perPage,
-                'page' => $page,
-                'query_string' => $queryString
+                // 'allPage' => $allPage,
+                // 'perPage' => $perPage,
+                // 'page' => $page,
+                // 'query_string' => $queryString
             ]
         ];
         return view($this->config['folder_prefix'] . "/service", $data);
     }
+
+
+
     public function detail(string $url)
     {
         $detail = ServiceMd::where(['url' => $url, 'status' => 1])->first();
+
+        if ($detail) {
+            $serviceCat = $detail->cat_id;
+
+            $services = \App\Models\ServiceMd::where(['cat_id' => $serviceCat, 'status' => 1])->get();
+
+            // Extract the IDs of the services into an array
+            $serviceIds = $services->pluck('id')->toArray();
+
+            // Find the index of the current service
+            $currentIndex = array_search($detail->id, $serviceIds);
+            $prevService = null;
+            $nextService = null;
+
+            if ($currentIndex !== false) {
+                // Find the index of the next service
+                $nextIndex = ($currentIndex + 1) % count($serviceIds);
+                $nextService = $services->firstWhere('id', $serviceIds[$nextIndex]);
+
+                // Find the index of the previous service
+                $prevIndex = ($currentIndex - 1 + count($serviceIds)) % count($serviceIds);
+                $prevService = $services->firstWhere('id', $serviceIds[$prevIndex]);
+
+                // Handle special case: If the current service is the first, set the previous service to be the last
+                if ($currentIndex === 0) {
+                    $prevService = $services->last();
+                }
+
+                // Handle special case: If the current service is the last, set the next service to be the first
+                if ($currentIndex === count($serviceIds) - 1) {
+                    $nextService = $services->first();
+                }
+            }
+        }
+
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],
-            'detail' => $detail
+            'detail' => $detail,
+            'prev_service' => $prevService,
+            'next_service' => $nextService,
         ];
+
         return view(config('web.folder_prefix') . "/service-detail", $data);
     }
-
 
     // service content in All service Page
     public function about_service(string $url)
@@ -60,9 +107,11 @@ class ServiceCtrl extends Controller
     public function category(string $url)
     {
         $service_cat = \App\Models\ServiceCatMd::where(['url' => $url])->first();
+        $services = \App\Models\ServiceMd::where(['cat_id' => $service_cat->id, 'status' => 1])->get();
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],
-            'service_cat' => $service_cat
+            'service_cat' => $service_cat,
+            'services' => $services
         ];
         return view($this->config['folder_prefix'] . "/serviceCat", $data);
     }

@@ -42,97 +42,6 @@
     </div>
     <!-- /Preloader -->
 
-    {{-- <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
-        <div class="overlay-photo-image-bg parallax" data-bg-img="images/image_11092023-1421591694416919974.jpeg"
-            data-bg-opacity="1"
-            style="background-image: url(&quot;images/image_11092023-1421591694416919974.jpeg&quot;); opacity: 1;">
-        </div>
-        <div class="overlay-color" data-bg-opacity=".75" style="opacity: 0.75;"></div>
-        <div class="container">
-            <div class="hero-text-area centerd">
-                <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">SERVICE</h1>
-                <div class="row">
-                    <div class="col-12 offset-lg-2 col-lg-8 wow fadeInUp" data-wow-delay=".5s">
-                        <p class="text-uppercase">We have a global network to facilitate our customer. However, The
-                            aim of company is develop about logistics service all the time for customer satisfaction.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-
-    {{-- <section class="bg bg-02">
-        <div id="service" class="service section">
-            <div class="container-xxl py-6">
-                @if (@$links['allPage'] > 0)
-                    @foreach ($service as $i => $v)
-                        <div class="row g-5 d-flex justify-content-center py-4">
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <a href="{{ url("service/$v->url") }}" class="service-img">
-                                    <div class="hover-13 service-left">
-                                        <figure>
-                                            <img src="@if (@$v->image) {{ url("$v->image") }}@else{{ url('images/no-image.jpg') }} @endif"
-                                                class="img-fluid" alt="{{ @$v->image_alt }}"
-                                                title="{{ @$v->image_title }}">
-                                        </figure>
-                                    </div>
-                                </a>
-                                <div class="post-logo">
-                                    <img src="{{ config('web.folder_prefix') }}/images/logo/logo-nankai.png">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="section-heading mt-4">
-                                    <a href="{{ url("service/$v->url") }}" class="service-img">
-                                        <h4>{{ $v->service }}</h4>
-                                    </a>
-                                </div>
-                                <p class="c-gray">{{ $v->details }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="col-lg-12 text-center">ไม่พบบริการ</div>
-                @endif
-                @php
-                    $page = Request::get('page');
-                    $prev = $page > 1 ? $page - 1 : 0;
-                    $next = $page == '' ? 2 : $page + 1;
-                    $prevPage = $page > 1 ? "service?page=$prev" : 'javascript:';
-                    $nextPage = $page < $links['allPage'] ? "service?page=$next" : 'javascript:';
-                @endphp
-                @if (@$links['allPage'] > 1)
-                    <div class="pagination-area mt-5">
-                        <div class="container-xxl">
-                            <div class="row d-flex justify-content-between">
-                                <div class="col-auto">
-                                    <a
-                                        href="{{ $prevPage }}"class="prev-page @if ($prev == 0) d-none @endif">ก่อนหน้า</a>
-                                </div>
-                                <div class="col-auto">
-                                    @if (@$links['allPage'])
-                                        <select name="page" class="form-select form-select-sm paginate">
-                                            @for ($i = 1; $i <= $links['allPage']; $i++)
-                                                <option value="service?page={{ $i }}"
-                                                    @if (Request::get('page') == $i) selected @endif>
-                                                    {{ $i }}
-                                                </option>
-                                            @endfor
-                                        </select>
-                                    @endif
-                                </div>
-                                <div class="col-auto">
-                                    <a
-                                        href="{{ $nextPage }}"class="next-page font-weight-bold @if ($page >= $links['allPage']) d-none @endif">ถัดไป</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            </div>
-        </div>
-    </section> --}}
 
 
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');"
@@ -146,7 +55,7 @@
                                     arrow_forward_ios
                                 </span></a>
                         </span> <span>Services</span></p>
-                    <h1 class="mb-0 bread">Services</h1>
+                    <h1 class="mb-0 bread">All Services</h1>
                 </div>
             </div>
         </div>
@@ -157,27 +66,23 @@
             <div class="container ">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-12 heading-section wow fadeIn" data-wow-delay="0.1s">
-                        <div class="subheading mb-2">Our Services</div>
-                        <h2 class="mb-4">Let us help you strengthen your business</h2>
-                        <p class="mb-4">Our mission is to enhance our customer’s businesses through the incorporation
-                            of our accounting services in Thailand. Our main services are business setup, book keeping,
-                            accounting, audit, tax, labor & human resources (social insurance and payroll), and
-                            outsourcing. Furthermore, we provide consulting and advising services in various types of
-                            businesses and industries for foreign and prospective entities setting business in Thailand.
-                            Our multicultural and multilingual staff is composed of experienced and qualified
-                            professionals, many of them being Certified Public Accountants, USCPAs, and Social Insurance
-                            and Labor Specialists.</p>
-                        <p class="mb-4">We have an integrated service philosophy which allows us to provide the best
-                            service by selecting the exact expertise needed for each project from our experienced staff.
-                            Thus, we can deliver the best service possible, from accounting and tax consulting work, to
-                            legal and cultural education about customs and regulations in Thailand. Throughout the wide
-                            range of services we provide, our commitment to our clients is absolute, and we focus on
-                            providing additional value to every engagement. It is our ultimate goal and wish that our
-                            clients become increasingly successful, and contribute to society in an effective way
-                            through our support.</p>
-                        <p class="mb-0">For a detailed presentation of our services, please select one of our areas of
-                            expertise below .</p>
+                        {!! $service_detail !!}
+
                     </div>
+
+                    @foreach ($services as $k => $v)
+                        <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="service-item d-flex flex-column justify-content-center text-center rounded">
+                                <div class="service-icon btn-square">
+                                    {!! $v->icon !!}
+                                </div>
+                                <h3 class="mb-3">{{ $v->service }}</h3>
+                                <p>{{ $v->description }}</p>
+
+                                <a class="btn px-3 mt-auto mx-auto" href="{{ url("/service/$v->url") }}">Read More</a>
+                            </div>
+                        </div>
+                    @endforeach
 
                     <div class="col-md-4 wow fadeIn" data-wow-delay="0.1s">
                         <div class="service-item d-flex flex-column justify-content-center text-center rounded">

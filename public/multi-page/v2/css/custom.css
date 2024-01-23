@@ -557,7 +557,7 @@
     font-size: var(--font-p);
 }
 
-.breadcrumbs-wrap .slider-text .breadcrumbs span a {
+.breadcrumbs-wrap .slider-text .breadcrumbs a {
     color: rgba(255, 255, 255, 0.7);
 }
 
