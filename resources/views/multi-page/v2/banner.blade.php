@@ -34,7 +34,7 @@
         <div class="single-welcome-slide bg-img bg-overlay"
             style="background-image: url(/images/banner/surasak_sta1.jpg);">
             <div class="container h-100 position-relative">
-                <div class=" pt-4 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow">
+                <div class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow cover-logo">
                     <img src="images/logo/logoTCF.png" class="w-100" />
                 </div>
                 <div class="row h-100 align-items-center">
@@ -44,7 +44,7 @@
                             <h2 data-animation="bounceInDown" data-delay="900ms">Welcome</h2>
                             <p data-animation="bounceInDown" data-delay="500ms">{{ $about->description_th }} </p>
                             <div class="hero-btn-group" data-animation="bounceInDown" data-delay="100ms">
-                                <a href="service.php" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
+                                <a href="{{ url('/service') }}" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
                                     Service</a>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
         <div class="single-welcome-slide bg-img bg-overlay"
             style="background-image: url(/images/banner/surasak_sta1.jpg);">
             <div class="container h-100 position-relative">
-                <div class=" pt-4 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow">
+                <div class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow cover-logo">
                     <img src="images/logo/logoTCF.png" class="w-100" />
                 </div>
                 <div class="row h-100 align-items-center">
@@ -68,7 +68,7 @@
                             <h2 data-animation="bounceInDown" data-delay="900ms">Welcome</h2>
                             <p data-animation="bounceInDown" data-delay="500ms">{{ $about->description_th }} </p>
                             <div class="hero-btn-group" data-animation="bounceInDown" data-delay="100ms">
-                                <a href="service.php" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
+                                <a href="{{ url('/service') }}" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
                                     Service</a>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
         <div class="single-welcome-slide bg-img bg-overlay"
             style="background-image: url(/images/banner/surasak_sta1.jpg);">
             <div class="container h-100 position-relative">
-                <div class=" pt-4 p-1  position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow">
+                <div class=" pt-3 p-1  position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow cover-logo">
                     <img src="images/logo/logoTCF.png" class="w-100" />
                 </div>
                 <div class="row h-100 align-items-center"><!--right -->
@@ -91,7 +91,7 @@
                             <h2 data-animation="bounceInUp" data-delay="100ms">Welcome</h2>
                             <p data-animation="bounceInUp" data-delay="500ms">{{ $about->description_th }} </p>
                             <div class="hero-btn-group" data-animation="bounceInUp" data-delay="900ms">
-                                <a href="service.php" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
+                                <a href="{{ url('/service') }}" class="btn btn-primary mb-3 mb-sm-0 mr-4 btn-header">Our
                                     Service</a>
                             </div>
                         </div>

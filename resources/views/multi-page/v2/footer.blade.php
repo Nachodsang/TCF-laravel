@@ -109,11 +109,12 @@
 
                 <p class="menu">
                     <a href="{{ url('/') }}">Home</a>
-                    <a href="about.php">About</a>
-                    <a href="service.php">Service</a>
-                    <a href="consultant.php">Consultant</a>
-                    <a href="m&a.php">M&A</a>
-                    <a href="contact.php">Contact</a>
+                    <a href="{{ url('/about') }}">About</a>
+                    <a href="{{ url('/service') }}">Service</a>
+                    <a href="{{ url('/consultant') }}">Consultant</a>
+                    <a href="{{ url('/m&a') }}">M&A</a>
+                    <a href="{{ url('/blog') }}">BLOGS</a>
+                    <a href="{{ url('/contacts') }}">Contact</a>
                 </p>
                 <ul class="footer-social p-0">
                     <li class="animate"><a @if (@$social->x) href="{{ $social->x }}" @endif

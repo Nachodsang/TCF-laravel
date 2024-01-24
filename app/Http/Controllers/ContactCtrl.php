@@ -16,13 +16,15 @@ class ContactCtrl extends Controller
 
     public function index()
     {
+        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
         $contact = ContactMd::find(1);
         $map = AddressMd::all();
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],
             'contact' => $contact,
-            'map' => $map
+            'map' => $map,
+            'service_cats' => $service_cats,
         ];
-        return view($this->config['folder_prefix']."/contact",$data);
+        return view($this->config['folder_prefix'] . "/contact", $data);
     }
 }

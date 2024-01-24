@@ -75,7 +75,7 @@
                         <div class="subheading mb-2">Our Consultants</div>
                         <h2 class="mb-4">Consultant introduction</h2>
                         <p class="mb-4">{{ $about->consultant_page_description_2 }}</p>
-                        <a class="btn btn-primary" href="service.php">Our Services</a>
+                        <a class="btn btn-primary" href="{{ url('/service') }}">Our Services</a>
                     </div>
                     <div class="col-lg-7">
                         <div class="row g-4">

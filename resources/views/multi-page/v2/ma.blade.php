@@ -62,23 +62,36 @@
 
         <div class="container heading-section">
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
-                <span class="subheading mb-2">Businesses for Take-over</span>
-                <h2 class="mb-4">Searching for new opportunity? Start from here.</h2>
-                <p class="">Merger and Acquisition service in Thailand: Mergers and Acquisitions (M&A) refers to
-                    the process of one business purchasing another business and blending the two together. Merging and
-                    acquiring a business is also known as a “take over”.</p>
-                <p class="">Mergers and acquisitions and corporate restructuring represent an important aspect of
-                    the corporate finance world. Every day, specialized firms and investment bankers around the world
-                    arrange M&A transactions, which bring separate companies together to form larger ones. When they’re
-                    not creating big companies from smaller ones, corporate finance deals do the reverse and break up
-                    companies through spin-offs, carve-outs or tracking stocks.</p>
-                <p class="mb-5">At “Doing Business in thailand”, our presence in twenty three countries in the world
-                    and our extended network gives us an edge in the market. Our professional network, which comprises
-                    law firms, accounting firms, and chambers of commerce in each of these countries, gives us the
-                    necessary local hindsight required to perform M&A operations. The resources and knowledge that we
-                    have acquired through our experience and network place us at a top position to initiate, follow, and
-                    execute the required actions to achieve successful Mergers & Acquisitions. <a href="service-m&a.php"
-                        style="color:#3793DB">Click here</a> for more information.</p>
+                <div>
+
+                    <span class="subheading mb-2">Businesses for Take-over</span>
+                    <h2 class="mb-4">Searching for new opportunity? Start from here.</h2>
+                    <p class="">Merger and Acquisition service in Thailand: Mergers and Acquisitions (M&A) refers
+                        to
+                        the process of one business purchasing another business and blending the two together. Merging
+                        and
+                        acquiring a business is also known as a “take over”.</p>
+                    <p class="">Mergers and acquisitions and corporate restructuring represent an important aspect
+                        of
+                        the corporate finance world. Every day, specialized firms and investment bankers around the
+                        world
+                        arrange M&A transactions, which bring separate companies together to form larger ones. When
+                        they’re
+                        not creating big companies from smaller ones, corporate finance deals do the reverse and break
+                        up
+                        companies through spin-offs, carve-outs or tracking stocks.</p>
+                    <p class="mb-5">At “Doing Business in thailand”, our presence in twenty three countries in the
+                        world
+                        and our extended network gives us an edge in the market. Our professional network, which
+                        comprises
+                        law firms, accounting firms, and chambers of commerce in each of these countries, gives us the
+                        necessary local hindsight required to perform M&A operations. The resources and knowledge that
+                        we
+                        have acquired through our experience and network place us at a top position to initiate, follow,
+                        and
+                        execute the required actions to achieve successful Mergers & Acquisitions. <a
+                            href="service-m&a.php" style="color:#3793DB">Click here</a> for more information.</p>
+                </div>
 
             </div>
             <!-- filter -->

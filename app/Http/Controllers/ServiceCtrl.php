@@ -16,13 +16,14 @@ class ServiceCtrl extends Controller
     public function index(request $request)
     {
 
-        $service_cat = \App\Models\ServiceCatMd::get();
+
 
 
 
         $service = ServiceMd::where(['status' => 1])->get();
-
+        // number = order of service category
         $servicesArray = $service->sortBy('id');
+        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
 
 
         $about_service = \App\Models\AboutServiceMd::find(1);
@@ -38,7 +39,8 @@ class ServiceCtrl extends Controller
                 // 'perPage' => $perPage,
                 // 'page' => $page,
                 // 'query_string' => $queryString
-            ]
+            ],
+            'service_cats' => $service_cats,
         ];
         return view($this->config['folder_prefix'] . "/service", $data);
     }
@@ -48,6 +50,7 @@ class ServiceCtrl extends Controller
     public function detail(string $url)
     {
         $detail = ServiceMd::where(['url' => $url, 'status' => 1])->first();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
 
         if ($detail) {
             $serviceCat = $detail->cat_id;
@@ -88,6 +91,7 @@ class ServiceCtrl extends Controller
             'detail' => $detail,
             'prev_service' => $prevService,
             'next_service' => $nextService,
+            'service_cats' => $service_cats,
         ];
 
         return view(config('web.folder_prefix') . "/service-detail", $data);
@@ -107,11 +111,13 @@ class ServiceCtrl extends Controller
     public function category(string $url)
     {
         $service_cat = \App\Models\ServiceCatMd::where(['url' => $url])->first();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
         $services = \App\Models\ServiceMd::where(['cat_id' => $service_cat->id, 'status' => 1])->get();
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],
             'service_cat' => $service_cat,
-            'services' => $services
+            'services' => $services,
+            'service_cats' => $service_cats,
         ];
         return view($this->config['folder_prefix'] . "/serviceCat", $data);
     }

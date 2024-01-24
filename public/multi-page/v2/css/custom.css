@@ -114,10 +114,10 @@
 /*:: Service 25/09/2023*/
 .service-item {
     position: relative;
-    padding: 45px 30px;
+    padding: 20px 20px;
     background: #ffffff;
     transition: 0.5s;
-    min-height: 500px;
+    min-height: 450px;
 }
 .service-item p {
     color: var(--c-text-tertiary);
@@ -528,7 +528,7 @@
     right: 0;
     bottom: 0;
     content: "";
-    opacity: 0;
+    opacity: 0.12;
     background: #000000;
 }
 

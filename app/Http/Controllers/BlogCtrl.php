@@ -18,16 +18,18 @@ class BlogCtrl extends Controller
         // https://at-once.info/api/blog/c - company only
         // https://at-once.info/api/blog/company - all blog
 
-        $response = Http::get('https://at-once.info/api/blog/company',[
+        $response = Http::get('https://at-once.info/api/blog/company', [
             'id' => $this->config['customerId'],
             'page' => $request->page ? $request->page : 1,
             'perPage' => 15
         ])->object();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
 
         $with = [
             'folder_prefix' => $this->config['folder_prefix'],
-            'blogs' => $response
+            'blogs' => $response,
+            'service_cats' => $service_cats,
         ];
-        return view($this->config['folder_prefix']."/blog",$with);
+        return view($this->config['folder_prefix'] . "/blog", $with);
     }
 }

@@ -53,51 +53,7 @@
                     <article class="col-lg-8 order-lg-2 px-lg-5 ce-animate ">
 
                         <img src="images/blog-06.jpg" alt="Image" class="img-fluid rounded">
-
-                        <h3>Accounting Services in Thailand</h3>
-                        <p>Upon establishing a subsidiary or branch in Thailand it is crucial for organization to
-                            organize its accounting work and keep managing it properly from the start. Our team of
-                            highly experienced accounting consultants in Thailand and tax specialist will provide best
-                            accounting services in Thailand, we also provide services such as Payroll management,
-                            Auditing and Tax Compliance. With our constant support your business in Thailand will be
-                            guaranteed an accurate and timely provision of the records of all the transactions;
-                            additionally we will consult you on any aspect of the local accounting standards. Upon your
-                            requirement we have the ability to generate financial statements according to US GAAP and
-                            IFRS as well.</p>
-
-                        <p>Ever since its inception in 1998, Tokyo Consulting Firm, Thailand continues to keep its
-                            rigorous and up-to-date knowledge base through market R&D. Owing to our approach and ability
-                            to furnish best quality services to our clients, we have been able to earn recognition as
-                            one of the best Consulting Firms for business setting up in Thailand.</p>
-
-                        <p>Depending on the industry and specificity of your business, our accounting team can work with
-                            customized accounting applications and accounting software to provide you best tailored
-                            accounting services in Thailand.</p>
-                        <p>To fully support your business in Thailand, we offer the following accounting services in
-                            Thailand:</p>
-
-
-                        <ul>
-
-                            <li>Accounting Journal entry and review</li>
-                            <li>Preparation of the B/S and Income Statements</li>
-                            <li>Sales & Purchase Invoice filing, collecting and payment</li>
-                            <li>Petty Cash Review</li>
-                            <li>Bank Reconciliation</li>
-                            <li>Preparation of the general ledger and periodical trial balance</li>
-                            <li>Preparation of the monthly financial statements</li>
-                            <li>Setup of the accounting software and training</li>
-                        </ul>
-                        <p>Additionally, our experienced accounting consultants in Thailand can perform all necessary
-                            accounting compilation tasks. We have the ability to generate financial statements according
-                            to US GAAP and under IFRS (International Financial Reporting Standards).</p>
-                        <p>Finally, our staff is acquainted with main ERP systems, such as SAP, and can produce
-                            statements and records according to the system requested by our customers.</p>
-                        <p>Thus, our accounting consulting services for foreign businesses in Thailand are highly
-                            flexible, as the type, frequency, platform and language of the reports can be customized to
-                            fit our customers’ needs.</p>
-
-
+                        {!! $consultant->detail !!}
 
                     </article>
 
@@ -106,11 +62,13 @@
                             <div class="h6">Share</div>
                             <ul class="list-unstyled share-article">
                                 <li>
-                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    <a href="{{ 'https://www.facebook.com/sharer/sharer.php?u=' . url('/consultant/' . $consultant->url) }}"
+                                        target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
                                             viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                             <path
                                                 d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
                                         </svg></a>
+
                                 </li>
                                 <li>
                                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em"

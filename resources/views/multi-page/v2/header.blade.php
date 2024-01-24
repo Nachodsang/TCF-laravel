@@ -3,34 +3,7 @@
     $logoHeader = \App\Models\HomeMd::where('type', 'logo-header')->first();
     $logoFooter = \App\Models\HomeMd::where('type', 'logo-footer')->first();
 @endphp
-{{-- <div class="social bg-white d-none d-lg-block">
-    <div class="container">
-        <div class="row">
 
-            <div class="col-lg-12">
-                <ul class="right-icons">
-                    <li><a class="icon-social me-1" target="_blank"
-                            @if (@$social->x) href="{{ $social->x }}" @endif><img
-                                src="{{ config('web.folder_prefix') }}/images\icon\x-twitter.png" class="img-fluid"
-                                alt="x-twitter"></a></li>
-                    <li><a class="icon-social me-1" target="_blank"
-                            @if (@$social->fb) href="{{ $social->fb }}" @endif><img
-                                src="{{ config('web.folder_prefix') }}/images\icon\facebook.png" class="img-fluid"
-                                alt="facebook"></a></li>
-                    <li><a class="icon-social me-1" target="_blank"
-                            @if (@$social->ig) href="{{ $social->ig }}" @endif><img
-                                src="{{ config('web.folder_prefix') }}/images\icon\instagram-02.png" class="img-fluid"
-                                alt="instagram"></a></li>
-                    <li><a class="icon-social me-1" target="_blank"
-                            @if (@$social->yt) href="{{ $social->yt }}" @endif><img
-                                src="{{ config('web.folder_prefix') }}/images\icon\youtube.png" class="img-fluid"
-                                alt="youtube"></a></li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 <header class=" sticky-top">
     <nav class="navbar navbar-expand-md navbar-bg ">
@@ -60,25 +33,65 @@
                             Service
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a name="header-menu" class="dropdown-item text-muted"
-                                    href={{ url('/service/category/accounting-tax') }}>Accounting &
-                                    Tax</a>
-                            </li>
-                            <li><a name="header-menu" class="dropdown-item text-muted"
-                                    href={{ url('/service/category/legal-service') }}>Legal Services</a>
-                            </li>
-                            <li><a name="header-menu" class="dropdown-item text-muted"
-                                    href={{ url('/service/category/audit') }}>Audit</a></li>
-                            <li><a name="header-menu" class="dropdown-item text-muted"
-                                    href={{ url('/service/category/human-resource') }}>Human Resource</a>
-                            </li>
-                            <li><a name="header-menu" class="dropdown-item text-muted" href={{ url('/m&a') }}>M&A /
-                                    IPO</a></li>
+                            @foreach ($service_cats as $k => $v)
+                                @if ($v->type === 'sub-page')
+                                    <li><a name="header-menu" class="dropdown-item text-muted"
+                                            href="{{ url('/service/category/' . $v->url) }}">{{ $v->service_cat_name }}
+                                        </a>
+                                    </li>
+                                @else
+                                    <li><a name="header-menu" class="dropdown-item text-muted"
+                                            href="{{ url('/' . $v->url) }}">{{ $v->service_cat_name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+
                             <li><a name="header-menu" class="dropdown-item text-muted"
                                     href={{ url('/service') }}>All</a>
                             </li>
                         </ul>
                     </li>
+
+                    {{-- <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-mdb-dropdown-init data-mdb-ripple-init aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div> --}}
+
+                    {{-- dropdown for mobile --}}
+
+                    {{-- <li class="dropdown nav-item">
+                        <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-mdb-toggle="dropdown" data-mdb-dropdown-init
+                            data-mdb-ripple-init aria-expanded="false"">
+                            Service
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @foreach ($service_cats as $k => $v)
+                                @if ($v->type === 'sub-page')
+                                    <li><a name="header-menu" class="dropdown-item text-muted"
+                                            href="{{ url('/service/category/' . $v->url) }}">{{ $v->service_cat_name }}
+                                        </a>
+                                    </li>
+                                @else
+                                    <li><a name="header-menu" class="dropdown-item text-muted"
+                                            href="{{ url('/' . $v->url) }}">{{ $v->service_cat_name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+
+                            <li><a name="header-menu" class="dropdown-item text-muted"
+                                    href={{ url('/service') }}>All</a>
+                            </li>
+                        </ul>
+                    </li> --}}
+
 
                     <li class="nav-item">
                         <a name="header-menu" class="nav-link" href={{ url('/consultant') }}>CONSULTANT</a>

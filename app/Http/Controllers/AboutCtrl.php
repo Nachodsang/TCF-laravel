@@ -17,9 +17,11 @@ class AboutCtrl extends Controller
     {
         $data = \App\Models\AboutUsMd::find(1);
         $client = OurClientMd::all();
-        return view($this->config['folder_prefix']."/about",[
+        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
+        return view($this->config['folder_prefix'] . "/about", [
             'row' => $data,
-            'ourClient' => $client
+            'ourClient' => $client,
+            'service_cats' => $service_cats,
         ]);
     }
 }

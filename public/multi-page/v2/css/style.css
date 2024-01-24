@@ -504,6 +504,16 @@ footer .copyright {
     .blog-card-text {
         height: 130px;
     }
+
+    .cover-logo {
+        width: 20%;
+    }
+}
+@media (max-width: 768px) {
+    .cover-logo {
+        width: 20%;
+        display: none;
+    }
 }
 
 @-webkit-keyframes load7 {
