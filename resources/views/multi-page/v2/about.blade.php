@@ -68,8 +68,7 @@
     </section> --}}
 
 
-    <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');"
-        data-stellar-background-ratio="0.5">
+    <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -86,7 +85,7 @@
     </section>
     <!-- ======= About Section ======= -->
     <section class="half-section">
-        <div class="container-fluid">
+        <div class="container-fluid template-container ">
             {!! @$row->detail_th !!}
             {{-- <div class="row">
                 <div class="col-lg-6 p-0">
@@ -142,11 +141,34 @@
                 </div>
             </div> --}}
         </div>
+
+    </section>
+    {{-- company philosophy --}}
+    <section class="why-us section philosophy c-bg-secondary"
+        style="background-image: url('images/bangkok-city.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center; position: relative;">
+
+        <!-- Dark overlay -->
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: -1;">
+        </div>
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title heading-section d-flex flex-column align-items-center text-white">
+                <span class=" mb-3">OUR PHILOSOPHY</span>
+                <span class="h1 mb-2 text-uppercase font-weight-bold " style="font-weight: 300;">What we give is
+                    What we get
+                </span>
+                <span class="h1 mb-2 text-uppercase font-weight-bold" style="font-weight: 300;">
+                    Every issue comes from me
+                </span>
+                <span class="h1 mb-3 text-uppercase font-weight-bold" style="font-weight: 300;">
+                    Expand our responsibility</span>
+            </div>
+        </div>
     </section>
 
-
     <!-- ======= Why Us Section ======= -->
-    <section class="why-us section  c-bg-secondary ">
+    {{-- <section class="why-us section  c-bg-secondary ">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title heading-section">
@@ -285,7 +307,7 @@
             </div>
 
         </div>
-    </section><!-- End Why Us Section -->
+    </section> --}}
 
     @include(config('web.folder_prefix') . '/footer')
 
@@ -310,6 +332,7 @@
     <!--Equal-Heights-->
     <script src="{{ config('web.folder_prefix') }}/js/jquery.matchHeight-min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/functions.js"></script>
+
 
 
 

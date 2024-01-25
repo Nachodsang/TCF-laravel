@@ -495,6 +495,11 @@ footer .copyright {
     pointer-events: none;
 }
 
+.template-container {
+    width: 100%;
+    max-width: 2000px;
+}
+
 @media (min-width: 768px) {
     /* CSS rules for screens larger than 768px go here */
     .padding-top-10 {

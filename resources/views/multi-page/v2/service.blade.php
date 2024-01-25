@@ -44,8 +44,7 @@
 
 
 
-    <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');"
-        data-stellar-background-ratio="0.5">
+    <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">

@@ -251,7 +251,7 @@
 
                 <div class="col-md-6 pr-md-5 py-md-5 order-first order-md-last section wow fadeIn"
                     data-wow-delay="0.5s">
-                    <div class="split-box  center-block container-padding equalheight">
+                    <div class="split-box  center-block container-padding equalheight template-container">
                         <div class="heading-title padding">
                             {!! @$detail_first->detail !!}
                             <a href="{{ url('/about') }}" class="btn btn-primary">Learn More</a>

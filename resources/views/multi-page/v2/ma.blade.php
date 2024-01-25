@@ -42,8 +42,7 @@
 
     @include(config('web.folder_prefix') . '/header')
 
-    <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');"
-        data-stellar-background-ratio="0.5">
+    <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -62,54 +61,50 @@
 
         <div class="container heading-section">
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
-                <div>
-
-                    <span class="subheading mb-2">Businesses for Take-over</span>
-                    <h2 class="mb-4">Searching for new opportunity? Start from here.</h2>
-                    <p class="">Merger and Acquisition service in Thailand: Mergers and Acquisitions (M&A) refers
-                        to
-                        the process of one business purchasing another business and blending the two together. Merging
-                        and
-                        acquiring a business is also known as a “take over”.</p>
-                    <p class="">Mergers and acquisitions and corporate restructuring represent an important aspect
-                        of
-                        the corporate finance world. Every day, specialized firms and investment bankers around the
-                        world
-                        arrange M&A transactions, which bring separate companies together to form larger ones. When
-                        they’re
-                        not creating big companies from smaller ones, corporate finance deals do the reverse and break
-                        up
-                        companies through spin-offs, carve-outs or tracking stocks.</p>
-                    <p class="mb-5">At “Doing Business in thailand”, our presence in twenty three countries in the
-                        world
-                        and our extended network gives us an edge in the market. Our professional network, which
-                        comprises
-                        law firms, accounting firms, and chambers of commerce in each of these countries, gives us the
-                        necessary local hindsight required to perform M&A operations. The resources and knowledge that
-                        we
-                        have acquired through our experience and network place us at a top position to initiate, follow,
-                        and
-                        execute the required actions to achieve successful Mergers & Acquisitions. <a
-                            href="service-m&a.php" style="color:#3793DB">Click here</a> for more information.</p>
-                </div>
-
+                {!! $service_cat->service_cat_detail !!}
             </div>
             <!-- filter -->
             <div class="px-4">
 
                 <div class="w-75 mx-auto mb-4 p-4 rounded-3 bg-white gap-2 d-flex flex-column">
                     <div class="d-flex gap-1 align-items-center mb-2  c-primary">
-                        <i class="fas fa-funnel-dollar fa-2x"></i>
+                        <i class="fas fa-funnel-dollar fa-lg "></i>
                         <h3 style="margin-bottom:0;">Filter</h3>
                     </div>
                     <div class="d-flex w-100 gap-1">
-                        <div class="w-25 rounded-2 c-bg-secondary">Industry</div>
-                        <div class="w-75 rounded-2 c-bg-secondary">Search</div>
+                        {{-- <div class="w-25 rounded-2 c-bg-secondary">Industry</div> --}}
+                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2">
+                            <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                Industry
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach ($service_cats as $k => $v)
+                                    @if ($v->type === 'sub-page')
+                                        <li><a name="header-menu" class="dropdown-item text-muted"
+                                                href="{{ url('/service/category/' . $v->url) }}">{{ $v->service_cat_name }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li><a name="header-menu" class="dropdown-item text-muted"
+                                                href="{{ url('/' . $v->url) }}">{{ $v->service_cat_name }}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+
+                                <li><a name="header-menu" class="dropdown-item text-muted"
+                                        href={{ url('/service') }}>All</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <input class="w-100 rounded-2 c-bg-secondary px-4 py-2 " type="text"
+                            placeholder="Search ..." />
                     </div>
-                    <div class="d-flex  w-100 gap-1">
-                        <div class="w-50 rounded-2 c-bg-secondary">Product</div>
-                        <div class="w-50 rounded-2 c-bg-secondary">From 0</div>
-                        <div class="w-50 rounded-2 c-bg-secondary">To > 10 million</div>
+                    <div class="d-flex  w-100 gap-2 mb-3">
+                        <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">Product</div>
+                        <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">From 0</div>
+                        <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">To > 10 million</div>
                     </div>
                     <div class="d-flex  w-100 gap-1 justify-content-end gap-2">
                         <div class=" rounded-2 c-bg-primary btn btn-primary d-flex align-items-center">
