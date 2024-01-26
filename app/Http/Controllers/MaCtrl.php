@@ -25,12 +25,14 @@ class MaCtrl extends Controller
         ])->object();
         $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
         $service_cat = \App\Models\ServiceCatMd::where(['id' => 5])->first();
+        $ma_industries = \App\Models\MaIndustryMd::orderBy('number')->get();
 
         $with = [
             'folder_prefix' => $this->config['folder_prefix'],
             'blogs' => $response,
             'service_cats' => $service_cats,
             'service_cat' => $service_cat,
+            'ma_industries' => $ma_industries,
         ];
         return view($this->config['folder_prefix'] . "/ma", $with);
     }

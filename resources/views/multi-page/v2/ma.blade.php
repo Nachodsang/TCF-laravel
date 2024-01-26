@@ -66,18 +66,18 @@
             <!-- filter -->
             <div class="px-4">
 
-                <div class="w-75 mx-auto mb-4 p-4 rounded-3 bg-white gap-2 d-flex flex-column">
+                <div class="w-75 mx-auto mb-4 p-4 rounded-3 bg-white gap-1 d-flex flex-column">
                     <div class="d-flex gap-1 align-items-center mb-2  c-primary">
                         <i class="fas fa-funnel-dollar fa-lg "></i>
                         <h3 style="margin-bottom:0;">Filter</h3>
                     </div>
                     <div class="d-flex w-100 gap-1">
-                        {{-- <div class="w-25 rounded-2 c-bg-secondary">Industry</div> --}}
                         <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2">
-                            <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
-                                id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-                                Industry
-                            </a>
+
+                            <div class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-mdb-toggle="dropdown" aria-expanded="false">
+                                Opportunity
+                            </div>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 @foreach ($service_cats as $k => $v)
                                     @if ($v->type === 'sub-page')
@@ -97,11 +97,54 @@
                                 </li>
                             </ul>
                         </div>
-
                         <input class="w-100 rounded-2 c-bg-secondary px-4 py-2 " type="text"
                             placeholder="Search ..." />
+                        {{-- <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Industry
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div> --}}
+                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2">
+
+                            <div class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-mdb-toggle="dropdown" aria-expanded="false">
+                                Industry
+                            </div>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                style="height: 250px; overflow:scroll;  ">
+                                <li class="d-flex align-items-center  dropdown-item text-primary  " name="header-menu">
+
+
+                                    <div style="width:30px">
+                                        <i class="fas fa-cube"></i>
+                                    </div>
+                                    <span>All</span>
+                                </li>
+                                @foreach ($ma_industries as $k => $v)
+                                    <li class="d-flex align-items-center  dropdown-item text-primary "
+                                        name="header-menu">
+                                        <div style="width:30px">
+                                            {!! @$v->icon !!}
+                                        </div>
+                                        <span>
+                                            {{ $v->name }}
+                                        </span>
+                                    </li>
+                                @endforeach
+
+
+                            </ul>
+                        </div>
+
+
                     </div>
-                    <div class="d-flex  w-100 gap-2 mb-3">
+                    <div class="d-flex  w-100 gap-1 mb-3">
                         <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">Product</div>
                         <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">From 0</div>
                         <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">To > 10 million</div>
@@ -124,6 +167,35 @@
                     </div>
 
                 </div>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
             <div class="row g-5">
@@ -317,6 +389,13 @@
             if (paginate) {
                 window.location.href = paginate.value;
             }
+        })
+    </script>
+
+
+    <script>
+        $('#exampleModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
         })
     </script>
 </body>
