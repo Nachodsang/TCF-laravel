@@ -22,17 +22,11 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="admin/css/style.css" rel="stylesheet">
-<<<<<<< Updated upstream
     @if (@$css)
         @foreach ($css as $css)
             <link href="{{ $css }}" rel="stylesheet">
         @endforeach
     @endif
-=======
-
-
-
->>>>>>> Stashed changes
 </head>
 
 <body id="page-top">
