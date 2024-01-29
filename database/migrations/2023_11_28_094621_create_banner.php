@@ -19,6 +19,7 @@ return new class extends Migration {
                 $table->string('title')->nullable();
                 $table->string('alt')->nullable();
                 $table->string('url')->nullable();
+                $table->string('type')->nullable();
                 $table->boolean('status');
                 $table->string('upload_by')->nullable();
                 $table->integer('modified_by')->nullable();
