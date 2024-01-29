@@ -18,7 +18,7 @@ class ServiceCtrl extends Controller
     public function index()
     {
         try {
-            $data = ServiceMd::select('service.*','users.name')->leftJoin('users','service.upload_by','users.id')->get();
+            $data = ServiceMd::select('service.*', 'users.name')->leftJoin('users', 'service.upload_by', 'users.id')->paginate(10);
 
             return view('webpanel.service.index', [
                 'module' => 'service',
@@ -54,7 +54,7 @@ class ServiceCtrl extends Controller
             $service->image_alt = $request->imgAlt;
             $service->url = $request->url;
             $service->service = $request->service;
-            $service->details = $request->detail;
+            $service->details = $request->detail_th;
             $service->seo_description = $request->seo_description;
             $service->seo_keyword = $request->seo_keyword;
 
@@ -89,6 +89,16 @@ class ServiceCtrl extends Controller
             $service = ServiceMd::find($id);
 
             return view('webpanel.service.index', [
+                'css' => [
+                    'css/skEditor.css'
+                ],
+                'js' => [
+                    'https://cdn.jsdelivr.net/npm/a-color-picker@1.1.8/dist/acolorpicker.js',
+                    'js/drag-arrange.js',
+                    'js/b64toBlob.js',
+                    'js/skEditor.js',
+                    'js/admin/service.js',
+                ],
                 'module' => 'service',
                 'page' => 'edit',
                 'service' => $service
@@ -108,7 +118,8 @@ class ServiceCtrl extends Controller
             $update = ServiceMd::find($id);
 
             if ($request->imgService) {
-                if($update->image!='') Storage::disk(env('disk', 'ftp'))->delete($update->image);
+                if ($update->image != '')
+                    Storage::disk(env('disk', 'ftp'))->delete($update->image);
                 $image = Image::make($request->imgService->getRealPath());
                 $ext = '.' . explode("/", $image->mime())[1];
                 $fileName = 'banner_' . date('dmY-His');
@@ -122,7 +133,7 @@ class ServiceCtrl extends Controller
             $update->image_alt = $request->imgAlt;
             $update->url = $request->url;
             $update->service = $request->service;
-            $update->details = $request->detail;
+            $update->details = $request->detail_th;
             $update->seo_description = $request->seo_description;
             $update->seo_keyword = $request->seo_keyword;
 
@@ -179,6 +190,16 @@ class ServiceCtrl extends Controller
     {
         try {
             return view('webpanel.service.index', [
+                'css' => [
+                    'css/skEditor.css'
+                ],
+                'js' => [
+                    'https://cdn.jsdelivr.net/npm/a-color-picker@1.1.8/dist/acolorpicker.js',
+                    'js/drag-arrange.js',
+                    'js/b64toBlob.js',
+                    'js/skEditor.js',
+                    'js/admin/service.js',
+                ],
                 'module' => 'service',
                 'page' => 'add',
             ]);
@@ -206,5 +227,18 @@ class ServiceCtrl extends Controller
             $log->save();
             return response()->json(true);
         }
+    }
+
+    public function checkUrl(request $request)
+    {
+        if ($request->id) {
+            $query = ServiceMd::where('id', '!=', $request->id)->where('url', $request->url)->count();
+        } else {
+            $query = ServiceMd::where('url', $request->url)->count();
+        }
+
+        $query = ($query == 0) ? true : false;
+
+        return response()->json($query);
     }
 }

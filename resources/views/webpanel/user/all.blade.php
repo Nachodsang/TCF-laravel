@@ -21,34 +21,47 @@
                         <table class="table table-striped-columns">
                             <thead>
                                 <tr>
-                                    <td width="10%">No.</td>
+                                    <td class="text-center" width="5%">No.</td>
                                     <td width="50%">Name</td>
                                     <td width="10%">Role</td>
-                                    <td width="15%">Email</td>
-                                    <td width="15%">Actions</td>
+                                    <td width="20%">Email</td>
+                                    <td class="text-center" width="10%">Actions</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($user as $k => $v)
-                                    <tr class="UserRow-{{ $v->id }}">
-                                        <td>{{ $k + 1 }}</td>
-                                        <td>{{ $v->name }}</td>
-                                        <td>{{ $v->type }}</td>
-                                        <td>{{ $v->email }}</td>
-                                        <td>
-                                            <a href="{{ url("/webpanel/user/update/$v->id") }}" title="Edit"
-                                                class="btn btn-outline-secondary rounded-pill btn-sm"><i
-                                                    class="fas fa-pen"></i>
-                                            </a>
-                                            <a href="javascript:" data-id="{{ $v->id }}" title="Move to trash"
-                                                class="btn btn-outline-warning rounded-pill btn-sm deleteUser"><i
-                                                    class="fas fa-trash"></i>
-                                            </a>
+                                @if ($user->count() > 0)
+                                    @php
+                                        $item = $user->firstItem();
+                                    @endphp
+                                    @foreach ($user as $k => $v)
+                                        <tr class="UserRow-{{ $v->id }}">
+                                            <td class="text-center">{{ $item + $k }}</td>
+                                            <td>{{ $v->name }}</td>
+                                            <td>{{ $v->type }}</td>
+                                            <td>{{ $v->email }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ url("/webpanel/user/update/$v->id") }}" title="Edit"
+                                                    class="btn btn-outline-warning rounded-pill btn-sm"><i
+                                                        class="fas fa-pen"></i>
+                                                </a>
+                                                <a href="javascript:" data-id="{{ $v->id }}"
+                                                    title="Move to trash"
+                                                    class="btn btn-outline-danger rounded-pill btn-sm deleteUser"><i
+                                                        class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            No Data Found.
                                         </td>
                                     </tr>
-                                @endforeach
+                                @endif
                             </tbody>
                         </table>
+                        {{ $user->appends($_GET)->links() }}
                     </div>
                 </div>
             </div>

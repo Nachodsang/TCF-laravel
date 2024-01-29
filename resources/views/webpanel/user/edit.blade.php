@@ -8,53 +8,80 @@
         <div class="col-lg-6 col-lx-12 col-md-6">
             <div class="card">
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" id="userAddForm">
+                    <form method="POST" id="userEditForm">
                         @csrf
                         <div class="row">
-                            <div class="col-lg-12 mb-2">
-                                <a href="javascript:history.back()"
+                            <div class="col-lg-12 mb-3">
+                                <a href="{{ url('webpanel/user') }}"
                                     class="btn btn-outline-secondary rounded-pill btn-sm">
                                     <i class="fas fa-chevron-left"></i> Back
                                 </a>
                             </div>
-                            <div class="-alert"></div>
+                            @if (\Session::has('status'))
+                                <div class="alert alert-{{ \Session::get('status') }} d-flex justify-content-center"
+                                    style="border-radius: 10px">
+                                    {{ \Session::get('message') }}
+                                </div>
+                            @endif
                             <div class="col-lg-5 col-lx-12 col-md-12">
                                 <div class="form-group">
                                     <label for="name">Type of user:</label>
-                                    <select name="type" id="type" class="form-select">
-                                        <option value="admin" @if ($user->type == 'admin') selected @endif>Admin</option>
+                                    <select name="type" id="type"
+                                        class="form-select @error('type') is-invalid @enderror">
+                                        <option value="admin" @if ($user->type == 'admin') selected @endif>Admin
+                                        </option>
                                         @if ($user->type == 'super')
-                                            <option value="super" @if ($user->type == 'super') selected @endif>Super</option>
+                                            <option value="super" @if ($user->type == 'super') selected @endif>
+                                                Super</option>
                                         @endif
                                     </select>
+                                    @error('type')
+                                        <small class="is-invalid">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="name">Name: <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="name"
-                                        value="{{ $user->name }}">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        name="name"
+                                        value="@if (old('name')) {{ old('name') }}@else{{ $user->name }} @endif">
+                                    @error('name')
+                                        <small class="is-invalid">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
-
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="email">Email: <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="email"
-                                        value="{{ $user->email }}">
+                                    <input type="text" class="form-control @error('email') is-invalid @enderror"
+                                        name="email"
+                                        value="@if (old('email')) {{ old('email') }}@else{{ $user->email }} @endif">
+                                    @error('email')
+                                        <small class="is-invalid">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="password">Password: <span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                        name="password">
+                                    @error('password')
+                                        <small class="is-invalid">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="password_confirmation">Confirm password: <span
                                             class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password_confirmation">
+                                    <input type="password"
+                                        class="form-control @error('password_confirmation') is-invalid @enderror"
+                                        name="password_confirmation">
+                                    @error('password_confirmation')
+                                        <small class="is-invalid">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -62,7 +89,8 @@
                             <div class="col-lg-12">
                                 <div class="float-right">
                                     <button class="btn btn-outline-warning btn-sm rounded-pill">Cancel</button>
-                                    <button type="submit" class="btn btn-primary btn-sm rounded-pill">Save change</button>
+                                    <button type="submit" class="btn btn-primary btn-sm rounded-pill">Save
+                                        change</button>
                                 </div>
                             </div>
                         </div>
@@ -72,71 +100,3 @@
         </div>
     </div>
 </section>
-<script>
-    var validate = (e, c, s) => {
-        const form = document.querySelector(e);
-        const config = c;
-        const rules = form?.querySelectorAll('[require="true"]');
-        let error = true;
-        let required, values;
-        const alert = document.createElement('div');
-        alert.setAttribute('class', 'alert alert-warning alert-dismissible d-none')
-        alert.innerHTML = `
-                <strong class="mr-2">Holy guacamole!</strong><span>You should check in on some of those fields below.</span>
-                <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
-            `;
-        document.querySelector('.-alert').append(alert);
-        form?.addEventListener('submit', function(el) {
-            el.preventDefault();
-            required = [];
-            values = {};
-            Array.prototype.map.call(rules, function(e, i) {
-                if (e.value == '' | e.value == null) {
-                    required.push(e.getAttribute('name'))
-                    e.classList.remove(config.validClass)
-                    e.classList.add(config.invalidClass)
-                } else {
-                    delete required[i];
-                    values[`${e.getAttribute('name')}`] = e.value;
-                    e.classList.remove(config.invalidClass)
-                    e.classList.add(config.validClass)
-                }
-            });
-            if (required.length < 1) {
-                form.submit();
-                // setTimeout(() => {
-                //     login(values).then(res => {
-                //         document.querySelector('.alert') === null ? document.querySelector('.-alert').append(alert) : '';
-                //         let title = res.status === true ? 'Success!' : 'Opps!';
-                //         let newClass = res.status === true ? 'alert-success': 'alert-danger';
-                //         alert.querySelector('strong').innerHTML = title;
-                //         alert.querySelector('span').innerHTML = res.message;
-                //         alert.classList?.remove('alert-warning');
-                //         alert.classList?.remove('alert-success');
-                //         alert.classList.add(newClass)
-                //         alert.classList?.remove('d-none');
-                //         res.status === true ? window.location.href='admin/dashboard':'';
-                //     });
-                // }, 800);
-            }
-        })
-
-        async function login(data) {
-            const response = await fetch('api/login', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: JSON.stringify(data)
-            });
-            const res = await response.json();
-            return res;
-        }
-    }
-
-    const form = validate('.user', {
-        validClass: 'is-valid',
-        invalidClass: 'is-invalid'
-    });
-</script>

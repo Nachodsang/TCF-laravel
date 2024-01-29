@@ -14,8 +14,11 @@
     <base href="{{url('/')}}">
     <!-- Custom fonts for this template-->
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="admin/css/style.css" rel="stylesheet">
@@ -36,11 +39,9 @@
     <div class="container">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center">
-
+        <div class="row justify-content-center align-items-center" style="height:100vh">
             <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card o-hidden border-0 shadow-lg">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
@@ -50,7 +51,11 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <div class="-alert"></div>
+                                    @if (\Session::has('status'))
+                                        <div class="alert alert-danger d-flex justify-content-center" style="border-radius: 10px">
+                                            {{ \Session::get('message') }}
+                                        </div>
+                                    @endif
                                     <form class="user" method="post">
                                         @csrf
                                         <div class="form-group">
@@ -72,14 +77,13 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="remember_me" value="on">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
                                             </div>
                                         </div>
                                         <button type="submit" href="javascript:" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
-                                        <hr>
+                                        {{-- <hr> --}}
                                         {{-- <a href="javascript:" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
@@ -87,13 +91,13 @@
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a> --}}
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
+                                    {{-- <hr> --}}
+                                    {{-- <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -113,13 +117,13 @@
             const rules = form.querySelectorAll('[require="true"]');
             let error = true;
             let required, values;
-            const alert = document.createElement('div');
-            alert.setAttribute('class','alert alert-warning alert-dismissible d-none')
-            alert.innerHTML= `
-                <strong class="mr-2">Holy guacamole!</strong><span>You should check in on some of those fields below.</span>
-                <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
-            `;
-            document.querySelector('.-alert').append(alert);
+            // const alert = document.createElement('div');
+            // alert.setAttribute('class','alert alert-warning alert-dismissible d-none')
+            // alert.innerHTML= `
+            //     <strong class="mr-2">Holy guacamole!</strong><span>You should check in on some of those fields below.</span>
+            //     <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
+            // `;
+            // document.querySelector('.-alert').append(alert);
             form.addEventListener('submit',function(el){
                 el.preventDefault();
                 required = [];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Webpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutUsMd;
 use App\Models\OurClientMd;
 use App\Models\TaskMd;
 use Illuminate\Http\Request;
@@ -63,11 +64,11 @@ class AboutUsCtrl extends Controller
      */
     public function update(Request $request)
     {
-        $data = \App\Models\AboutUsMd::find(1);
+        $data = AboutUsMd::find(1);
         if (!@$data->id) {
-            \App\Models\AboutUsMd::insert(['created_at' => date('Y-m-d H:i:s')]);
+            AboutUsMd::insert(['created_at' => date('Y-m-d H:i:s')]);
         }
-        $data = \App\Models\AboutUsMd::find(1);
+        $data = AboutUsMd::find(1);
         $data->description_th = $request->description_th;
         $data->detail_th = $request->detail_th;
         if ($data->save()) {
@@ -119,7 +120,7 @@ class AboutUsCtrl extends Controller
                 $fileName = 'client_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/client/' . $fileName . $ext;
-                Storage::disk(env('disk'))->put($newfile, $image);
+                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
                 $new->image = $newfile;
             }
 
@@ -158,7 +159,7 @@ class AboutUsCtrl extends Controller
                 $fileName = 'client_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/client/' . $fileName . $ext;
-                Storage::disk(env('disk'))->put($newfile, $image);
+                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
                 $data->image = $newfile;
             }
             $data->alt = $request->imgalt;

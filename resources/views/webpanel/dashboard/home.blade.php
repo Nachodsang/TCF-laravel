@@ -20,12 +20,13 @@
                         @csrf
                         <div class="form-group">
                             <div class="img-thumbnail mb-2"
-                                style="min-height: 80px; display:flex; align-items:center; justify-content:center;">
+                                style="min-height: 75px; display:flex; align-items:center; justify-content:center;">
                                 <span id="previewTitle"
                                     @if (@$logoH->detail != '') class="d-none" @endif>Preview</span>
                                 <img @if (@$logoH->detail) src="{{ url($logoH->detail) }}" @endif
                                     @if (@$logoH->detail) data-src="{{ url("/$logoH->detail") }}" @endif
-                                    class="img-fluid rounded img-preview @if (@$logoH->detail == '') d-none @endif">
+                                    class="img-fluid rounded img-preview @if (@$logoH->detail == '') d-none @endif"
+                                    style="height: 65px">
                             </div>
                             <input class="form-control" accept="image/*" type="file" name="image">
                         </div>
@@ -47,10 +48,10 @@
                                         <label for="exampleColorInput" class="form-label">Primary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ @$color->primary }}" title="Choose your color">
+                                                value="{{ $color->primary }}" title="Choose your color">
                                             <input type="text" name="--c-primary" id="--c-primary"
-                                                class="form-control" current="{{ @$color->primary }}"
-                                                value="{{ @$color->primary }}">
+                                                class="form-control" current="{{ $color->primary }}"
+                                                value="{{ $color->primary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -63,10 +64,10 @@
                                         <label for="exampleColorInput" class="form-label">Secondary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ @$color->secondary }}" title="Choose your color">
+                                                value="{{ $color->secondary }}" title="Choose your color">
                                             <input type="text" name="--c-secondary" id="--c-secondary"
-                                                class="form-control" current="{{ @$color->secondary }}"
-                                                value="{{ @$color->secondary }}">
+                                                class="form-control" current="{{ $color->secondary }}"
+                                                value="{{ $color->secondary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -79,10 +80,10 @@
                                         <label for="exampleColorInput" class="form-label">Button Primary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ @$color->button_primary }}" title="Choose your color">
+                                                value="{{ $color->button_primary }}" title="Choose your color">
                                             <input type="text" name="--btn-primary" id="--btn-primary"
-                                                class="form-control" current="{{ @$color->button_primary }}"
-                                                value="{{ @$color->button_primary }}">
+                                                class="form-control" current="{{ $color->button_primary }}"
+                                                value="{{ $color->button_primary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -95,10 +96,10 @@
                                         <label for="exampleColorInput" class="form-label">Button Secondary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ @$color->button_secondary }}" title="Choose your color">
+                                                value="{{ $color->button_secondary }}" title="Choose your color">
                                             <input type="text" name="--btn-secondary" id="--btn-secondary"
-                                                class="form-control" current="{{ @$color->button_secondary }}"
-                                                value="{{ @$color->button_secondary }}">
+                                                class="form-control" current="{{ $color->button_secondary }}"
+                                                value="{{ $color->button_secondary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -140,50 +141,22 @@
             </div>
         </div>
     </div>
-    <div class="row mb-3">
-        <div class="col">
-            <div class="card">
+    <div class="row">
+        <div class="col-lg-4 col-xs-12">
+            <div class="card mb-3">
                 <div class="card-body">
-                    <form enctype="multipart/form-data" method="POST" id="homeBottomForm"
-                        action="webpanel/dashboard/home-bottom">
-                        @csrf
-                        @method('POST')
-                        <div class="row mb-2">
-                            <div class="col-12">
-                                <label for="detail_secondary"class="form-label">Detail Secondary</label>
-                                <div class="sk-area" data-lang="th">
-                                    <textarea name="detail_secondary" id="detail_secondary" class="sk-editor" hidden="">{{ @$secondary->detail }}</textarea>
-                                </div>
-                            </div>
-                            <input type="hidden" value="secondary" name="type" id="type">
-                            <div class="col-12 mt-3">
-                                <div class="form-group float-right">
-                                    <button class="btn btn-success rounded-pill" type="submit">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-12">
                     <label for="">Logo in Footer</label>
-                </div>
-                <div class="col-lg-4 col-xs-12">
                     <form action="webpanel/logo/footer" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <div class="img-thumbnail mb-2"
-                                style="min-height: 80px; display:flex; align-items:center; justify-content:center;">
+                                style="min-height: 75px; display:flex; align-items:center; justify-content:center;">
                                 <span id="previewTitle"
                                     @if (@$logoF->detail != '') class="d-none" @endif>Preview</span>
                                 <img @if (@$logoF->detail) src="{{ url($logoF->detail) }}" @endif
                                     @if (@$logoF->detail) data-src="{{ url($logoF->detail) }}" @endif
-                                    class="img-fluid rounded img-preview @if (@!$logoF->detail) d-none @endif">
+                                    class="img-fluid rounded img-preview @if (@!$logoF->detail) d-none @endif"
+                                    style="height: 65px">
                             </div>
                             <input class="form-control" accept="image/*" type="file" id="image"
                                 name="image">

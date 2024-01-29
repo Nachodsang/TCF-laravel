@@ -25,7 +25,6 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::get('/', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'index']);
         Route::get('/task', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'userLog']);
         Route::post('/home-top', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'store']);
-        Route::post('/home-bottom', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'store']);
     });
     Route::prefix('logo')->group(function () {
         Route::post('{type}',[\App\Http\Controllers\Webpanel\DashboardCtrl::class,'logo'])->where(['type'=>'[a-z]+']);
@@ -52,6 +51,8 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'show']);
         Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'update']);
         Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'destroy']);
+
+        Route::post('/check/url', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'checkUrl']);
     });
 
     Route::prefix('contact')->group(function () {

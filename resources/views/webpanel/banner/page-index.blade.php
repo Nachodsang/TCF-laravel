@@ -10,12 +10,14 @@
                 <div class="card-body">
                     <table class="table table-hover caption-top">
                         <caption>List of Banner<a href="{{ url('webpanel/banner/add') }}"
-                                class="btn btn-primary btn-sm float-right rounded-pill"><i class="fas fa-plus fa-xs"></i> ADD</a>
+                                class="btn btn-primary btn-sm float-right rounded-pill"><i
+                                    class="fas fa-plus fa-xs"></i> ADD</a>
                         </caption>
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
                                 <th scope="col" width="50%"></th>
+                                <th scope="col" class="text-center">Type</th>
                                 <th scope="col" width="10%" class="text-center">Upload By</th>
                                 <th scope="col" width="10%" class="text-center">Created</th>
                                 <th scope="col" width="5%" class="text-center">Status</th>
@@ -27,14 +29,20 @@
                                 @foreach ($banner as $key => $v)
                                     <tr class="BannerRow-{{ $v->id }}">
                                         <td scope="row" class="text-center">{{ $key + 1 }}</td>
-                                        <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="...">
+                                        <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="..."
+                                                style="max-height: 300px">
                                         </td>
-                                        <td class="text-center"><div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div></td>
+                                        <td class="text-center">
+                                            <div class="btn btn-secondary btn-sm rounded-pill">{{ $v->type }}</div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div>
+                                        </td>
                                         <td class="text-center">{{ $v->created_at }}</td>
                                         <td class="text-center">
                                             <div class="form-switch">
-                                                <input class="form-check-input status" type="checkbox"
-                                                    id="statusBanner" data-id="{{ $v->id }}" 
+                                                <input class="form-check-input status" type="checkbox" id="statusBanner"
+                                                    data-id="{{ $v->id }}"
                                                     @if ($v->status == true) checked @endif>
                                             </div>
                                         </td>
@@ -42,20 +50,22 @@
                                             <a class="btn btn-warning rounded-pill btn-sm"
                                                 href="{{ url("webpanel/banner/update/$v->id") }}" role="button"><i
                                                     class="far fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm rounded-pill deleteBanner" data-id="{{ $v->id }}"
-                                                href="javascript:0" role="button"><i class="far fa-trash-alt"></i></a>
+                                            <a class="btn btn-danger btn-sm rounded-pill deleteBanner"
+                                                data-id="{{ $v->id }}" href="javascript:0" role="button"><i
+                                                    class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="6" class="text-center">
+                                    <td colspan="7" class="text-center">
                                         No Data Found.
                                     </td>
                                 </tr>
                             @endif
                         </tbody>
                     </table>
+                    {{ $banner->appends($_GET)->links() }}
                 </div>
             </div>
         </div>

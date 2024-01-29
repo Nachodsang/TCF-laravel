@@ -20,7 +20,7 @@ class BannerCtrl extends Controller
     {
 
         try {
-            $data = BannerMd::select('banner.*','users.name')->leftJoin('users','banner.upload_by','users.id')->get();
+            $data = BannerMd::select('banner.*','users.name')->leftJoin('users','banner.upload_by','users.id')->paginate(10);
 
             return view('webpanel.banner.index', [
                 'module' => 'banner',
@@ -48,13 +48,14 @@ class BannerCtrl extends Controller
                 $fileName = 'banner_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/banner/' . $fileName . $ext;
-                Storage::disk(env('disk'))->put($newfile, $image);
+                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
                 $banner->image = $newfile;
             }
 
             $banner->title = $request->imgTitle;
             $banner->alt = $request->imgAlt;
             $banner->url = $request->imgUrl;
+            $banner->type = $request->imgType;
             $banner->status = 0;
             $banner->upload_by = Auth::user()->id;
 
@@ -107,19 +108,20 @@ class BannerCtrl extends Controller
             if(@$update->id)
             {
                 if ($request->imgBanner) {
-                    if($update->image!='') Storage::disk(env('disk'))->delete($update->image);
+                    if($update->image!='') Storage::disk(env('disk', 'ftp'))->delete($update->image);
                     $image = Image::make($request->imgBanner->getRealPath());
                     $ext = '.' . explode("/", $image->mime())[1];
                     $fileName = 'banner_' . date('dmY-His');
                     $image->stream();
                     $newfile = 'images/banner/' . $fileName . $ext;
-                    Storage::disk(env('disk'))->put($newfile, $image);
+                    Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
                     $update->image = $newfile;
                 }
     
                 $update->title = $request->imgTitle;
                 $update->alt = $request->imgAlt;
                 $update->url = $request->imgUrl;
+                $update->type = $request->imgType;
                 $update->modified_by = Auth::user()->id;
     
                 if ($update->save()) {

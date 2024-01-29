@@ -66,47 +66,28 @@ class DashboardCtrl extends Controller
                     'message' => 'An error has occurred.'
                 ]);
             }
-        } else {
-            $data = HomeMd::find(2);
-            if (!@$data->id) {
-                HomeMd::insert(['created_at' => date('Y-m-d H:i:s')]);
-            }
-            $data = HomeMd::find(2);
-            $data->detail = $request->detail_secondary;
-            $data->type = $type;
-            if ($data->save()) {
-                return redirect()->back()->with([
-                    'status' => 'success',
-                    'message' => 'Data has been saved.'
-                ]);
-            } else {
-                return redirect()->back()->with([
-                    'status' => 'error',
-                    'message' => 'An error has occurred.'
-                ]);
-            }
         }
     }
 
     public function logo(Request $request, $type)
     {
         $res = ["status" => 500];
-        $check = \App\Models\HomeMd::where("type", "logo-$type")->first();
+        $check = HomeMd::where("type", "logo-$type")->first();
         if (@!$check->id)
-            \App\Models\HomeMd::insert(['type' => "logo-$type"]);
-        $get = \App\Models\HomeMd::where('type', "logo-$type")->first();
+            HomeMd::insert(['type' => "logo-$type"]);
+        $get = HomeMd::where('type', "logo-$type")->first();
         if ($get->id) {
             $image = $request->image;
             if ($image) {
                 if ($get->detail != '')
-                    Storage::disk(env('disk'))->delete($get->detail);
+                    Storage::disk(env('disk', 'ftp'))->delete($get->detail);
 
                 $new = Image::make($request->image->getRealPath());
                 $ext = '.' . explode("/", $new->mime())[1];
                 $fileName = 'logo_' . $type . '_' . date('dmY-His');
                 $new->stream();
                 $imgPath = 'images/logo/' . $fileName . $ext;
-                Storage::disk(env('disk'))->put($imgPath, $new);
+                Storage::disk(env('disk' , 'ftp'))->put($imgPath, $new);
                 $get->detail = $imgPath;
                 if ($get->save()) {
                     $log = new TaskMd;

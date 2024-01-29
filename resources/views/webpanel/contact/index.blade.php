@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Webpanel</title>
 
@@ -22,12 +22,12 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="admin/css/style.css" rel="stylesheet">
-    @if(@$css)
-    @foreach($css as $css)
-    <link href="{{$css}}" rel="stylesheet">
-    @endforeach
+    @if (@$css)
+        @foreach ($css as $css)
+            <link href="{{ $css }}" rel="stylesheet">
+        @endforeach
     @endif
-    
+
 </head>
 
 <body id="page-top">
@@ -99,8 +99,42 @@
     <script src="admin/js/sb-admin-2.min.js"></script>
     <script src="admin/js/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
-    @if(@$js)
-    @foreach($js as $js)
-    <script src="{{$js}}"></script>
-    @endforeach
+    @if (@$js)
+        @foreach ($js as $js)
+            <script src="{{ $js }}"></script>
+        @endforeach
     @endif
+
+    <script>
+        $(function() {
+            $("input[name='telephone']").on('input', function(e) {
+                $(this).val($(this).val().replace(/[^0-9-]/g, ''));
+            });
+
+            $("input[name='mobile']").on('input', function(e) {
+                $(this).val($(this).val().replace(/[^0-9-]/g, ''));
+            });
+
+        });
+                
+        const validateEmail = (email) => {
+            return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        };
+
+        const validate = () => {
+            const error = $('#email-error');
+            const email = $('#email');
+
+            if (validateEmail(email.val())) {
+                email.removeClass("is-invalid");
+                error.addClass("d-none");
+            } else {
+                email.addClass("is-invalid");
+                error.removeClass("d-none");
+            }
+            return false;
+        }
+
+        $('#email').on('input', validate);
+
+    </script>

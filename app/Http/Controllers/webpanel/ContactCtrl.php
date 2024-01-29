@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Webpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\AddressMd;
+use App\Models\ContactMd;
 use Illuminate\Http\Request;
 use App\Models\EmailContactMd;
 
@@ -16,12 +18,12 @@ class ContactCtrl extends Controller
         try {
             return view('webpanel.contact.index', [
                 'js' => [
-                  'admin/build/contact.js'  
+                    'admin/build/contact.js'
                 ],
                 'module' => 'contact',
                 'page' => 'edit',
-                'row' =>\App\Models\ContactMd::find(1),
-                'map' => \App\Models\AddressMd::all()
+                'row' => ContactMd::find(1),
+                'map' => AddressMd::all()
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -49,12 +51,12 @@ class ContactCtrl extends Controller
      */
     public function update(Request $request)
     {
-        $get = \App\Models\ContactMd::find(1);
+        $get = ContactMd::find(1);
         $res = [
             'status' => false,
             'message' => 'An error occurred.'
         ];
-        if(@$get->id){
+        if (@$get->id) {
             $get->telephone = $request->telephone;
             $get->mobile = $request->mobile;
             $get->email = $request->email;
@@ -62,14 +64,29 @@ class ContactCtrl extends Controller
             $get->fb = $request->fb;
             $get->ig = $request->ig;
             $get->yt = $request->yt;
-            if($get->save()){
+            if ($get->save()) {
+                $res = [
+                    'status' => true,
+                    'message' => 'Data has been Updated.'
+                ];
+            }
+        } else {
+            $new_contact = new ContactMd;
+            $new_contact->telephone = $request->telephone;
+            $new_contact->mobile = $request->mobile;
+            $new_contact->email = $request->email;
+            $new_contact->x = $request->x;
+            $new_contact->fb = $request->fb;
+            $new_contact->ig = $request->ig;
+            $new_contact->yt = $request->yt;
+            if ($new_contact->save()) {
                 $res = [
                     'status' => true,
                     'message' => 'Data has been saved.'
                 ];
             }
         }
-        
+
         return response()->json($res);
     }
 
@@ -98,10 +115,10 @@ class ContactCtrl extends Controller
         }
     }
 
-    public function SendEmailContact(request $request) 
+    public function SendEmailContact(request $request)
     {
         try {
-            
+
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -110,19 +127,19 @@ class ContactCtrl extends Controller
     public function storeMap(Request $request)
     {
         try {
-            
-            $new = new \App\Models\AddressMd;
+
+            $new = new AddressMd;
             $new->name = $request->name;
             $new->address = $request->address;
             $new->map = $request->map;
-    
-            if($new->save()){
+
+            if ($new->save()) {
                 $response = [
                     'status' => true,
                     'message' => 'Data been stored.',
                     'id' => $new->id
                 ];
-            }else{
+            } else {
                 $response = [
                     'status' => false,
                     'message' => 'An error has occurred.'
@@ -133,18 +150,18 @@ class ContactCtrl extends Controller
             return $e->getMessage();
         }
     }
-    public function updateMap(Request $request,$id = null)
+    public function updateMap(Request $request, $id = null)
     {
-        $data = \App\Models\AddressMd::find($id);
+        $data = AddressMd::find($id);
         $res = [
             'status' => false,
             'message' => 'An error occurred.'
         ];
-        if(@$data->id){
+        if (@$data->id) {
             $data->name = $request->name;
             $data->address = $request->address;
             $data->map = $request->map;
-            if($data->save()){
+            if ($data->save()) {
                 $res = [
                     'status' => true,
                     'message' => 'Data has been saved.'
@@ -156,13 +173,13 @@ class ContactCtrl extends Controller
 
     public function deleteMap($id)
     {
-        $get = \App\Models\AddressMd::find($id);
+        $get = AddressMd::find($id);
         $res = [
             'status' => false,
             'message' => 'An error occurred.'
         ];
-        if(@$get->id){
-            \App\Models\AddressMd::where('id',$id)->delete();
+        if (@$get->id) {
+            AddressMd::where('id', $id)->delete();
             $res = [
                 'status' => true,
                 'message' => 'Data has been deleted.'

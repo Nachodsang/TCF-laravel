@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Webpanel</title>
 
@@ -21,9 +22,11 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="admin/css/style.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
-
-
+    @if (@$css)
+        @foreach ($css as $css)
+            <link href="{{ $css }}" rel="stylesheet">
+        @endforeach
+    @endif
 </head>
 
 <body id="page-top">
@@ -96,9 +99,22 @@
     <script src="admin/js/sb-admin-2.min.js"></script>
     <script src="admin/js/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+    @if (@$js)
+        @foreach ($js as $js)
+            <script src="{{ $js }}"></script>
+        @endforeach
+    @endif
     <script>
         $(".loading").hide();
+
+        var token = "{{ csrf_token() }}"
+        var area = $("#detail_th").closest('.row').find('.sk-area');
+
+        $('#url').on('keydown', function(e) {
+            if (e.keyCode == 32) {
+                return false;
+            }
+        });
 
         if (document.getElementById('imgService')) {
             imgService.onchange = evt => {
@@ -107,6 +123,38 @@
                     imgPreview.src = URL.createObjectURL(file);
                 }
             }
+        }
+
+        function convertDetail() {
+            const lang = area.attr('data-lang');
+            if (window.location.href.indexOf("members") > -1) {
+                text = document.querySelector(`.sk-area[data-lang="${lang}"]`).querySelector('.sk-body').innerText;
+                if (text !== '') $(`textarea[name="detail_${lang}"]`).html(text.replace(/\s+/g, ' '));
+            }
+
+            $.each(area.find('.sk-panel'), function() {
+                $(this).remove();
+            });
+            $.each(area.find('.col-img'), function() {
+                $(this).removeAttr('style');
+                $(this).find('h5').remove();
+                $(this).find('.img-caption').removeAttr('contenteditable');
+                $(this).find('.sk-img').each(function() {
+                    let hyperlink = $(this).find('img').attr('data-href');
+                    let img = $(this).find('img').remove('data-href');
+                    if (typeof hyperlink !== typeof undefined) {
+                        $(this).find('img').remove();
+                        $(this).append('<a href="' + hyperlink + '"></a>');
+                        $(this).find('a').append(img);
+                    }
+                })
+            });
+            area.find('.col-txt').removeAttr('style');
+            $.each(area.find('.col-txt'), function() {
+                $(this).removeAttr('contenteditable');
+            });
+            area.find('.col-img').find('.bg-light').removeClass('bg-light').addClass('img-');
+            $("#detail_th").html(area.find('.sk-body').html());
         }
 
         $('.status').on('click', function() {
@@ -165,12 +213,22 @@
                     required: true,
                 },
                 url: {
+                    remote: {
+                        url: "{{ url('webpanel/service/check/url') }}",
+                        data: {
+                            _token: token
+                        },
+                        type: "post"
+                    },
                     required: true,
                 },
                 service: {
                     required: true,
                 },
-                detail: {
+                service_category:{
+                    required: true,
+                },
+                detail_th: {
                     required: true,
                 },
                 seo_description: {
@@ -191,12 +249,16 @@
                     required: "กรุณาเลือกรูปภาพ",
                 },
                 url: {
-                    required: "กรุณากรอกข้อมูล",
+                    remote: 'URL นี้ถูกใช้ไปแล้ว',
+                    required: "กรุณากรอกข้อมูล"
                 },
                 service: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                detail: {
+                service_category:{
+                    required: "กรุณาเลือกหมวดหมู่"
+                },
+                detail_th: {
                     required: "กรุณากรอกข้อมูล"
                 },
                 seo_description: {
@@ -207,6 +269,7 @@
                 },
             },
             submitHandler: function(form) {
+                convertDetail();
                 inputs = $('#serviceAddForm')[0];
                 const formData = new FormData(inputs);
                 $.ajax({
@@ -257,12 +320,23 @@
                     required: true
                 },
                 url: {
-                    required: true,
+                    remote: {
+                        url: "{{ url('webpanel/service/check/url') }}",
+                        data: {
+                            _token: token,
+                            id: "{{ @$service->id }}"
+                        },
+                        type: "post"
+                    },
+                    required: true
                 },
                 service: {
                     required: true,
                 },
-                detail: {
+                service_category:{
+                    required: true,
+                },
+                detail_th: {
                     required: true,
                 },
                 seo_description: {
@@ -280,12 +354,16 @@
                     required: "กรุณากรอกข้อมูล"
                 },
                 url: {
-                    required: "กรุณากรอกข้อมูล",
+                    remote: 'URL นี้ถูกใช้ไปแล้ว',
+                    required: "กรุณากรอกข้อมูล"
                 },
                 service: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                detail: {
+                service_category:{
+                    required: "กรุณาเลือกหมวดหมู่"
+                },
+                detail_th: {
                     required: "กรุณากรอกข้อมูล"
                 },
                 seo_description: {
@@ -296,6 +374,7 @@
                 },
             },
             submitHandler: function(form) {
+                convertDetail();
                 inputs = $('#serviceEditForm')[0];
                 id = $('#serviceId').val();
                 const formData = new FormData(inputs);
@@ -315,7 +394,7 @@
                     success: function() {
                         Swal.fire({
                             icon: "success",
-                            title: "service has been Updated",
+                            title: "Service has been Updated",
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {

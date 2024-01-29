@@ -30,11 +30,23 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-xl-6 col-md-12">
-                                <h6>Image URL : </h6>
+                                <h6>Image URL : <small class="text-danger">ex. /service, /about</small></h6>
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="imgUrl" name="imgUrl"
                                         placeholder="">
                                     <label for="imgUrl">Image URL</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-12">
+                                <h6>Image Type : </h6>
+                                <div class="form-floating">
+                                    <select class="form-select"  name="imgType" id="imgType">
+                                        <option value="">Choose . . .</option>
+                                        <option value="desktop">Desktop</option>
+                                        <option value="tablet">Tablet</option>
+                                        <option value="mobile">Mobile</option>
+                                    </select>
+                                    <label for="imgType">Image Type</label>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +54,7 @@
                             <div class="col-xl-6">
                                 <div class="">
                                     <label for="imgBanner" class="form-label mb-0">
-                                        <h6>Select Image : </h6>
+                                        <h6>Select Image : <small class="text-danger">Desktop: 1920x528, Tablet: 1024x748, Mobile: 1000x1200</small></h6>
                                     </label>
                                     <input class="form-control" accept="image/*" type="file" id="imgBanner"
                                         name="imgBanner">

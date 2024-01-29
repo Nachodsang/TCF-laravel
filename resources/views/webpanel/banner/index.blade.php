@@ -97,6 +97,12 @@
     <script>
         $(".loading").hide();
 
+        $('#imgUrl').on('keydown', function(e){
+            if(e.keyCode == 32){
+                return false;
+            }
+        });
+
         if (document.getElementById('imgBanner')) {
             imgBanner.onchange = evt => {
                 const [file] = imgBanner.files;
@@ -162,6 +168,9 @@
                 imgBanner: {
                     required: true,
                 },
+                imgType: {
+                    required: true,
+                },
             },
             messages: {
                 imgTitle: {
@@ -172,6 +181,9 @@
                 },
                 imgBanner: {
                     required: "กรุณาเลือกรูปภาพ",
+                },
+                imgType: {
+                    required: "กรุณาเลือกประเภท",
                 },
             },
             submitHandler: function(form) {
@@ -224,6 +236,9 @@
                 imgAlt: {
                     required: true
                 },
+                imgType: {
+                    required: true
+                },
             },
             messages: {
                 imgTitle: {
@@ -231,6 +246,9 @@
                 },
                 imgAlt: {
                     required: "กรุณากรอกข้อมูล"
+                },
+                imgType: {
+                    required: "กรุณาเลือกประเภท"
                 },
             },
             submitHandler: function(form) {
