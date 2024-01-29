@@ -114,7 +114,7 @@
                     <a href="{{ url('/consultant') }}">Consultant</a>
                     <a href="{{ url('/m&a') }}">M&A</a>
                     <a href="{{ url('/blog') }}">BLOGS</a>
-                    <a href="{{ url('/contacts') }}">Contact</a>
+                    <a href="{{ url('/contact') }}">Contact</a>
                 </p>
                 <ul class="footer-social p-0">
                     <li class="animate"><a @if (@$social->x) href="{{ $social->x }}" @endif

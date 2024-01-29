@@ -8,7 +8,7 @@
 <header class=" sticky-top">
     <nav class="navbar navbar-expand-md navbar-bg ">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 {{-- <img src="images/logo/logoTCF-colored.png" class="logo"> --}}
                 <img src="@if (@$logoHeader->detail) {{ @$logoHeader->detail }}@else/images/no_image.webp @endif"
                     class="logo">
@@ -35,13 +35,13 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             @foreach ($service_cats as $k => $v)
                                 @if ($v->type === 'sub-page')
-                                    <li><a name="header-menu" class="dropdown-item text-muted"
-                                            href="{{ url('/service/category/' . $v->url) }}">{{ $v->service_cat_name }}
+                                    <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
+                                            href="{{ url('/service/category/' . $v->url) }}"><small>{{ $v->service_cat_name }}</small>
                                         </a>
                                     </li>
                                 @else
-                                    <li><a name="header-menu" class="dropdown-item text-muted"
-                                            href="{{ url('/' . $v->url) }}">{{ $v->service_cat_name }}</a>
+                                    <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
+                                            href="{{ url('/' . $v->url) }}"><small>{{ $v->service_cat_name }}</small></a>
                                     </li>
                                 @endif
                             @endforeach
@@ -145,8 +145,7 @@
     console.log(url)
     els.forEach((i) => {
         (i?.href === url || url?.includes(i?.name)) && i.classList.add("active")
-        console.log(i.href === url)
-        console.log(i?.name)
+
     })
 </script>
 

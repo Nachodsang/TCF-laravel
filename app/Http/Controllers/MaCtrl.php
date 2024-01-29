@@ -26,6 +26,13 @@ class MaCtrl extends Controller
         $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
         $service_cat = \App\Models\ServiceCatMd::where(['id' => 5])->first();
         $ma_industries = \App\Models\MaIndustryMd::orderBy('number')->get();
+        $products =
+            \App\Models\MaProductMd::orderBy('number')->get();
+
+        $industryParam = request('industry');
+        if ($industryParam) {
+            $products = \App\Models\MaProductMd::where(['industry_id' => $industryParam])->orderBy('number')->get();
+        }
 
         $with = [
             'folder_prefix' => $this->config['folder_prefix'],
@@ -33,7 +40,21 @@ class MaCtrl extends Controller
             'service_cats' => $service_cats,
             'service_cat' => $service_cat,
             'ma_industries' => $ma_industries,
+            'products' => $products,
+
         ];
         return view($this->config['folder_prefix'] . "/ma", $with);
     }
+
+    // public function filter()
+    // {
+    //     $industryParam = request('industry');
+    //     $products = \App\Models\MaProductMd::where(['industry_id' => $industryParam])->orderBy('number')->get();
+
+    //     $data = [
+
+    //         'products' => $products,
+    //     ];
+    //     return view($this->config['folder_prefix'] . "/ma", $data);
+    // }
 }
