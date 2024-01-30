@@ -15,9 +15,9 @@ class ConsultantCtrl extends Controller
     }
     public function index()
     {
-        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
         $data = \App\Models\AboutConsultantMd::find(1);
-        $consultants = \App\Models\ConsultantMd::orderBy('number')->get();
+        $consultants = \App\Models\ConsultantMd::orderBy('sort')->get();
         // $client = OurClientMd::all();
         return view($this->config['folder_prefix'] . "/consultant", [
             'about' => $data,
@@ -28,10 +28,10 @@ class ConsultantCtrl extends Controller
     }
     public function detail($url)
     {
-        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
         $data = \App\Models\AboutConsultantMd::find(1);
         $consultant = \App\Models\ConsultantMd::where(['url' => $url])->first();
-        $consultants = \App\Models\ConsultantMd::orderBy('number')->get();
+        $consultants = \App\Models\ConsultantMd::orderBy('sort')->get();
 
         $currentIndex = $consultants->search(function ($item) use ($consultant) {
             return $item->id === $consultant->id;

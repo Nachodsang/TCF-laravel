@@ -93,6 +93,11 @@ Route::middleware(['Webpanel'])->group(function(){
     Route::prefix('menu')->group(function(){
         Route::get('/',[\App\Http\Controllers\Webpanel\MenuCtrl::class,'index']);
     });
+
+    Route::prefix('consultant')->group(function(){
+        Route::get('/',[\App\Http\Controllers\Webpanel\ConsultantCtrl::class,'index']);
+
+    });
 });
 
 Route::prefix('media')->group(function(){

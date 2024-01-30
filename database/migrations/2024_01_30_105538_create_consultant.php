@@ -22,6 +22,8 @@ return new class extends Migration
                 $table->string('name')->nullable();
                 $table->string('description')->nullable();
                 $table->text('detail')->nullable();
+                $table->integer('upload_by')->nullable();
+                $table->integer('modified_by')->nullable();
                 $table->timestamps();
             });
         }
