@@ -104,7 +104,7 @@ a {
 .btn {
     padding: 12px 16px !important;
     cursor: pointer !important;
-    border-radius: var(--border-radius) !important;
+    border-radius: var(--border-radius);
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     font-size: var(--font-h6) !important;

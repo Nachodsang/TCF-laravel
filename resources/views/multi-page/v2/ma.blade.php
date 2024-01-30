@@ -61,7 +61,7 @@
 
         <div class="container heading-section">
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
-                {!! $service_cat->service_cat_detail !!}
+                {!! @$service_cat->service_cat_detail !!}
             </div>
             <!-- filter -->
             <div class="px-4">
@@ -81,7 +81,8 @@
                             </div>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                                 style="height: 250px; overflow:scroll;  ">
-                                <li class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
+                                <li id={{ 'All' }} value="0"
+                                    class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
                                     name="header-menu">
 
 
@@ -109,7 +110,7 @@
                         <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2">
 
                             <div class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-mdb-toggle="dropdown" aria-expanded="false">
+                                data-mdb-toggle="dropdown" aria-expanded="false" name="opportunity-name">
                                 Opportunity
                             </div>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -126,14 +127,14 @@
                                     @endif
                                 @endforeach --}}
 
-                                <li><a name="header-menu" class="dropdown-item  c-primary"
-                                        href={{ url('/service') }}>Buy</a>
+                                <li><span name="header-menu"
+                                        class="dropdown-item opportunity-item c-primary cursor-pointer">Buy</a>
                                 </li>
-                                <li><a name="header-menu" class="dropdown-item  c-primary"
-                                        href={{ url('/service') }}>Sale</a>
+                                <li><span name="header-menu"
+                                        class="dropdown-item opportunity-item  c-primary cursor-pointer">Sale</a>
                                 </li>
-                                <li><a name="header-menu" class="dropdown-item  c-primary"
-                                        href={{ url('/service') }}>All</a>
+                                <li><span name="header-menu"
+                                        class="dropdown-item opportunity-item  c-primary cursor-pointer">All</a>
                                 </li>
                             </ul>
                         </div>
@@ -152,13 +153,14 @@
 
 
                     </div>
-                    <div class="d-flex  w-100 gap-1 mb-3">
+                    <div class="d-flex  w-100 gap-1  d-none" id="advance-search">
                         <button class="product-modal w-50 rounded-2 c-bg-secondary px-4 py-2" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Product</button>
-                        <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">From 0</div>
-                        <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">To > 10 million</div>
+                        <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Min" type="number" />
+                        <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Max" type="number" />
+                        {{-- <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">To > 10 million</div> --}}
                     </div>
-                    <div class="d-flex  w-100 gap-1 justify-content-end gap-2">
+                    <div class="d-flex  w-100 gap-1 justify-content-end gap-2 mt-3">
                         <div class=" rounded-2 c-bg-primary btn btn-primary d-flex align-items-center">
                             <i class="fas fa-sync-alt fa-x"></i>
                             <span>
@@ -193,11 +195,11 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" id="product-list">
                                 @if ($products)
                                     @foreach (@$products as $k => $v)
-                                        <div class="d-flex gap-2 text-capitalize"><input type="checkbox"
-                                                value={{ $v->id }} />{{ $v->name }}</div>
+                                        <div class="d-flex gap-2 text-capitalize" id="product-item"><input
+                                                type="checkbox" value={{ $v->id }} />{{ $v->name }}</div>
                                     @endforeach
                                 @endif
 
@@ -221,10 +223,8 @@
                             <div class="corner-sale"><span>TO SALE</span></div>
                             <img class="img-fluid" src="images/robotic-hand.jpg" alt="">
                             <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-tech.php"><span
-                                        class="material-symbols-outlined">
-                                        visibility
-                                    </span></a>
+                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-tech.php"> <i
+                                        class="far fa-eye fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -243,10 +243,8 @@
                             <div class="corner-sale"><span>TO SALE</span></div>
                             <img class="img-fluid" src="images/car-assembly1.jpg" alt="">
                             <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-auto.php"><span
-                                        class="material-symbols-outlined">
-                                        visibility
-                                    </span></a>
+                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-auto.php"><i
+                                        class="far fa-eye fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -265,10 +263,8 @@
                             <div class="corner-buy"><span>TO BUY</span></div>
                             <img class="img-fluid" src="images/doctor1.jpg" alt="">
                             <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1"
-                                    href="m&a-health-care.php"><span class="material-symbols-outlined">
-                                        visibility
-                                    </span></a>
+                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-health-care.php"><i
+                                        class="far fa-eye fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -287,10 +283,8 @@
                             <div class="corner-buy"><span>TO BUY</span></div>
                             <img class="img-fluid" src="images/clean-en.jpg" alt="">
                             <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-energy.php"><span
-                                        class="material-symbols-outlined">
-                                        visibility
-                                    </span></a>
+                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-energy.php"><i
+                                        class="far fa-eye fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -309,10 +303,8 @@
                             <div class="corner-buy"><span>TO BUY</span></div>
                             <img class="img-fluid" src="images/coins.jpg" alt="">
                             <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1"
-                                    href="m&a-financial.php"><span class=" material-symbols-outlined">
-                                        visibility
-                                    </span></a>
+                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-financial.php"><i
+                                        class="far fa-eye fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -331,10 +323,8 @@
                             <div class="corner-sale"><span>TO SALE</span></div>
                             <img class="img-fluid" src="images/retail1.jpg" alt="">
                             <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-retail.php"><span
-                                        class="material-symbols-outlined">
-                                        visibility
-                                    </span></a>
+                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-retail.php"><i
+                                        class="far fa-eye fa-lg"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">
@@ -371,12 +361,6 @@
 
     @include(config('web.folder_prefix') . '/footer')
 
-    {{-- <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/animation.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/main.js"></script> --}}
-
 
 
 
@@ -397,58 +381,51 @@
         })
     </script>
 
-
-    <script>
-        const myModal = document.getElementById('myModal')
-        const myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', () => {
-            myInput.focus()
-        })
-    </script>
-
     <script>
         $(document).ready(function() {
+
+            $('.opportunity-item').on('click', function() {
+                var opportunityTitle = $(this).html();
+                $('[name="opportunity-name"]').html(opportunityTitle)
+            })
             $('.industry-item').on('click', function() {
+                console.log("click")
                 // Get the value attribute of the clicked item
                 var selectedValue = $(this).attr('value');
                 let selectedName = $(this).attr('id');
 
-                // Update the URL with the selected value as a query parameter
-                var currentUrl = new URL(window.location.href);
-                currentUrl.searchParams.set('industry', selectedValue);
-                history.pushState({}, '', currentUrl);
+
                 $('#industry-dropdown-name').html(selectedName);
                 $('#exampleModalLabel').html(selectedName);
+                $('#advance-search').removeClass('d-none');
 
-                // You can also trigger other actions based on the selected value
-                // For example, make an AJAX request, update the UI, etc.
+                $.ajax({
+                    method: 'get',
+                    url: `m&a/product/${selectedValue}`,
+
+                    success: function(res) {
+                        console.log(res)
+                        // Clear existing checkboxes
+                        $('#product-list').html("");
+
+                        $.each(res, function(k, v) {
+                            $('#product-list').append(
+                                "<div class=' d-flex gap-2 text-capitalize product-item' data-product-id='" +
+                                v.id + "'>" +
+                                "<input type='checkbox' value='' class='cursor-pointer'" +
+                                v.id + "' />" +
+                                v.name +
+                                "</div>"
+                            );
+                        });
+
+                    },
+                    error: function(error) {
+                        console.error("Error fetching products:", error);
+                    }
+                });
             });
         });
-
-
-
-
-        // change product modal
-        $('#maincategory').on('change', function() {
-            let main = $(this).find(":selected").val();
-            $.ajax({
-                method: 'get',
-                url: 'webpanel/members/getcategorysub',
-                data: {
-                    main: main
-                },
-                success: function(res) {
-                    $('#subcategory').find('option[value]').remove();
-                    $('#category').find('option[value]').remove();
-                    $.each(res, function(k, v) {
-                        $('#subcategory').append('<option value="' + v.id + '">' + v.name_th +
-                            '</option>');
-                    })
-                    $('#subcategory').removeAttr('disabled');
-                }
-            });
-        })
     </script>
 </body>
 
