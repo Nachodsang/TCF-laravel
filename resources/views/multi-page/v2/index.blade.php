@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{-- <head>
-    <meta charset="utf-8">
-    <title>Nankai Express (Thailand) Co., Ltd</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="นำเข้า-ส่งออก, คลังสินค้า, การขนส่ง, บริการด้านโลจิสติกส์" name="keywords">
-    <meta
-        content="Is service facilitator about logistics (Import-Export, Warehouse,Transportation) and include about install machinery by specialist."
-        name="description">
-    <link href="{{ config('web.folder_prefix') }}/images/logo/logo-nankai-ico.ico" rel="icon">
-    <link href="{{ config('web.folder_prefix') }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/animated.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-    <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/custom.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/slick/slick.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/slick/slick-theme.css" rel="stylesheet">
-    <link href='{{ config('web.folder_prefix') }}/css/swiper.min.css' rel='stylesheet'>
-    <link href="{{ config('web.folder_prefix') }}/css/swiper-bundle.min.css" rel="stylesheet">
-</head> --}}
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,8 +10,6 @@
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
-
-
 
 </head>
 
@@ -323,10 +299,6 @@
     @include("$folder_prefix/footer")
 
     <!-- Scripts -->
-
-
-
-
     <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/owl.carousel.min.js"></script>
@@ -334,55 +306,6 @@
     <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/slick/slick.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/active.js"></script>
-
-
-    {{-- <script>
-        const swiper = new Swiper('.bannerSwiper', {
-            loop: true,
-            speed: 500,
-
-            pagination: {
-                el: '.swiper-pagination',
-                dynamicBullets: true,
-                clickable: true,
-            },
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            }
-        });
-
-        $('.our_client').slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 0,
-            speed: 4500,
-            cssEase: 'linear',
-            pauseOnHover: true,
-            responsive: [{
-                    breakpoint: 1280,
-                    settings: {
-                        slidesToShow: 3,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                }
-            ]
-        });
-    </script> --}}
 </body>
 
 </html>

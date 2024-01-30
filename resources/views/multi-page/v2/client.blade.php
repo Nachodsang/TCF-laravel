@@ -1,5 +1,5 @@
 <div id="clients" class="clients section">
-    <div class="container-xxl py-6">
+    <div class="container py-6">
         <div class="section-heading wow fadeInUp" data-wow-delay="0.1s">
             <h4>Major Clients</h4>
         </div>

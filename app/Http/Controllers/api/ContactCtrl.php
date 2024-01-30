@@ -15,9 +15,11 @@ class ContactCtrl extends Controller
         $email->phone = $request->telephone;
         $email->details = $request->detail;
 
-        ////////////// send email and notification line
+        ////////////// send email and notification line //////////////
 
-        //////////////
+        
+
+        //////////////////////////////////////////////////////////////
 
         if ($email->save()) {
             return response()->json(['status' => 'success', 'msg' => 'ส่งอีเมลสำเร็จแล้ว เราจะติดต่อกลับโดยเร็วที่สุด']);
