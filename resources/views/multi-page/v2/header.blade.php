@@ -142,7 +142,6 @@
     var url = window.location.href;
 
     var els = document.querySelectorAll(".navbar-nav a");
-    console.log(url)
     els.forEach((i) => {
         (i?.href === url || url?.includes(i?.name)) && i.classList.add("active")
 
