@@ -23,6 +23,8 @@ Route::get('/contact', [\App\Http\Controllers\ContactCtrl::class, 'index']);
 Route::get('/consultant', [\App\Http\Controllers\ConsultantCtrl::class, 'index']);
 Route::get('/consultant/{url}', [\App\Http\Controllers\ConsultantCtrl::class, 'detail'])->where(['url' => '[0-9A-Za-zก-๙,.()!?"“”_-]+']);
 Route::get('/m&a', [\App\Http\Controllers\MaCtrl::class, 'index']);
+// Route::get('/m&a/product', [\App\Http\Controllers\MaCtrl::class, 'product']);
+Route::get('/m&a/product/{id}', [\App\Http\Controllers\MaCtrl::class, 'product'])->where(['id' => '[0-9]+']);
 // Route::get('/consultant/{url}', [\App\Http\Controllers\ConsultantCtrl::class, 'shareFb'])->name('share.facebook');
 
 

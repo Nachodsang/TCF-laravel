@@ -28,7 +28,7 @@
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
-    {{-- <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> --}}
+    <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -114,9 +114,7 @@
                                     <p class="mb-4">Tokyo Consulting Firm Co., Ltd.</p>
                                     <div class="dbox w-100 d-flex align-items-start">
                                         <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="material-symbols-outlined">
-                                                location_on
-                                            </span>
+                                            <i class="fas fa-map-marker-alt"></i>
                                         </div>
                                         <div class="text pl-3">
                                             @if ($map->count() > 0)
@@ -130,9 +128,7 @@
                                     </div>
                                     <div class="dbox w-100 d-flex align-items-center">
                                         <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="material-symbols-outlined">
-                                                phone_in_talk
-                                            </span>
+                                            <i class="fas fa-phone-alt"></i>
                                         </div>
                                         <div class="text pl-3">
                                             <p><span>Phone: </span> <a href="tel://"> {{ @$contact->telephone }}</a>
@@ -142,9 +138,7 @@
 
                                     <div class="dbox w-100 d-flex align-items-center">
                                         <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="material-symbols-outlined">
-                                                mail
-                                            </span>
+                                            <i class="far fa-paper-plane"></i>
                                         </div>
                                         <div class="text pl-3">
                                             <p><span>Email:</span> <a
@@ -247,7 +241,9 @@
                             icon: "success",
                             title: "Send Email Success"
                         }).then(() => {
-                            $('.alert').removeClass('d-none').removeClass('alert-danger').addClass(`alert-${result.status}`).addClass('d-flex').html(result.msg);
+                            $('.alert').removeClass('d-none').removeClass('alert-danger')
+                                .addClass(`alert-${result.status}`).addClass('d-flex').html(
+                                    result.msg);
                             $(inputs).find("input").removeClass("is-valid");
                             $(inputs).find("textarea").removeClass("is-valid");
                             inputs.reset();
