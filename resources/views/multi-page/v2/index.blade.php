@@ -40,7 +40,7 @@
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="row g-4">
-                                    @for ($i = 0; $i <= count($service_cats) / 2; $i++)
+                                    @for ($i = 0; $i <= count(@$service_cats) / 2; $i++)
                                         @if ($service_cats[$i]->type === 'sub-page')
                                             <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
                                                 <div style="min-height:200px;"
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-md-6 padding-top-10">
                                 <div class="row g-4">
-                                    @for ($i = count($service_cats) / 2 + 1; $i < count($service_cats); $i++)
+                                    @for ($i = count(@$service_cats) / 2 + 1; $i < count($service_cats); $i++)
                                         @if ($service_cats[$i]->type === 'sub-page')
                                             <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
                                                 <div style="min-height:200px;"

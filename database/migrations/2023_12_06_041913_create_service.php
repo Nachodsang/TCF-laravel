@@ -26,7 +26,7 @@ return new class extends Migration {
                 $table->string('upload_by')->nullable();
                 $table->integer('modified_by')->nullable();
                 $table->timestamps();
-                $table->dateTime('deleted_at')->nullable();
+                $table->timestamp('deleted_at')->nullable();
             });
         }
     }

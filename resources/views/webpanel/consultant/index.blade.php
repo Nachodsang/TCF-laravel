@@ -96,9 +96,9 @@
             }
         });
 
-        if (document.getElementById('imgService')) {
-            imgService.onchange = evt => {
-                const [file] = imgService.files;
+        if (document.getElementById('imgConsultant')) {
+            imgConsultant.onchange = evt => {
+                const [file] = imgConsultant.files;
                 if (file) {
                     imgPreview.src = URL.createObjectURL(file);
                 }
@@ -143,7 +143,7 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                url: 'webpanel/service/status',
+                url: 'webpanel/consultant/status',
                 method: 'POST',
                 async: false,
                 data: {
@@ -176,7 +176,7 @@
             });
         })
 
-        $('#serviceAddForm').submit(function(e) {
+        $('#consultantAddForm').submit(function(e) {
             e.preventDefault();
         }).validate({
             validClass: "is-valid",
@@ -189,12 +189,12 @@
                 imgAlt: {
                     required: true
                 },
-                imgService: {
+                imgConsultant: {
                     required: true,
                 },
                 url: {
                     remote: {
-                        url: "{{ url('webpanel/service/check/url') }}",
+                        url: "{{ url('webpanel/consultant/check/url') }}",
                         data: {
                             _token: token
                         },
@@ -202,10 +202,7 @@
                     },
                     required: true,
                 },
-                service: {
-                    required: true,
-                },
-                service_category:{
+                consultant: {
                     required: true,
                 },
                 detail_th: {
@@ -225,18 +222,15 @@
                 imgAlt: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                imgService: {
+                imgConsultant: {
                     required: "กรุณาเลือกรูปภาพ",
                 },
                 url: {
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
                 },
-                service: {
+                name: {
                     required: "กรุณากรอกข้อมูล"
-                },
-                service_category:{
-                    required: "กรุณาเลือกหมวดหมู่"
                 },
                 detail_th: {
                     required: "กรุณากรอกข้อมูล"
@@ -250,11 +244,11 @@
             },
             submitHandler: function(form) {
                 convertDetail();
-                inputs = $('#serviceAddForm')[0];
+                inputs = $('#consultantAddForm')[0];
                 const formData = new FormData(inputs);
                 $.ajax({
                     method: 'POST',
-                    url: 'webpanel/service/add',
+                    url: 'webpanel/consultant/add',
                     data: formData,
                     async: false,
                     processData: false,
@@ -268,11 +262,11 @@
                     success: function() {
                         Swal.fire({
                             icon: "success",
-                            title: "Service has been saved",
+                            title: "Data has been saved",
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
-                            location.reload();
+                            // location.reload();
                         });
                     },
                     error: function() {
@@ -286,7 +280,7 @@
             }
         })
 
-        $('#serviceEditForm').submit(function(e) {
+        $('#consultantEditForm').submit(function(e) {
             e.preventDefault();
         }).validate({
             validClass: "is-valid",
@@ -301,19 +295,16 @@
                 },
                 url: {
                     remote: {
-                        url: "{{ url('webpanel/service/check/url') }}",
+                        url: "{{ url('webpanel/consultant/check/url') }}",
                         data: {
                             _token: token,
-                            id: "{{ @$service->id }}"
+                            id: "{{ @$consultant->id }}"
                         },
                         type: "post"
                     },
                     required: true
                 },
-                service: {
-                    required: true,
-                },
-                service_category:{
+                name: {
                     required: true,
                 },
                 detail_th: {
@@ -337,11 +328,8 @@
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
                 },
-                service: {
+                name: {
                     required: "กรุณากรอกข้อมูล"
-                },
-                service_category:{
-                    required: "กรุณาเลือกหมวดหมู่"
                 },
                 detail_th: {
                     required: "กรุณากรอกข้อมูล"
@@ -355,12 +343,12 @@
             },
             submitHandler: function(form) {
                 convertDetail();
-                inputs = $('#serviceEditForm')[0];
-                id = $('#serviceId').val();
+                inputs = $('#consultantEditForm')[0];
+                id = $('#consultantId').val();
                 const formData = new FormData(inputs);
                 $.ajax({
                     method: 'POST',
-                    url: `webpanel/service/update/${id}`,
+                    url: `webpanel/consultant/update/${id}`,
                     data: formData,
                     async: false,
                     processData: false,
@@ -374,7 +362,7 @@
                     success: function() {
                         Swal.fire({
                             icon: "success",
-                            title: "Service has been Updated",
+                            title: "Data has been Updated",
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
@@ -392,7 +380,7 @@
             }
         });
 
-        $(".deleteService").on('click', function(e) {
+        $(".deleteConsultant").on('click', function(e) {
             e.preventDefault();
             let id = $(this).attr('data-id');
             $.ajax({
@@ -400,7 +388,7 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                url: `webpanel/service/delete/${id}`,
+                url: `webpanel/consultant/delete/${id}`,
                 data: {
                     _method: 'DELETE'
                 },
@@ -414,11 +402,11 @@
                 success: function() {
                     Swal.fire({
                         icon: "success",
-                        title: "Service has been Deleted",
+                        title: "Data has been Deleted",
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        $(`.ServiceRow-${id}`).remove();
+                        $(`.ConsultantRow-${id}`).remove();
                     });
                 },
                 error: function() {

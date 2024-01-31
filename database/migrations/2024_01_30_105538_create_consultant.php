@@ -19,12 +19,18 @@ return new class extends Migration
                 $table->integer('sort')->nullable();
                 $table->string('url')->nullable();
                 $table->text('image')->nullable();
+                $table->string('image_title')->nullable();
+                $table->string('image_alt')->nullable();
                 $table->string('name')->nullable();
                 $table->string('description')->nullable();
                 $table->text('detail')->nullable();
+                $table->tinyInteger('status')->nullable();
+                $table->string('seo_keyword')->nullable();
+                $table->string('seo_description')->nullable();
                 $table->integer('upload_by')->nullable();
                 $table->integer('modified_by')->nullable();
                 $table->timestamps();
+                $table->timestamp('deleted_at')->nullable();
             });
         }
     }

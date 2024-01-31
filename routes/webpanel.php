@@ -96,7 +96,14 @@ Route::middleware(['Webpanel'])->group(function(){
 
     Route::prefix('consultant')->group(function(){
         Route::get('/',[\App\Http\Controllers\Webpanel\ConsultantCtrl::class,'index']);
+        Route::get('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'addConsultant']);
+        Route::post('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'store']);
+        Route::post('/status', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'statusConsultant']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy']);
 
+        Route::post('/check/url', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'checkUrl']);
     });
 });
 
