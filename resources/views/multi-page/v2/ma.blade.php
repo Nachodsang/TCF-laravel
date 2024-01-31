@@ -26,6 +26,9 @@
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+
 
 
 
@@ -65,22 +68,21 @@
             </div>
             <!-- filter -->
             <div class="px-4">
-
-                <div class="w-75 mx-auto mb-4 p-4 rounded-3 bg-white gap-1 d-flex flex-column">
+                <div class= "   w-75 mx-auto mb-4 p-4 rounded-3 bg-white gap-1 d-flex flex-column shadow-md">
                     <div class="d-flex gap-1 align-items-center mb-2  c-primary">
                         <i class="fas fa-funnel-dollar fa-lg "></i>
                         <h3 style="margin-bottom:0;">Filter</h3>
                     </div>
                     <div class="d-flex w-100 gap-1">
-                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2">
+                        {{-- <div class="dropdown rounded-2 px-4 c-bg-secondary py-2">
 
-                            <div class="nav-link dropdown-toggle " id="industry-dropdown-name" type="button"
+                            <a class="dropdown-toggle " id="industry-dropdown-name" type="button"
                                 id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false"
                                 style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;">
                                 Industry
-                            </div>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                style="height: 250px; overflow:scroll;  ">
+                            </a>
+                            <ul class="dropdown-menu" style="height: 250px; overflow:scroll;  "
+                                aria-labelledby="industry-dropdown-name">
                                 <li id={{ 'All' }} value="0"
                                     class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
                                     name="header-menu">
@@ -103,30 +105,99 @@
                                     </li>
                                 @endforeach
                             </ul>
+                        </div> --}}
+                        <div class="dropdown rounded-2 px-4 c-bg-secondary py-2 w-25 ">
+                            <a name="industry-name" href="#"
+                                class="nav-link dropdown-toggle overflow-hidden capitalize" type="button"
+                                id="industry-dropdown-name" data-bs-toggle="dropdown" aria-expanded="false">
+                                Industry
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="industry-dropdown-name"
+                                style="max-height:250px;overflow:scroll;">
+                                <li id={{ 'All' }} value="0"
+                                    class=" industry-item cursor-pointer d-flex align-items-center header-dropdown  dropdown-item c-primary  cursor-pointer "
+                                    name="header-menu">
+
+
+                                    <div style="width:30px">
+                                        <i class="fas fa-cube"></i>
+                                    </div>
+                                    <span>All</span>
+                                </li>
+                                @foreach ($ma_industries as $k => $v)
+                                    <li class="capitalize industry-item cursor-pointer d-flex align-items-center header-dropdown  dropdown-item c-primary"
+                                        value={{ $v->id }} id="{{ $v->name }}">
+                                        <div style="width:30px">
+                                            {!! @$v->icon !!}
+                                        </div>
+                                        <span>
+                                            {{ $v->name }}
+                                        </span>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
 
-                        <input class="w-100 rounded-2 c-bg-secondary px-4 py-2 " type="text"
-                            placeholder="Search ..." />
-                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2">
-
-                            <div class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-mdb-toggle="dropdown" aria-expanded="false" name="opportunity-name">
-                                Opportunity
-                            </div>
+                        {{-- <li class="dropdown nav-item">
+                            <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
+                                id="dropdownMenuButton" aria-expanded="false">
+                                Service
+                            </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {{-- @foreach ($service_cats as $k => $v)
+                                @foreach (\App\Models\ServiceCatMd::orderBy('number')->get() as $k => $v)
                                     @if ($v->type === 'sub-page')
-                                        <li><a name="header-menu" class="dropdown-item text-muted"
-                                                href="{{ url('/service/category/' . $v->url) }}">{{ $v->service_cat_name }}
+                                        <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
+                                                href="{{ url('/service/category/' . $v->url) }}"><small>{{ $v->service_cat_name }}</small>
                                             </a>
                                         </li>
                                     @else
-                                        <li><a name="header-menu" class="dropdown-item text-muted"
-                                                href="{{ url('/' . $v->url) }}">{{ $v->service_cat_name }}</a>
+                                        <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
+                                                href="{{ url('/' . $v->url) }}"><small>{{ $v->service_cat_name }}</small></a>
                                         </li>
                                     @endif
-                                @endforeach --}}
+                                @endforeach
+                                <li id={{ 'All' }} value="0"
+                                    class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
+                                    name="header-menu">
 
+
+                                    <div style="width:30px">
+                                        <i class="fas fa-cube"></i>
+                                    </div>
+                                    <span>All</span>
+                                </li>
+                                @foreach ($ma_industries as $k => $v)
+                                    <li class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary"
+                                        value={{ $v->id }} id={{ $v->name }} name="header-menu">
+                                        <div style="width:30px">
+                                            {!! @$v->icon !!}
+                                        </div>
+                                        <span>
+                                            {{ $v->name }}
+                                        </span>
+                                    </li>
+                                @endforeach
+
+                                <li><a name="header-menu" class="dropdown-item text-muted"
+                                        href={{ url('/service') }}>All</a>
+                                </li>
+                            </ul>
+                        </li> --}}
+
+
+
+
+
+                        <input id="search-input" class="w-50 rounded-2 c-bg-secondary px-4 py-2 " type="text"
+                            placeholder="Search ..." />
+
+                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2 w-25">
+
+                            <a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false" name="opportunity-name">
+                                Opportunity
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><span name="header-menu"
                                         class="dropdown-item opportunity-item c-primary cursor-pointer">Buy</a>
                                 </li>
@@ -138,36 +209,71 @@
                                 </li>
                             </ul>
                         </div>
-                        {{-- <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Industry
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div> --}}
+
 
 
 
                     </div>
                     <div class="d-flex  w-100 gap-1  d-none" id="advance-search">
-                        <button class="product-modal w-50 rounded-2 c-bg-secondary px-4 py-2" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Product</button>
-                        <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Min" type="number" />
-                        <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Max" type="number" />
+                        <button class="product-modal w-50 rounded-2 c-bg-secondary px-4 py-2 text-start"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal" id="modalButton">Product</button>
+                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2  w-50">
+
+                            <a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false" name="min-income">
+                                Minimum Yearly Income
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><span name="header-menu"
+                                        class="dropdown-item min-income-item c-primary cursor-pointer">10 million
+                                        Baht</a>
+                                </li>
+                                <li><span name="header-menu"
+                                        class="dropdown-item min-income-item  c-primary cursor-pointer">100 million
+                                        Baht</a>
+                                </li>
+                                <li><span name="header-menu"
+                                        class="dropdown-item min-income-item  c-primary cursor-pointer">1
+                                        billion Baht</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2  w-50">
+
+                            <a href="#" class="nav-link dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                                name="max-income">
+                                Maximum Yearly Income
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><span name="header-menu"
+                                        class="dropdown-item max-income-item  c-primary cursor-pointer">10 million
+                                        Baht</a>
+                                </li>
+                                <li><span name="header-menu"
+                                        class="dropdown-item max-income-item c-primary cursor-pointer">100 million
+                                        Baht</a>
+                                </li>
+                                <li><span name="header-menu"
+                                        class="dropdown-item max-income-item c-primary cursor-pointer">1 Billion
+                                        Baht</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        {{-- <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Min" type="number" />
+                        <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Max" type="number" /> --}}
                         {{-- <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">To > 10 million</div> --}}
                     </div>
-                    <div class="d-flex  w-100 gap-1 justify-content-end gap-2 mt-3">
-                        <div class=" rounded-2 c-bg-primary btn btn-primary d-flex align-items-center">
+                    <div class="d-flex  w-100 gap-1 justify-content-end gap-2 mt-3 ">
+                        <div class=" rounded-2 c-bg-primary btn btn-primary d-flex align-items-center "
+                            id="clear-button">
                             <i class="fas fa-sync-alt fa-x"></i>
                             <span>
                                 Clear
                             </span>
                         </div>
-                        <div
+                        <div id="search-button"
                             class="w-25 rounded-2 c-bg-primary btn btn-secondary d-flex align-items-center justify-content-center">
                             <i class="fas fa-search-dollar fa-lg"></i>
                             <span>
@@ -199,7 +305,8 @@
                                 @if ($products)
                                     @foreach (@$products as $k => $v)
                                         <div class="d-flex gap-2 text-capitalize" id="product-item"><input
-                                                type="checkbox" value={{ $v->id }} />{{ $v->name }}</div>
+                                                type="checkbox" value={{ $v->id }} />{{ $v->name }}
+                                        </div>
                                     @endforeach
                                 @endif
 
@@ -371,6 +478,10 @@
     <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/slick/slick.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/active.js"></script>
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script> --}}
+
+
+
 
     <script>
         document.addEventListener('change', function(e) {
@@ -384,20 +495,58 @@
     <script>
         $(document).ready(function() {
 
-            $('.opportunity-item').on('click', function() {
+            $('#clear-button').on('click', function() {
+                $('[name="min-income"]').html("Minimum Yearly Income")
+                $('[name="max-income"]').html("Maximum Yearly Income")
+                $('#industry-dropdown-name').html("Industry");
+                $('[name="opportunity-name"]').html("Opportunity");
+                $('#advance-search').addClass('d-none');
+                $('#search-input').val("")
+            })
+
+            $('.min-income-item').on('mouseenter', function() {
+                var minIncomeTitle = $(this).html();
+                $('[name="min-income"]').html(minIncomeTitle)
+            })
+            $('.max-income-item').on('mouseenter', function() {
+                var maxIncomeTitle = $(this).html();
+                $('[name="max-income"]').html(maxIncomeTitle)
+            })
+            $('.opportunity-item').on('mouseenter', function() {
                 var opportunityTitle = $(this).html();
                 $('[name="opportunity-name"]').html(opportunityTitle)
             })
-            $('.industry-item').on('click', function() {
+            $('.industry-item').on('mouseenter', function() {
                 console.log("click")
                 // Get the value attribute of the clicked item
                 var selectedValue = $(this).attr('value');
-                let selectedName = $(this).attr('id');
+                let selectedName = $(this).attr('id').toString();
+
+                console.log(selectedName)
 
 
                 $('#industry-dropdown-name').html(selectedName);
                 $('#exampleModalLabel').html(selectedName);
                 $('#advance-search').removeClass('d-none');
+
+                // if ($(this).attr('value') == selectedValue) {
+                //     $(this).addClass('dropdown-item-selected')
+                //     console.log('yes')
+                // } else {
+                //     $('.industry-item').removeClass('dropdown-item-selected')
+                //     console.log('no')
+                // }
+
+                // $('.industry-item').map((i) => i?.value == selectedValue ? i.addClass(
+                //     'dropdown-item-selected') : console.log('no'))
+
+
+                if (selectedValue == 0) {
+                    $('#modalButton').addClass('d-none')
+                } else {
+                    $('#modalButton').removeClass('d-none')
+                }
+
 
                 $.ajax({
                     method: 'get',
