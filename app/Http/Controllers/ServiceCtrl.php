@@ -23,7 +23,7 @@ class ServiceCtrl extends Controller
         $service = ServiceMd::where(['status' => 1])->get();
         // number = order of service category
         $servicesArray = $service->sortBy('id');
-        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
 
 
         $about_service = \App\Models\AboutServiceMd::find(1);
@@ -50,7 +50,7 @@ class ServiceCtrl extends Controller
     public function detail(string $url)
     {
         $detail = ServiceMd::where(['url' => $url, 'status' => 1])->first();
-        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
 
         if ($detail) {
             $serviceCat = $detail->cat_id;
@@ -111,7 +111,7 @@ class ServiceCtrl extends Controller
     public function category(string $url)
     {
         $service_cat = \App\Models\ServiceCatMd::where(['url' => $url])->first();
-        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
+        $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
         $services = \App\Models\ServiceMd::where(['cat_id' => $service_cat->id, 'status' => 1])->get();
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],

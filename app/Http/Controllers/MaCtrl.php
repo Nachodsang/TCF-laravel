@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
-use App\Models\Models\MaIndustryMd;
+use App\Models\MaIndustryMd;
 use App\Models\MaProductMd;
+use App\Models\ServiceCatMd;
 
 class MaCtrl extends Controller
 {
@@ -25,15 +26,15 @@ class MaCtrl extends Controller
         //     'page' => $request->page ? $request->page : 1,
         //     'perPage' => 15
         // ])->object();
-        $service_cats = \App\Models\ServiceCatMd::orderBy('number')->get();
-        $service_cat = \App\Models\ServiceCatMd::where(['id' => 5])->first();
-        $ma_industries = \App\Models\MaIndustryMd::orderBy('number')->get();
+        $service_cats = ServiceCatMd::orderBy('sort')->get();
+        $service_cat = ServiceCatMd::where(['id' => 5])->first();
+        $ma_industries = MaIndustryMd::orderBy('sort')->get();
         $products =
-            \App\Models\MaProductMd::orderBy('number')->get();
+            MaProductMd::orderBy('sort')->get();
 
         $industryParam = request('industry');
         if ($industryParam) {
-            $products = \App\Models\MaProductMd::where(['industry_id' => $industryParam])->orderBy('number')->get();
+            $products = MaProductMd::where(['industry_id' => $industryParam])->orderBy('sort')->get();
         }
 
         $with = [
@@ -60,7 +61,7 @@ class MaCtrl extends Controller
                 ->get(['ma_product.*', 'ma_industry.number as industry_number'])
                 ->toArray();
         } else {
-            $products = MaProductMd::where('industry_id', $industryId)->orderBy('number')->get()->toArray();
+            $products = MaProductMd::where('industry_id', $industryId)->orderBy('sort')->get()->toArray();
         }
 
 
