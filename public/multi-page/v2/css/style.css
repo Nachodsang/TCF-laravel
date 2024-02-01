@@ -65,9 +65,13 @@ body {
     font-size: var(--font-p) !important;
     font-weight: var(--font-weight-primary) !important;
     line-height: var(--bs-body-line-height) !important;
-    color: var(--c-text-primary) !important;
+    color: var(--c-text-tertiary) ;
     -webkit-text-size-adjust: 100% !important;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+}
+
+h2, h3, h4, .c-text-primary {
+      color: var(--c-text-primary) ;
 }
 
 h3,

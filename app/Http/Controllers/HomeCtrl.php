@@ -30,6 +30,7 @@ class HomeCtrl extends Controller
         $about = \App\Models\AboutUsMd::find(1);
         $about_service = \App\Models\AboutServiceMd::find(1);
 
+
         $data = [
             'about' => $about,
             'about_service' => $about_service,

@@ -20,8 +20,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tokyo Consulting Group</title>
-    <link href="images/logo/TCGicon.ico" rel="icon">
+    <title>M&A and IPO Tokyo Consulting Firm</title>
+    <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
@@ -108,8 +108,9 @@
                         </div> --}}
                         <div class="dropdown rounded-2 px-4 c-bg-secondary py-2 w-25 ">
                             <a name="industry-name" href="#"
-                                class="nav-link dropdown-toggle overflow-hidden capitalize" type="button"
-                                id="industry-dropdown-name" data-bs-toggle="dropdown" aria-expanded="false">
+                                class="nav-link dropdown-toggle overflow-hidden capitalize c-text-primary"
+                                type="button" id="industry-dropdown-name" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Industry
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="industry-dropdown-name"
@@ -193,8 +194,9 @@
 
                         <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2 w-25">
 
-                            <a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false" name="opportunity-name">
+                            <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                                name="opportunity-name">
                                 Opportunity
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -219,8 +221,9 @@
                             data-bs-toggle="modal" data-bs-target="#exampleModal" id="modalButton">Product</button>
                         <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2  w-50">
 
-                            <a href="#" class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false" name="min-income">
+                            <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                                name="min-income">
                                 Minimum Yearly Income
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -240,7 +243,7 @@
                         </div>
                         <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2  w-50">
 
-                            <a href="#" class="nav-link dropdown-toggle" type="button"
+                            <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                 id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
                                 name="max-income">
                                 Maximum Yearly Income

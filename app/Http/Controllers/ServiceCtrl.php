@@ -64,6 +64,7 @@ class ServiceCtrl extends Controller
             $currentIndex = array_search($detail->id, $serviceIds);
             $prevService = null;
             $nextService = null;
+            $keywords = array_map('trim', explode(",", $detail->seo_keyword));
 
             if ($currentIndex !== false) {
                 // Find the index of the next service
@@ -92,6 +93,7 @@ class ServiceCtrl extends Controller
             'prev_service' => $prevService,
             'next_service' => $nextService,
             'service_cats' => $service_cats,
+            'keywords' => $keywords
         ];
 
         return view(config('web.folder_prefix') . "/service-detail", $data);

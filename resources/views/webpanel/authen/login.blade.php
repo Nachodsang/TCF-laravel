@@ -11,7 +11,7 @@
 
     <title>Webpanel</title>
 
-    <base href="{{url('/')}}">
+    <base href="{{ url('/') }}">
     <!-- Custom fonts for this template-->
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -23,13 +23,13 @@
     <!-- Custom styles for this template-->
     <link href="admin/css/style.css" rel="stylesheet">
     <style>
-        .alert .btn-close{
+        .alert .btn-close {
             top: 0;
             right: 0;
             display: flex;
             align-items: center;
             height: 100%;
-            position:absolute;
+            position: absolute;
         }
     </style>
 </head>
@@ -45,42 +45,43 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block "
+                                style="background-image: url('images/logoTCF-colored.png'); background-position: center;background-repeat: no-repeat;">
+
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     @if (\Session::has('status'))
-                                        <div class="alert alert-danger d-flex justify-content-center" style="border-radius: 10px">
+                                        <div class="alert alert-danger d-flex justify-content-center"
+                                            style="border-radius: 10px">
                                             {{ \Session::get('message') }}
                                         </div>
                                     @endif
                                     <form class="user" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" 
-                                                name="email"
-                                                class="form-control form-control-user"
-                                                id="exampleInputEmail" 
-                                                require="true"
+                                            <input type="email" name="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" require="true"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" 
-                                                name="password"
-                                                class="form-control form-control-user"
-                                                id="exampleInputPassword" 
-                                                require="true" 
-                                                placeholder="Password">
+                                            <input type="password" name="password"
+                                                class="form-control form-control-user" id="exampleInputPassword"
+                                                require="true" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="remember_me" value="on">
-                                                <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                                    name="remember_me" value="on">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" href="javascript:" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" href="javascript:"
+                                            class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                         {{-- <hr> --}}
@@ -111,7 +112,7 @@
     </div>
 
     <script>
-        var validate = (e,c,s) => {
+        var validate = (e, c, s) => {
             const form = document.querySelector(e);
             const config = c;
             const rules = form.querySelectorAll('[require="true"]');
@@ -120,62 +121,62 @@
             // const alert = document.createElement('div');
             // alert.setAttribute('class','alert alert-warning alert-dismissible d-none')
             // alert.innerHTML= `
-            //     <strong class="mr-2">Holy guacamole!</strong><span>You should check in on some of those fields below.</span>
-            //     <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
-            // `;
+        //     <strong class="mr-2">Holy guacamole!</strong><span>You should check in on some of those fields below.</span>
+        //     <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="Close">&times;</button>
+        // `;
             // document.querySelector('.-alert').append(alert);
-            form.addEventListener('submit',function(el){
+            form.addEventListener('submit', function(el) {
                 el.preventDefault();
                 required = [];
                 values = {};
-                Array.prototype.map.call(rules,function(e,i){
-                    if(e.value == '' | e.value == null){
+                Array.prototype.map.call(rules, function(e, i) {
+                    if (e.value == '' | e.value == null) {
                         required.push(e.getAttribute('name'))
                         e.classList.remove(config.validClass)
                         e.classList.add(config.invalidClass)
-                    }else{
+                    } else {
                         delete required[i];
                         values[`${e.getAttribute('name')}`] = e.value;
                         e.classList.remove(config.invalidClass)
                         e.classList.add(config.validClass)
                     }
                 });
-                if(required.length < 1){
+                if (required.length < 1) {
                     form.submit();
-                //     setTimeout(() => {
-                //         login(values).then(res => {
-                //             document.querySelector('.alert') === null ? document.querySelector('.-alert').append(alert) : '';
-                //             let title = res.status === true ? 'Success!' : 'Opps!';
-                //             let newClass = res.status === true ? 'alert-success': 'alert-danger';
-                //             alert.querySelector('strong').innerHTML = title;
-                //             alert.querySelector('span').innerHTML = res.message;
-                //             alert.classList?.remove('alert-warning');
-                //             alert.classList?.remove('alert-success');
-                //             alert.classList.add(newClass)
-                //             alert.classList?.remove('d-none');
-                //             res.status === true ? window.location.href='webpanel':'';
-                //         });
-                //     }, 800);
+                    //     setTimeout(() => {
+                    //         login(values).then(res => {
+                    //             document.querySelector('.alert') === null ? document.querySelector('.-alert').append(alert) : '';
+                    //             let title = res.status === true ? 'Success!' : 'Opps!';
+                    //             let newClass = res.status === true ? 'alert-success': 'alert-danger';
+                    //             alert.querySelector('strong').innerHTML = title;
+                    //             alert.querySelector('span').innerHTML = res.message;
+                    //             alert.classList?.remove('alert-warning');
+                    //             alert.classList?.remove('alert-success');
+                    //             alert.classList.add(newClass)
+                    //             alert.classList?.remove('d-none');
+                    //             res.status === true ? window.location.href='webpanel':'';
+                    //         });
+                    //     }, 800);
                 }
             })
 
-            async function login(data){
-                const response = await fetch('webpanel/login',{
+            async function login(data) {
+                const response = await fetch('webpanel/login', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         // 'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body:JSON.stringify(data)
+                    body: JSON.stringify(data)
                 });
                 const res = await response.json();
                 return res;
-            } 
+            }
         }
 
-        const form = validate('.user',{
-            validClass:'is-valid',
-            invalidClass:'is-invalid'
+        const form = validate('.user', {
+            validClass: 'is-valid',
+            invalidClass: 'is-invalid'
         });
     </script>
 

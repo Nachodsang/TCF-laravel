@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label for="telephone">Telephone</label>
                                 <input type="text" name="telephone" id="telephone" class="form-control"
-                                    old="{{ $row->telephone }}" value="{{ $row->telephone }}" pattern="[0-9]+"
+                                    old="{{ @$row->telephone }}" value="{{ @$row->telephone }}" pattern="[0-9]+"
                                     @readonly(true)>
                             </div>
                         </div>
@@ -45,14 +45,14 @@
                             <div class="form-group">
                                 <label for="mobile">Mobile</label>
                                 <input type="text" name="mobile" id="mobile" class="form-control"
-                                    old="{{ $row->mobile }}" value="{{ $row->mobile }}" @readonly(true)>
+                                    old="{{ @$row->mobile }}" value="{{ @$row->mobile }}" @readonly(true)>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" name="email" id="email" class="form-control"
-                                    old="{{ $row->email }}" value="{{ $row->email }}" @readonly(true)>
+                                    old="{{ @$row->email }}" value="{{ @$row->email }}" @readonly(true)>
                                 <small id="email-error" class="is-invalid d-none">รูปแบบอีเมลไม่ถูกต้อง</small>
                             </div>
                         </div>
@@ -60,32 +60,32 @@
                             <div class="form-group">
                                 <label for="x">X</label>
                                 <input type="text" class="form-control" name="x" id="x"
-                                    placeholder="url : https://x.com/" old="{{ $row->x }}"
-                                    value="{{ $row->x }}" @readonly(true)>
+                                    placeholder="url : https://x.com/" old="{{ @$row->x }}"
+                                    value="{{ @$row->x }}" @readonly(true)>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="fb">Facebook</label>
                                 <input type="text" class="form-control" name="fb" id="fb"
-                                    placeholder="url : https://www.facebook.com/" old="{{ $row->fb }}"
-                                    value="{{ $row->fb }}" @readonly(true)>
+                                    placeholder="url : https://www.facebook.com/" old="{{ @$row->fb }}"
+                                    value="{{ @$row->fb }}" @readonly(true)>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="ig">Instagram</label>
                                 <input type="text" class="form-control" name="ig" id="ig"
-                                    placeholder="url : https://www.instagram.com/" old="{{ $row->ig }}"
-                                    value="{{ $row->ig }}" @readonly(true)>
+                                    placeholder="url : https://www.instagram.com/" old="{{ @$row->ig }}"
+                                    value="{{ @$row->ig }}" @readonly(true)>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="yt">Youtube</label>
                                 <input type="text" class="form-control" name="yt" id="yt"
-                                    placeholder="url : https://www.youtube.com/" old="{{ $row->yt }}"
-                                    value="{{ $row->yt }}" @readonly(true)>
+                                    placeholder="url : https://www.youtube.com/" old="{{ @$row->yt }}"
+                                    value="{{ @$row->yt }}" @readonly(true)>
                             </div>
                         </div>
                     </div>

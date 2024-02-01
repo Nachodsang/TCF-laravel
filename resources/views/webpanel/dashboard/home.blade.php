@@ -48,10 +48,10 @@
                                         <label for="exampleColorInput" class="form-label">Primary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ $color->primary }}" title="Choose your color">
+                                                value="{{ @$color->primary }}" title="Choose your color">
                                             <input type="text" name="--c-primary" id="--c-primary"
-                                                class="form-control" current="{{ $color->primary }}"
-                                                value="{{ $color->primary }}">
+                                                class="form-control" current="{{ @$color->primary }}"
+                                                value="{{ @$color->primary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -64,10 +64,10 @@
                                         <label for="exampleColorInput" class="form-label">Secondary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ $color->secondary }}" title="Choose your color">
+                                                value="{{ @$color->secondary }}" title="Choose your color">
                                             <input type="text" name="--c-secondary" id="--c-secondary"
-                                                class="form-control" current="{{ $color->secondary }}"
-                                                value="{{ $color->secondary }}">
+                                                class="form-control" current="{{ @$color->secondary }}"
+                                                value="{{ @$color->secondary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -80,10 +80,10 @@
                                         <label for="exampleColorInput" class="form-label">Button Primary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ $color->button_primary }}" title="Choose your color">
+                                                value="{{ @$color->button_primary }}" title="Choose your color">
                                             <input type="text" name="--btn-primary" id="--btn-primary"
-                                                class="form-control" current="{{ $color->button_primary }}"
-                                                value="{{ $color->button_primary }}">
+                                                class="form-control" current="{{ @$color->button_primary }}"
+                                                value="{{ @$color->button_primary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>
@@ -96,10 +96,10 @@
                                         <label for="exampleColorInput" class="form-label">Button Secondary Color</label>
                                         <div class="input-group flex-nowrap">
                                             <input type="color" class="form-control form-control-color p-1"
-                                                value="{{ $color->button_secondary }}" title="Choose your color">
+                                                value="{{ @$color->button_secondary }}" title="Choose your color">
                                             <input type="text" name="--btn-secondary" id="--btn-secondary"
-                                                class="form-control" current="{{ $color->button_secondary }}"
-                                                value="{{ $color->button_secondary }}">
+                                                class="form-control" current="{{ @$color->button_secondary }}"
+                                                value="{{ @$color->button_secondary }}">
                                             <button class="input-group-button btn btn-outline-secondary reset"
                                                 type="button">Reset</button>
                                         </div>

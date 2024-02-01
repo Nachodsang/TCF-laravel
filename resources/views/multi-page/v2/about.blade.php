@@ -24,8 +24,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tokyo Consulting group</title>
-    <link href="images/logo/TCGicon.ico" rel="icon">
+    <title>About Us - Tokyo Consulting Firm</title>
+    <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
@@ -40,33 +40,6 @@
     </div>
     <!-- /Preloader -->
     @include(config('web.folder_prefix') . '/header')
-
-    {{-- <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
-        <div class="overlay-photo-image-bg parallax"
-            data-bg-img="{{ config('web.folder_prefix') }}/images/image_12092023-1318481694499528684.jpeg"
-            data-bg-opacity="1"
-            style="background-image: url(&quot;images/image_12092023-1318481694499528684.jpeg&quot;); opacity: 1;">
-        </div>
-        <div class="overlay-color" data-bg-opacity=".75" style="opacity: 0.75;"></div>
-        <div class="container">
-            <div class="hero-text-area centerd">
-                <h1 class="hero-title wow fadeInUp" data-wow-delay=".2s">About US</h1>
-                <div class="row">
-                    <div class="col-12 offset-lg-2 col-lg-8 wow fadeInUp" data-wow-delay=".5s">
-                        <p class="text-uppercase">{{ @$row->description_th }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg bg-02 pt-5">
-        <div class="container-xxl py-6">
-            {!! @$row->detail_th !!}
-        </div>
-        @include(config('web.folder_prefix') . '/client')
-    </section> --}}
-
 
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
@@ -84,62 +57,9 @@
         </div>
     </section>
     <!-- ======= About Section ======= -->
-    <section class="half-section">
+    <section class="half-section my-4">
         <div class="container-fluid template-container ">
             {!! @$row->detail_th !!}
-            {{-- <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div style="transform: translateX(20px); background-color:rgba(219,126,55,0.4);"
-                        class="image hover-effect  rounded-circle img-container shadow">
-                        <img style="transform: translateX(-20px);" alt="" src="images/about-us.jpg"
-                            class="rounded-circle  img-fluid equalheight">
-                    </div>
-                </div>
-                <div class="col-md-6 pr-md-5 py-md-5 order-first order-md-last section wow fadeIn"
-                    data-wow-delay="0.5s">
-                    <div class="split-box  center-block container-padding equalheight">
-                        <div class="heading-title padding">
-                            <div class="col-md-12 heading-section">
-                                <span class="subheading mb-2">Tokyo consulting group</span>
-                                <h2 class="">ABOUT US</h2>
-                                <p class="mb-4">Tokyo Consulting Firm is global accounting firm & CPA firm in Thailand
-                                    and has over 700 clients all over the world. TCF Thailand provides professional
-                                    services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services
-                                    and IT Services. With the current boom in investment from Japan, Tokyo Consulting
-                                    strives to provide quality service to its clients and serve as a bridge all over the
-                                    world.</p>
-                                <h3 class="mb-2">WHAT IS OUR DIFFERENTIATION?</h3>
-                                <p>We can support as the position of external CFO
-                                    We can offer by overwhelmingly reasonable price than major audit firm in Thailand
-                                    We can support one-stop service – accounting, taxation, labor and legal affairs.
-
-                                </p>
-                                <h3 class="">LEADING OVER 80% OF OUR CLIENTS TO POSITIVE CASH-FLOW.</h3>
-                                <p class="mb-4">We always provide you up-to-date information by “Wiki-Investment”, the
-                                    data base of foreign direct investment.
-                                    Rapid response is possible.
-                                    We lead your business to success by using our original Monthly Strategic Report
-                                    We can help your reporting to the parent company.
-                                    We can offer multi courtiers service because we have 44 locations in 27 countries.
-                                    We can provide Employee Evaluation System that promote sales and productivity in
-                                    organization.</p>
-                                <h3 class="">BUSINESS IN THAILAND</h3>
-                                <p class="mb-4">As a market opportunity, Thailand’s geographic has propelled the
-                                    maquiladora industry near the U.S.- Thailand border and currently gives a vary of
-                                    businesses an alternative to Asia-based manufacturing and opportunities to sell into
-                                    the supply chain. Some of Thailand’s most promising sectors include: agribusiness;
-                                    auto parts & services; education services; energy; environmental; franchising;
-                                    housing & construction; packaging equipment; plastics and resins; security & safety
-                                    equipment and services; technology sectors; transportation infrastructure equipment
-                                    and services; travel & tourism services and the agricultural sector. To do business
-                                    in Thailand it is key to develop and maintain close relationships with clients and
-                                    partners. Thailand’s prefer direct communication such as telephone calls or
-                                    face-to-face meetings.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         </div>
 
     </section>
@@ -336,44 +256,7 @@
 
 
 
-    {{-- <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/animation.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/slick/slick.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/main.js"></script>
-    <script type="text/javascript">
-        $('.our_client').slick({
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 0,
-            speed: 4500,
-            cssEase: 'linear',
-            pauseOnHover: true,
-            responsive: [{
-                    breakpoint: 1280,
-                    settings: {
-                        slidesToShow: 3,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                }
-            ]
-        });
-    </script> --}}
+
 
 
 </body>

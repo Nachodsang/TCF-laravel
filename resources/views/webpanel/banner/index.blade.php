@@ -77,8 +77,8 @@
     <script>
         $(".loading").hide();
 
-        $('#imgUrl').on('keydown', function(e){
-            if(e.keyCode == 32){
+        $('#imgUrl').on('keydown', function(e) {
+            if (e.keyCode == 32) {
                 return false;
             }
         });
