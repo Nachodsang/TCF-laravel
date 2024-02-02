@@ -781,8 +781,8 @@
                 ts.find('input[name="im_class"]').val(image.attr('class'));
                 ts.find('input[name="im_alt"]').val(image.attr('alt'));
                 ts.find('input[name="im_title"]').val(image.attr('title'));
-                ts.find('input[name="width"]').val(image.attr('width'));
-                ts.find('input[name="height"]').val(image.attr('height'));
+                ts.find('input[name="im_width"]').val(image.attr('width'));
+                ts.find('input[name="im_height"]').val(image.attr('height'));
                 if(image.attr('data-href')!='')ts.find('input[name="hyperlink"]').val(image.attr('data-href'));
                 imgCodeObj.attr("src",ts.find('input[name="im_source"]').val());
                 imgCodeObj.attr("class",ts.find('input[name="im_class"]').val());
