@@ -73,6 +73,7 @@ class ConsultantCtrl extends Controller
             $consultant->image_alt = $request->imgAlt;
             $consultant->url = $request->url;
             $consultant->name = $request->name;
+            $consultant->description = $request->description;
             $consultant->detail = $request->detail_th;
             $consultant->seo_description = $request->seo_description;
             $consultant->seo_keyword = $request->seo_keyword;
@@ -99,7 +100,26 @@ class ConsultantCtrl extends Controller
         }
     }
 
-    
+    public function statusConsultant(request $request)
+    {
+        $consultant = ConsultantMd::find($request->id);
+        $log = new TaskMd;
+        if ($consultant->status == 0) {
+            $consultant->update(['status' => '1']);
+            $log->action = "online-consultant-$request->id";
+            $log->module = "consultant";
+            $log->action_by = Auth::user()->id;
+            $log->save();
+            return response()->json(true);
+        } else {
+            $consultant->update(['status' => '0']);
+            $log->action = "offline-consultant-$request->id";
+            $log->module = "consultant";
+            $log->action_by = Auth::user()->id;
+            $log->save();
+            return response()->json(true);
+        }
+    }
 
     public function checkUrl(request $request)
     {
@@ -112,5 +132,103 @@ class ConsultantCtrl extends Controller
         $query = ($query == 0) ? true : false;
 
         return response()->json($query);
+    }
+
+    public function show(string $id)
+    {
+        try {
+            $consultant = ConsultantMd::find($id);
+
+            return view('webpanel.consultant.index', [
+                'css' => [
+                    'css/skEditor.css'
+                ],
+                'js' => [
+                    'https://cdn.jsdelivr.net/npm/a-color-picker@1.1.8/dist/acolorpicker.js',
+                    'js/drag-arrange.js',
+                    'js/b64toBlob.js',
+                    'js/skEditor.js',
+                    'js/admin/consultant.js',
+                ],
+                'module' => 'consultant',
+                'page' => 'edit',
+                'consultant' => $consultant
+            ]);
+
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function update(Request $request, string $id)
+    {
+        try {
+            $update = ConsultantMd::find($id);
+
+            if ($request->imgConsultant) {
+                if ($update->image != '')
+                    Storage::disk(env('disk', 'ftp'))->delete($update->image);
+                $image = Image::make($request->imgConsultant->getRealPath());
+                $ext = '.' . explode("/", $image->mime())[1];
+                $fileName = 'consultant_cover_' . date('dmY-His');
+                $image->stream();
+                $newfile = 'images/consultant/' . $fileName . $ext;
+                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                $update->image = $newfile;
+            }
+
+            $update->image_title = $request->imgTitle;
+            $update->image_alt = $request->imgAlt;
+            $update->url = $request->url;
+            $update->name = $request->name;
+            $update->description = $request->description;
+            $update->detail = $request->detail_th;
+            $update->seo_description = $request->seo_description;
+            $update->seo_keyword = $request->seo_keyword;
+
+            $update->modified_by = Auth::user()->id;
+
+            if ($update->save()) {
+                $log = new TaskMd;
+                $log->action = "update-consultant-$update->id";
+                $log->module = "consultant";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json([
+                    "status" => 200,
+                ], 200);
+            } else {
+                return response()->json([
+                    "status" => 500,
+                ], 500);
+            }
+
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function destroy(string $id)
+    {
+        try {
+            $log = new TaskMd;
+            $data = ConsultantMd::find($id);
+            Storage::disk(env('disk', 'ftp'))->delete($data->image);
+            if ($data->delete()) {
+                $log->action = "delete-consultant-$id";
+                $log->module = "consultant";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json([
+                    "status" => 200,
+                ], 200);
+            } else {
+                return response()->json([
+                    "status" => 500,
+                ], 500);
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

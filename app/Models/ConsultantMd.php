@@ -10,4 +10,7 @@ class ConsultantMd extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'consultant';
+
+    protected $fillable = ['status'];
+
 }

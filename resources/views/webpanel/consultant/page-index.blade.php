@@ -57,8 +57,7 @@
                                             <a class="btn btn-warning rounded-pill btn-sm"
                                                 href="{{ url("webpanel/consultant/update/$v->id") }}" role="button"><i
                                                     class="far fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm rounded-pill deleteConsultant
-                                                data-id="{{ $v->id }}" href="javascript:0" role="button"><i
+                                            <a class="btn btn-danger btn-sm rounded-pill deleteConsultant" data-id="{{ $v->id }}" href="javascript:0" role="button"><i
                                                     class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>

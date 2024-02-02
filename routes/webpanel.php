@@ -40,7 +40,7 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::post('/status', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'statusBanner']);
         Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
         Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'destroy']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
     });
 
     Route::prefix('service')->group(function () {
@@ -48,9 +48,9 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::get('/add', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'addService']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'statusService']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'show']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'update']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'destroy']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
 
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'checkUrl']);
     });
@@ -99,9 +99,9 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::get('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'addConsultant']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'statusConsultant']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
 
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'checkUrl']);
     });

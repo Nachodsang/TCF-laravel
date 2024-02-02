@@ -202,7 +202,10 @@
                     },
                     required: true,
                 },
-                consultant: {
+                name: {
+                    required: true,
+                },
+                description: {
                     required: true,
                 },
                 detail_th: {
@@ -231,6 +234,9 @@
                 },
                 name: {
                     required: "กรุณากรอกข้อมูล"
+                },
+                description: {
+                    required: "กรุณากรอกข้อมูล",
                 },
                 detail_th: {
                     required: "กรุณากรอกข้อมูล"
@@ -307,6 +313,9 @@
                 name: {
                     required: true,
                 },
+                description: {
+                    required: true,
+                },
                 detail_th: {
                     required: true,
                 },
@@ -330,6 +339,9 @@
                 },
                 name: {
                     required: "กรุณากรอกข้อมูล"
+                },
+                description: {
+                    required: "กรุณากรอกข้อมูล",
                 },
                 detail_th: {
                     required: "กรุณากรอกข้อมูล"
@@ -383,6 +395,7 @@
         $(".deleteConsultant").on('click', function(e) {
             e.preventDefault();
             let id = $(this).attr('data-id');
+            console.log(id);
             $.ajax({
                 method: 'POST',
                 headers: {
