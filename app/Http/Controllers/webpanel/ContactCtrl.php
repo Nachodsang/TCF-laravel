@@ -60,7 +60,7 @@ class ContactCtrl extends Controller
             $get->telephone = $request->telephone;
             $get->mobile = $request->mobile;
             $get->email = $request->email;
-            $get->x = $request->x;
+            $get->twitter = $request->twitter;
             $get->fb = $request->fb;
             $get->ig = $request->ig;
             $get->yt = $request->yt;
@@ -75,7 +75,7 @@ class ContactCtrl extends Controller
             $new_contact->telephone = $request->telephone;
             $new_contact->mobile = $request->mobile;
             $new_contact->email = $request->email;
-            $new_contact->x = $request->x;
+            $new_contact->twitter = $request->twitter;
             $new_contact->fb = $request->fb;
             $new_contact->ig = $request->ig;
             $new_contact->yt = $request->yt;
