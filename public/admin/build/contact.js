@@ -55,7 +55,7 @@ document.addEventListener("click", function (e) {
         contactData.telephone = card.querySelector('input[name="telephone"]').value;
         contactData.mobile = card.querySelector('input[name="mobile"]').value;
         contactData.email = card.querySelector('input[name="email"]').value;
-        contactData.x = card.querySelector('input[name="twitter"]').value;
+        contactData.twitter = card.querySelector('input[name="twitter"]').value;
         contactData.fb = card.querySelector('input[name="fb"]').value;
         contactData.ig = card.querySelector('input[name="ig"]').value;
         contactData.yt = card.querySelector('input[name="yt"]').value;
