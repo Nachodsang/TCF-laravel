@@ -1,3 +1,6 @@
+@php
+    $logoFooter = \App\Models\HomeMd::where('type', 'logo-footer')->first();
+@endphp
 <section class="welcome-area">
     <div class="welcome-slides owl-carousel home-slider">
 
@@ -7,10 +10,12 @@
                     <div class="single-welcome-slide bg-img bg-overlay"
                         style="background-image: url('{{ $v->image }}');">
                         <div class="container h-100 position-relative">
-                            <div
-                                class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-primary shadow cover-logo">
-                                <img src="images/logoTCF.png" class="w-100" />
-                            </div>
+                            @if ($logoFooter)
+                                <div
+                                    class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-primary shadow cover-logo">
+                                    <img src="{{ $logoFooter->detail }}" class="w-100" />
+                                </div>
+                            @endif
                             <div class="row h-100 align-items-center">
                                 <!-- Welcome Text -->
                                 <div class="col-12 col-lg-8 col-xl-6">
@@ -32,10 +37,12 @@
                     <div class="single-welcome-slide bg-img bg-overlay"
                         style="background-image: url('{{ $v->image }}');">
                         <div class="container h-100 position-relative">
-                            <div
-                                class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-fouth shadow cover-logo">
-                                <img src="images/logoTCF.png" class="w-100" />
-                            </div>
+                            @if ($logoFooter)
+                                <div
+                                    class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-primary shadow cover-logo">
+                                    <img src="{{ $logoFooter->detail }}" class="w-100" />
+                                </div>
+                            @endif
                             <div class="row h-100 align-items-center">
                                 <!-- Welcome Text -->
                                 <div class="col-12 col-lg-8 col-xl-6">

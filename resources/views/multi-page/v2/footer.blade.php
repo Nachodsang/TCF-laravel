@@ -1,3 +1,9 @@
+<<<<<<< Updated upstream
+=======
+@php
+    $logoFooter = \App\Models\HomeMd::where('type', 'logo-footer')->first();
+@endphp
+>>>>>>> Stashed changes
 <footer class="footer section">
     @php
         $address = \App\Models\AddressMd::all();

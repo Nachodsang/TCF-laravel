@@ -131,7 +131,8 @@
                                             <i class="fas fa-phone-alt"></i>
                                         </div>
                                         <div class="text pl-3">
-                                            <p><span>Phone: </span> <a href="tel://"> {{ @$contact->telephone }}</a>
+                                            <p><span>Phone: </span> <a href="tel:{{ @$contact->telephone }}">
+                                                    {{ @$contact->telephone }}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -142,7 +143,7 @@
                                         </div>
                                         <div class="text pl-3">
                                             <p><span>Email:</span> <a
-                                                    href="{{ @$contact->email }}">{{ @$contact->email }}</a>
+                                                    href="mailto:{{ @$contact->email }}">{{ @$contact->email }}</a>
                                             </p>
                                         </div>
                                     </div>

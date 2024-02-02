@@ -37,8 +37,8 @@
                             <div class="form-group">
                                 <label for="telephone">Telephone</label>
                                 <input type="text" name="telephone" id="telephone" class="form-control"
-                                    old="{{ @$row->telephone }}" value="{{ @$row->telephone }}" pattern="[0-9]+"
-                                    @readonly(true)>
+                                    old="{{ @$row->telephone }}" value="{{ @$row->telephone }}" pattern="[0-9]-+"
+                                    readonly>
                             </div>
                         </div>
                         <div class="col-lg-4">

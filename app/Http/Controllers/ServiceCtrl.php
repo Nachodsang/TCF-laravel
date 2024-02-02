@@ -52,10 +52,15 @@ class ServiceCtrl extends Controller
         $detail = ServiceMd::where(['url' => $url, 'status' => 1])->first();
         $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
 
-        if ($detail) {
-            $serviceCat = $detail->cat_id;
 
-            $services = \App\Models\ServiceMd::where(['cat_id' => $serviceCat, 'status' => 1])->get();
+
+        $serviceCatId = $detail->cat_id;
+        $serviceCat = \App\Models\ServiceCatMd::where(['id' => $serviceCatId])->first();
+
+        if ($detail) {
+
+
+            $services = \App\Models\ServiceMd::where(['cat_id' => $serviceCatId, 'status' => 1])->get();
 
             // Extract the IDs of the services into an array
             $serviceIds = $services->pluck('id')->toArray();
@@ -93,7 +98,8 @@ class ServiceCtrl extends Controller
             'prev_service' => $prevService,
             'next_service' => $nextService,
             'service_cats' => $service_cats,
-            'keywords' => $keywords
+            'keywords' => $keywords,
+            'service_cat' => $serviceCat
         ];
 
         return view(config('web.folder_prefix') . "/service-detail", $data);
@@ -107,7 +113,7 @@ class ServiceCtrl extends Controller
             'folder_prefix' => $this->config['folder_prefix'],
             'detail' => $detail
         ];
-        return view($this->config['folder_prefix'] . "/serviceCat", $data);
+        return view($this->config['folder_prefix'] . "/serviceCatId", $data);
     }
 
     public function category(string $url)
