@@ -9,7 +9,8 @@
             <div class="col-md-12 text-center">
                 <div class="footer-heading">
                     <a href="{{ url('/') }}">
-                        <img src="@if ($logoFooter->detail){{ $logoFooter->detail }}@else/images/no_image.webp @endif" class="logo">
+                        <img src="@if ($logoFooter->detail) {{ $logoFooter->detail }}@else/images/no_image.webp @endif"
+                            class="logo">
                     </a>
                 </div>
                 <p class="menu">

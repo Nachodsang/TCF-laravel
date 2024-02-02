@@ -54,6 +54,10 @@
                             <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
+
+                            <a href="{{ url('/service') }}">Services <span class="icon material-symbols-outlined">
+                                    arrow_forward_ios
+                                </span></a>
                         </span> <span>Mergers & Acquisitions</span></p>
                     <h1 class="mb-0 bread">Mergers & Acquisitions</h1>
                 </div>
@@ -116,7 +120,7 @@
                             <ul class="dropdown-menu" aria-labelledby="industry-dropdown-name"
                                 style="max-height:250px;overflow:scroll;">
                                 <li id={{ 'All' }} value="0"
-                                    class=" industry-item cursor-pointer d-flex align-items-center header-dropdown  dropdown-item c-primary  cursor-pointer "
+                                    class=" industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
                                     name="header-menu">
 
 
@@ -126,7 +130,7 @@
                                     <span>All</span>
                                 </li>
                                 @foreach ($ma_industries as $k => $v)
-                                    <li class="capitalize industry-item cursor-pointer d-flex align-items-center header-dropdown  dropdown-item c-primary"
+                                    <li class="capitalize industry-item cursor-pointer d-flex align-items-center   dropdown-item c-primary"
                                         value={{ $v->id }} id="{{ $v->name }}">
                                         <div style="width:30px">
                                             {!! @$v->icon !!}
@@ -184,7 +188,6 @@
                                 </li>
                             </ul>
                         </li> --}}
-
 
 
 

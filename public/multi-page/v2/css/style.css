@@ -490,14 +490,14 @@ footer .copyright {
     display: flex;
 }
 
-.dropdown:focus-within > .dropdown-menu {
+/* .dropdown:focus-within > .dropdown-menu {
     display: block;
 }
 
 .dropdown > .dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
+
     pointer-events: none;
-}
+} */
 
 .dropdown-item:hover {
     color: var(--c-primary);
@@ -553,8 +553,18 @@ input:focus-visible {
     cursor: pointer;
 }
 
+
+.header-dropdown {
+    color: #000000A6;
+}
+
 .header-dropdown.active {
     background-color: var(--c-text-primary);
+}
+
+
+.dropdown-menu {
+    background-color:rgb(248,249,253);
 }
 
 .header-dropdown.active small {

@@ -26,7 +26,7 @@
                     {{-- <a class="nav-link" href={{ url('/service') }}>Service</a> --}}
                     <li class="dropdown nav-item">
                         <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
-                            id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             Service
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -48,47 +48,6 @@
                             </li>
                         </ul>
                     </li>
-
-                    {{-- <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-mdb-dropdown-init data-mdb-ripple-init aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div> --}}
-
-                    {{-- dropdown for mobile --}}
-
-                    {{-- <li class="dropdown nav-item">
-                        <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
-                            id="dropdownMenuButton" data-mdb-toggle="dropdown" data-mdb-dropdown-init
-                            data-mdb-ripple-init aria-expanded="false"">
-                            Service
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @foreach ($service_cats as $k => $v)
-                                @if ($v->type === 'sub-page')
-                                    <li><a name="header-menu" class="dropdown-item text-muted"
-                                            href="{{ url('/service/category/' . $v->url) }}">{{ $v->service_cat_name }}
-                                        </a>
-                                    </li>
-                                @else
-                                    <li><a name="header-menu" class="dropdown-item text-muted"
-                                            href="{{ url('/' . $v->url) }}">{{ $v->service_cat_name }}</a>
-                                    </li>
-                                @endif
-                            @endforeach
-
-                            <li><a name="header-menu" class="dropdown-item text-muted"
-                                    href={{ url('/service') }}>All</a>
-                            </li>
-                        </ul>
-                    </li> --}}
-
 
                     <li class="nav-item">
                         <a name="header-menu" class="nav-link" href={{ url('/consultant') }}>CONSULTANT</a>

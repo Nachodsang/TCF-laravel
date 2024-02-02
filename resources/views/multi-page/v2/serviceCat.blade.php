@@ -38,7 +38,11 @@
                             <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
-                        </span> <span>{{ $service_cat->service_cat_name }}</span></p>
+
+                            <a href="{{ url('/service') }}">Services <span class="icon material-symbols-outlined">
+                                    arrow_forward_ios
+                                </span></a>
+                            <span>{{ $service_cat->service_cat_name }}</span></p>
                     <h1 class="mb-0 bread">{{ $service_cat->service_cat_name }}</h1>
                 </div>
             </div>

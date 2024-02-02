@@ -35,7 +35,15 @@
                             <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
-                        </span> <span>Acounting Services</span></p>
+
+                            <a href="{{ url('/service') }}">Services <span class="icon material-symbols-outlined">
+                                    arrow_forward_ios
+                                </span></a>
+                            <a href="{{ url('/service/category/' . $service_cat->url) }}">{{ $service_cat->service_cat_name }}
+                                <span class="icon material-symbols-outlined">
+                                    arrow_forward_ios
+                                </span></a>
+                        </span> <span>{{ $detail->service }}</span></p>
                     <h1 class="mb-0 bread">{{ $detail->service }}</h1>
                 </div>
             </div>
