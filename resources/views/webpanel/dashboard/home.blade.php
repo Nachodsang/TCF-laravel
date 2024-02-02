@@ -148,11 +148,11 @@
                     <label for="">Logo in Footer</label>
                     <form action="webpanel/logo/footer" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group">
-                            <div class="img-thumbnail mb-2"
+                        <div class="form-group ">
+                            <div class="img-thumbnail mb-2 bg-secondary"
                                 style="min-height: 75px; display:flex; align-items:center; justify-content:center;">
-                                <span id="previewTitle"
-                                    @if (@$logoF->detail != '') class="d-none" @endif>Preview</span>
+                                <span id="previewTitle" @if (@$logoF->detail != '') class="d-none" @endif>Preview
+                                </span>
                                 <img @if (@$logoF->detail) src="{{ url($logoF->detail) }}" @endif
                                     @if (@$logoF->detail) data-src="{{ url($logoF->detail) }}" @endif
                                     class="img-fluid rounded img-preview @if (@!$logoF->detail) d-none @endif"

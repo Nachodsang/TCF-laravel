@@ -237,7 +237,7 @@
 
     <section class="section">
         <div class="container-fluid   ">
-            <div class="row d-flex align-items-center " data-wow-delay="0.1s">
+            <div class="row d-flex align-items-center container mx-auto " data-wow-delay="0.1s">
 
 
 
@@ -260,6 +260,10 @@
                         </div>
                     </div>
                 </div>
+
+
+            </div>
+
     </section>
 
     <section>

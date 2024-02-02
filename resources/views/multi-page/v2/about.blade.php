@@ -59,7 +59,10 @@
     <!-- ======= About Section ======= -->
     <section class="half-section my-4">
         <div class="container-fluid template-container ">
-            {!! @$row->detail_th !!}
+            <div class="container">
+
+                {!! @$row->detail_th !!}
+            </div>
         </div>
 
     </section>

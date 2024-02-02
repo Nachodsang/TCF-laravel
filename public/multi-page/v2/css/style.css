@@ -76,21 +76,21 @@ h2, h3, h4, .c-text-primary {
 
 h3,
 .h3 {
-    font-size: var(--font-h3) !important;
+    font-size: var(--font-h3) ;
 }
 
 h5,
 .h5 {
-    font-size: var(--font-h5) !important;
+    font-size: var(--font-h5) ;
 }
 
 h6,
 .h6 {
-    font-size: var(--font-h6) !important;
+    font-size: var(--font-h6) ;
 }
 
 p {
-    font-size: var(--font-p) !important;
+    font-size: var(--font-p) ;
 }
 
 a {
@@ -500,11 +500,12 @@ footer .copyright {
 } */
 
 .dropdown-item:hover {
-    color: var(--c-primary);
+    color: var(--c-bg-fouth);
 }
 
 .dropdown-menu {
     border: none;
+    background-color:white;
 }
 
 .template-container {
@@ -562,10 +563,6 @@ input:focus-visible {
     background-color: var(--c-text-primary);
 }
 
-
-.dropdown-menu {
-    background-color:rgb(248,249,253);
-}
 
 .header-dropdown.active small {
     color: white;

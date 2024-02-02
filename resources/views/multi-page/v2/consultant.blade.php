@@ -87,8 +87,8 @@
                                                 style=" transform:translateX(6px)">
                                                 <div class="service-icon btn-square shadow "
                                                     style="background-color:rgba(219,126,55,0.4)">
-                                                    <img src="images/Shuhei_Takahashi.jpg" alt="consultant"
-                                                        class="rounded-circle"
+                                                    <img src="{{ $consultants[$i]->image }}"
+                                                        alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle"
                                                         style="width:100%; height:100%; transform:translateX(-6px)" />
                                                 </div>
 
@@ -120,8 +120,8 @@
                                                 style=" transform:translateX(6px)">
                                                 <div class="service-icon btn-square shadow "
                                                     style="background-color:rgba(219,126,55,0.4)">
-                                                    <img src="images/Shuhei_Takahashi.jpg" alt="consultant"
-                                                        class="rounded-circle"
+                                                    <img src="{{ $consultants[$i]->image }}"
+                                                        alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle"
                                                         style="width:100%; height:100%; transform:translateX(-6px)" />
                                                 </div>
 

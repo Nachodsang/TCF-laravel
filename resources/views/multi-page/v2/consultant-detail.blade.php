@@ -52,7 +52,7 @@
                 <div class="row justify-content-center align-items-stretch">
                     <article class="col-lg-8 order-lg-2 px-lg-5 ce-animate ">
 
-                        <img src="images/blog-06.jpg" alt="Image" class="img-fluid rounded">
+
                         {!! $consultant->detail !!}
 
                         <div class="post-single-navigation d-flex align-items-stretch">
@@ -129,7 +129,8 @@
                             <div class="h3 mb-3">Get a Quote</div>
                             <div class="mb-3">If You Have Any Query, Please Contact Us</div>
                             <form action="#">
-                                <a href="contact.php" value="Contact Us" class="btn btn-primary btn-block">Contact
+                                <a href="{{ url('/contact') }}" value="Contact Us"
+                                    class="btn btn-primary btn-block">Contact
                                     Us</a>
                             </form>
                         </div>
