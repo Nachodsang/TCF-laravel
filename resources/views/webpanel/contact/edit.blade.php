@@ -58,9 +58,9 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <label for="x">X</label>
-                                <input type="text" class="form-control" name="x" id="x"
-                                    placeholder="url : https://x.com/" old="{{ @$row->x }}"
+                                <label for="x">Twitter</label>
+                                <input type="text" class="form-control" name="twitter" id="twitter"
+                                    placeholder="url : https://twitter.com/" old="{{ @$row->twitter }}"
                                     value="{{ @$row->x }}" @readonly(true)>
                             </div>
                         </div>

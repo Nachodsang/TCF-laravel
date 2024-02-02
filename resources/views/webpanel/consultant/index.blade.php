@@ -272,7 +272,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
-                            // location.reload();
+                            location.reload();
                         });
                     },
                     error: function() {

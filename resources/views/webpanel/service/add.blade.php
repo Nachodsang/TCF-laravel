@@ -23,7 +23,7 @@
                                             accept="image/*">
                                     </div>
                                     <div class="col-xl-6 mb-2">
-                                        <label for="imgAlt" class="form-label">Image Title : </label>
+                                        <label for="imgAlt" class="form-label">Image Alt : </label>
                                         <input type="text" class="form-control" id="imgAlt" name="imgAlt">
                                     </div>
                                     <div class="col-xl-6 mb-2">

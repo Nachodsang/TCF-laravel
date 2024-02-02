@@ -1,9 +1,6 @@
 @php
-    $social = \App\Models\contactMd::first();
     $logoHeader = \App\Models\HomeMd::where('type', 'logo-header')->first();
-    $logoFooter = \App\Models\HomeMd::where('type', 'logo-footer')->first();
 @endphp
-
 
 <header class=" sticky-top">
     <nav class="navbar navbar-expand-md navbar-bg ">

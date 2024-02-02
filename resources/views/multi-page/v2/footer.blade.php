@@ -1,112 +1,17 @@
-<!-- Back to Top -->
-{{-- <a href="#" class="btn btn-lg btn-top btn-lg-square rounded-circle back-to-top "><img
-        src="{{ config('web.folder_prefix') }}/images/triangle.png">Top</a>
-<footer class="">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <img src="@if (@$logoFooter->detail) {{ @$logoFooter->detail }}@else/images/no_image.webp @endif"
-                    class="img-fluid logo-footer">
-            </div>
-            <div class="col-lg-9 d-flex align-items-center justify-content-end">
-                <ul class="link-page mb-0">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/about') }}">About Us</a></li>
-                    <li><a href="{{ url('/service') }}">Service</a></li>
-                    <li><a href="{{ url('/blog') }}">Blog</a></li>
-                    <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                </ul>
-            </div>
-            <hr class="pb-1">
-            @php
-                $contact = \App\Models\ContactMd::first();
-                $address = \App\Models\AddressMd::all();
-                $social = \App\Models\contactMd::first();
-            @endphp
-            <div class="col-lg-7">
-                @if ($address->count() > 0)
-                    @foreach ($address as $k => $v)
-                        <div class="d-flex addressFooter">
-                            <div>
-                                <span class="material-symbols-outlined point">
-                                    highlighter_size_3
-                                </span>
-                            </div>
-                            <div>
-                                <strong class="mb-2">{{ $v->name }}</strong>
-                                <div class="my-2" style="max-width: 500px">{{ $v->address }}</div>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-4">
-                <div class="d-flex">
-                    <div>
-                        <span class="material-symbols-outlined point">
-                            highlighter_size_3
-                        </span>
-                    </div>
-                    <div>
-                        <strong class="mb-2">Contact</strong>
-                        <div class="my-2">Tel : {{ @$contact->telephone }}</div>
-                        <div class="my-2">Mobile : {{ @$contact->mobile }}</div>
-                        <div class="my-2">Email : {{ @$contact->email }}</div>
-                    </div>
-                </div>
-                <div class="d-flex mt-3">
-                    <div>
-                        <span class="material-symbols-outlined point">
-                            highlighter_size_3
-                        </span>
-                    </div>
-                    <div>
-                        <strong class="mb-2"> Follow</strong>
-                        <div class="social">
-                            <ul class="right-icons">
-                                <li><a class="icon-social me-1" target="_blank"
-                                        @if (@$social->x) href="{{ $social->x }}" @endif><img
-                                            src="{{ config('web.folder_prefix') }}\images\icon\x-twitter.png"
-                                            class="img-fluid" alt="x-twitter"></a></li>
-                                <li><a class="icon-social me-1" target="_blank"
-                                        @if (@$social->fb) href="{{ $social->fb }}" @endif><img
-                                            src="{{ config('web.folder_prefix') }}\images\icon\facebook.png"
-                                            class="img-fluid" alt="facebook"></a></li>
-                                <li><a class="icon-social me-1" target="_blank"
-                                        @if (@$social->ig) href="{{ $social->ig }}" @endif><img
-                                            src="{{ config('web.folder_prefix') }}\images\icon\instagram-02.png"
-                                            class="img-fluid" alt="instagram"></a></li>
-                                <li><a class="icon-social me-1" target="_blank"
-                                        @if (@$social->yt) href="{{ $social->yt }}" @endif><img
-                                            src="{{ config('web.folder_prefix') }}\images\icon\youtube.png"
-                                            class="img-fluid" alt="youtube"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer> --}}
 <footer class="footer section">
     @php
-        $contact = \App\Models\ContactMd::first();
         $address = \App\Models\AddressMd::all();
         $social = \App\Models\contactMd::first();
+        $logoFooter = \App\Models\HomeMd::where('type', 'logo-footer')->first();
     @endphp
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
-
                 <div class="footer-heading">
                     <a href="{{ url('/') }}">
-                        {{-- <img src="images/logo/logoTCF.png" class="logo"> --}}
-                        <img src="@if (@$logoFooter->detail) {{ @$logoFooter->detail }}@else/images/no_image.webp @endif"
-                            class="logo">
+                        <img src="@if ($logoFooter->detail){{ $logoFooter->detail }}@else/images/no_image.webp @endif" class="logo">
                     </a>
                 </div>
-
                 <p class="menu">
                     <a href="{{ url('/') }}">Home</a>
                     <a href="{{ url('/about') }}">About</a>
@@ -143,7 +48,6 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-12 text-center">
-
                 @if ($address->count() > 0)
                     @foreach ($address as $k => $v)
                         <div>
@@ -152,8 +56,6 @@
                         </div>
                     @endforeach
                 @endif
-
-
                 <div class="copyright">
                     Copyright ©
                     <script>

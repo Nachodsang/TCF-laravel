@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->string('telephone')->nullable();
                 $table->string('mobile')->nullable();
                 $table->string('email')->nullable();
-                $table->string('x')->nullable();
+                $table->string('twitter')->nullable();
                 $table->string('fb')->nullable();
                 $table->string('ig')->nullable();
                 $table->string('yt')->nullable();

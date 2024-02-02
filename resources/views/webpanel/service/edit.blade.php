@@ -23,12 +23,12 @@
                                         <input type="file" class="form-control" id="imgService" name="imgService" accept="image/*">
                                     </div>
                                     <div class="col-xl-6 mb-2">
-                                        <label for="imgTitle" class="form-label">Image Title : </label>
-                                        <input type="text" class="form-control" id="imgTitle" name="imgTitle" value="{{ $service->image_title }}">
-                                    </div>
-                                    <div class="col-xl-6 mb-2">
                                         <label for="imgAlt" class="form-label">Image Alt : </label>
                                         <input type="text" class="form-control" id="imgAlt" name="imgAlt" value="{{ $service->image_alt }}">
+                                    </div>
+                                    <div class="col-xl-6 mb-2">
+                                        <label for="imgTitle" class="form-label">Image Title : </label>
+                                        <input type="text" class="form-control" id="imgTitle" name="imgTitle" value="{{ $service->image_title }}">
                                     </div>
                                     <div class="col-xl-6 mb-2">
                                         <label for="url" class="form-label">URL : </label>
