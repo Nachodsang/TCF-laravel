@@ -1,9 +1,5 @@
 @php
     $logoHeader = \App\Models\HomeMd::where('type', 'logo-header')->first();
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 @endphp
 
 <header class=" sticky-top">
