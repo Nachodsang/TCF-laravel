@@ -30,7 +30,7 @@ document.addEventListener("click", function (e) {
         card.querySelector('input[name="telephone"]').value = card.querySelector('input[name="telephone"]').getAttribute("old");
         card.querySelector('input[name="mobile"]').value = card.querySelector('input[name="mobile"]').getAttribute("old");
         card.querySelector('input[name="email"]').value = card.querySelector('input[name="email"]').getAttribute("old");
-        card.querySelector('input[name="x"]').value = card.querySelector('input[name="x"]').getAttribute("old");
+        card.querySelector('input[name="twitter"]').value = card.querySelector('input[name="twitter"]').getAttribute("old");
         card.querySelector('input[name="fb"]').value = card.querySelector('input[name="fb"]').getAttribute("old");
         card.querySelector('input[name="ig"]').value = card.querySelector('input[name="ig"]').getAttribute("old");
         card.querySelector('input[name="yt"]').value = card.querySelector('input[name="yt"]').getAttribute("old");
@@ -39,7 +39,7 @@ document.addEventListener("click", function (e) {
         card.querySelector('input[name="telephone"]').setAttribute("readonly", true);
         card.querySelector('input[name="mobile"]').setAttribute("readonly", true);
         card.querySelector('input[name="email"]').setAttribute("readonly", true);
-        card.querySelector('input[name="x"]').setAttribute("readonly", true);
+        card.querySelector('input[name="twitter"]').setAttribute("readonly", true);
         card.querySelector('input[name="fb"]').setAttribute("readonly", true);
         card.querySelector('input[name="ig"]').setAttribute("readonly", true);
         card.querySelector('input[name="yt"]').setAttribute("readonly", true);
@@ -55,7 +55,7 @@ document.addEventListener("click", function (e) {
         contactData.telephone = card.querySelector('input[name="telephone"]').value;
         contactData.mobile = card.querySelector('input[name="mobile"]').value;
         contactData.email = card.querySelector('input[name="email"]').value;
-        contactData.x = card.querySelector('input[name="x"]').value;
+        contactData.x = card.querySelector('input[name="twitter"]').value;
         contactData.fb = card.querySelector('input[name="fb"]').value;
         contactData.ig = card.querySelector('input[name="ig"]').value;
         contactData.yt = card.querySelector('input[name="yt"]').value;
@@ -74,7 +74,7 @@ document.addEventListener("click", function (e) {
                     card.querySelector('input[name="telephone"]').setAttribute("readonly", true);
                     card.querySelector('input[name="mobile"]').setAttribute("readonly", true);
                     card.querySelector('input[name="email"]').setAttribute("readonly", true);
-                    card.querySelector('input[name="x"]').setAttribute("readonly", true);
+                    card.querySelector('input[name="twitter"]').setAttribute("readonly", true);
                     card.querySelector('input[name="fb"]').setAttribute("readonly", true);
                     card.querySelector('input[name="ig"]').setAttribute("readonly", true);
                     card.querySelector('input[name="yt"]').setAttribute("readonly", true);
@@ -124,7 +124,7 @@ document.addEventListener("click", function (e) {
         card.querySelector('input[name="telephone"]').removeAttribute("readonly");
         card.querySelector('input[name="mobile"]').removeAttribute("readonly");
         card.querySelector('input[name="email"]').removeAttribute("readonly");
-        card.querySelector('input[name="x"]').removeAttribute("readonly");
+        card.querySelector('input[name="twitter"]').removeAttribute("readonly");
         card.querySelector('input[name="fb"]').removeAttribute("readonly");
         card.querySelector('input[name="ig"]').removeAttribute("readonly");
         card.querySelector('input[name="yt"]').removeAttribute("readonly");
