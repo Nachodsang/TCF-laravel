@@ -231,15 +231,18 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><span name="header-menu"
-                                        class="dropdown-item min-income-item c-primary cursor-pointer">10 million
+                                        class="dropdown-item min-income-item c-primary cursor-pointer"
+                                        value="10000000">10 million
                                         Baht</a>
                                 </li>
                                 <li><span name="header-menu"
-                                        class="dropdown-item min-income-item  c-primary cursor-pointer">100 million
+                                        class="dropdown-item min-income-item  c-primary cursor-pointer"
+                                        value="100000000">100 million
                                         Baht</a>
                                 </li>
                                 <li><span name="header-menu"
-                                        class="dropdown-item min-income-item  c-primary cursor-pointer">1
+                                        class="dropdown-item min-income-item  c-primary cursor-pointer"
+                                        value="1000000000">1
                                         billion Baht</a>
                                 </li>
                             </ul>
@@ -253,15 +256,18 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><span name="header-menu"
-                                        class="dropdown-item max-income-item  c-primary cursor-pointer">10 million
+                                        class="dropdown-item max-income-item  c-primary cursor-pointer"
+                                        value="10000000">10 million
                                         Baht</a>
                                 </li>
                                 <li><span name="header-menu"
-                                        class="dropdown-item max-income-item c-primary cursor-pointer">100 million
+                                        class="dropdown-item max-income-item c-primary cursor-pointer"
+                                        value="100000000">100 million
                                         Baht</a>
                                 </li>
                                 <li><span name="header-menu"
-                                        class="dropdown-item max-income-item c-primary cursor-pointer">1 Billion
+                                        class="dropdown-item max-income-item c-primary cursor-pointer"
+                                        value="1000000000">1 Billion
                                         Baht</a>
                                 </li>
 
@@ -279,13 +285,13 @@
                                 Clear
                             </span>
                         </div>
-                        <div id="search-button"
+                        <button id="search-button"
                             class="w-25 rounded-2 c-bg-primary btn btn-secondary d-flex align-items-center justify-content-center">
                             <i class="fas fa-search-dollar fa-lg"></i>
                             <span>
                                 Search
                             </span>
-                        </div>
+                        </button>
 
                     </div>
 
@@ -310,8 +316,8 @@
                             <div class="modal-body" id="product-list">
                                 @if ($products)
                                     @foreach (@$products as $k => $v)
-                                        <div class="d-flex gap-2 text-capitalize" id="product-item"><input
-                                                type="checkbox" value={{ $v->id }} />{{ $v->name }}
+                                        <div class="d-flex gap-2 text-capitalize product-item"><input type="checkbox"
+                                                value={{ $v->id }} />{{ $v->name }}
                                         </div>
                                     @endforeach
                                 @endif
@@ -499,6 +505,7 @@
     </script>
 
     <script>
+        let industry, opportunity, product, min, max
         $(document).ready(function() {
 
             $('#clear-button').on('click', function() {
@@ -510,23 +517,44 @@
                 $('#search-input').val("")
             })
 
-            $('.min-income-item').on('mouseenter', function() {
+            $('.min-income-item').on('click', function() {
                 var minIncomeTitle = $(this).html();
                 $('[name="min-income"]').html(minIncomeTitle)
+
+                min = $(this).attr('value');
+                console.log(min)
             })
-            $('.max-income-item').on('mouseenter', function() {
+            $('.max-income-item').on('click', function() {
                 var maxIncomeTitle = $(this).html();
                 $('[name="max-income"]').html(maxIncomeTitle)
+                max = $(this).attr('value');
+                console.log(max)
             })
-            $('.opportunity-item').on('mouseenter', function() {
+            $('.opportunity-item').on('click', function() {
                 var opportunityTitle = $(this).html();
                 $('[name="opportunity-name"]').html(opportunityTitle)
+                opportunity = opportunityTitle
+                console.log(opportunity)
             })
-            $('.industry-item').on('mouseenter', function() {
+
+            $('.product-item').on('click', function() {
+                console.log('checking')
+
+                if ($(this).is(':checked')) {
+                    console.log('Checkbox is checked.');
+                    // Perform actions when the checkbox is checked
+                } else {
+                    console.log('Checkbox is unchecked.');
+                    // Perform actions when the checkbox is unchecked
+                }
+
+            })
+            $('.industry-item').on('click', function() {
                 console.log("click")
                 // Get the value attribute of the clicked item
                 var selectedValue = $(this).attr('value');
                 let selectedName = $(this).attr('id').toString();
+                industry = selectedValue
 
                 console.log(selectedName)
 
@@ -567,7 +595,8 @@
                             $('#product-list').append(
                                 "<div class=' d-flex gap-2 text-capitalize product-item' data-product-id='" +
                                 v.id + "'>" +
-                                "<input type='checkbox' value='' class='cursor-pointer'" +
+                                "<input type='checkbox'  value='" + v.id +
+                                "' class='cursor-pointer'" +
                                 v.id + "' />" +
                                 v.name +
                                 "</div>"
@@ -580,6 +609,10 @@
                     }
                 });
             });
+
+            $('#search-button').on('click', () => {
+                console.log(industry, opportunity, product, min, max)
+            })
         });
     </script>
 </body>

@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <div class="container-fluid template-container py-4">
+    <div class="container-fluid container py-4">
         <div class="row">
 
             <div class="col-md-6 pr-md-5 py-md-5 order-first  section wow fadeIn" data-wow-delay="0.5s">

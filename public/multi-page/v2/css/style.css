@@ -568,7 +568,7 @@ input:focus-visible {
     color: white;
 }
 
-.dropdown-item-selected {
+.dropdown-item:hover {
     color: var(--c-primary);
     background-color: var(--bs-dropdown-link-hover-bg);
 }

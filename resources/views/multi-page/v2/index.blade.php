@@ -57,7 +57,7 @@
             <div class="container ">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-5 heading-section wow fadeIn" data-wow-delay="0.1s ">
-                        <div class="subheading mb-2">TOKYO CONSULTING GROUP</div>
+                        <div class="subheading mb-2">TOKYO CONSULTING FIRM</div>
                         <h2 class="mb-4">Our Services</h2>
                         <p class="mb-4">{{ @$about_service->about_service_home }}</p>
                         <a class="btn btn-primary " href="{{ url('/service') }}">All Services</a>
@@ -274,7 +274,7 @@
                     <span class="subheading mb-2">Updated Content to boost your business growth</span>
                     <h2 class="mb-5">Blogs</h2>
                 </div>
-                <div class="row g-5 gx-4">
+                <div class="row g-5 gx-4 hidden" id="blog-narrow">
                     @if (@$blog)
                         @foreach ($blog->data as $i => $v)
                             <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp"
@@ -311,6 +311,45 @@
                     @endif
 
                 </div>
+                <div class="row g-5 gx-4 hidden" id="blog-wide">
+                    @if (@$blog)
+                        @foreach ($blog->data as $i => $v)
+                            @if ($i < 3)
+                                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp"
+                                    data-wow-delay="0.{{ $i }}s">
+                                    <div class="blog-item">
+                                        <div class="position-relative">
+
+                                            <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                            <div class="blog-overlay">
+                                                <a class="btn btn-square btn-primary rounded-circle m-1"
+                                                    href="{{ $v->url }}">
+
+                                                    <i class="far fa-eye fa-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-3 blog-card-text">
+                                            <div class="meta mb-2">
+                                                @php
+                                                    $dateString = $v->publish;
+                                                    $dateTime = new DateTime($dateString);
+                                                    $formattedDate = $dateTime->format('F j, Y');
+                                                @endphp
+
+                                                <span>{{ $formattedDate }}</span>
+                                            </div>
+                                            <a class="d-block" href="{{ $v->url }}">
+                                                <h3>{{ $v->name }}</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
+
+                </div>
             </div>
             <div class="text-center">
                 <a class="btn btn-primary" href={{ url('/blog') }}>All Blogs</a>
@@ -338,6 +377,27 @@
     <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/slick/slick.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/active.js"></script>
+
+    <script>
+        const checkScreenWidth = () => {
+
+            if (window.innerWidth > 990) {
+                $("#blog-narrow").addClass('hidden')
+                $("#blog-wide").removeClass('hidden')
+            } else {
+                $("#blog-narrow").removeClass('hidden')
+                $("#blog-wide").addClass('hidden')
+            }
+
+
+
+        }
+        window.addEventListener('resize', checkScreenWidth);
+        window.onload = checkScreenWidth
+    </script>
+
+
+
 </body>
 
 </html>

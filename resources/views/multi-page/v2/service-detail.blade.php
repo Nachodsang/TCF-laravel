@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="{{ url('/') }}">
-    <title>Tokyo Consulting Group</title>
+    <title>Tokyo Consulting Firm</title>
     <link href="images/logo/TCGicon.ico" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">

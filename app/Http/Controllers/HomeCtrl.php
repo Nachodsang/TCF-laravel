@@ -25,7 +25,7 @@ class HomeCtrl extends Controller
         $blog = Http::get('https://at-once.info/api/blog/company', [
             'id' => $this->config['customerId'],
             'page' => 1,
-            'perPage' => 3
+            'perPage' => 4
         ])->object();
         $about = \App\Models\AboutUsMd::find(1);
         $about_service = \App\Models\AboutServiceMd::find(1);
