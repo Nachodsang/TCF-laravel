@@ -59,7 +59,7 @@
                 <div class="row justify-content-center align-items-stretch">
                     <article class="col-lg-8 order-lg-2 px-lg-5 ce-animate ">
 
-                        <img src="images/blog-06.jpg" alt="Image" class="img-fluid rounded">
+                        <img src="images/blog-6.jpg" alt="Image" class="img-fluid rounded">
                         {!! $detail->details !!}
 
 

@@ -99,47 +99,67 @@
                         <div class="col-md-12 heading-section">
                             <span class="subheading mb-2">Tokyo consulting Firm</span>
                             <h2 class="">OUR HISTORY</h2>
-                            <p class="mb-4">Tokyo Consulting Firm is global accounting firm & CPA firm in Thailand and
-                                has over 700 clients all over the world. TCF Thailand provides professional services in
-                                the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services and IT Services.
-                                With the current boom in investment from Japan, Tokyo Consulting strives to provide
-                                quality service to its clients and serve as a bridge all over the world.</p>
+                            <p class="mb-4">
+                                <font size="2" style>
+                                    has over 700 clients all over the world. TCF Thailand provides professional services
+                                    in
+                                    the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services and IT
+                                    Services.
+                                    With the current boom in investment from Japan, Tokyo Consulting strives to provide
+                                    quality service to its clients and serve as a bridge all over the world.
+                                </font>
+                            </p>
                             <h3 class="mb-2">WHAT IS OUR DIFFERENTIATION?</h3>
-                            <p>We can support as the position of external CFO
-                                We can offer by overwhelmingly reasonable price than major audit firm in Thailand
-                                We can support one-stop service – accounting, taxation, labor and legal affairs.
 
+
+                            Tokyo Consulting Firm is global accounting firm & CPA firm in Thailand and
+                            <p>
+                                <font size="2" style>We can support as the position of external CFO
+                                    We can offer by overwhelmingly reasonable price than major audit firm in Thailand
+                                    We can support one-stop service – accounting, taxation, labor and legal affairs.
+                                </font>
                             </p>
                             <h3 class="">LEADING OVER 80% OF OUR CLIENTS TO POSITIVE CASH-FLOW.</h3>
-                            <p class="mb-4">We always provide you up-to-date information by “Wiki-Investment”, the
-                                data base of foreign direct investment.
-                                Rapid response is possible.
-                                We lead your business to success by using our original Monthly Strategic Report
-                                We can help your reporting to the parent company.
-                                We can offer multi courtiers service because we have 44 locations in 27 countries.
-                                We can provide Employee Evaluation System that promote sales and productivity in
-                                organization.</p>
+                            <p class="mb-4">
+                                <font size="2" style>
+                                    We always provide you up-to-date information by “Wiki-Investment”, the
+                                    data base of foreign direct investment.
+                                    Rapid response is possible.
+                                    We lead your business to success by using our original Monthly Strategic Report
+                                    We can help your reporting to the parent company.
+                                    We can offer multi courtiers service because we have 44 locations in 27 countries.
+                                    We can provide Employee Evaluation System that promote sales and productivity in
+                                    organization.
+                                </font>
+                            </p>
                             <h3 class="">BUSINESS IN THAILAND</h3>
-                            <p class="mb-4">As a market opportunity, Thailand’s geographic has propelled the
-                                maquiladora industry near the U.S.- Thailand border and currently gives a vary of
-                                businesses an alternative to Asia-based manufacturing and opportunities to sell into the
-                                supply chain. Some of Thailand’s most promising sectors include: agribusiness; auto
-                                parts & services; education services; energy; environmental; franchising; housing &
-                                construction; packaging equipment; plastics and resins; security & safety equipment and
-                                services; technology sectors; transportation infrastructure equipment and services;
-                                travel & tourism services and the agricultural sector. To do business in Thailand it is
-                                key to develop and maintain close relationships with clients and partners. Thailand’s
-                                prefer direct communication such as telephone calls or face-to-face meetings.</p>
+                            <p class="mb-4">
+                                <font size="2" style>As a market opportunity, Thailand’s geographic has propelled
+                                    the
+                                    maquiladora industry near the U.S.- Thailand border and currently gives a vary of
+                                    businesses an alternative to Asia-based manufacturing and opportunities to sell into
+                                    the
+                                    supply chain. Some of Thailand’s most promising sectors include: agribusiness; auto
+                                    parts & services; education services; energy; environmental; franchising; housing &
+                                    construction; packaging equipment; plastics and resins; security & safety equipment
+                                    and
+                                    services; technology sectors; transportation infrastructure equipment and services;
+                                    travel & tourism services and the agricultural sector. To do business in Thailand it
+                                    is
+                                    key to develop and maintain close relationships with clients and partners.
+                                    Thailand’s
+                                    prefer direct communication such as telephone calls or face-to-face meetings.
+                                </font>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 p-0">
-                <div style="transform: translateX(20px); background-color:rgba(219,126,55,0.4);"
-                    class="image hover-effect  rounded-circle img-container shadow">
-                    <img style="transform: translateX(-20px);" alt="" src="images/ceo2.jpg"
-                        class="rounded-circle w-100  img-fluid equalheight">
-                </div>
+
+                <img style="" alt="" src="images/002.png"
+                    class="rounded-circle w-100  img-fluid equalheight">
+
             </div>
         </div>
     </div>

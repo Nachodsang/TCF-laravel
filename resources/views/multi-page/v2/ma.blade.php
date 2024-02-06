@@ -298,126 +298,37 @@
             </div>
 
             <div class="row g-5">
-                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <div class="corner-sale"><span>TO SALE</span></div>
-                            <img class="img-fluid" src="images/robotic-hand.jpg" alt="">
-                            <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-tech.php"> <i
-                                        class="far fa-eye fa-lg"></i></a>
+                @foreach ($ma_blogs as $k => $v)
+                    @php
+                        $dateString = $v->date;
+                        $dateTime = new DateTime($dateString);
+                        $formattedDate = $dateTime->format('F j, Y');
+                    @endphp
+                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                @if ($v->opportunity == 2)
+                                    <div class="corner-sale"><span>TO SALE</span></div>
+                                @elseif($v->opportunity == 1)
+                                    <div class="corner-buy"><span>TO BUY</span></div>
+                                @endif
+                                <img class="img-fluid" src="{{ $v->image }}" alt="">
+                                <div class="blog-overlay">
+                                    <a class="btn btn-square btn-primary rounded-circle m-1"
+                                        href="{{ $v->url }}"> <i class="far fa-eye fa-lg"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="meta mb-2">
-                                <span>September 25, 2023</span>
+                            <div class="text-center p-4">
+                                <div class="meta mb-2">
+                                    <span>{{ $formattedDate }}</span>
+                                </div>
+                                <a class="d-block" href="{{ $v->url }}">
+                                    <h3>{{ $v->title }}</h3>
+                                </a>
                             </div>
-                            <a class="d-block" href="m&a-tech.php">
-                                <h3>TechInnovate Invites Strategic Acquisition Partners</h3>
-                            </a>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <div class="corner-sale"><span>TO SALE</span></div>
-                            <img class="img-fluid" src="images/car-assembly1.jpg" alt="">
-                            <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-auto.php"><i
-                                        class="far fa-eye fa-lg"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="meta mb-2">
-                                <span>September 25, 2023</span>
-                            </div>
-                            <a class="d-block" href="m&a-auto.php">
-                                <h3> Anonymous Company Seeks Merger for Automotive Innovation</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <div class="corner-buy"><span>TO BUY</span></div>
-                            <img class="img-fluid" src="images/doctor1.jpg" alt="">
-                            <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-health-care.php"><i
-                                        class="far fa-eye fa-lg"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="meta mb-2">
-                                <span>September 25, 2023</span>
-                            </div>
-                            <a class="d-block" href="m&a-health-care.php">
-                                <h3>Anonymous Company Open to Strategic Merger Opportunities</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <div class="corner-buy"><span>TO BUY</span></div>
-                            <img class="img-fluid" src="images/clean-en.jpg" alt="">
-                            <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-energy.php"><i
-                                        class="far fa-eye fa-lg"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="meta mb-2">
-                                <span>September 25, 2023</span>
-                            </div>
-                            <a class="d-block" href="m&a-energy.php">
-                                <h3>Anonymous Company Explores M&A for Renewable Energy Solutions</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <div class="corner-buy"><span>TO BUY</span></div>
-                            <img class="img-fluid" src="images/coins.jpg" alt="">
-                            <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-financial.php"><i
-                                        class="far fa-eye fa-lg"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="meta mb-2">
-                                <span>September 25, 2023</span>
-                            </div>
-                            <a class="d-block" href="m&a-financial.php">
-                                <h3>Anonymous Company Paves the Way for M&A in Financial Services</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="blog-item">
-                        <div class="position-relative">
-                            <div class="corner-sale"><span>TO SALE</span></div>
-                            <img class="img-fluid" src="images/retail1.jpg" alt="">
-                            <div class="blog-overlay">
-                                <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-retail.php"><i
-                                        class="far fa-eye fa-lg"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="meta mb-2">
-                                <span>September 25, 2023</span>
-                            </div>
-                            <a class="d-block" href="m&a-retail.php">
-                                <h3>Anonymous Company Invites Merger Discussions in Retail Innovation</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -491,7 +402,7 @@
                     toast: true,
                     position: "top",
                     showConfirmButton: false,
-                    timer: 1300,
+                    timer: 500,
                     timerProgressBar: true,
                     didOpen: (toast) => {
                         toast.onmouseenter = Swal.stopTimer;
@@ -545,8 +456,7 @@
 
                 $('.opportunity-item').each(
                     function() {
-
-                        $(this).val() == opportunity ? $(this).addClass(
+                        $(this).attr('value') == opportunity ? $(this).addClass(
                             'dropdown-item-selected') : $(this).removeClass(
                             'dropdown-item-selected')
                     })
@@ -558,26 +468,19 @@
 
 
             $('.industry-item').on('click', function() {
-                console.log("click")
+
                 // Get the value attribute of the clicked item
                 var selectedValue = $(this).attr('value');
                 let selectedName = $(this).attr('id').toString();
                 industry = selectedValue
 
-                console.log(selectedName)
 
 
                 $('#industry-dropdown-name').html(selectedName);
                 $('#exampleModalLabel').html(selectedName);
                 $('#advance-search').removeClass('d-none');
 
-                // if ($(this).attr('value') == selectedValue) {
-                //     $(this).addClass('dropdown-item-selected')
-                //     console.log('yes')
-                // } else {
-                //     $('.industry-item').removeClass('dropdown-item-selected')
-                //     console.log('no')
-                // }
+
 
                 $('.industry-item').each(
                     function() {
@@ -600,16 +503,17 @@
                     method: 'get',
                     url: `m&a/product/${selectedValue}`,
 
+
                     success: function(res) {
                         products = []
-                        console.log(res)
+                        // console.log(res)
                         // Clear existing checkboxes
                         $('#product-list').html("");
                         const Toast = Swal.mixin({
                             toast: true,
                             position: "top",
                             showConfirmButton: false,
-                            timer: 1300,
+                            timer: 1000,
                             timerProgressBar: true,
                             didOpen: (toast) => {
                                 toast.onmouseenter = Swal.stopTimer;
@@ -654,7 +558,7 @@
                                 toast: true,
                                 position: "top",
                                 showConfirmButton: false,
-                                timer: 1300,
+                                timer: 500,
                                 timerProgressBar: true,
                                 didOpen: (toast) => {
                                     toast.onmouseenter = Swal.stopTimer;
@@ -688,7 +592,7 @@
                                 toast: true,
                                 position: "top",
                                 showConfirmButton: false,
-                                timer: 2000,
+                                timer: 500,
                                 timerProgressBar: true,
                                 didOpen: (toast) => {
                                     toast.onmouseenter = Swal.stopTimer;
@@ -721,24 +625,36 @@
                     max,
                     search
                 }
-                console.log({
-                    data
-                })
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top",
-                    showConfirmButton: false,
-                    timer: 1300,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
+                // console.log({
+                //     data
+                // })
+                // var queryString = $.param(data);
+                $.ajax({
+                    method: 'get',
+                    url: `m&a/filter/`,
+                    dataType: 'json',
+                    data: data,
+                    success: function(res) {
+
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top",
+                            showConfirmButton: false,
+                            timer: 500,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: "success",
+                            title: `Searching`
+                        });
+
+                        console.log(res)
                     }
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: `Searching`
-                });
+                })
             })
         });
     </script>
