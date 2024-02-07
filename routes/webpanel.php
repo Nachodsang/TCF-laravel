@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\webpanel\maCtrl;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -104,6 +105,21 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
 
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'checkUrl']);
+    });
+
+    Route::prefix('ma')->group(function() {
+        Route::get('/',[maCtrl::class,'index']);
+        Route::get('/add',[maCtrl::class,'add']);
+        Route::post('/add',[maCtrl::class,'store']);
+        Route::post('/status', [maCtrl::class, 'statusIndustry']);
+
+        Route::get('/update/{id}', [maCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
+        Route::get('/product/update/{id}', [maCtrl::class, 'showProduct'])->where(['id'=>'[0-9]+']);
+
+        Route::post('/update/{id}', [maCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
+
+        Route::delete('/industry/delete/{id}', [maCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
+        Route::delete('/product/delete/{id}', [maCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
     });
 });
 
