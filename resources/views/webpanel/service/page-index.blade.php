@@ -10,7 +10,8 @@
                 <div class="card-body">
                     <table class="table caption-top table-hover">
                         <caption>List of Service<a href="{{ url('webpanel/service/add') }}"
-                                class="btn btn-primary btn-sm rounded-pill float-right"><i class="fas fa-plus fa-xs"></i> ADD</a>
+                                class="btn btn-primary btn-sm rounded-pill float-right"><i
+                                    class="fas fa-plus fa-xs"></i> ADD</a>
                         </caption>
                         <thead>
                             <tr>
@@ -38,7 +39,9 @@
                                                 <p>{{ $v->seo_description }}</p>
                                             </div>
                                         </td>
-                                        <td class="text-center"><div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div></td>
+                                        <td class="text-center">
+                                            <div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div>
+                                        </td>
                                         <td class="text-center">{{ $v->created_at }}</td>
                                         <td class="text-center">
                                             <div class="form-switch">
@@ -51,8 +54,9 @@
                                             <a class="btn btn-warning rounded-pill btn-sm"
                                                 href="{{ url("webpanel/service/update/$v->id") }}" role="button"><i
                                                     class="far fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm rounded-pill deleteService" data-id="{{ $v->id }}"
-                                                href="javascript:0" role="button"><i class="far fa-trash-alt"></i></a>
+                                            <a class="btn btn-danger btn-sm rounded-pill deleteService"
+                                                data-id="{{ $v->id }}" href="javascript:0" role="button"><i
+                                                    class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -65,6 +69,7 @@
                             @endif
                         </tbody>
                     </table>
+                    {{ $service->appends($_GET)->links() }}
                 </div>
             </div>
         </div>

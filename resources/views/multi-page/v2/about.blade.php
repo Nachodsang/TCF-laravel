@@ -67,25 +67,29 @@
 
     </section>
     {{-- company philosophy --}}
-    <section class="why-us section philosophy c-bg-secondary"
-        style="background-image: url('images/bangkok-city.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center; position: relative;">
+    <section class="why-us section philosophy-background c-bg-secondary">
+        <div class="section position-relative">
+            <div class="section w-100 h-100 position-absolute top-0"
+                style="background-image: url('images/bangkok-city.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center; position: relative; filter:blur(0px)">
 
-        <!-- Dark overlay -->
-        <div
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: -1;">
-        </div>
-
-        <div class="container" data-aos="fade-up">
-            <div class="section-title heading-section d-flex flex-column align-items-center text-white">
-                <span class=" mb-3">OUR PHILOSOPHY</span>
-                <span class="h1 mb-2 text-uppercase font-weight-bold " style="font-weight: 300;">What we give is
-                    What we get
-                </span>
-                <span class="h1 mb-2 text-uppercase font-weight-bold" style="font-weight: 300;">
-                    Every issue comes from me
-                </span>
-                <span class="h1 mb-3 text-uppercase font-weight-bold" style="font-weight: 300;">
-                    Expand our responsibility</span>
+            </div>
+            <div class="position-absolute top-0 w-100 h-100  opacity-75 z-0  "
+                style="background-color: rgba(135, 80, 39);">
+            </div>
+            <div class="z-1 position-relative">
+                <div class="container" data-aos="fade-up">
+                    <div class="section-title heading-section d-flex flex-column align-items-center text-white">
+                        <span class=" mb-3" style="font-weight: 500;">OUR PHILOSOPHY</span>
+                        <span class="h1 mb-2 text-uppercase  " style="font-weight: 500;">What we give is
+                            What we get
+                        </span>
+                        <span class="h1 mb-2 text-uppercase" style="font-weight: 500;">
+                            Every issue comes from me
+                        </span>
+                        <span class="h1 mb-3 text-uppercase" style="font-weight: 500;">
+                            Expand our responsibility</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

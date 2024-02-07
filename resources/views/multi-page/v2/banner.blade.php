@@ -48,7 +48,9 @@
                                 <div class="col-12 col-lg-8 col-xl-6">
                                     <div class="welcome-text">
                                         <h2 data-animation="bounceInDown" data-delay="900ms">Welcome</h2>
-                                        <p data-animation="bounceInDown" data-delay="500ms">{{ $about->description_th }}
+                                        <p class="p-4 bg-primary rounded" data-animation="bounceInDown"
+                                            data-delay="500ms">
+                                            {{ $about->description_th }}
                                         </p>
                                         <div class="hero-btn-group" data-animation="bounceInDown" data-delay="100ms">
                                             <a href="{{ url('/service') }}"

@@ -205,7 +205,7 @@
                 service: {
                     required: true,
                 },
-                service_category:{
+                service_category: {
                     required: true,
                 },
                 detail_th: {
@@ -235,7 +235,7 @@
                 service: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                service_category:{
+                service_category: {
                     required: "กรุณาเลือกหมวดหมู่"
                 },
                 detail_th: {
@@ -313,7 +313,7 @@
                 service: {
                     required: true,
                 },
-                service_category:{
+                service_category: {
                     required: true,
                 },
                 detail_th: {
@@ -340,7 +340,7 @@
                 service: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                service_category:{
+                service_category: {
                     required: "กรุณาเลือกหมวดหมู่"
                 },
                 detail_th: {

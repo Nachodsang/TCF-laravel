@@ -73,29 +73,30 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="label" for="name">Full Name</label>
+                                                    <label class="label" for="name">Contact Person</label>
                                                     <input type="text" class="form-control" name="name"
-                                                        id="name" placeholder="Name">
+                                                        id="name" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="label" for="email">Email Address</label>
                                                     <input type="email" class="form-control" name="email"
-                                                        id="email" placeholder="Email">
+                                                        id="email" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="label" for="telephone">telephone</label>
                                                     <input type="text" class="form-control" name="telephone"
-                                                        id="telephone" placeholder="telephone">
+                                                        id="telephone" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="label" for="detail">Message</label>
-                                                    <textarea name="detail" class="form-control" id="detail" cols="30" rows="4" placeholder="detail"></textarea>
+                                                    <textarea name="detail" class="form-control" id="detail" cols="30" rows="5" placeholder=""
+                                                        style="height:100px;"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
