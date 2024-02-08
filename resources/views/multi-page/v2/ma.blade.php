@@ -78,158 +78,126 @@
                         <i class="fas fa-funnel-dollar fa-lg "></i>
                         <h3 style="margin-bottom:0;">Filter</h3>
                     </div>
-                    <div class="d-flex w-100 gap-1">
-                        {{-- <div class="dropdown rounded-2 px-4 c-bg-secondary py-2">
-
-                            <a class="dropdown-toggle " id="industry-dropdown-name" type="button"
-                                id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false"
-                                style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;">
-                                Industry
-                            </a>
-                            <ul class="dropdown-menu" style="height: 250px; overflow:scroll;  "
-                                aria-labelledby="industry-dropdown-name">
-                                <li id={{ 'All' }} value="0"
-                                    class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
-                                    name="header-menu">
-
-
-                                    <div style="width:30px">
-                                        <i class="fas fa-cube"></i>
-                                    </div>
-                                    <span>All</span>
-                                </li>
-                                @foreach ($ma_industries as $k => $v)
-                                    <li class="industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary"
-                                        value={{ $v->id }} id={{ $v->name }} name="header-menu">
+                    <div class="row mb-1">
+                        <div class="col-xl-3 mb-1">
+                            <div class="dropdown rounded-2 c-bg-secondary w-100 p-2">
+                                <a name="industry-name" href="#"
+                                    class="nav-link dropdown-toggle overflow-hidden capitalize c-text-primary"
+                                    type="button" id="industry-dropdown-name" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Industry
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="industry-dropdown-name"
+                                    style="max-height:250px;overflow:scroll;">
+                                    <li id={{ 'All' }} value="0"
+                                        class=" industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
+                                        name="header-menu">
                                         <div style="width:30px">
-                                            {!! @$v->icon !!}
+                                            <i class="fas fa-cube"></i>
                                         </div>
-                                        <span>
-                                            {{ $v->name }}
-                                        </span>
+                                        <span>All</span>
                                     </li>
-                                @endforeach
-                            </ul>
-                        </div> --}}
-                        <div class="dropdown rounded-2 px-4 c-bg-secondary py-2 w-25 ">
-                            <a name="industry-name" href="#"
-                                class="nav-link dropdown-toggle overflow-hidden capitalize c-text-primary"
-                                type="button" id="industry-dropdown-name" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Industry
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="industry-dropdown-name"
-                                style="max-height:250px;overflow:scroll;">
-                                <li id={{ 'All' }} value="0"
-                                    class=" industry-item cursor-pointer d-flex align-items-center  dropdown-item c-primary  cursor-pointer "
-                                    name="header-menu">
-                                    <div style="width:30px">
-                                        <i class="fas fa-cube"></i>
-                                    </div>
-                                    <span>All</span>
-                                </li>
-                                @foreach ($ma_industries as $k => $v)
-                                    <li class="capitalize industry-item cursor-pointer d-flex align-items-center   dropdown-item c-primary"
-                                        value={{ $v->id }} id="{{ $v->name }}">
-                                        <div style="width:30px">
-                                            {!! @$v->icon !!}
-                                        </div>
-                                        <span>
-                                            {{ $v->name }}
-                                        </span>
+                                    @foreach ($ma_industries as $k => $v)
+                                        <li class="capitalize industry-item cursor-pointer d-flex align-items-center   dropdown-item c-primary"
+                                            value={{ $v->id }} id="{{ $v->name }}">
+                                            <div style="width:30px">
+                                                {!! @$v->icon !!}
+                                            </div>
+                                            <span>
+                                                {{ $v->name }}
+                                            </span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 p-0 mb-1">
+                            <input id="search-input" class="rounded-2 c-bg-secondary w-100 p-2" type="text"
+                                placeholder="Search ..." />
+                        </div>
+                        <div class="col-xl-3 mb-1">
+                            <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
+                                <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                                    name="opportunity-name">
+                                    Opportunity
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><span name="header-menu"
+                                            class="dropdown-item opportunity-item c-primary cursor-pointer"
+                                            value="1">Buy</a>
                                     </li>
-                                @endforeach
-                            </ul>
+                                    <li><span name="header-menu"
+                                            class="dropdown-item opportunity-item  c-primary cursor-pointer"
+                                            value="2">Sale</a>
+                                    </li>
+                                    <li><span name="header-menu"
+                                            class="dropdown-item opportunity-item  c-primary cursor-pointer"
+                                            value="0">All</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <input id="search-input" class="w-50 rounded-2 c-bg-secondary px-4 py-2 " type="text"
-                            placeholder="Search ..." />
-
-                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2 w-25">
-
-                            <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
-                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
-                                name="opportunity-name">
-                                Opportunity
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><span name="header-menu"
-                                        class="dropdown-item opportunity-item c-primary cursor-pointer"
-                                        value="1">Buy</a>
-                                </li>
-                                <li><span name="header-menu"
-                                        class="dropdown-item opportunity-item  c-primary cursor-pointer"
-                                        value="2">Sale</a>
-                                </li>
-                                <li><span name="header-menu"
-                                        class="dropdown-item opportunity-item  c-primary cursor-pointer"
-                                        value="0">All</a>
-                                </li>
-                            </ul>
-                        </div>
-
-
-
-
                     </div>
-                    <div class="d-flex  w-100 gap-1  d-none" id="advance-search">
-                        <button class="product-modal w-50 rounded-2 c-bg-secondary px-4 py-2 text-start"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal" id="modalButton">Product</button>
-                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2  w-50">
-
-                            <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
-                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
-                                name="min-income">
-                                Minimum Yearly Income
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><span name="header-menu"
-                                        class="dropdown-item min-income-item c-primary cursor-pointer"
-                                        value="10000000">10 million
-                                        Baht</a>
-                                </li>
-                                <li><span name="header-menu"
-                                        class="dropdown-item min-income-item  c-primary cursor-pointer"
-                                        value="100000000">100 million
-                                        Baht</a>
-                                </li>
-                                <li><span name="header-menu"
-                                        class="dropdown-item min-income-item  c-primary cursor-pointer"
-                                        value="1000000000">1
-                                        billion Baht</a>
-                                </li>
-                            </ul>
+                    <div class="row d-none" id="advance-search">
+                        <div class="col-xl-4 mb-1">
+                            <button class="product-modal rounded-2 c-bg-secondary text-start w-100 p-2"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" id="modalButton">Product</button>
                         </div>
-                        <div class="dropdown nav-item rounded-2 px-4 c-bg-secondary py-2  w-50">
-
-                            <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
-                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
-                                name="max-income">
-                                Maximum Yearly Income
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><span name="header-menu"
-                                        class="dropdown-item max-income-item  c-primary cursor-pointer"
-                                        value="10000000">10 million
-                                        Baht</a>
-                                </li>
-                                <li><span name="header-menu"
-                                        class="dropdown-item max-income-item c-primary cursor-pointer"
-                                        value="100000000">100 million
-                                        Baht</a>
-                                </li>
-                                <li><span name="header-menu"
-                                        class="dropdown-item max-income-item c-primary cursor-pointer"
-                                        value="1000000000">1 Billion
-                                        Baht</a>
-                                </li>
-
-                            </ul>
+                        <div class="col-xl-4 p-0 mb-1">
+                            <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
+                                <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                                    name="min-income">
+                                    Minimum Yearly Income
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><span name="header-menu"
+                                            class="dropdown-item min-income-item c-primary cursor-pointer"
+                                            value="10000000">10 million
+                                            Baht</a>
+                                    </li>
+                                    <li><span name="header-menu"
+                                            class="dropdown-item min-income-item  c-primary cursor-pointer"
+                                            value="100000000">100 million
+                                            Baht</a>
+                                    </li>
+                                    <li><span name="header-menu"
+                                            class="dropdown-item min-income-item  c-primary cursor-pointer"
+                                            value="1000000000">1
+                                            billion Baht</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        {{-- <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Min" type="number" />
-                        <input class="w-50 rounded-2 c-bg-secondary px-4 py-2" placeholder="Max" type="number" /> --}}
-                        {{-- <div class="w-50 rounded-2 c-bg-secondary px-4 py-2">To > 10 million</div> --}}
+                        <div class="col-xl-4 mb-1">
+                            <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
+                                <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                                    name="max-income">
+                                    Maximum Yearly Income
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><span name="header-menu"
+                                            class="dropdown-item max-income-item  c-primary cursor-pointer"
+                                            value="10000000">10 million
+                                            Baht</a>
+                                    </li>
+                                    <li><span name="header-menu"
+                                            class="dropdown-item max-income-item c-primary cursor-pointer"
+                                            value="100000000">100 million
+                                            Baht</a>
+                                    </li>
+                                    <li><span name="header-menu"
+                                            class="dropdown-item max-income-item c-primary cursor-pointer"
+                                            value="1000000000">1 Billion
+                                            Baht</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex  w-100 gap-1 justify-content-end gap-2 mt-3 ">
+                    <div class="d-flex w-100 gap-1 justify-content-end gap-2 mt-3 ">
                         <button class=" rounded-2 c-bg-primary btn btn-primary d-flex align-items-center "
                             id="clear-button">
                             <i class="fas fa-sync-alt fa-x"></i>
@@ -244,9 +212,7 @@
                                 Search
                             </span>
                         </button>
-
                     </div>
-
                 </div>
 
 
