@@ -61,7 +61,7 @@
         <div class="container-fluid template-container ">
             <div class="container">
 
-                {!! @$row->detail_th !!}
+                {!! @$row->detail_first !!}
             </div>
         </div>
 
@@ -94,7 +94,16 @@
         </div>
     </section>
 
-    <div class="container-fluid container py-4">
+    <section class="half-section my-4">
+        <div class="container-fluid template-container ">
+            <div class="container">
+
+                {!! @$row->detail_secondary !!}
+            </div>
+        </div>
+
+    </section>
+    {{-- <div class="container-fluid container py-4">
         <div class="row">
 
             <div class="col-md-6 pr-md-5 py-md-5 order-first  section wow fadeIn" data-wow-delay="0.5s">
@@ -166,7 +175,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- ======= Why Us Section ======= -->
     {{-- <section class="why-us section  c-bg-secondary ">

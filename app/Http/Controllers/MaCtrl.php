@@ -118,7 +118,7 @@ class MaCtrl extends Controller
         // ])->object();
         $service_cats = ServiceCatMd::orderBy('sort')->get();
         $service_cat = ServiceCatMd::where(['id' => 5])->first();
-        $ma_industries = MaIndustryMd::orderBy('sort')->get();
+        $ma_industries = MaIndustryMd::where(['status' => true])->orderBy('sort')->get();
         $products =
             MaProductMd::orderBy('sort')->get();
 

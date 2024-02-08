@@ -72,14 +72,15 @@
                 {!! @$service_cat->service_cat_detail !!}
             </div>
             <!-- filter -->
-            <div class="px-4">
-                <div class= "   w-75 mx-auto mb-4 p-4 rounded-3 bg-white gap-1 d-flex flex-column shadow-md">
+            <div class="px-4 row">
+                <div
+                    class= " mx-auto mb-4 p-4 rounded-3 bg-white d-flex flex-column shadow-md col-12 col-md-9 col-xl-8">
                     <div class="d-flex gap-1 align-items-center mb-2  c-primary">
                         <i class="fas fa-funnel-dollar fa-lg "></i>
                         <h3 style="margin-bottom:0;">Filter</h3>
                     </div>
-                    <div class="row mb-1">
-                        <div class="col-xl-3 mb-1">
+                    <div class="row ">
+                        <div class="col-lg-3  p-1">
                             <div class="dropdown rounded-2 c-bg-secondary w-100 p-2">
                                 <a name="industry-name" href="#"
                                     class="nav-link dropdown-toggle overflow-hidden capitalize c-text-primary"
@@ -111,11 +112,11 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-6 p-0 mb-1">
+                        <div class="col-lg-6  p-1">
                             <input id="search-input" class="rounded-2 c-bg-secondary w-100 p-2" type="text"
                                 placeholder="Search ..." />
                         </div>
-                        <div class="col-xl-3 mb-1">
+                        <div class="col-lg-3  p-1">
                             <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
                                 <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
@@ -140,11 +141,11 @@
                         </div>
                     </div>
                     <div class="row d-none" id="advance-search">
-                        <div class="col-xl-4 mb-1">
+                        <div class="col-lg-4 p-1 advance-search-item" id="modalButton">
                             <button class="product-modal rounded-2 c-bg-secondary text-start w-100 p-2"
-                                data-bs-toggle="modal" data-bs-target="#exampleModal" id="modalButton">Product</button>
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">Product</button>
                         </div>
-                        <div class="col-xl-4 p-0 mb-1">
+                        <div class="col-lg-4 p-1 mb-1 advance-search-item income-drop">
                             <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
                                 <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
@@ -170,7 +171,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-4 mb-1">
+                        <div class="col-lg-4 mb-1 p-1 advance-search-item income-drop">
                             <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
                                 <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
@@ -197,29 +198,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex w-100 gap-1 justify-content-end gap-2 mt-3 ">
-                        <button class=" rounded-2 c-bg-primary btn btn-primary d-flex align-items-center "
-                            id="clear-button">
-                            <i class="fas fa-sync-alt fa-x"></i>
-                            <span>
-                                Clear
-                            </span>
-                        </button>
-                        <button id="search-button"
-                            class="w-25 rounded-2 c-bg-primary btn btn-secondary d-flex align-items-center justify-content-center">
-                            <i class="fas fa-search-dollar fa-lg"></i>
-                            <span>
-                                Search
-                            </span>
-                        </button>
+                    <div class="w-100  mt-3 row d-flex justify-content-end mx-0 p-0">
+                        <div class="col-6 col-lg-3 px-1 ">
+                            <button class=" rounded-2 c-bg-primary btn btn-primary  d-flex align-items-center w-100 "
+                                id="clear-button">
+                                <i class="fas fa-sync-alt fa-x"></i>
+                                <span>
+                                    Clear
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-6 col-lg-3 px-0 ">
+                            <button id="search-button"
+                                class=" rounded-2 c-bg-primary btn btn-secondary d-flex align-items-center justify-content-center w-100">
+                                <i class="fas fa-search-dollar fa-lg"></i>
+                                <span>
+                                    Search
+                                </span>
+                            </button>
+                        </div>
+
+
+
                     </div>
                 </div>
 
-
-                <!-- Button trigger modal -->
-                {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
-                </button> --}}
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -232,14 +235,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body" id="product-list">
-                                {{-- @if ($products)
-                                    @foreach (@$products as $k => $v)
-                                        <div class="d-flex gap-2 text-capitalize "><input
-                                                type="checkbox "
-                                                value={{ $v->id }} />{{ $v->name }}
-                                        </div>
-                                    @endforeach
-                                @endif --}}
+                                {{-- product list goes here --}}
 
                             </div>
                             <div class="modal-footer  ">
@@ -460,8 +456,14 @@
 
                 if (selectedValue == 0) {
                     $('#modalButton').addClass('d-none')
+                    $('.advance-search-item').removeClass('col-lg-4')
+                    $('.income-drop').addClass('col-lg-6')
+
                 } else {
                     $('#modalButton').removeClass('d-none')
+                    $('.advance-search-item').removeClass('col-lg-4')
+                    $('.advance-search-item').removeClass('col-lg-6')
+                    $('.advance-search-item').addClass('col-lg-4')
                 }
 
 

@@ -19,12 +19,14 @@
 
     --c-bg-primary: rgba(219, 126, 55, 0.7);
     --c-bg-secondary: #f8f9fd;
-    --c-bg-fouth: rgba(55, 147, 219, 0.5);
+    --c-bg-fouth: rgba(55, 147, 219, 0.7);
     --c-bg-tertiary: #ffffff;
+   
 
     --c-text-primary: #3793db;
     --c-text-secondary: #1f1f1f;
     --c-text-tertiary: #808080;
+    --c-text-fouth:#BFBFBF;
 
     --font-h3: 1.3rem !important;
     --font-h4: 1.1rem !important;
@@ -42,12 +44,23 @@
 .c-primary {
     color: #3793db;
 }
+
+.c-primary-trans {
+    color: var(--c-secondary)
+}
 .c-secondary {
     color: #db7e37;
+}
+.c-secondary-trans {
+    color: var(--c-primary)
 }
 .c-tertiary {
     color: #333333;
 }
+.c-fouth {
+    color:var(--c-text-tertiary)
+}
+
 
 .c-bg-primary {
     background-color: var(--c-bg-primary);
@@ -58,6 +71,11 @@
 }
 .c-bg-fouth {
     background-color: var(--c-bg-fouth);
+}
+
+.c-bg-fifth {
+    background-color:rgba(255,255,255,0.75);
+
 }
 body {
     margin: 0;

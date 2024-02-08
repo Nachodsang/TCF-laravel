@@ -1,25 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{-- <head>
-    <meta charset="utf-8">
-    <title>Nankai Express (Thailand) Co., Ltd</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="นำเข้า-ส่งออก, คลังสินค้า, การขนส่ง, บริการด้านโลจิสติกส์" name="keywords">
-    <meta
-        content="Is service facilitator about logistics (Import-Export, Warehouse,Transportation) and include about install machinery by specialist."
-        name="description">
-    <link href="{{ config('web.folder_prefix') }}/images/logo/logo-nankai-ico.ico" rel="icon">
-    <link href="{{ config('web.folder_prefix') }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/animated.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/custom.css" rel="stylesheet">
-</head> --}}
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,7 +54,14 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="label" for="name">Contact Person</label>
+                                                    <label class="label" for="company-name">Company Name</label>
+                                                    <input type="text" class="form-control" name="company-name"
+                                                        id="company-name" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="name">Person In Charge Name</label>
                                                     <input type="text" class="form-control" name="name"
                                                         id="name" placeholder="">
                                                 </div>
@@ -85,7 +73,7 @@
                                                         id="email" placeholder="">
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="label" for="telephone">telephone</label>
                                                     <input type="text" class="form-control" name="telephone"
@@ -94,7 +82,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label class="label" for="detail">Message</label>
+                                                    <label class="label" for="detail">Detail of Questions or
+                                                        Concerns</label>
                                                     <textarea name="detail" class="form-control" id="detail" cols="30" rows="5" placeholder=""
                                                         style="height:100px;"></textarea>
                                                 </div>
@@ -181,6 +170,9 @@
             errorClass: "is-invalid",
             errorElement: "small",
             rules: {
+                'company-name': {
+                    required: true
+                },
                 name: {
                     required: true
                 },
@@ -196,6 +188,9 @@
                 },
             },
             messages: {
+                'company-name': {
+                    required: "กรุณากรอกข้อมูล"
+                },
                 name: {
                     required: "กรุณากรอกข้อมูล"
                 },
