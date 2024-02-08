@@ -84,3 +84,19 @@
             <script src="{{ $js }}"></script>
         @endforeach
     @endif
+    @if (Session::has('status'))
+        <script type="text/javascript">
+            let status = "{{ Session::get('status') }}";
+            let message = "{{ Session::get('message') }}";
+            function messageAlert() {
+                Swal.fire({
+                    icon: status,
+                    title: message,
+                    showConfirmButton: false,
+                    timer: 1200
+                });
+            }
+            window.onload = messageAlert;
+        </script>
+    @endif
+</body>
