@@ -23,6 +23,7 @@ class AboutUsCtrl extends Controller
      */
     public function index()
     {
+        $about = AboutUsMd::find(1);
         try {
             return view("$this->folderPrefix.aboutus.index", [
                 'css' => [
@@ -37,6 +38,7 @@ class AboutUsCtrl extends Controller
                 ],
                 'module' => 'aboutus',
                 'page' => 'edit',
+                'row' => $about
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
