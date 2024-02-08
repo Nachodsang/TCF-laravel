@@ -133,8 +133,22 @@
                 let type = typeBtn.value;
                 let industryBtn = document.querySelector('select[name="industry"]');
                 let icon = document.querySelectorAll('input[name="icon[]"]');
-                document.querySelectorAll('input[name="name[]"]').forEach(el => el.disabled = false);
-                document.querySelector('.addMore').disabled = false;
+                let name = document.querySelectorAll('input[name="name[]"]');
+                let addMore = document.querySelector('.addMore');
+                name.forEach(el => {
+                    el.classList.remove("is-invalid");
+                    el.classList.remove("is-valid");
+                    el.value = '';
+                    el.disabled = false;
+                });
+                icon.forEach(el => {
+                    el.classList.remove("is-invalid");
+                    el.classList.remove("is-valid");
+                    el.value = '';
+                });
+                if (addMore) {
+                    addMore.disabled = false;
+                }
                 if (type == 'industry') {
                     icon.forEach(el => el.disabled = false);
                     industryBtn.disabled = true;
@@ -142,13 +156,8 @@
                     industryBtn.classList.remove("is-invalid");
                     industryBtn.classList.remove("is-valid");
                 } else {
-                    icon.forEach(el => {
-                        el.classList.remove("is-invalid");
-                        el.classList.remove("is-valid");
-                        el.value = '';
-                        el.disabled = true;
-                    });
                     industryBtn.disabled = false;
+                    icon.forEach(el => el.disabled = true);
                 }
             }
         })
@@ -210,7 +219,7 @@
                     success: function() {
                         Swal.fire({
                             icon: "success",
-                            title: "Service has been saved",
+                            title: "Filter has been saved",
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
@@ -226,6 +235,162 @@
                     }
                 });
             }
+        })
+
+        let validatorEdit = $('#filterFormEdit').submit(function(e) {
+            e.preventDefault();
+        }).validate({
+            validClass: "is-valid",
+            errorClass: "is-invalid",
+            errorElement: "small",
+            rules: {
+                type: {
+                    required: true
+                },
+                industry: {
+                    required: function(element) {
+                        return $("#type").val() == 'product';
+                    }
+                },
+                icon: {
+                    required: function(element) {
+                        return $("#type").val() == 'industry';
+                    }
+                },
+                name: {
+                    required: true,
+                }
+            },
+            messages: {
+                type: {
+                    required: "กรุณาเลือกประเภท"
+                },
+                industry: {
+                    required: "กรุณาเลือกหมวดหมู่"
+                },
+                icon: {
+                    required: "กรุณาเลือกไอคอน"
+                },
+                name: {
+                    required: "กรุณากรอกข้อมูล"
+                }
+            },
+            submitHandler: function(form) {
+                inputs = $('#filterFormEdit')[0];
+                let id = $('input[name="id"]').val();
+                let type = $('input[name="type"]').val();
+                const formData = new FormData(inputs);
+                $.ajax({
+                    method: 'POST',
+                    url: `webpanel/ma/update`,
+                    data: formData,
+                    async: false,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        $('#loading').show();
+                    },
+                    complete: function() {
+                        $('#loading').hide();
+                    },
+                    success: function(res) {
+                        Swal.fire({
+                            icon: res.status,
+                            title: res.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            location.reload();
+                        });
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Please try again later",
+                            showConfirmButton: true,
+                        });
+                    }
+                });
+            }
+        })
+
+        $(".deleteFilter").on('click', function(e) {
+            e.preventDefault();
+            let id = $(this).attr('data-id');
+            let type = $(this).attr('data-type');
+            $.ajax({
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                url: `webpanel/ma/delete/${type}/${id}`,
+                data: {
+                    _method: 'DELETE'
+                },
+                async: false,
+                beforeSend: function() {
+                    $('#loading').show();
+                },
+                complete: function() {
+                    $('#loading').hide();
+                },
+                success: function() {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Filter has been Deleted",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        $(`.FilterRow_${type}_${id}`).remove();
+                    });
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Please try again later",
+                        showConfirmButton: true,
+                    });
+                }
+            });
+        });
+
+        $('.status').on('click', function() {
+            const cur = $(this);
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                url: 'webpanel/ma/status',
+                method: 'POST',
+                async: false,
+                data: {
+                    id: cur.data('id')
+                },
+                success: (res) => {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Change Status Success"
+                    });
+                },
+                error: (res) => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Please try again later",
+                        showConfirmButton: true,
+                    });
+                }
+            });
         })
     </script>
 </body>

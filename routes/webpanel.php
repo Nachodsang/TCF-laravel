@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['Webpanel'])->group(function(){
+Route::middleware(['Webpanel'])->group(function () {
 
-    Route::prefix('config')->group(function(){
-        Route::get('/set/color',[\App\Http\Controllers\Webpanel\CssCtrl::class,'configColorUpdate']);
+    Route::prefix('config')->group(function () {
+        Route::get('/set/color', [\App\Http\Controllers\Webpanel\CssCtrl::class, 'configColorUpdate']);
     });
 
-    Route::get('/',[\App\Http\Controllers\Webpanel\DashboardCtrl::class,'index']);
+    Route::get('/', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'index']);
 
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'index']);
@@ -28,10 +28,10 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::post('/home-top', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'store']);
     });
     Route::prefix('logo')->group(function () {
-        Route::post('{type}',[\App\Http\Controllers\Webpanel\DashboardCtrl::class,'logo'])->where(['type'=>'[a-z]+']);
+        Route::post('{type}', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'logo'])->where(['type' => '[a-z]+']);
     });
     Route::prefix('color')->group(function () {
-        Route::post('/update',[\App\Http\Controllers\Webpanel\DashboardCtrl::class,'color']);
+        Route::post('/update', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'color']);
     });
 
     Route::prefix('banner')->group(function () {
@@ -39,9 +39,9 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::get('/add', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'addBanner']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'statusBanner']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
     });
 
     Route::prefix('service')->group(function () {
@@ -49,9 +49,9 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::get('/add', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'addService']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'statusService']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
 
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'checkUrl']);
     });
@@ -70,63 +70,58 @@ Route::middleware(['Webpanel'])->group(function(){
         Route::post('/', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'update']);
         Route::get('/client', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'ourClient']);
         Route::post('/client/store', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'storeClient']);
-        Route::put('/client/update/{id}', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'updateClient'])->where(['id'=>'[0-9]+']);
-        Route::delete('/client/delete/{id}', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'deleteClient'])->where(['id'=>'[0-9]+']);
+        Route::put('/client/update/{id}', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'updateClient'])->where(['id' => '[0-9]+']);
+        Route::delete('/client/delete/{id}', [\App\Http\Controllers\Webpanel\AboutUsCtrl::class, 'deleteClient'])->where(['id' => '[0-9]+']);
     });
-    Route::prefix('user')->group(function(){
-        Route::get('/profile',[\App\Http\Controllers\Webpanel\UserCtrl::class,'profile']);
+    Route::prefix('user')->group(function () {
+        Route::get('/profile', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'profile']);
         Route::get('/', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'index']);
         Route::get('/add', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'addUser']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'statusUser']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\UserCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
     });
 
-    Route::prefix('map')->group(function(){
-        Route::put('/add',[\App\Http\Controllers\Webpanel\ContactCtrl::class,'storeMap']);
-        Route::get('/{id}',[\App\Http\Controllers\Webpanel\ContactCtrl::class,'getMap'])->where(['id'=>'[0-9]+']);
-        Route::post('/{id}',[\App\Http\Controllers\Webpanel\ContactCtrl::class,'updateMap'])->where(['id'=>'[0-9]+']);
-        Route::delete('/{id}',[\App\Http\Controllers\Webpanel\ContactCtrl::class,'deleteMap'])->where(['id'=>'[0-9]+']);
+    Route::prefix('map')->group(function () {
+        Route::put('/add', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'storeMap']);
+        Route::get('/{id}', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'getMap'])->where(['id' => '[0-9]+']);
+        Route::post('/{id}', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'updateMap'])->where(['id' => '[0-9]+']);
+        Route::delete('/{id}', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'deleteMap'])->where(['id' => '[0-9]+']);
     });
 
-    Route::prefix('menu')->group(function(){
-        Route::get('/',[\App\Http\Controllers\Webpanel\MenuCtrl::class,'index']);
+    Route::prefix('menu')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Webpanel\MenuCtrl::class, 'index']);
     });
 
-    Route::prefix('consultant')->group(function(){
-        Route::get('/',[\App\Http\Controllers\Webpanel\ConsultantCtrl::class,'index']);
+    Route::prefix('consultant')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'index']);
         Route::get('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'addConsultant']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'statusConsultant']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
+        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
 
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'checkUrl']);
     });
 
-    Route::prefix('ma')->group(function() {
-        Route::get('/',[maCtrl::class,'index']);
-        Route::get('/add',[maCtrl::class,'add']);
-        Route::post('/add',[maCtrl::class,'store']);
-        Route::post('/status', [maCtrl::class, 'statusIndustry']);
-
-        Route::get('/update/{id}', [maCtrl::class, 'show'])->where(['id'=>'[0-9]+']);
-        Route::get('/product/update/{id}', [maCtrl::class, 'showProduct'])->where(['id'=>'[0-9]+']);
-
-        Route::post('/update/{id}', [maCtrl::class, 'update'])->where(['id'=>'[0-9]+']);
-
-        Route::delete('/industry/delete/{id}', [maCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
-        Route::delete('/product/delete/{id}', [maCtrl::class, 'destroy'])->where(['id'=>'[0-9]+']);
+    Route::prefix('ma')->group(function () {
+        Route::get('/', [maCtrl::class, 'index']);
+        Route::get('/add', [maCtrl::class, 'add']);
+        Route::post('/add', [maCtrl::class, 'store']);
+        Route::post('/status', [maCtrl::class, 'status']);
+        Route::get('/update/{type}/{id}', [maCtrl::class, 'show'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
+        Route::put('/update', [maCtrl::class, 'update'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
+        Route::delete('/delete/{type}/{id}', [maCtrl::class, 'destroy'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
     });
 });
 
-Route::prefix('media')->group(function(){
-    Route::get('/profile-images',[\App\Http\Controllers\Webpanel\MediaCtrl::class,'profileImages']);
-    Route::put('/image/upload',[\App\Http\Controllers\Webpanel\MediaCtrl::class,'uploadImage']);
+Route::prefix('media')->group(function () {
+    Route::get('/profile-images', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'profileImages']);
+    Route::put('/image/upload', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'uploadImage']);
 });
-Route::get('login',[\App\Http\Controllers\Webpanel\AuthCtrl::class,'index']);
-Route::post('login',[\App\Http\Controllers\Webpanel\AuthCtrl::class,'login']);
-Route::get('logout',[\App\Http\Controllers\Webpanel\AuthCtrl::class,'logout']);
+Route::get('login', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'index']);
+Route::post('login', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'login']);
+Route::get('logout', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'logout']);

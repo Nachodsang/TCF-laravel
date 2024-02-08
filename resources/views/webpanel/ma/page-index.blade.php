@@ -6,9 +6,9 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="card">
+            <div class="card" style="overflow: auto">
                 <div class="card-body">
-                    <table class="table caption-top  table-hover">
+                    <table class="table caption-top table-hover">
                         <caption>List of Industry
                             <a href="{{ url('webpanel/ma/add') }}" class="btn btn-primary btn-sm float-right rounded-pill">
                                 <i class="fas fa-plus fa-xs"></i> ADD
@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
-                                <th scope="col" width="45%">Industry</th>
+                                <th scope="col" width="65%">Industry</th>
                                 <th scope="col" width="15%" class="text-center">Created</th>
                                 <th scope="col" width="5%" class="text-center">Status</th>
                                 <th scope="col" width="10%" class="text-center">Actions</th>
@@ -33,8 +33,7 @@
                                 @php
                                     $product = \App\Models\MaProductMd::where('industry_id', $v->id)->orderBy('sort')->get()
                                 @endphp
-                                    <tr role="row" class="odd" data-row="{{ $key + 1 }}"
-                                        data-id="{{ $v->id }}">
+                                    <tr role="row" class="FilterRow_industry_{{$v->id}}">
                                         <td class="text-center">
                                             {{ $item + $key }}
                                         </td>
@@ -56,22 +55,17 @@
                                                     <ul class="list-group" id="sort{{ $key }}"
                                                         style="margin-top:5px">
                                                         @foreach ($product as $col2)
-                                                            <li class="list-group-item p-2" data-id="{{ $col2->id }}" data-name="{{ $col2->name }}">
+                                                            <li class="list-group-item p-2 FilterRow_product_{{$col2->id}}">
                                                                 <div class="d-flex justify-content-between">
                                                                     <span>
                                                                         {{ $col2->name }}
                                                                     </span>
                                                                     <div class="justify-content-end">
-                                                                        <a class="badge badge-success badge-status"
-                                                                            data-id="{{ $col2->id }}"
-                                                                            href="javascript:">{{ $col2->status }}</a>
                                                                         <a class="badge badge-warning"
-                                                                            href="{{ url("webpanel/ma/product/update/$col2->id") }}"><i
+                                                                            href="{{ url("webpanel/ma/update/product/$col2->id") }}"><i
                                                                                 class="fas fa-pen"></i></a>
-                                                                        <a class="badge badge-danger deleteProduct"
-                                                                            data-id="{{ $col2->id }}"
-                                                                            href="javascript:"><i
-                                                                                class="fas fa-times"></i></a>
+                                                                        <a class="badge badge-danger deleteFilter" data-id="{{ $col2->id }}" data-type="product" href="javascript:">
+                                                                            <i class="fas fa-times"></i></a>
                                                                     </div>
                                                                 </div>
                                                             </li>
@@ -85,19 +79,14 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="form-switch">
-                                                <input class="form-check-input status" type="checkbox"
-                                                    id="statusIndustry" data-id="{{ $v->id }}"
-                                                    @if ($v->status == true) checked @endif>
+                                                <input class="form-check-input status" type="checkbox" data-id="{{ $v->id }}" @if ($v->status == true) checked @endif>
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ url("webpanel/ma/update/$v->id") }}" class="btn btn-warning btn-sm rounded-pill"
-                                                title="Edit">
+                                            <a href="{{ url("webpanel/ma/update/industry/$v->id") }}" class="btn btn-warning btn-sm rounded-pill" title="Edit">
                                                 <i class="far fa-edit"></i>
                                             </a>
-                                            <a href="javascript:"
-                                                class="btn btn-danger btn-sm rounded-pill deleteIndustry"
-                                                data-id="{{ $v->id }}" title="Delete">
+                                            <a href="javascript:0" class="btn btn-danger btn-sm rounded-pill deleteFilter" data-id="{{ $v->id }}" data-type="industry" title="Delete">
                                                 <i class="far fa-trash-alt"></i>
                                             </a>
                                         </td>
