@@ -69,8 +69,9 @@ class AboutUsCtrl extends Controller
             AboutUsMd::insert(['created_at' => date('Y-m-d H:i:s')]);
         }
         $data = AboutUsMd::find(1);
-        $data->description_th = $request->description_th;
-        $data->detail_th = $request->detail_th;
+        $data->description = $request->description;
+        $data->detail_first = $request->detail_first;
+        $data->detail_secondary = $request->detail_secondary;
         if ($data->save()) {
             return redirect($request->fullUrl())->with([
                 'status' => 'success',
