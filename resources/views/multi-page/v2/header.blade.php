@@ -22,8 +22,6 @@
                     <li class="nav-item">
                         <a name="header-menu" class="nav-link" href={{ url('/about') }}>About</a>
                     </li>
-
-                    {{-- <a class="nav-link" href={{ url('/service') }}>Service</a> --}}
                     <li class="dropdown nav-item">
                         <a name="service" href={{ url('/service') }} class="nav-link dropdown-toggle" type="button"
                             id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,29 +68,6 @@
     </nav>
 </header>
 
-<!-- Navbar Start -->
-{{-- <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top ">
-    <div class="container">
-        <a href="{{ url('/') }}" class="navbar-brand d-flex align-items-center">
-            <img class="img-fluid me-2 logo"
-                src="@if (@$logoHeader->detail) {{ @$logoHeader->detail }}@else/images/no_image.webp @endif"
-                class="logo">
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ url('/about') }}" class="nav-item nav-link">About Us</a>
-                <a href="{{ url('/service') }}" class="nav-item nav-link">Service</a>
-                <a href="{{ url('/blog') }}" class="nav-item nav-link">Blog</a>
-                <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact Us</a>
-            </div>
-        </div>
-    </div>
-</nav> --}}
-<!-- Navbar End -->
 
 <script>
     var url = window.location.href;
@@ -118,17 +93,3 @@
 </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
-{{-- <script>
-    var url = window.location.href;
-
-    var els = document.querySelectorAll(".navbar-nav a");
-    for (var i = 0, l = els.length; i < l; i++) {
-        var el = els[i];
-        console.log(url)
-        console.log(el.href)
-        if (el.href === url || url.includes(el.href.slice(0, -4))) {
-            console.log(el, el.href)
-            el.classList.add("active");
-        }
-    }
-</script> --}}

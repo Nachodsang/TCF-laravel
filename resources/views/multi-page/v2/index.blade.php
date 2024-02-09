@@ -58,7 +58,7 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-5 heading-section wow fadeIn" data-wow-delay="0.1s ">
                         <div class="subheading mb-2">TOKYO CONSULTING FIRM</div>
-                        <h2 class="mb-4">Our Services</h2>
+                        <h2 class="h2 mb-4">Our Services</h2>
                         <p class="mb-4">{{ @$about_service->about_service_home }}</p>
                         <a class="btn btn-primary " href="{{ url('/service') }}">All Services</a>
                     </div>
@@ -72,10 +72,9 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i
-                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
                                                     <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
@@ -88,10 +87,9 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i
-                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
                                                     <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
@@ -112,10 +110,9 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i
-                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
                                                     <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
@@ -128,10 +125,9 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i
-                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
                                                     <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
@@ -155,7 +151,7 @@
             <div class="container pb-5 heading-section">
                 <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s">
                     <span class="subheading mb-2">Looking for new opportunity? Start from here.</span>
-                    <h2 class="mb-5">Mergers and Acquisitions (M&A)</h2>
+                    <h2 class=" h2 mb-5">Mergers and Acquisitions (M&A)</h2>
                     <!-- <span class="subheading mb-2">Mergers and Acquisitions (M&A)</span>
        <h2 class="mb-5">Looking for new opportunity? Start from here.</h2> -->
                 </div>
@@ -177,7 +173,7 @@
                                     <span>September 25, 2023</span>
                                 </div>
                                 <a class="d-block" href="m&a-tech.php">
-                                    <h3>TechInnovate Invites Strategic Acquisition Partners</h3>
+                                    <h3 class="h3">TechInnovate Invites Strategic Acquisition Partners</h3>
                                 </a>
                             </div>
                         </div>
@@ -199,7 +195,7 @@
                                     <span>September 25, 2023</span>
                                 </div>
                                 <a class="d-block" href="m&a-auto.php">
-                                    <h3>Anonymous Company Seeks Merger for Automotive Innovation</h3>
+                                    <h3 class="h3">Anonymous Company Seeks Merger for Automotive Innovation</h3>
                                 </a>
                             </div>
                         </div>
@@ -221,7 +217,7 @@
                                     <span>September 25, 2023</span>
                                 </div>
                                 <a class="d-block" href="m&a-health-care.php">
-                                    <h3>Anonymous Company Open to Strategic Merger Opportunities</h3>
+                                    <h3 class="h3">Anonymous Company Open to Strategic Merger Opportunities</h3>
                                 </a>
                             </div>
                         </div>
@@ -272,7 +268,7 @@
             <div class="container pb-5 heading-section">
                 <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s">
                     <span class="subheading mb-2">Updated Content to boost your business growth</span>
-                    <h2 class="mb-5">Blogs</h2>
+                    <h2 class="h2 mb-5">Blogs</h2>
                 </div>
                 <div class="row g-5 gx-4 hidden" id="blog-narrow">
                     @if (@$blog)
@@ -302,7 +298,7 @@
                                             <span>{{ $formattedDate }}</span>
                                         </div>
                                         <a class="d-block" href="{{ $v->url }}">
-                                            <h3>{{ $v->name }}</h3>
+                                            <h3 class="h3">{{ $v->name }}</h3>
                                         </a>
                                     </div>
                                 </div>
@@ -340,7 +336,7 @@
                                                 <span>{{ $formattedDate }}</span>
                                             </div>
                                             <a class="d-block" href="{{ $v->url }}">
-                                                <h3>{{ $v->name }}</h3>
+                                                <h3 class="h3">{{ $v->name }}</h3>
                                             </a>
                                         </div>
                                     </div>

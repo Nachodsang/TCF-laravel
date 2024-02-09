@@ -64,7 +64,7 @@
         <div class="container heading-section">
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
                 <span class="subheading mb-2">Blog</span>
-                <h2 class="mb-4">Updated Content to boost your business growth</h2>
+                <h2 class="h2 mb-4">Updated Content to boost your business growth</h2>
             </div>
             <div class="row g-5">
                 @if (@$blogs->links->allPage > 0)

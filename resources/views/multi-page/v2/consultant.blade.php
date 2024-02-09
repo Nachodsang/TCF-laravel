@@ -72,7 +72,7 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-5 heading-section wow fadeIn" data-wow-delay="0.1s">
                         <div class="subheading mb-2">Our Consultants</div>
-                        <h2 class="mb-4">Consultant introduction</h2>
+                        <h2 class="mb-4 h2">Consultant introduction</h2>
                         <p class="mb-4">{{ $about->consultant_page_description_2 }}</p>
                         <a class="btn btn-primary" href="{{ url('/service') }}">Our Services</a>
                     </div>
@@ -92,7 +92,7 @@
                                                         style="width:100%; height:100%; transform:translateX(-6px)" />
                                                 </div>
 
-                                                <h3 class="mb-3">{{ $consultants[$i]->name }}</h3>
+                                                <h3 class="mb-3 h3">{{ $consultants[$i]->name }}</h3>
                                                 <p
                                                     style=" text-overflow: ellipsis;
                 -webkit-line-clamp:5;
@@ -125,7 +125,7 @@
                                                         style="width:100%; height:100%; transform:translateX(-6px)" />
                                                 </div>
 
-                                                <h3 class="mb-3">{{ $consultants[$i]->name }}</h3>
+                                                <h3 class="mb-3 h3">{{ $consultants[$i]->name }}</h3>
                                                 <p
                                                     style=" text-overflow: ellipsis;
                 -webkit-line-clamp:5;
