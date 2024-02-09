@@ -69,7 +69,7 @@
 
         <div class="container heading-section">
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
-                {!! @$service_cat->service_cat_detail !!}
+                {!! @$service_cat->detail !!}
             </div>
             <!-- filter -->
             <div class="px-4 row">

@@ -39,7 +39,7 @@
                             <a href="{{ url('/service') }}">Services <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
-                            <a href="{{ url('/service/category/' . $service_cat->url) }}">{{ $service_cat->service_cat_name }}
+                            <a href="{{ url('/service/category/' . $service_cat->url) }}">{{ $service_cat->name }}
                                 <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="{{ url('/') }}">
-    <title>{{ $service_cat->service_cat_name }} - Tokyo Consulting Firm</title>
+    <title>{{ $service_cat->name }} - Tokyo Consulting Firm</title>
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
@@ -42,8 +42,8 @@
                             <a href="{{ url('/service') }}">Services <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
-                            <span>{{ $service_cat->service_cat_name }}</span></p>
-                    <h1 class="mb-0 bread">{{ $service_cat->service_cat_name }}</h1>
+                            <span>{{ $service_cat->name }}</span></p>
+                    <h1 class="mb-0 bread">{{ $service_cat->name }}</h1>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
             <div class="container ">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-12 heading-section wow fadeIn" data-wow-delay="0.1s">
-                        {!! $service_cat->service_cat_detail !!}
+                        {!! $service_cat->detail !!}
                     </div>
                     <!--  -->
 

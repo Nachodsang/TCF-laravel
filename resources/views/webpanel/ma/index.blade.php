@@ -318,37 +318,45 @@
             e.preventDefault();
             let id = $(this).attr('data-id');
             let type = $(this).attr('data-type');
-            $.ajax({
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                url: `webpanel/ma/delete/${type}/${id}`,
-                data: {
-                    _method: 'DELETE'
-                },
-                async: false,
-                beforeSend: function() {
-                    $('#loading').show();
-                },
-                complete: function() {
-                    $('#loading').hide();
-                },
-                success: function() {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Filter has been Deleted",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                        $(`.FilterRow_${type}_${id}`).remove();
-                    });
-                },
-                error: function() {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Please try again later",
-                        showConfirmButton: true,
+            Swal.fire({
+                title: "Do you want to Delete Filter ?",
+                showCancelButton: true,
+                confirmButtonText: "Confirm",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        url: `webpanel/ma/delete/${type}/${id}`,
+                        data: {
+                            _method: 'DELETE'
+                        },
+                        async: false,
+                        beforeSend: function() {
+                            $('#loading').show();
+                        },
+                        complete: function() {
+                            $('#loading').hide();
+                        },
+                        success: function() {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Filter has been Deleted",
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                $(`.FilterRow_${type}_${id}`).remove();
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Please try again later",
+                                showConfirmButton: true,
+                            });
+                        }
                     });
                 }
             });

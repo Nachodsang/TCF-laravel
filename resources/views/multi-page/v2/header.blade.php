@@ -33,12 +33,12 @@
                             @foreach (\App\Models\ServiceCatMd::orderBy('sort')->get() as $k => $v)
                                 @if ($v->type === 'sub-page')
                                     <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
-                                            href="{{ url('/service/category/' . $v->url) }}"><small>{{ $v->service_cat_name }}</small>
+                                            href="{{ url('/service/category/' . $v->url) }}"><small>{{ $v->name }}</small>
                                         </a>
                                     </li>
                                 @else
                                     <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
-                                            href="{{ url('/' . $v->url) }}"><small>{{ $v->service_cat_name }}</small></a>
+                                            href="{{ url('/' . $v->url) }}"><small>{{ $v->name }}</small></a>
                                     </li>
                                 @endif
                             @endforeach
