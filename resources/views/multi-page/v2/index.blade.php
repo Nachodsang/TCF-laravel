@@ -73,10 +73,10 @@
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
                                                         <i
-                                                            class="fas {{ $service_cats[$i]->service_cat_icon }} fa-lg"></i>
+                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->service_cat_name }}</h3>
-                                                    <p>{{ $service_cats[$i]->service_cat_description }}</p>
+                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
                                                         href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
@@ -89,10 +89,10 @@
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
                                                         <i
-                                                            class="fas {{ $service_cats[$i]->service_cat_icon }} fa-lg"></i>
+                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->service_cat_name }}</h3>
-                                                    <p>{{ $service_cats[$i]->service_cat_description }}</p>
+                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
                                                         href="{{ url('/' . $service_cats[$i]->url) }}">Read
@@ -113,10 +113,10 @@
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
                                                         <i
-                                                            class="fas {{ $service_cats[$i]->service_cat_icon }} fa-lg"></i>
+                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->service_cat_name }}</h3>
-                                                    <p>{{ $service_cats[$i]->service_cat_description }}</p>
+                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
                                                         href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
@@ -129,10 +129,10 @@
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
                                                         <i
-                                                            class="fas {{ $service_cats[$i]->service_cat_icon }} fa-lg"></i>
+                                                            class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="mb-3">{{ $service_cats[$i]->service_cat_name }}</h3>
-                                                    <p>{{ $service_cats[$i]->service_cat_description }}</p>
+                                                    <h3 class="mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <p>{{ $service_cats[$i]->description }}</p>
 
                                                     <a class="btn px-3 mt-auto mx-auto"
                                                         href="{{ url('/' . $service_cats[$i]->url) }}">Read
