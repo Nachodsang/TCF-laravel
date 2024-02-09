@@ -118,8 +118,13 @@ document.addEventListener("click", function (e) {
 
     const deleteClient = e.target.closest(".delete-client");
     if (deleteClient) {
-        if (confirm("Confirm to delete?") === true) {
-            let id = deleteClient.closest(".card-body").querySelector('input[name="id"]')?.value;
+        Swal.fire({
+            title: "Do you want to Delete ?",
+            showCancelButton: true,
+            confirmButtonText: "Save",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let id = deleteClient.closest(".card-body").querySelector('input[name="id"]')?.value;
             if (id) {
                 DeleteClient(id).then((res) => {
                     Swal.fire({
@@ -135,7 +140,8 @@ document.addEventListener("click", function (e) {
             } else {
                 deleteClient.closest(".client-item").remove();
             }
-        }
+            }
+        });
     }
 
     const editClient = e.target.closest(".edit");

@@ -87,26 +87,32 @@ document.addEventListener("click", function (e) {
 
     const deleteMap = e.target.closest(".delete-map");
     if (deleteMap) {
-        if (confirm("Confirm to delete?") === true) {
-            let id = deleteMap
+        Swal.fire({
+            title: "Do you want to Delete ?",
+            showCancelButton: true,
+            confirmButtonText: "Save",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                let id = deleteMap
                 .closest(".card-body")
                 .querySelector('input[name="id"]')?.value;
-            if (id) {
-                DeleteMap(id).then((res) => {
-                    Swal.fire({
-                        icon: res.status === true ? "success" : "error",
-                        title: res.message,
-                        toast: true,
-                        timer: 2000,
-                        timerProgressBar: true,
-                        showConfirmButton: false,
+                if (id) {
+                    DeleteMap(id).then((res) => {
+                        Swal.fire({
+                            icon: res.status === true ? "success" : "error",
+                            title: res.message,
+                            toast: true,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            showConfirmButton: false,
+                        });
+                        deleteMap.closest(".map-item").remove();
                     });
+                } else {
                     deleteMap.closest(".map-item").remove();
-                });
-            } else {
-                deleteMap.closest(".map-item").remove();
+                }
             }
-        }
+        });
     }
 
     const editMap = e.target.closest(".-edit");
