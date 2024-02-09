@@ -112,7 +112,7 @@ class ServiceCtrl extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
         try {
             $update = ServiceMd::find($id);

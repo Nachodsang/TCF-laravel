@@ -96,15 +96,6 @@
             }
         });
 
-        if (document.getElementById('imgService')) {
-            imgService.onchange = evt => {
-                const [file] = imgService.files;
-                if (file) {
-                    imgPreview.src = URL.createObjectURL(file);
-                }
-            }
-        }
-
         function convertDetail() {
             const lang = area.attr('data-lang');
             if (window.location.href.indexOf("members") > -1) {
@@ -143,7 +134,7 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                url: 'webpanel/service/status',
+                url: 'webpanel/service-category/status',
                 method: 'POST',
                 async: false,
                 data: {
@@ -176,25 +167,25 @@
             });
         })
 
-        $('#serviceAddForm').submit(function(e) {
+        $('#serviceCategoryAddForm').submit(function(e) {
             e.preventDefault();
         }).validate({
             validClass: "is-valid",
             errorClass: "is-invalid",
             errorElement: "small",
             rules: {
-                imgTitle: {
+                name: {
                     required: true
                 },
-                imgAlt: {
+                icon: {
                     required: true
                 },
-                imgService: {
+                type: {
                     required: true,
                 },
                 url: {
                     remote: {
-                        url: "{{ url('webpanel/service/check/url') }}",
+                        url: "{{ url('webpanel/service-category/check/url') }}",
                         data: {
                             _token: token
                         },
@@ -202,59 +193,35 @@
                     },
                     required: true,
                 },
-                service: {
+                description: {
                     required: true,
-                },
-                service_category: {
-                    required: true,
-                },
-                detail_th: {
-                    required: true,
-                },
-                seo_description: {
-                    required: true,
-                },
-                seo_keyword: {
-                    required: true,
-                },
+                }
             },
             messages: {
-                imgTitle: {
+                name: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                imgAlt: {
+                icon: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                imgService: {
+                type: {
                     required: "กรุณาเลือกรูปภาพ",
                 },
                 url: {
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
                 },
-                service: {
+                description: {
                     required: "กรุณากรอกข้อมูล"
-                },
-                service_category: {
-                    required: "กรุณาเลือกหมวดหมู่"
-                },
-                detail_th: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                seo_description: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                seo_keyword: {
-                    required: "กรุณากรอกข้อมูล"
-                },
+                }
             },
             submitHandler: function(form) {
                 convertDetail();
-                inputs = $('#serviceAddForm')[0];
+                inputs = $('#serviceCategoryAddForm')[0];
                 const formData = new FormData(inputs);
                 $.ajax({
                     method: 'POST',
-                    url: 'webpanel/service/add',
+                    url: 'webpanel/service-category/add',
                     data: formData,
                     async: false,
                     processData: false,
@@ -268,7 +235,7 @@
                     success: function() {
                         Swal.fire({
                             icon: "success",
-                            title: "Service has been saved",
+                            title: "Data has been saved",
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
@@ -286,81 +253,63 @@
             }
         })
 
-        $('#serviceEditForm').submit(function(e) {
+        $('#serviceCategoryEditForm').submit(function(e) {
             e.preventDefault();
         }).validate({
             validClass: "is-valid",
             errorClass: "is-invalid",
             errorElement: "small",
             rules: {
-                imgTitle: {
+                name: {
                     required: true
                 },
-                imgAlt: {
+                icon: {
                     required: true
+                },
+                type: {
+                    required: true,
                 },
                 url: {
                     remote: {
-                        url: "{{ url('webpanel/service/check/url') }}",
+                        url: "{{ url('webpanel/service-category/check/url') }}",
                         data: {
                             _token: token,
-                            id: "{{ @$service->id }}"
+                            id: '{{ @$serviceCat->id }}'
                         },
                         type: "post"
                     },
-                    required: true
-                },
-                service: {
                     required: true,
                 },
-                service_category: {
+                description: {
                     required: true,
-                },
-                detail_th: {
-                    required: true,
-                },
-                seo_description: {
-                    required: true,
-                },
-                seo_keyword: {
-                    required: true,
-                },
+                }
             },
             messages: {
-                imgTitle: {
+                name: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                imgAlt: {
+                icon: {
                     required: "กรุณากรอกข้อมูล"
+                },
+                type: {
+                    required: "กรุณาเลือกรูปภาพ",
                 },
                 url: {
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
                 },
-                service: {
+                description: {
                     required: "กรุณากรอกข้อมูล"
-                },
-                service_category: {
-                    required: "กรุณาเลือกหมวดหมู่"
-                },
-                detail_th: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                seo_description: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                seo_keyword: {
-                    required: "กรุณากรอกข้อมูล"
-                },
+                }
             },
             submitHandler: function(form) {
                 convertDetail();
-                inputs = $('#serviceEditForm')[0];
-                id = $('#serviceId').val();
+                inputs = $('#serviceCategoryEditForm')[0];
+                id = $('#serviceCatId').val();
                 const formData = new FormData(inputs);
                 $.ajax({
                     method: 'POST',
-                    url: `webpanel/service/update/${id}`,
+                    url: `webpanel/service-category/update/${id}`,
                     data: formData,
                     async: false,
                     processData: false,
@@ -374,7 +323,7 @@
                     success: function() {
                         Swal.fire({
                             icon: "success",
-                            title: "Service has been Updated",
+                            title: "Data has been Updated",
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
@@ -396,7 +345,7 @@
             e.preventDefault();
             let id = $(this).attr('data-id');
             Swal.fire({
-                title: "Do you want to Delete Service ?",
+                title: "Do you want to Delete Service Category ?",
                 showCancelButton: true,
                 confirmButtonText: "Confirm",
             }).then((result) => {
@@ -406,7 +355,7 @@
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'
                         },
-                        url: `webpanel/service/delete/${id}`,
+                        url: `webpanel/service-category/delete/${id}`,
                         data: {
                             _method: 'DELETE'
                         },
@@ -420,7 +369,7 @@
                         success: function() {
                             Swal.fire({
                                 icon: "success",
-                                title: "Service has been Deleted",
+                                title: "Service Category has been Deleted",
                                 showConfirmButton: false,
                                 timer: 1500
                             }).then(() => {

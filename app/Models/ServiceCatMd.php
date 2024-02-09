@@ -10,4 +10,6 @@ class ServiceCatMd extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'service_category';
+    protected $fillable = ['status'];
+
 }

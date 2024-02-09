@@ -22,6 +22,8 @@ return new class extends Migration {
                 $table->text('detail')->nullable();
                 $table->string('description')->nullable();
                 $table->string('icon')->nullable();
+                $table->tinyInteger('status')->nullable();
+                $table->integer('upload_by')->nullable();
                 $table->timestamps();
                 $table->timestamp('deleted_at')->nullable();
             });

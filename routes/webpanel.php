@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\webpanel\maCtrl;
+use App\Http\Controllers\webpanel\ServiceCategoryCtrl;
+use App\Http\Controllers\Webpanel\ServiceCtrl;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,15 +47,26 @@ Route::middleware(['Webpanel'])->group(function () {
     });
 
     Route::prefix('service')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'index']);
-        Route::get('/add', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'addService']);
-        Route::post('/add', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'store']);
-        Route::post('/status', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'statusService']);
-        Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
-        Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'update'])->where(['id' => '[0-9]+']);
-        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
+        Route::get('/', [ServiceCtrl::class, 'index']);
+        Route::get('/add', [ServiceCtrl::class, 'addService']);
+        Route::post('/add', [ServiceCtrl::class, 'store']);
+        Route::post('/status', [ServiceCtrl::class, 'statusService']);
+        Route::get('/update/{id}', [ServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::post('/update/{id}', [ServiceCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::delete('/delete/{id}', [ServiceCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
 
-        Route::post('/check/url', [\App\Http\Controllers\Webpanel\ServiceCtrl::class, 'checkUrl']);
+        Route::post('/check/url', [ServiceCtrl::class, 'checkUrl']);
+    });
+
+    Route::prefix('service-category')->group(function(){
+        Route::get('/', [ServiceCategoryCtrl::class, 'index']);
+        Route::get('/add', [ServiceCategoryCtrl::class, 'add']);
+        Route::post('/add', [ServiceCategoryCtrl::class, 'store']);
+        Route::get('/update/{id}', [ServiceCategoryCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::put('/update/{id}', [ServiceCategoryCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::post('/status', [ServiceCategoryCtrl::class, 'status']);
+        Route::delete('/delete/{id}', [ServiceCategoryCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
+        Route::post('/check/url', [ServiceCategoryCtrl::class, 'checkUrl']);
     });
 
     Route::prefix('contact')->group(function () {

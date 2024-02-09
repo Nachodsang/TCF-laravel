@@ -395,38 +395,45 @@
         $(".deleteConsultant").on('click', function(e) {
             e.preventDefault();
             let id = $(this).attr('data-id');
-            console.log(id);
-            $.ajax({
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                url: `webpanel/consultant/delete/${id}`,
-                data: {
-                    _method: 'DELETE'
-                },
-                async: false,
-                beforeSend: function() {
-                    $('#loading').show();
-                },
-                complete: function() {
-                    $('#loading').hide();
-                },
-                success: function() {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Data has been Deleted",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                        $(`.ConsultantRow-${id}`).remove();
-                    });
-                },
-                error: function() {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Please try again later",
-                        showConfirmButton: true,
+            Swal.fire({
+                title: "Do you want to Delete Banner ?",
+                showCancelButton: true,
+                confirmButtonText: "Confirm",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        url: `webpanel/consultant/delete/${id}`,
+                        data: {
+                            _method: 'DELETE'
+                        },
+                        async: false,
+                        beforeSend: function() {
+                            $('#loading').show();
+                        },
+                        complete: function() {
+                            $('#loading').hide();
+                        },
+                        success: function() {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Data has been Deleted",
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                $(`.ConsultantRow-${id}`).remove();
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Please try again later",
+                                showConfirmButton: true,
+                            });
+                        }
                     });
                 }
             });
