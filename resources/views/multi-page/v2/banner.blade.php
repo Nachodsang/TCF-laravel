@@ -6,8 +6,13 @@
 
         @if ($cover)
             @foreach ($cover as $k => $v)
-                <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url('{{ $v->image }}');">
-                    <div class="container h-100 position-relative">
+                <div class="single-welcome-slide bg-img bg-overlay position-relative"
+                    style="background-image: url('{{ $v->image }}');">
+                    <div class="position-absolute top-0 bottom-0  w-100 banner-overlay-sm     ">
+
+
+                    </div>
+                    <div class="container h-100 position-relative ">
                         @if ($logoFooter)
                             <div data-animation="bounceInDown" data-delay="200ms"
                                 class=" pt-3 p-1 position-absolute rounded-bottom-3  top-0 end-0 c-bg-primary shadow cover-logo">
@@ -16,7 +21,7 @@
                         @endif
                         <div class="row h-100 align-items-center ">
                             <!-- Welcome Text -->
-                            <div class="col-12 col-lg-8 col-xl-6 c-bg-fifth d-flex align-items-center h-100 "
+                            <div class="col-12 col-lg-8 col-xl-6 banner-overlay-lg d-flex align-items-center h-100 "
                                 data-animation="bounceInDown" data-delay="500ms">
                                 <div class="welcome-text d-flex flex-column rounded p-4  ">
 

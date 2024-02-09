@@ -72,15 +72,15 @@
                 {!! @$service_cat->service_cat_detail !!}
             </div>
             <!-- filter -->
-            <div class="px-4 row">
+            <div class="px-4 row ">
                 <div
                     class= " mx-auto mb-4 p-4 rounded-3 bg-white d-flex flex-column shadow-md col-12 col-md-9 col-xl-8">
                     <div class="d-flex gap-1 align-items-center mb-2  c-primary">
                         <i class="fas fa-funnel-dollar fa-lg "></i>
                         <h3 style="margin-bottom:0;">Filter</h3>
                     </div>
-                    <div class="row ">
-                        <div class="col-lg-3  p-1">
+                    <div class="row  mx-0">
+                        <div class="col-lg-3  pe-0 ps-1 ">
                             <div class="dropdown rounded-2 c-bg-secondary w-100 p-2">
                                 <a name="industry-name" href="#"
                                     class="nav-link dropdown-toggle overflow-hidden capitalize c-text-primary"
@@ -112,11 +112,11 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-6  p-1">
+                        <div class="col-lg-6  pe-0 ps-1 mt-lg-0 mt-1 ">
                             <input id="search-input" class="rounded-2 c-bg-secondary w-100 p-2" type="text"
                                 placeholder="Search ..." />
                         </div>
-                        <div class="col-lg-3  p-1">
+                        <div class="col-lg-3  pe-0 ps-1 mt-lg-0 mt-1">
                             <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
                                 <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
@@ -140,12 +140,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row d-none" id="advance-search">
-                        <div class="col-lg-4 p-1 advance-search-item" id="modalButton">
+                    <div class="row d-none  mx-0  mt-1" id="advance-search">
+                        <div class="col-lg-4 pe-0 ps-1  advance-search-item" id="modalButton">
                             <button class="product-modal rounded-2 c-bg-secondary text-start w-100 p-2"
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">Product</button>
                         </div>
-                        <div class="col-lg-4 p-1 mb-1 advance-search-item income-drop">
+                        <div class="col-lg-4 pe-0 ps-1 mt-lg-0 mt-1  advance-search-item income-drop">
                             <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
                                 <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
@@ -171,7 +171,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-4 mb-1 p-1 advance-search-item income-drop">
+                        <div class="col-lg-4 mb-1 pe-0 ps-1 mt-lg-0 mt-1 advance-search-item income-drop ">
                             <div class="dropdown nav-item rounded-2 c-bg-secondary w-100 p-2">
                                 <a href="#" class="nav-link dropdown-toggle c-text-primary" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
@@ -198,9 +198,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="w-100  mt-3 row d-flex justify-content-end mx-0 p-0">
+                    <div class="w-100  mt-3 row d-flex justify-content-end mx-0 p-0 ">
                         <div class="col-6 col-lg-3 px-1 ">
-                            <button class=" rounded-2 c-bg-primary btn btn-primary  d-flex align-items-center w-100 "
+                            <button
+                                class=" rounded-2 c-bg-primary btn btn-primary  d-flex justify-content-center  align-items-center w-100 "
                                 id="clear-button">
                                 <i class="fas fa-sync-alt fa-x"></i>
                                 <span>
@@ -239,16 +240,21 @@
 
                             </div>
                             <div class="modal-footer  ">
-                                <div class="w-100 d-flex justify-content-between">
+                                <div class="w-100 d-flex flex-column flex-sm-row  justify-content-between">
+                                    <div class="w-100 row m-0">
+                                        <div class="p-0 pe-1 col-6 col-sm-3">
 
-                                    <div>
-                                        <button type="button" class="btn btn-primary" {{-- data-bs-dismiss="modal" --}}
-                                            id="modal-clear">Clear</button>
-                                        <button type="button" class="btn btn-secondary" id="modal-all">Select
-                                            All</button>
+                                            <button type="button" class="btn btn-primary w-100" {{-- data-bs-dismiss="modal" --}}
+                                                id="modal-clear">Clear</button>
+                                        </div>
+                                        <div class="p-0 ps-1 col-6 col-sm-5">
+                                            <button type="button" class="btn btn-secondary w-100  "
+                                                id="modal-all">Select
+                                                All</button>
+                                        </div>
                                     </div>
-                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
-                                        id="modal-confirm">Confirm</button>
+                                    <button type="button" class="btn btn-success mt-1 mt-sm-0"
+                                        data-bs-dismiss="modal" id="modal-confirm">Confirm</button>
                                 </div>
                             </div>
                         </div>

@@ -601,6 +601,17 @@ input:focus-visible {
         display: none;
     }
 }
+@media (max-width: 996px) {
+.banner-overlay-sm {
+    background-color:rgba(255,255,255,0.75);
+}
+}
+
+@media (min-width: 996px) {
+.banner-overlay-lg {
+    background-color:rgba(255,255,255,0.75);
+}
+}
 
 @-webkit-keyframes load7 {
     0%,

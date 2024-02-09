@@ -3,7 +3,7 @@
 @endphp
 
 <header class=" sticky-top">
-    <nav class="navbar navbar-expand-md navbar-bg ">
+    <nav class="navbar navbar-expand-xl navbar-bg ">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{-- <img src="images/logo/logoTCF-colored.png" class="logo"> --}}
