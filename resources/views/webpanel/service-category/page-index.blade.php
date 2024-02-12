@@ -1,15 +1,36 @@
 <section>
-    <div class="row mb-4">
+    <div class="row">
         <div class="col d-flex justify-content-between align-items-center">
-            <h2 class="m-0"><span class="badge bg-main"># Service Category</span></h2>
+            <h2 class="m-0"><span class="badge bg-main"># Service Category</span></h2><a
+                class="btn btn-primary btn-sm rounded-pill" data-bs-toggle="collapse" href="#collapseDescription"
+                role="button" aria-expanded="false" aria-controls="collapseDescription"><i class="fas fa-plus fa-xs"></i>
+                DESCRIPTION ALL SERVICE</a>
         </div>
     </div>
-    <div class="row">
+    <div class="collapse mt-3" id="collapseDescription">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="" id="descriptionService" method="POST">
+                            @csrf
+                            <div class="sk-area" data-lang="th">
+                                <textarea name="detail_th" id="detail_th" class="sk-editor" hidden=""></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm rounded-pill float-right mt-2">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
         <div class="col">
             <div class="card">
                 <div class="card-body">
                     <table class="table caption-top table-hover">
-                        <caption>List of Service Category<a href="{{ url('webpanel/service-category/add') }}"
+                        <caption>List of Service Category
+                            <a href="{{ url('webpanel/service-category/add') }}"
                                 class="btn btn-primary btn-sm rounded-pill float-right"><i
                                     class="fas fa-plus fa-xs"></i> ADD</a>
                         </caption>
@@ -56,7 +77,8 @@
                                         </td>
                                         <td class="text-right">
                                             <a class="btn btn-warning rounded-pill btn-sm"
-                                                href="{{ url("webpanel/service-category/update/$v->id") }}" role="button">
+                                                href="{{ url("webpanel/service-category/update/$v->id") }}"
+                                                role="button">
                                                 <i class="far fa-edit"></i></a>
                                             <a class="btn btn-danger btn-sm rounded-pill deleteService"
                                                 data-id="{{ $v->id }}" href="javascript:0" role="button"><i

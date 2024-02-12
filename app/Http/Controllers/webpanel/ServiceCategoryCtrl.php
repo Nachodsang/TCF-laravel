@@ -16,6 +16,16 @@ class ServiceCategoryCtrl extends Controller
             $data = ServiceCatMd::select('service_category.*', 'users.name as userName')->leftJoin('users', 'service_category.upload_by', 'users.id')->paginate(10);
 
             return view('webpanel.service-category.index', [
+                'css' => [
+                    'css/skEditor.css'
+                ],
+                'js' => [
+                    'https://cdn.jsdelivr.net/npm/a-color-picker@1.1.8/dist/acolorpicker.js',
+                    'js/drag-arrange.js',
+                    'js/b64toBlob.js',
+                    'js/skEditor.js',
+                    'js/admin/service-description.js',
+                ],
                 'module' => 'service-category',
                 'page' => 'page-index',
                 'serviceCat' => $data
@@ -180,7 +190,7 @@ class ServiceCategoryCtrl extends Controller
         }
     }
 
-    public function checkUrl(request $request)
+    public function checkUrl(Request $request)
     {
         if ($request->id) {
             $query = ServiceCatMd::where('id', '!=', $request->id)->where('url', $request->url)->count();
@@ -191,5 +201,20 @@ class ServiceCategoryCtrl extends Controller
         $query = ($query == 0) ? true : false;
 
         return response()->json($query);
+    }
+
+    public function storeDescription(Request $request){
+        try {
+            return redirect($request->fullUrl())->with([
+                'status' => 'success',
+                'message' => 'Data has been saved.'
+            ]);
+            // return redirect($request->fullUrl())->with([
+            //     'status' => 'error',
+            //     'message' => 'An error has occurred.'
+            // ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

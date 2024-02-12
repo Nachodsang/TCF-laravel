@@ -60,6 +60,7 @@ Route::middleware(['Webpanel'])->group(function () {
 
     Route::prefix('service-category')->group(function(){
         Route::get('/', [ServiceCategoryCtrl::class, 'index']);
+        Route::post('/', [ServiceCategoryCtrl::class, 'storeDescription']);
         Route::get('/add', [ServiceCategoryCtrl::class, 'add']);
         Route::post('/add', [ServiceCategoryCtrl::class, 'store']);
         Route::get('/update/{id}', [ServiceCategoryCtrl::class, 'show'])->where(['id' => '[0-9]+']);

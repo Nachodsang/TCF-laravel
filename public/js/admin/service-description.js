@@ -1,0 +1,1 @@
+$('#detail_th').skEditor({height:'300px'});
