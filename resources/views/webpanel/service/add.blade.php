@@ -36,7 +36,8 @@
                                     </div>
                                     <div class="col-xl-6 mb-2">
                                         <label for="url" class="form-label">Service Category : </label>
-                                        <select class="form-select" aria-label="Default select example" name="service_category" id="service_category">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="service_category" id="service_category">
                                             <option value="">Please Select ...</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -47,6 +48,10 @@
                                         <label for="service" class="form-label">Service : </label>
                                         <input type="text" class="form-control" id="service" name="service"
                                             placeholder="Name Of Service">
+                                    </div>
+                                    <div class="col-xl-12 mb-2">
+                                        <label for="description" class="form-label">Short Description : </label>
+                                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                                     </div>
                                 </div>
                             </div>

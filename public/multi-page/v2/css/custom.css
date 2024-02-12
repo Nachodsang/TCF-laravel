@@ -122,9 +122,13 @@
 .service-item p {
     color: var(--c-text-tertiary);
 }
+.service-item span {
+    color:var(--c-primary)
+}
 
 .service-item:hover h3,
-.service-item:hover p {
+.service-item:hover p,
+.service-item:hover span {
     color: var(--c-white);
 }
 

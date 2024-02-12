@@ -36,7 +36,8 @@
                                                 <h6><b>{{ $v->service }}</b></h6>
                                             </div>
                                             <div>
-                                                <p>{{ $v->seo_description }}</p>
+                                                {{-- <p>{{ $v->seo_description }}</p> --}}
+                                                <p>{{ $v->description }}</p>
                                             </div>
                                         </td>
                                         <td class="text-center">

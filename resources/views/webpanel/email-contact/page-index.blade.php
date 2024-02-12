@@ -14,6 +14,7 @@
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
                                 <th scope="col" width="20%">Email</th>
+                                <th scope="col" width="">Company</th>
                                 <th scope="col" width="">Name</th>
                                 <th scope="col" width="">Telephone</th>
                                 <th scope="col" width="25%">Detail</th>
@@ -26,6 +27,7 @@
                                     <tr class="EmailRow-{{ $v->id }}">
                                         <td class="text-center">{{ $key + 1 }}</td>
                                         <td>{{ $v->email }}</td>
+                                        <td>{{ $v->company_name }}</td>
                                         <td>{{ $v->name }}</td>
                                         <td>{{ $v->phone }}</td>
                                         <td>{{ $v->details }}</td>

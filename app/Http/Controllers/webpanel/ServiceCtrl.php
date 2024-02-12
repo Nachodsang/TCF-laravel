@@ -26,7 +26,6 @@ class ServiceCtrl extends Controller
                 'service' => $data
 
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -54,6 +53,7 @@ class ServiceCtrl extends Controller
             $service->image_alt = $request->imgAlt;
             $service->url = $request->url;
             $service->service = $request->service;
+            $service->description = $request->description;
             $service->details = $request->detail_th;
             $service->seo_description = $request->seo_description;
             $service->seo_keyword = $request->seo_keyword;
@@ -103,7 +103,6 @@ class ServiceCtrl extends Controller
                 'page' => 'edit',
                 'service' => $service
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -133,6 +132,7 @@ class ServiceCtrl extends Controller
             $update->image_alt = $request->imgAlt;
             $update->url = $request->url;
             $update->service = $request->service;
+            $update->description = $request->description;
             $update->details = $request->detail_th;
             $update->seo_description = $request->seo_description;
             $update->seo_keyword = $request->seo_keyword;
@@ -153,7 +153,6 @@ class ServiceCtrl extends Controller
                     "status" => 500,
                 ], 500);
             }
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }

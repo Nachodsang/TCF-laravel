@@ -208,6 +208,9 @@
                 service_category: {
                     required: true,
                 },
+                description: {
+                    required: true,
+                },
                 detail_th: {
                     required: true,
                 },
@@ -237,6 +240,9 @@
                 },
                 service_category: {
                     required: "กรุณาเลือกหมวดหมู่"
+                },
+                descripition: {
+                    required: "กรุณากรอกข้อมูล"
                 },
                 detail_th: {
                     required: "กรุณากรอกข้อมูล"
@@ -316,6 +322,9 @@
                 service_category: {
                     required: true,
                 },
+                description: {
+                    required: true,
+                },
                 detail_th: {
                     required: true,
                 },
@@ -342,6 +351,9 @@
                 },
                 service_category: {
                     required: "กรุณาเลือกหมวดหมู่"
+                },
+                description: {
+                    required: "กรุณากรอกข้อมูล"
                 },
                 detail_th: {
                     required: "กรุณากรอกข้อมูล"

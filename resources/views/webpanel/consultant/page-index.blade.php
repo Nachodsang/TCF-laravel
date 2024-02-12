@@ -1,9 +1,32 @@
 <section>
     <div class="row mb-4">
-        <div class="col d-flex justify-content-between align-items-center">
-            <h2 class="m-0"><span class="badge bg-main"># Consultant</span></h2>
+        <div class="d-flex justify-content-between  align-items-center ">
+
+            <div class="col d-flex mb-2 align-items-center justify-content-between ">
+                <h2 class="m-0"><span class="badge bg-main"># Consultant</span></h2>
+            </div>
+            <button class="btn btn-primary d-flex align-items-center gap-1 " type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="far fa-edit"></i>
+                <span>
+                    Edit Page Descripition
+                </span>
+            </button>
         </div>
     </div>
+    <div>
+        <div class="collapse" id="collapseExample">
+            <div class="col-xl-12 mb-2">
+                <label for="description" class="form-label">Description : </label>
+                <textarea class="form-control mb-2" name="description" id="description" rows="3">{{ $description }}</textarea>
+                <div class="d-flex justify-content-end ">
+                    <button class="btn-primary btn">Update</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="row">
         <div class="col">
             <div class="card">
@@ -32,11 +55,13 @@
                                 @foreach ($consultant as $key => $v)
                                     <tr class="ConsultantRow-{{ $v->id }}">
                                         <td class="text-center">{{ $item + $key }}</td>
-                                        <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="..." style="max-height: 250px">
+                                        <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="..."
+                                                style="max-height: 250px">
                                         </td>
                                         <td>
                                             <div>
                                                 <h6 class="fw-bold">{{ $v->name }}</h6>
+                                                <i>{{ $v->role }}</i>
                                             </div>
                                             <div>
                                                 <p>{{ $v->description }}</p>
@@ -57,7 +82,8 @@
                                             <a class="btn btn-warning rounded-pill btn-sm"
                                                 href="{{ url("webpanel/consultant/update/$v->id") }}" role="button"><i
                                                     class="far fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm rounded-pill deleteConsultant" data-id="{{ $v->id }}" href="javascript:0" role="button"><i
+                                            <a class="btn btn-danger btn-sm rounded-pill deleteConsultant"
+                                                data-id="{{ $v->id }}" href="javascript:0" role="button"><i
                                                     class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
