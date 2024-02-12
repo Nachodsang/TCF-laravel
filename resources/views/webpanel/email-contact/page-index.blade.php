@@ -43,6 +43,7 @@
                             @endif
                         </tbody>
                     </table>
+                    {{ $email->appends($_GET)->links() }}
                 </div>
             </div>
         </div>

@@ -104,7 +104,7 @@ class ContactCtrl extends Controller
     public function EmailContact()
     {
         try {
-            $email = EmailContactMd::all();
+            $email = EmailContactMd::paginate(10);
             return view('webpanel.email-contact.index', [
                 'module' => 'email-contact',
                 'page' => 'page-index',
