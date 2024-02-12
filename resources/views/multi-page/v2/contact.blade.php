@@ -55,9 +55,9 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="label" for="company-name">Company Name</label>
-                                                    <input type="text" class="form-control" name="company-name"
-                                                        id="company-name" placeholder="">
+                                                    <label class="label" for="companyName">Company Name</label>
+                                                    <input type="text" class="form-control" name="companyName"
+                                                        id="companyName" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -189,7 +189,7 @@
                 },
             },
             messages: {
-                'company-name': {
+                companyName: {
                     required: "กรุณากรอกข้อมูล"
                 },
                 name: {

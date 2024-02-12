@@ -53,7 +53,7 @@
     color: var(--c-secondary)
 }
 .c-secondary {
-    color: #db7e37;
+    color: var(--c-primary);
 }
 .c-secondary-trans {
     color: var(--c-primary)

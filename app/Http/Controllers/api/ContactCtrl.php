@@ -8,8 +8,10 @@ use App\Models\EmailContactMd;
 
 class ContactCtrl extends Controller
 {
-    public function sendEmail(request $request) {
+    public function sendEmail(request $request)
+    {
         $email = new EmailContactMd;
+        $email->company_name = $request->companyName;
         $email->name = $request->name;
         $email->email = $request->email;
         $email->phone = $request->telephone;
@@ -17,7 +19,7 @@ class ContactCtrl extends Controller
 
         ////////////// send email and notification line //////////////
 
-        
+
 
         //////////////////////////////////////////////////////////////
 

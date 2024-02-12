@@ -205,6 +205,9 @@
                 name: {
                     required: true,
                 },
+                role: {
+                    required: true,
+                },
                 description: {
                     required: true,
                 },
@@ -233,6 +236,9 @@
                     required: "กรุณากรอกข้อมูล"
                 },
                 name: {
+                    required: "กรุณากรอกข้อมูล"
+                },
+                role: {
                     required: "กรุณากรอกข้อมูล"
                 },
                 description: {
@@ -272,7 +278,7 @@
                             showConfirmButton: false,
                             timer: 1500
                         }).then((result) => {
-                            location.reload();
+                            // location.reload();
                         });
                     },
                     error: function() {
@@ -313,6 +319,9 @@
                 name: {
                     required: true,
                 },
+                role: {
+                    required: true,
+                },
                 description: {
                     required: true,
                 },
@@ -338,6 +347,9 @@
                     required: "กรุณากรอกข้อมูล"
                 },
                 name: {
+                    required: "กรุณากรอกข้อมูล"
+                },
+                role: {
                     required: "กรุณากรอกข้อมูล"
                 },
                 description: {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\webpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutServiceMd;
 use App\Models\ConsultantMd;
 use App\Models\TaskMd;
 use Illuminate\Http\Request;
@@ -15,19 +16,20 @@ class ConsultantCtrl extends Controller
     public function index()
     {
         try {
+            $description = AboutServiceMd::find(1);
             $data = ConsultantMd::select([
-                'consultant.*', 
+                'consultant.*',
                 'users.name as userUpload'
             ])
-            ->leftJoin('users', 'consultant.upload_by', 'users.id')
-            ->paginate(10);
+                ->leftJoin('users', 'consultant.upload_by', 'users.id')
+                ->paginate(10);
 
             return view('webpanel.consultant.index', [
                 'module' => 'consultant',
                 'page' => 'page-index',
-                'consultant' => $data
+                'consultant' => $data,
+                'description' => $description->consultant_page_description
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -73,6 +75,7 @@ class ConsultantCtrl extends Controller
             $consultant->image_alt = $request->imgAlt;
             $consultant->url = $request->url;
             $consultant->name = $request->name;
+            $consultant->role = $request->role;
             $consultant->description = $request->description;
             $consultant->detail = $request->detail_th;
             $consultant->seo_description = $request->seo_description;
@@ -154,7 +157,6 @@ class ConsultantCtrl extends Controller
                 'page' => 'edit',
                 'consultant' => $consultant
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -181,6 +183,7 @@ class ConsultantCtrl extends Controller
             $update->image_alt = $request->imgAlt;
             $update->url = $request->url;
             $update->name = $request->name;
+            $update->role = $request->role;
             $update->description = $request->description;
             $update->detail = $request->detail_th;
             $update->seo_description = $request->seo_description;
@@ -202,7 +205,6 @@ class ConsultantCtrl extends Controller
                     "status" => 500,
                 ], 500);
             }
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }

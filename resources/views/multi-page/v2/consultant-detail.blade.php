@@ -38,7 +38,8 @@
                                 </span></a>
                         </span> <a href="{{ url('/consultant') }}">Our Consultants
                         </a></p>
-                    <h1 class="mb-0 bread">{{ $consultant->name }}</h1>
+                    <h1 class="mb-0 bread">{{ @$consultant->name }}</h1>
+                    <h3 class="mb-0 text-white">{{ @$consultant->role }}</h3>
                 </div>
             </div>
         </div>
