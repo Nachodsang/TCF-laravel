@@ -7,6 +7,7 @@
     <title>Contact Us - Tokyo Consulting Firm</title>
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
+    <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">

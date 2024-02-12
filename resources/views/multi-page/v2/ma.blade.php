@@ -23,6 +23,7 @@
     <title>M&A and IPO Tokyo Consulting Firm</title>
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
+    <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="css/sweetalert2.min.css" rel="stylesheet">
@@ -142,7 +143,7 @@
                     </div>
                     <div class="row d-none  mx-0  mt-1" id="advance-search">
                         <div class="col-lg-4 pe-0 ps-1  advance-search-item" id="modalButton">
-                            <button class="product-modal rounded-2 c-bg-secondary text-start w-100 p-2"
+                            <button class="product-modal rounded-2 c-bg-secondary text-start w-100 p-2 "
                                 data-bs-toggle="modal" data-bs-target="#exampleModal">Product</button>
                         </div>
                         <div class="col-lg-4 pe-0 ps-1 mt-lg-0 mt-1  advance-search-item income-drop">

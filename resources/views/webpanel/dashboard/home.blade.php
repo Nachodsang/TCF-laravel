@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            {{-- <div class="col-lg-6">
                                 <div class="form-group">
                                     <div class="color-primary d-grid">
                                         <label for="exampleColorInput" class="form-label">Button Primary Color</label>
@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <button class="btn btn-success btn-sm rounded-pill" type="submit">Save</button>
                         <button class="btn btn-secondary btn-sm rounded-pill cancel" type="button">Cancel</button>
@@ -213,8 +213,8 @@
         UpdateColor({
             '--c-primary': this.querySelector('input[name="--c-primary"]').value,
             '--c-secondary': this.querySelector('input[name="--c-secondary"]').value,
-            '--btn-primary': this.querySelector('input[name="--btn-primary"]').value,
-            '--btn-secondary': this.querySelector('input[name="--btn-secondary"]').value,
+            // '--btn-primary': this.querySelector('input[name="--btn-primary"]').value,
+            // '--btn-secondary': this.querySelector('input[name="--btn-secondary"]').value,
         }).then(res => {
             if (res.status == true) {
                 fetch('webpanel/config/set/color');

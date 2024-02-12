@@ -29,6 +29,7 @@
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
+    <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
 
 </head>
 

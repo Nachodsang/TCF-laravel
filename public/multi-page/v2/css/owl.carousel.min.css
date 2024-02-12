@@ -226,13 +226,14 @@
 .owl-dots .owl-dot {
     display: inline-block;
     zoom: 1;
-}
+} 
 
 .owl-dots .owl-dot.active {
     background: #fff;
 }
 .owl-dots .owl-dot.active {
-    background: rgba(219, 126, 55, 0.7);
+    background: var(--c-primary);
+    opacity:0.6;
 }
 .owl-dots .owl-dot {
     width: 10px;
