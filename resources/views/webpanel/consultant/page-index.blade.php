@@ -16,13 +16,15 @@
     </div>
     <div>
         <div class="collapse" id="collapseExample">
-            <div class="col-xl-12 mb-2">
+            <form method="POST" id="consultantPageDescription" class="col-xl-12 mb-2">
+                @csrf
+                @method('POST')
                 <label for="description" class="form-label">Description : </label>
                 <textarea class="form-control mb-2" name="description" id="description" rows="3">{{ $description }}</textarea>
                 <div class="d-flex justify-content-end ">
-                    <button class="btn-primary btn">Update</button>
+                    <button type="submit" class="btn-primary btn">Update</button>
                 </div>
-            </div>
+            </form>
 
         </div>
     </div>

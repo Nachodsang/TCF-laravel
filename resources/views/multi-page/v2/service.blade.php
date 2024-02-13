@@ -77,7 +77,7 @@
                                 <div class="service-icon btn-square">
                                     {!! $v->icon !!}
                                 </div>
-                                <h3 class="mb-3">{{ $v->service }}</h3>
+                                <h3 class="mb-3 h3">{{ $v->service }}</h3>
                                 <p>{{ $v->description }}</p>
 
                                 <a class="btn px-3 mt-auto mx-auto" href="{{ url("/service/$v->url") }}">Read More</a>

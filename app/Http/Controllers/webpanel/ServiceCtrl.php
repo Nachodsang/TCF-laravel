@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Webpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutServiceMd;
+use App\Models\ServiceCatMd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -18,12 +20,18 @@ class ServiceCtrl extends Controller
     public function index()
     {
         try {
-            $data = ServiceMd::select('service.*', 'users.name')->leftJoin('users', 'service.upload_by', 'users.id')->paginate(10);
+            $data = ServiceMd::select('service.*', 'users.name', 'service_category.name')
+                ->leftJoin('users', 'service.upload_by', 'users.id')
+                ->leftJoin('service_category', 'service_category.id', 'service.cat_id') // Joining on cat_id
+                ->paginate(10); // $data = ServiceMd::select('service.*', 'users.name')->leftJoin('users', 'service.upload_by', 'users.id')->paginate(10);
 
+            $serviceCats = ServiceCatMd::orderBy('sort', 'desc')->get();
             return view('webpanel.service.index', [
                 'module' => 'service',
                 'page' => 'page-index',
-                'service' => $data
+                'service' => $data,
+
+
 
             ]);
         } catch (\Exception $e) {
@@ -49,7 +57,7 @@ class ServiceCtrl extends Controller
                 $service->image = $newfile;
             }
 
-            $service->image_title = $request->imgTitle;
+            $service->icon = $request->icon;
             $service->image_alt = $request->imgAlt;
             $service->url = $request->url;
             $service->service = $request->service;
@@ -57,7 +65,7 @@ class ServiceCtrl extends Controller
             $service->details = $request->detail_th;
             $service->seo_description = $request->seo_description;
             $service->seo_keyword = $request->seo_keyword;
-
+            $service->cat_id = $request->service_category;
             $service->status = 0;
             $service->upload_by = Auth::user()->id;
 
@@ -87,6 +95,7 @@ class ServiceCtrl extends Controller
     {
         try {
             $service = ServiceMd::find($id);
+            $serviceCats = ServiceCatMd::orderBy('sort', 'desc')->get();
 
             return view('webpanel.service.index', [
                 'css' => [
@@ -101,7 +110,8 @@ class ServiceCtrl extends Controller
                 ],
                 'module' => 'service',
                 'page' => 'edit',
-                'service' => $service
+                'service' => $service,
+                'service_cats' => $serviceCats,
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -128,7 +138,7 @@ class ServiceCtrl extends Controller
                 $update->image = $newfile;
             }
 
-            $update->image_title = $request->imgTitle;
+            $update->icon = $request->icon;
             $update->image_alt = $request->imgAlt;
             $update->url = $request->url;
             $update->service = $request->service;
@@ -136,7 +146,7 @@ class ServiceCtrl extends Controller
             $update->details = $request->detail_th;
             $update->seo_description = $request->seo_description;
             $update->seo_keyword = $request->seo_keyword;
-
+            $update->cat_id = $request->service_category;
             $update->modified_by = Auth::user()->id;
 
             if ($update->save()) {
@@ -188,6 +198,7 @@ class ServiceCtrl extends Controller
     public function addService()
     {
         try {
+            $serviceCats = ServiceCatMd::orderBy('sort', 'desc')->get();
             return view('webpanel.service.index', [
                 'css' => [
                     'css/skEditor.css'
@@ -201,6 +212,7 @@ class ServiceCtrl extends Controller
                 ],
                 'module' => 'service',
                 'page' => 'add',
+                'service_cats' => $serviceCats,
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -239,5 +251,60 @@ class ServiceCtrl extends Controller
         $query = ($query == 0) ? true : false;
 
         return response()->json($query);
+    }
+
+    public function description(Request $request)
+    {
+        try {
+            $log = new TaskMd;
+            $data = AboutServiceMd::find(1);
+            if ($data) {
+
+                $data->about_service_home = $request->description;
+                if ($data->save()) {
+                    $log->action = "update-home-page-service-description";
+                    $log->module = "home";
+                    $log->action_by = Auth::user()->id;
+                    $log->save();
+                    return response()->json(
+                        [
+                            "status" => 200,
+                        ],
+                        200
+                    );
+                } else {
+                    return response()->json(
+                        [
+                            "status" => 500,
+                        ],
+                        500
+                    );
+                }
+            } else {
+                $data = new AboutServiceMd;
+                $data->about_service_home = $request->description;
+                if ($data->save()) {
+                    $log->action = "update-home-page-service-description";
+                    $log->module = "home";
+                    $log->action_by = Auth::user()->id;
+                    $log->save();
+                    return response()->json(
+                        [
+                            "status" => 200,
+                        ],
+                        200
+                    );
+                } else {
+                    return response()->json(
+                        [
+                            "status" => 500,
+                        ],
+                        500
+                    );
+                }
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

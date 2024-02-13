@@ -183,15 +183,15 @@
             errorClass: "is-invalid",
             errorElement: "small",
             rules: {
-                imgTitle: {
-                    required: true
-                },
-                imgAlt: {
-                    required: true
-                },
-                imgService: {
-                    required: true,
-                },
+                // imgTitle: {
+                //     required: true
+                // },
+                // imgAlt: {
+                //     required: true
+                // },
+                // imgService: {
+                //     required: true,
+                // },
                 url: {
                     remote: {
                         url: "{{ url('webpanel/service/check/url') }}",
@@ -222,15 +222,15 @@
                 },
             },
             messages: {
-                imgTitle: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                imgAlt: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                imgService: {
-                    required: "กรุณาเลือกรูปภาพ",
-                },
+                // imgTitle: {
+                //     required: "กรุณากรอกข้อมูล"
+                // },
+                // imgAlt: {
+                //     required: "กรุณากรอกข้อมูล"
+                // },
+                // imgService: {
+                //     required: "กรุณาเลือกรูปภาพ",
+                // },
                 url: {
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
@@ -299,10 +299,10 @@
             errorClass: "is-invalid",
             errorElement: "small",
             rules: {
-                imgTitle: {
-                    required: true
-                },
-                imgAlt: {
+                // imgTitle: {
+                //     required: true
+                // },
+                icon: {
                     required: true
                 },
                 url: {
@@ -336,10 +336,10 @@
                 },
             },
             messages: {
-                imgTitle: {
-                    required: "กรุณากรอกข้อมูล"
-                },
-                imgAlt: {
+                // imgTitle: {
+                //     required: "กรุณากรอกข้อมูล"
+                // },
+                icon: {
                     required: "กรุณากรอกข้อมูล"
                 },
                 url: {

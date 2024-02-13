@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Webpanel\DashboardCtrl;
 use App\Http\Controllers\webpanel\maCtrl;
 use App\Http\Controllers\webpanel\ServiceCategoryCtrl;
 use App\Http\Controllers\Webpanel\ServiceCtrl;
+use App\Models\AboutServiceMd;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,11 +56,11 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::get('/update/{id}', [ServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
         Route::post('/update/{id}', [ServiceCtrl::class, 'update'])->where(['id' => '[0-9]+']);
         Route::delete('/delete/{id}', [ServiceCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
-
+        Route::post('/description', [ServiceCtrl::class, 'description']);
         Route::post('/check/url', [ServiceCtrl::class, 'checkUrl']);
     });
 
-    Route::prefix('service-category')->group(function(){
+    Route::prefix('service-category')->group(function () {
         Route::get('/', [ServiceCategoryCtrl::class, 'index']);
         Route::post('/', [ServiceCategoryCtrl::class, 'storeDescription']);
         Route::get('/add', [ServiceCategoryCtrl::class, 'add']);
@@ -117,7 +119,7 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show'])->where(['id' => '[0-9]+']);
         Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update'])->where(['id' => '[0-9]+']);
         Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
-
+        Route::post('/description', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'description']);
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'checkUrl']);
     });
 
