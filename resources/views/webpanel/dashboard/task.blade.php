@@ -67,6 +67,7 @@
                                     @endif
                                 </tbody>
                             </table>
+                            {{ $log->appends($_GET)->links() }}
                         </div>
                     </div>
                 </div>
