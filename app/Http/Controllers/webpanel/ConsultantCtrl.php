@@ -233,4 +233,59 @@ class ConsultantCtrl extends Controller
             return $e->getMessage();
         }
     }
+
+    public function description(Request $request)
+    {
+        try {
+            $log = new TaskMd;
+            $data = AboutServiceMd::find(1);
+            if ($data) {
+
+                $data->consultant_page_description = $request->description;
+                if ($data->save()) {
+                    $log->action = "update-consultant-page-description";
+                    $log->module = "consultant";
+                    $log->action_by = Auth::user()->id;
+                    $log->save();
+                    return response()->json(
+                        [
+                            "status" => 200,
+                        ],
+                        200
+                    );
+                } else {
+                    return response()->json(
+                        [
+                            "status" => 500,
+                        ],
+                        500
+                    );
+                }
+            } else {
+                $data = new AboutServiceMd;
+                $data->consultant_page_description = $request->description;
+                if ($data->save()) {
+                    $log->action = "add-new-consultant-page-description";
+                    $log->module = "consultant";
+                    $log->action_by = Auth::user()->id;
+                    $log->save();
+                    return response()->json(
+                        [
+                            "status" => 200,
+                        ],
+                        200
+                    );
+                } else {
+                    return response()->json(
+                        [
+                            "status" => 500,
+                        ],
+                        500
+                    );
+                }
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

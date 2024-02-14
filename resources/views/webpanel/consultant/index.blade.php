@@ -404,6 +404,63 @@
             }
         });
 
+
+        $('#consultantPageDescription').submit(function(e) {
+            e.preventDefault();
+        }).validate({
+            validClass: "is-valid",
+            errorClass: "is-invalid",
+            errorElement: "small",
+            rules: {
+                imgTitle: {
+                    required: true
+                },
+            },
+            messages: {
+                imgTitle: {
+                    required: "กรุณากรอกข้อมูล"
+                },
+            },
+            submitHandler: function(form) {
+
+
+                inputs = $('#consultantPageDescription')[0];
+                const formData = new FormData(inputs);
+
+                $.ajax({
+                    method: 'POST',
+                    url: `webpanel/consultant/description/`,
+                    data: formData,
+                    async: false,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        $('#loading').show();
+                    },
+                    complete: function() {
+                        $('#loading').hide();
+                    },
+                    success: function() {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Data has been Updated",
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then((result) => {
+                            location.reload();
+                        });
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Please try again later",
+                            showConfirmButton: true,
+                        });
+                    }
+                });
+            }
+        });
+
         $(".deleteConsultant").on('click', function(e) {
             e.preventDefault();
             let id = $(this).attr('data-id');

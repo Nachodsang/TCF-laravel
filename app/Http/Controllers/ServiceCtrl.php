@@ -15,11 +15,6 @@ class ServiceCtrl extends Controller
 
     public function index(request $request)
     {
-
-
-
-
-
         $service = ServiceMd::where(['status' => 1])->get();
         // number = order of service category
         $servicesArray = $service->sortBy('id');

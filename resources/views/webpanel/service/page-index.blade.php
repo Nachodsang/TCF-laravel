@@ -16,8 +16,8 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
-                                <th scope="col" width="15%"></th>
                                 <th scope="col" width="35%">Service</th>
+                                <th scope="col" width="15%">Category</th>
                                 <th scope="col" width="15%" class="text-center">Upload By</th>
                                 <th scope="col" width="15%" class="text-center">Created</th>
                                 <th scope="col" width="5%" class="text-center">Status</th>
@@ -29,8 +29,7 @@
                                 @foreach ($service as $key => $v)
                                     <tr class="ServiceRow-{{ $v->id }}">
                                         <td class="text-center">{{ $key + 1 }}</td>
-                                        <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="...">
-                                        </td>
+
                                         <td>
                                             <div>
                                                 <h6><b>{{ $v->service }}</b></h6>
@@ -39,6 +38,10 @@
                                                 {{-- <p>{{ $v->seo_description }}</p> --}}
                                                 <p>{{ $v->description }}</p>
                                             </div>
+                                        </td>
+                                        <td>
+                                            {{-- <img src="{{ $v->image }}" class="img-fluid rounded" alt="..."> --}}
+                                            <h6>{{ $v->name }}</h6>
                                         </td>
                                         <td class="text-center">
                                             <div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div>

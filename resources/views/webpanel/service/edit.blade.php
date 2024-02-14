@@ -13,14 +13,10 @@
                         @method('POST')
                         <input type="hidden" value="{{ $service->id }}" id="serviceId" name="serviceId">
                         <div class="row mb-2">
-                            <div class="col-xl-3 mb-2">
-                                <img id="imgPreview"
-                                    src="@if ($service->image) {{ $service->image }} @else images/no_image.webp @endif"
-                                    class="img-fluid rounded" style="max-height: 350px">
-                            </div>
-                            <div class="col-xl-9 mb-2">
+
+                            <div class="col-xl-12 mb-2">
                                 <div class="row">
-                                    <div class="col-xl-12 mb-2">
+                                    {{-- <div class="col-xl-12 mb-2">
                                         <label for="imgService" class="form-label">Image : </label>
                                         <input type="file" class="form-control" id="imgService" name="imgService"
                                             accept="image/*">
@@ -29,30 +25,37 @@
                                         <label for="imgAlt" class="form-label">Image Alt : </label>
                                         <input type="text" class="form-control" id="imgAlt" name="imgAlt"
                                             value="{{ $service->image_alt }}">
-                                    </div>
+                                    </div> --}}
                                     <div class="col-xl-6 mb-2">
-                                        <label for="imgTitle" class="form-label">Image Title : </label>
-                                        <input type="text" class="form-control" id="imgTitle" name="imgTitle"
-                                            value="{{ $service->image_title }}">
-                                    </div>
-                                    <div class="col-xl-6 mb-2">
-                                        <label for="url" class="form-label">URL : </label>
-                                        <input type="text" class="form-control" id="url" name="url"
-                                            value="{{ $service->url }}">
+                                        <label for="service" class="form-label">Service : </label>
+                                        <input type="text" class="form-control" id="service" name="service"
+                                            placeholder="Name Of Service" value="{{ $service->service }}">
                                     </div>
                                     <div class="col-xl-6 mb-2">
                                         <label for="url" class="form-label">Service Category : </label>
                                         <select class="form-select" aria-label="Default select example"
                                             name="service_category" id="service_category">
                                             <option value="">Please Select ...</option>
-                                            <option value="1" @if ($service->cat_id == '1') selected @endif>One
-                                            </option>
+                                            @foreach ($service_cats as $k => $v)
+                                                <option value="{{ $v->id }}"
+                                                    @if ($service->cat_id == $v->id) selected @endif>
+                                                    {{ $v->name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-xl-12 mb-2">
-                                        <label for="service" class="form-label">Service : </label>
-                                        <input type="text" class="form-control" id="service" name="service"
-                                            placeholder="Name Of Service" value="{{ $service->service }}">
+
+                                    <div class="col-xl-6 mb-2">
+                                        <label for="icon" class="form-label">Icon : <small class="text-muted"><a
+                                                    href="https://fontawesome.com/v5/search?o=r&m=free">fontawesome.com</a></small>
+                                        </label>
+                                        <input type="text" class="form-control" id="icon" name="icon"
+                                            value="{{ $service->icon }}">
+                                    </div>
+                                    <div class="col-xl-6 mb-2">
+                                        <label for="url" class="form-label">URL : </label>
+                                        <input type="text" class="form-control" id="url" name="url"
+                                            value="{{ $service->url }}">
                                     </div>
                                     <div class="col-xl-12 mb-2">
                                         <label for="description" class="form-label">Short Description : </label>

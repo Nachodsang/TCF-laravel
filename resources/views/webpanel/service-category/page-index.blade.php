@@ -15,9 +15,10 @@
                         <form action="" id="descriptionService" method="POST">
                             @csrf
                             <div class="sk-area" data-lang="th">
-                                <textarea name="detail_th" id="detail_th" class="sk-editor" hidden=""></textarea>
+                                <textarea name="detail_th" id="detail_th" class="sk-editor" hidden="">{{ $servicePageDetail }}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm rounded-pill float-right mt-2">Save</button>
+                            <button type="submit"
+                                class="btn btn-primary btn-sm rounded-pill float-right mt-2">Save</button>
                         </form>
                     </div>
                 </div>
@@ -37,11 +38,11 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
-                                <th scope="col" width="40%">Name Of Service Category</th>
+                                <th scope="col" width="45%">Name Of Service Category</th>
                                 <th scope="col" class="text-center" width="10%">Type</th>
                                 <th scope="col" width="15%" class="text-center">Upload By</th>
                                 <th scope="col" width="15%" class="text-center">Created</th>
-                                <th scope="col" width="5%" class="text-center">Status</th>
+                                {{-- <th scope="col" width="5%" class="text-center">Status</th> --}}
                                 <th scope="col" width="10%"></th>
                             </tr>
                         </thead>
@@ -68,13 +69,7 @@
                                             <div class="btn btn-info btn-sm rounded-pill">{{ $v->userName }}</div>
                                         </td>
                                         <td class="text-center">{{ $v->created_at }}</td>
-                                        <td class="text-center">
-                                            <div class="form-switch">
-                                                <input class="form-check-input status" type="checkbox"
-                                                    id="statusCategory" data-id="{{ $v->id }}"
-                                                    @if ($v->status == true) checked @endif>
-                                            </div>
-                                        </td>
+
                                         <td class="text-right">
                                             <a class="btn btn-warning rounded-pill btn-sm"
                                                 href="{{ url("webpanel/service-category/update/$v->id") }}"

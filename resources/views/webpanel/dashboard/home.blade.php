@@ -7,8 +7,11 @@
 @endphp
 <section>
     <div class="row mb-4">
-        <div class="col d-flex justify-content-between align-items-center">
-            <h2 class="m-0"><span class="badge bg-main"># Home</span></h2>
+        <div class="d-flex justify-content-between  align-items-center ">
+            <div class="col d-flex justify-content-between align-items-center">
+                <h2 class="m-0"><span class="badge bg-main"># Home</span></h2>
+            </div>
+
         </div>
     </div>
     <div class="row">
@@ -36,13 +39,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-8 col-xs-12">
+        <div class="col-lg-4 col-xs-12">
             <div class="card mb-3">
                 <div class="card-body">
                     <form id="formColor">
                         @csrf
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <div class="color-primary d-grid">
                                         <label for="exampleColorInput" class="form-label">Primary Color</label>
@@ -58,7 +61,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <div class="color-primary d-grid">
                                         <label for="exampleColorInput" class="form-label">Secondary Color</label>
@@ -74,6 +77,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- button colors --}}
                             {{-- <div class="col-lg-6">
                                 <div class="form-group">
                                     <div class="color-primary d-grid">
@@ -113,6 +117,19 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4 col-xs-12 card mb-3 ">
+            <div class="card-body">
+                <form method="POST" id="serviceDescription" class="col-xl-12 ">
+                    @csrf
+                    @method('POST')
+                    <label for="description" class="form-label">Service Description</label>
+                    <textarea class="form-control mb-4" name="description" id="description" rows="4">{{ @$description }}</textarea>
+                    <div class="d-flex justify-content-end ">
+                        <button class="btn btn-success btn-sm rounded-pill" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="row mb-3">
         <div class="col">
@@ -124,7 +141,7 @@
                         @method('POST')
                         <div class="row">
                             <div class="col-12">
-                                <label for="detail_first"class="form-label">Detail First</label>
+                                <label for="detail_first"class="form-label">Home Page Detail</label>
                                 <div class="sk-area" data-lang="th">
                                     <textarea name="detail_first" id="detail_first" class="sk-editor" hidden="">{{ @$first->detail }}</textarea>
                                 </div>
@@ -145,7 +162,7 @@
         <div class="col-lg-4 col-xs-12">
             <div class="card mb-3">
                 <div class="card-body">
-                    <label for="">Logo in Footer</label>
+                    <label for="">Logo in Footer and Banner</label>
                     <form action="webpanel/logo/footer" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">

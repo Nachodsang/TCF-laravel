@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Webpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutServiceMd;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class DashboardCtrl extends Controller
     public function index()
     {
         try {
+            $about_service = AboutServiceMd::find(1);
             return view("$this->folderPrefix.dashboard.index", [
                 'css' => [
                     'css/skEditor.css'
@@ -35,6 +37,8 @@ class DashboardCtrl extends Controller
                 ],
                 'module' => 'dashboard',
                 'page' => 'home',
+                'description' => $about_service->about_service_home,
+                
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -87,7 +91,7 @@ class DashboardCtrl extends Controller
                 $fileName = 'logo_' . $type . '_' . date('dmY-His');
                 $new->stream();
                 $imgPath = 'images/logo/' . $fileName . $ext;
-                Storage::disk(env('disk' , 'ftp'))->put($imgPath, $new);
+                Storage::disk(env('disk', 'ftp'))->put($imgPath, $new);
                 $get->detail = $imgPath;
                 if ($get->save()) {
                     $log = new TaskMd;

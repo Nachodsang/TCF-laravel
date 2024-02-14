@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\webpanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutServiceMd;
 use App\Models\ServiceCatMd;
 use App\Models\TaskMd;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class ServiceCategoryCtrl extends Controller
     {
         try {
             $data = ServiceCatMd::select('service_category.*', 'users.name as userName')->leftJoin('users', 'service_category.upload_by', 'users.id')->paginate(10);
-
+            $about_service = AboutServiceMd::find(1);
             return view('webpanel.service-category.index', [
                 'css' => [
                     'css/skEditor.css'
@@ -28,10 +29,10 @@ class ServiceCategoryCtrl extends Controller
                 ],
                 'module' => 'service-category',
                 'page' => 'page-index',
-                'serviceCat' => $data
+                'serviceCat' => $data,
+                'servicePageDetail' => $about_service->service_page_detail
 
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -79,7 +80,6 @@ class ServiceCategoryCtrl extends Controller
                 'page' => 'edit',
                 'serviceCat' => $serviceCat
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -203,12 +203,52 @@ class ServiceCategoryCtrl extends Controller
         return response()->json($query);
     }
 
-    public function storeDescription(Request $request){
+    public function storeDescription(Request $request)
+    {
         try {
-            return redirect($request->fullUrl())->with([
-                'status' => 'success',
-                'message' => 'Data has been saved.'
-            ]);
+            $log = new TaskMd;
+            $data = AboutServiceMd::find(1);
+
+            if ($data) {
+                $data->service_page_detail = $request->detail_th;
+                if ($data->save()) {
+                    $log->action = "update-service-page-detail";
+                    $log->module = "service";
+                    $log->action_by = Auth::user()->id;
+                    $log->save();
+                    return redirect($request->fullUrl())->with([
+                        'status' => 'success',
+                        'message' => 'Data has been saved.'
+                    ]);
+                } else {
+                    return redirect($request->fullUrl())->with([
+                        'status' => 'error',
+                        'message' => 'An error has occurred.'
+                    ]);
+                }
+            } else {
+                $data = new AboutServiceMd;
+                $data->service_page_detail = $request->detail_th;
+                if ($data->save()) {
+                    $log->action = "add-new-service-page-detail";
+                    $log->module = "service";
+                    $log->action_by = Auth::user()->id;
+                    $log->save();
+                    return redirect($request->fullUrl())->with([
+                        'status' => 'success',
+                        'message' => 'Data has been saved.'
+                    ]);
+                } else {
+                    return redirect($request->fullUrl())->with([
+                        'status' => 'error',
+                        'message' => 'An error has occurred.'
+                    ]);
+                }
+            }
+            // return redirect($request->fullUrl())->with([
+            //     'status' => 'success',
+            //     'message' => 'Data has been saved.'
+            // ]);
             // return redirect($request->fullUrl())->with([
             //     'status' => 'error',
             //     'message' => 'An error has occurred.'
