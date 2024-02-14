@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\MaCtrl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,9 @@ Route::prefix('contact')->group(function(){
 
 Route::prefix('get')->group(function(){
     Route::get('menu',[\App\Http\Controllers\Api\MenuCtrl::class,'get']);
+});
+
+Route::prefix('ma-filter')->group(function(){
+    Route::get('industry', [MaCtrl::class,'getIndustry']);
+    Route::get('product/{id}', [MaCtrl::class,'getProduct']);
 });

@@ -157,7 +157,7 @@ class DashboardCtrl extends Controller
                         ->whereDate('task.created_at', '<=', $date[1]);
                 })
                 ->orderBy('created_at', 'desc')
-                ->get();
+                ->paginate(50);
             return view("$this->folderPrefix.dashboard.index", [
                 'module' => 'dashboard',
                 'page' => 'task',

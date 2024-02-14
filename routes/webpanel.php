@@ -58,7 +58,7 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::post('/check/url', [ServiceCtrl::class, 'checkUrl']);
     });
 
-    Route::prefix('service-category')->group(function(){
+    Route::prefix('service-category')->group(function () {
         Route::get('/', [ServiceCategoryCtrl::class, 'index']);
         Route::post('/', [ServiceCategoryCtrl::class, 'storeDescription']);
         Route::get('/add', [ServiceCategoryCtrl::class, 'add']);
