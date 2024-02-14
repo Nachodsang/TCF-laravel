@@ -79,6 +79,9 @@ Route::middleware(['Webpanel'])->group(function () {
 
     Route::prefix('email-contact')->group(function () {
         Route::get('/', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'EmailContact']);
+        Route::post('/status', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'status']);
+        Route::post('/favourite', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'favourite']);
+        Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ContactCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
     });
 
     Route::prefix('about-us')->group(function () {

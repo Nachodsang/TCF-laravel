@@ -7,6 +7,8 @@ use App\Models\AddressMd;
 use App\Models\ContactMd;
 use Illuminate\Http\Request;
 use App\Models\EmailContactMd;
+use App\Models\TaskMd;
+use Illuminate\Support\Facades\Auth;
 
 class ContactCtrl extends Controller
 {
@@ -95,7 +97,26 @@ class ContactCtrl extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $log = new TaskMd;
+            $data = EmailContactMd::find($id);
+           
+            if ($data->delete()) {
+                $log->action = "delete-msg.-$id";
+                $log->module = "contact-email";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json([
+                    "status" => 200,
+                ], 200);
+            } else {
+                return response()->json([
+                    "status" => 500,
+                ], 500);
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
@@ -104,12 +125,80 @@ class ContactCtrl extends Controller
     public function EmailContact()
     {
         try {
-            $email = EmailContactMd::paginate(10);
+            $email = EmailContactMd::where('status', '<>', '1')
+                ->where('favourite', '<>', '1')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+
+            // $email = EmailContactMd::orderBy('created_at', 'desc')
+            //     ->paginate(10);
+
+            $favourite = EmailContactMd::where('favourite', '1')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+            $done = EmailContactMd::where('status', '1')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
             return view('webpanel.email-contact.index', [
                 'module' => 'email-contact',
                 'page' => 'page-index',
-                'email' => $email
+                'email' => $email,
+                'favourite' => $favourite,
+                'done' => $done,
+
             ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function status(Request $request)
+    {
+
+        try {
+            $data = EmailContactMd::find($request->id);
+            $log = new TaskMd;
+            if ($data->status == null || $data->status == '0') {
+                $data->update(['status' => '1']);
+                $log->action = "done-contact-email-$request->id";
+                $log->module = "contact-email";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json(true);
+            } else {
+                $data->update(['status' => '0']);
+                $log->action = "undone-contact-email-$request->id";
+                $log->module = "contact-email";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json(true);
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function favourite(Request $request)
+    {
+
+        try {
+            $data = EmailContactMd::find($request->id);
+            $log = new TaskMd;
+            if ($data->favourite == null || $data->favourite == '0') {
+                $data->update(['favourite' => '1']);
+                $log->action = "favourite-contact-email-$request->id";
+                $log->module = "contact-email";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json(true);
+            } else {
+                $data->update(['favourite' => '0']);
+                $log->action = "remove-favourite-contact-email-$request->id";
+                $log->module = "contact-email";
+                $log->action_by = Auth::user()->id;
+                $log->save();
+                return response()->json(true);
+            }
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -118,7 +207,6 @@ class ContactCtrl extends Controller
     public function SendEmailContact(request $request)
     {
         try {
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }

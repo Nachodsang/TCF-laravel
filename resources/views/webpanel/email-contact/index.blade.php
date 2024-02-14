@@ -77,6 +77,8 @@
     <script>
         $(".loading").hide();
 
+        let successEvent = false
+
         if (document.getElementById('imgService')) {
             imgService.onchange = evt => {
                 const [file] = imgService.files;
@@ -92,7 +94,7 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                url: 'webpanel/service/status',
+                url: 'webpanel/email-contact/status',
                 method: 'POST',
                 async: false,
                 data: {
@@ -114,6 +116,55 @@
                         icon: "success",
                         title: "Change Status Success"
                     });
+
+                    setTimeout(() => {
+                        location.reload()
+                    }, 2000);
+
+                },
+                error: (res) => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Please try again later",
+                        showConfirmButton: true,
+                    });
+                }
+            });
+        })
+        $('.favourite').on('click', function() {
+            const cur = $(this);
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                url: 'webpanel/email-contact/favourite',
+                method: 'POST',
+                async: false,
+                data: {
+                    id: cur.data('id')
+                },
+                success: (res) => {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Change Status Success"
+                    });
+
+                    setTimeout(() => {
+                        location.reload()
+                        console.log("Page reloaded. Doing something...");
+                    }, 2000);
+
                 },
                 error: (res) => {
                     Swal.fire({
@@ -298,43 +349,54 @@
             }
         });
 
-        $(".deleteService").on('click', function(e) {
+        $(".deleteItem").on('click', function(e) {
             e.preventDefault();
+
             let id = $(this).attr('data-id');
-            $.ajax({
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                url: `webpanel/service/delete/${id}`,
-                data: {
-                    _method: 'DELETE'
-                },
-                async: false,
-                beforeSend: function() {
-                    $('#loading').show();
-                },
-                complete: function() {
-                    $('#loading').hide();
-                },
-                success: function() {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Service has been Deleted",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                        $(`.ServiceRow-${id}`).remove();
-                    });
-                },
-                error: function() {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Please try again later",
-                        showConfirmButton: true,
+            Swal.fire({
+                title: "Do you want to Delete Service ?",
+                showCancelButton: true,
+                confirmButtonText: "Confirm",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        url: `webpanel/email-contact/delete/${id}`,
+                        data: {
+                            _method: 'DELETE'
+                        },
+                        async: false,
+                        beforeSend: function() {
+                            $('#loading').show();
+                        },
+                        complete: function() {
+                            $('#loading').hide();
+                        },
+                        success: function() {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Item has been Deleted",
+                                showConfirmButton: true,
+                                timer: 1500
+                            }).then(() => {
+                                $(`.emailRow-${id}`).remove();
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Please try again later",
+                                showConfirmButton: true,
+                            });
+                        }
                     });
                 }
-            });
+            })
+
+
         });
     </script>
 
