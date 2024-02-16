@@ -33,6 +33,6 @@ Route::prefix('get')->group(function(){
 });
 
 Route::prefix('ma-filter')->group(function(){
-    Route::get('industry', [MaCtrl::class,'getIndustry']);
-    Route::get('product/{id}', [MaCtrl::class,'getProduct']);
+    Route::get('/industry', [MaCtrl::class,'getIndustry']);
+    Route::get('/product/{id}', [MaCtrl::class,'getProduct'])->where(['id' => '[0-9]+']);
 });
