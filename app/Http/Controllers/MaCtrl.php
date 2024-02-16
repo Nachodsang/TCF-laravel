@@ -186,30 +186,6 @@ class MaCtrl extends Controller
         $keyword = "/$searchQEsc/i";
 
 
-        // if ($industryQ && $industryQ != 0) {
-
-
-        //     if ($searchQ) {
-        //         $filteredData = array_filter((array)$data, function ($item) use ($industryQ, $keyword) {
-        //             return ($item->industry == $industryQ) && preg_match($keyword, $item->title);
-        //         });
-        //     } else {
-        //     };
-        //     $filteredData = array_filter((array)$data, function ($item) use ($industryQ) {
-        //         return $item->industry == $industryQ;
-        //     });
-        // } else {
-
-        //     if ($searchQ) {
-        //         $filteredData = array_filter((array)$data, function ($item) use ($keyword) {
-        //             return preg_match($keyword, $item->title);
-        //         });
-        //     } else {
-        //     }
-
-        //     $filteredData = $data;
-        // }
-
         $filteredData = array_filter((array)$data, function ($item) use ($industryQ, $keyword, $searchQ, $minQ, $maxQ, $productsQ, $opportunityQ) {
             $industryMatch = true;
             $searchMatch = true;

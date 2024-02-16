@@ -10,18 +10,19 @@
                 <form action="" enctype="multipart/form-data" method="POST">
                     @csrf
                     @method('POST')
-                    <div class="row">
-                        <div class="col-12 mt-3">
-                            <div class="form-group float-right">
-                                <button class="btn btn-success rounded-pill" type="submit">Save</button>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row mb-2">
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea id="description" class="form-control" rows="5" name="description">{{ $row->description }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="form-group float-right">
+                                <button class="btn btn-success rounded-pill" type="submit">Save</button>
                             </div>
                         </div>
                     </div>

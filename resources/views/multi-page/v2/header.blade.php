@@ -6,7 +6,6 @@
     <nav class="navbar navbar-expand-xl navbar-bg ">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{-- <img src="images/logo/logoTCF-colored.png" class="logo"> --}}
                 <img src="@if (@$logoHeader->detail) {{ @$logoHeader->detail }}@else/images/no_image.webp @endif"
                     class="logo">
             </a>

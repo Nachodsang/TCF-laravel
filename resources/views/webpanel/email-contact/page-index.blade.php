@@ -43,7 +43,7 @@
                                         <th scope="col" width="5%" class="text-start">Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="inbox-table">
                                     @if (count($email) > 0)
                                         @php
                                             $no = 0;
@@ -83,7 +83,9 @@
                                                                         aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body row">
-                                                                    <div class="col-12 mb-4">
+                                                                    <div class="col-12 mb-4"
+                                                                        style="white-space: pre-wrap;
+overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
                                                                     <i>
@@ -98,8 +100,7 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Close</button>
-                                                                    {{-- <button type="button" data-bs-dismiss="modal"
-                                                                            class="btn btn-warning">Favourite</button> --}}
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -135,6 +136,7 @@
                                     @endif
                                 </tbody>
                             </table>
+                            {{-- {{ $email->appends(['tab' => 'email'] + $_GET)->links() }} --}}
                         </div>
 
 
@@ -155,7 +157,7 @@
                                         <th scope="col" width="5%" class="text-start">Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="favourite-table">
                                     @if (count($favourite) > 0)
                                         @php
                                             $no = 0;
@@ -201,7 +203,9 @@
                                                                         aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body row">
-                                                                    <div class="col-12 mb-4">
+                                                                    <div class="col-12 mb-4"
+                                                                        style="white-space: pre-wrap;
+overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
                                                                     <i>
@@ -216,9 +220,7 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Close</button>
-                                                                    {{-- <button type="button" data-bs-dismiss="modal"
-                                                                            class="btn btn-danger">Remove from
-                                                                            Favourite</button> --}}
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -270,7 +272,7 @@
                                         <th scope="col" width="5%" class="text-start">Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="done-table">
                                     @if (count($done) > 0)
                                         @php
                                             $no = 0;
@@ -316,7 +318,9 @@
                                                                         aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body row">
-                                                                    <div class="col-12 mb-4">
+                                                                    <div class="col-12 mb-4"
+                                                                        style="white-space: pre-wrap;
+overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
                                                                     <i>
@@ -331,8 +335,7 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Close</button>
-                                                                    {{-- <button type="button" data-bs-dismiss="modal"
-                                                                            class="btn btn-warning">Favourite</button> --}}
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -366,10 +369,11 @@
                                     @endif
                                 </tbody>
                             </table>
+                            {{-- {{ $done->appends(['tab' => 'done'] + $_GET)->links() }} --}}
                         </div>
                     </div>
 
-                    {{ $email->appends($_GET)->links() }}
+
                 </div>
             </div>
         </div>

@@ -4,13 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact Us - Tokyo Consulting Firm</title>
+    <title>Contact Us - TCF Thailand</title>
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+    <meta name="keywords"
+        content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
+    <meta name="description"
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="TCF Thailand -" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home - TCF Thailand" />
+    <meta property="og:description"
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta property="og:url" content="https://www.tokyoconsultingfirm.com/thailand/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Home - TCF Thailand" />
+    <meta name="twitter:description"
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"TCF Thailand","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization","name":"TCF Thailand","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},{"@type":"BreadcrumbList","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"nextItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"previousItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"}]},{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#webpage","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home - TCF Thailand","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website"},"breadcrumb":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist"},"datePublished":"2014-04-30T15:47:48+00:00","dateModified":"2022-05-25T04:51:06+00:00"}]}
+		</script>
+
 </head>
 
 <body>
@@ -45,10 +66,7 @@
                             <div class="col-lg-7 col-md-7 d-flex align-items-stretch">
                                 <div class=" w-100 mb-5 p-md-5 p-4">
                                     <h3 class="h3 mb-4">Get in touch</h3>
-                                    {{-- <div id="form-message-warning" class="mb-4"></div> --}}
-                                    {{-- <div id="form-message-success" class="mb-4">
-                                        Your message was sent, thank you!
-                                    </div> --}}
+
                                     <div class="alert d-none justify-content-center" style="border-radius: 10px">
                                     </div>
                                     <form method="POST" id="contactForm" name="contactForm" class="contactForm">
@@ -91,7 +109,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="submit" value="Send Message" class="btn btn-primary">
+                                                    <input type="submit" value="Send Message"
+                                                        class="btn btn-primary">
                                                     <div class="submitting"></div>
                                                 </div>
                                             </div>

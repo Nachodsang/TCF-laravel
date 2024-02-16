@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{{-- <head>
-    <meta charset="utf-8">
-    <title>Nankai Express (Thailand) Co., Ltd</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="นำเข้า-ส่งออก, คลังสินค้า, การขนส่ง, บริการด้านโลจิสติกส์" name="keywords">
-    <meta content="Is service facilitator about logistics (Import-Export, Warehouse,Transportation) and include about install machinery by specialist." name="description">
-    <link href="{{ config('web.folder_prefix') }}/images/logo/logo-nankai-ico.ico" rel="icon">
-    <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ config('web.folder_prefix') }}/css/animated.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
-    <link href="{{ config('web.folder_prefix') }}/css/custom.css" rel="stylesheet">
-</head> --}}
+
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog - Tokyo Consulting Firm</title>
+    <title>Blog - TCF Thailand</title>
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
-
-
+    <meta name="keywords"
+        content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
+    <meta name="description"
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="TCF Thailand -" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home - TCF Thailand" />
+    <meta property="og:description"
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta property="og:url" content="https://www.tokyoconsultingfirm.com/thailand/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Home - TCF Thailand" />
+    <meta name="twitter:description"
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"TCF Thailand","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization","name":"TCF Thailand","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},{"@type":"BreadcrumbList","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"nextItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"previousItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"}]},{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#webpage","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home - TCF Thailand","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website"},"breadcrumb":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist"},"datePublished":"2014-04-30T15:47:48+00:00","dateModified":"2022-05-25T04:51:06+00:00"}]}
+		</script>
 
 
 </head>
@@ -73,14 +77,12 @@
                         <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.{{ $i }}s">
                             <div class="blog-item">
                                 <div class="position-relative">
-                                    <!-- <div class="corner-sale"><span>TO SALE</span></div> -->
+
                                     <img class="img-fluid" src="{{ $v->cover }}" alt="">
                                     <div class="blog-overlay">
-                                        <a class="btn btn-square btn-primary rounded-circle m-1"
+                                        <a class="btn btn-square btn-primary opacity-75 rounded-circle m-1"
                                             href="{{ $v->url }}">
-                                            {{-- <span class="material-symbols-outlined">
-                                                visibility
-                                            </span> --}}
+
                                             <i class="far fa-eye fa-lg"></i>
                                         </a>
                                     </div>
@@ -92,7 +94,7 @@
                                             $dateTime = new DateTime($dateString);
                                             $formattedDate = $dateTime->format('F j, Y');
                                         @endphp
-                                        {{-- <span>September 25, 2023</span> --}}
+
                                         <span>{{ $formattedDate }}</span>
                                     </div>
                                     <a class="d-block" href="{{ $v->url }}">
@@ -101,14 +103,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.{{ $i }}s">
-                            <a href="{{ $v->url }}" class="blog-img">
-                                <div class="hover-14">
-                                    <figure><img src="{{ $v->cover }}" class="img-fluid"></figure>
-                                </div>
-                                <h5 class="my-3">{{ $v->name }}</h5>
-                            </a>
-                        </div> --}}
                     @endforeach
                 @else
                     <div class="col-lg-12 text-center">ไม่พบทความ</div>
@@ -156,11 +150,6 @@
 
     @include(config('web.folder_prefix') . '/footer')
 
-    {{-- <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/animation.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
-    <script src="{{ config('web.folder_prefix') }}/js/main.js"></script> --}}
 
     <!-- Scripts -->
     <!-- jQuery 2.2.4 -->

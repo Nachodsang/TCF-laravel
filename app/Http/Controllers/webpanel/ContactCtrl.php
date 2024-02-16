@@ -100,7 +100,7 @@ class ContactCtrl extends Controller
         try {
             $log = new TaskMd;
             $data = EmailContactMd::find($id);
-           
+
             if ($data->delete()) {
                 $log->action = "delete-msg.-$id";
                 $log->module = "contact-email";
@@ -127,18 +127,14 @@ class ContactCtrl extends Controller
         try {
             $email = EmailContactMd::where('status', '<>', '1')
                 ->where('favourite', '<>', '1')
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
-
-            // $email = EmailContactMd::orderBy('created_at', 'desc')
-            //     ->paginate(10);
-
+                ->orderBy('created_at', 'desc')->get();
+            // ->paginate(10);
             $favourite = EmailContactMd::where('favourite', '1')
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
+                ->orderBy('created_at', 'desc')->get();
+            // ->paginate(10);
             $done = EmailContactMd::where('status', '1')
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
+                ->orderBy('created_at', 'desc')->get();
+            // ->paginate(10);
             return view('webpanel.email-contact.index', [
                 'module' => 'email-contact',
                 'page' => 'page-index',
@@ -164,14 +160,46 @@ class ContactCtrl extends Controller
                 $log->module = "contact-email";
                 $log->action_by = Auth::user()->id;
                 $log->save();
-                return response()->json(true);
+                $email = EmailContactMd::where('status', '<>', '1')
+                    ->where('favourite', '<>', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $favourite = EmailContactMd::where('favourite', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $done = EmailContactMd::where('status', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+
+                $res = [
+                    'email' => $email,
+                    'favourite' => $favourite,
+                    'done' => $done,
+                ];
+                return response()->json($res);
             } else {
                 $data->update(['status' => '0']);
                 $log->action = "undone-contact-email-$request->id";
                 $log->module = "contact-email";
                 $log->action_by = Auth::user()->id;
                 $log->save();
-                return response()->json(true);
+                $email = EmailContactMd::where('status', '<>', '1')
+                    ->where('favourite', '<>', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $favourite = EmailContactMd::where('favourite', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $done = EmailContactMd::where('status', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+
+                $res = [
+                    'email' => $email,
+                    'favourite' => $favourite,
+                    'done' => $done,
+                ];
+                return response()->json($res);
             }
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -190,14 +218,46 @@ class ContactCtrl extends Controller
                 $log->module = "contact-email";
                 $log->action_by = Auth::user()->id;
                 $log->save();
-                return response()->json(true);
+                $email = EmailContactMd::where('status', '<>', '1')
+                    ->where('favourite', '<>', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $favourite = EmailContactMd::where('favourite', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $done = EmailContactMd::where('status', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+
+                $res = [
+                    'email' => $email,
+                    'favourite' => $favourite,
+                    'done' => $done,
+                ];
+                return response()->json($res);
             } else {
                 $data->update(['favourite' => '0']);
                 $log->action = "remove-favourite-contact-email-$request->id";
                 $log->module = "contact-email";
                 $log->action_by = Auth::user()->id;
                 $log->save();
-                return response()->json(true);
+                $email = EmailContactMd::where('status', '<>', '1')
+                    ->where('favourite', '<>', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $favourite = EmailContactMd::where('favourite', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+                $done = EmailContactMd::where('status', '1')
+                    ->orderBy('created_at', 'desc')->get();
+                // ->paginate(10);
+
+                $res = [
+                    'email' => $email,
+                    'favourite' => $favourite,
+                    'done' => $done,
+                ];
+                return response()->json($res);
             }
         } catch (\Exception $e) {
             return $e->getMessage();

@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords"
         content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
-    <meta name="description"
-        content="Tokyo Consulting Firm S.A. de C.V.  is global accounting firm has over 700 clients all over the world. TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.">
-    {{-- <title>Welcome - Tokyo Consulting Firm</title> --}}
+
+
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
@@ -153,8 +152,6 @@
                 <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s">
                     <span class="subheading mb-2">Looking for new opportunity? Start from here.</span>
                     <h2 class=" h2 mb-5">Mergers and Acquisitions (M&A)</h2>
-                    <!-- <span class="subheading mb-2">Mergers and Acquisitions (M&A)</span>
-       <h2 class="mb-5">Looking for new opportunity? Start from here.</h2> -->
                 </div>
                 <div class="row g-5 gx-4">
                     <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -238,24 +235,18 @@
 
 
 
-                <div class="col-md-6 p-0 d-flex wow fadeIn" data-wow-delay="0.1s">
-                    <div class="image hover-effect img-container  ">
-                        <div style=" transform: translate(20px,10px);" class=" rounded-circle shadow c-bg-fouth">
-                            <img style="transform: translate(-20px, -10px); " alt=""
-                                src="images/bangkok_illus1.jpg" class="img-fluid rounded-circle ">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6 pr-md-5 py-md-5 order-first order-md-last section wow fadeIn"
-                    data-wow-delay="0.5s">
+                <div class="col-md-12  section wow fadeIn" data-wow-delay="0.5s">
                     <div class="split-box  center-block container-padding equalheight template-container">
                         <div class="heading-title padding">
                             {!! @$detail_first->detail !!}
-                            <a href="{{ url('/about') }}" class="btn btn-primary">Learn More</a>
+
+                            <div class=" text-center ">
+                                <a href="{{ url('/about') }}" class="btn btn-primary">Learn More</a>
+                            </div>
+
                         </div>
                     </div>
+
                 </div>
 
 
@@ -319,7 +310,7 @@
 
                                             <img class="img-fluid" src="{{ $v->cover }}" alt="">
                                             <div class="blog-overlay">
-                                                <a class="btn btn-square btn-primary rounded-circle m-1"
+                                                <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
                                                     href="{{ $v->url }}">
 
                                                     <i class="far fa-eye fa-lg"></i>
