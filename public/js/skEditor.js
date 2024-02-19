@@ -23,7 +23,7 @@
             </div>';
         var group2 = '<div class="sk-btn-group">\
             <div class="sk-btn dropdown">\
-                <button type="button" class="sk bold dropdown-toggle" id="dropdownMenuH'+id+'" title="Headings" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Headings </button>\
+                <button type="button" class="sk dropdown-toggle" id="dropdownMenuH'+id+'" title="Headings" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Headings </button>\
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuH'+id+'">\
                     <a class="dropdown-item sk heading" heading="h1" href="javascript:" style="padding:.25rem 1.25rem;"><h1 style="font-size:19px;font-weight:bold;">Heading 1</h1></a>\
                     <a class="dropdown-item sk heading" heading="h2" href="javascript:" style="padding:.25rem 1.25rem;"><h2 style="font-size:18px;font-weight:bold;">Heading 2</h2></a>\
@@ -34,7 +34,7 @@
                 </div>\
             </div>\
             <div class="sk-btn dropdown">\
-                <button type="button" class="sk bold dropdown-toggle" id="dropdownMenuF'+id+'" title="Font Sizes" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Font Sizes </button>\
+                <button type="button" class="sk dropdown-toggle" id="dropdownMenuF'+id+'" title="Font Sizes" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Font Sizes </button>\
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuF'+id+'">\
                     <a class="dropdown-item font-size" size="1" href="javascript:" style="padding:.25rem 1.25rem;">8pt</a>\
                     <a class="dropdown-item font-size" size="2" href="javascript:" style="padding:.25rem 1.25rem;">10pt</a>\
