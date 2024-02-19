@@ -203,6 +203,19 @@ class ServiceCategoryCtrl extends Controller
         return response()->json($query);
     }
 
+    public function checkName(Request $request)
+    {
+        if ($request->id) {
+            $query = ServiceCatMd::where('id', '!=', $request->id)->where('name', $request->name)->count();
+        } else {
+            $query = ServiceCatMd::where('name', $request->name)->count();
+        }
+
+        $query = ($query == 0) ? true : false;
+
+        return response()->json($query);
+    }
+
     public function storeDescription(Request $request)
     {
         try {

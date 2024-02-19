@@ -70,6 +70,7 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::post('/status', [ServiceCategoryCtrl::class, 'status']);
         Route::delete('/delete/{id}', [ServiceCategoryCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
         Route::post('/check/url', [ServiceCategoryCtrl::class, 'checkUrl']);
+        Route::post('/check/name', [ServiceCategoryCtrl::class, 'checkName']);
     });
 
     Route::prefix('contact')->group(function () {

@@ -192,7 +192,14 @@
             errorElement: "small",
             rules: {
                 name: {
-                    required: true
+                    remote: {
+                        url: "{{ url('webpanel/service-category/check/name') }}",
+                        data: {
+                            _token: token
+                        },
+                        type: "post"
+                    },
+                    required: true,
                 },
                 icon: {
                     required: true
@@ -216,6 +223,7 @@
             },
             messages: {
                 name: {
+                    remote: 'ชื่อนี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
                 },
                 icon: {
@@ -278,7 +286,15 @@
             errorElement: "small",
             rules: {
                 name: {
-                    required: true
+                    remote: {
+                        url: "{{ url('webpanel/service-category/check/name') }}",
+                        data: {
+                            _token: token,
+                            id: '{{ @$serviceCat->id }}'
+                        },
+                        type: "post"
+                    },
+                    required: true,
                 },
                 icon: {
                     required: true
@@ -303,6 +319,7 @@
             },
             messages: {
                 name: {
+                    remote: 'ชื่อนี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
                 },
                 icon: {
