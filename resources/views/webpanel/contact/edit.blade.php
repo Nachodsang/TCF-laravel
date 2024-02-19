@@ -61,7 +61,7 @@
                                 <label for="x">Twitter</label>
                                 <input type="text" class="form-control" name="twitter" id="twitter"
                                     placeholder="url : https://twitter.com/" old="{{ @$row->twitter }}"
-                                    value="{{ @$row->x }}" @readonly(true)>
+                                    value="{{ @$row->twitter }}" @readonly(true)>
                             </div>
                         </div>
                         <div class="col-lg-3">

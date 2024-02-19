@@ -15,12 +15,13 @@ return new class extends Migration {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
                 $table->id();
-
+                $table->string('company_name')->nullable();
                 $table->string('name')->nullable();
                 $table->string('email')->nullable();
                 $table->string('phone')->nullable();
                 $table->text('details')->nullable();
-
+                $table->tinyInteger('favourite')->nullable();
+                $table->tinyInteger('status')->nullable();
                 $table->timestamps();
                 $table->dateTime('deleted_at')->nullable();
             });

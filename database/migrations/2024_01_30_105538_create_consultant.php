@@ -22,6 +22,7 @@ return new class extends Migration
                 $table->string('image_title')->nullable();
                 $table->string('image_alt')->nullable();
                 $table->string('name')->nullable();
+                $table->string('role')->nullable();
                 $table->string('description')->nullable();
                 $table->text('detail')->nullable();
                 $table->tinyInteger('status')->nullable();
