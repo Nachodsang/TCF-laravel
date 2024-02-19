@@ -16,9 +16,6 @@ class MaCtrl extends Controller
         $this->config = Config::get('web');
     }
 
-
-
-
     public function mockData()
     {
         $data = array(
@@ -34,12 +31,12 @@ class MaCtrl extends Controller
                 'industry' => '5',
                 'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'image' => 'images/car-assembly1.jpg',
                 'title' => 'Anonymous Company Seeks Merger for Automotive Innovation',
                 'type' =>
-                'ma',
+                    'ma',
                 'opportunity' => '2',
                 'income' => 150000000,
                 'products' => array('133'),
@@ -47,12 +44,12 @@ class MaCtrl extends Controller
                 'industry' => '16',
                 'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'image' => 'images/retail1.jpg',
                 'title' => 'Anonymous Company Invites Merger Discussions in Retail Innovation',
                 'type' =>
-                'ma',
+                    'ma',
                 'opportunity' => '1',
                 'income' => 20000000,
                 'products' => array('29', '33'),
@@ -60,12 +57,12 @@ class MaCtrl extends Controller
                 'industry' => '4',
                 'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'image' => 'images/doctor1.jpg',
                 'title' => 'Anonymous Company Open to Strategic Merger Opportunities',
                 'type' =>
-                'ma',
+                    'ma',
                 'opportunity' => '1',
                 'income' => 1500000000,
                 'products' => array('23', '24'),
@@ -73,12 +70,12 @@ class MaCtrl extends Controller
                 'industry' => '3',
                 'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'image' => 'images/clean-en.jpg',
                 'title' => 'Anonymous Company Explores M&A for Renewable Energy Solutions',
                 'type' =>
-                'ma',
+                    'ma',
                 'opportunity' => '1',
                 'income' => 380000000,
                 'products' => array('166', '167'),
@@ -86,12 +83,12 @@ class MaCtrl extends Controller
                 'industry' => '20',
                 'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
             ],
-            (object)[
+            (object) [
                 'id' => 2,
                 'image' => 'images/coins.jpg',
                 'title' => 'Anonymous Company Paves the Way for M&A in Financial Services',
                 'type' =>
-                'ma',
+                    'ma',
                 'opportunity' => '2',
                 'income' => 80000000,
                 'products' => array('111', '115', '116'),
@@ -108,30 +105,36 @@ class MaCtrl extends Controller
 
     public function index(Request $request)
     {
-        // https://at-once.info/api/blog/c - company only
-        // https://at-once.info/api/blog/company - all blog
-
-        // $response = Http::get('https://at-once.info/api/blog/company', [
-        //     'id' => $this->config['customerId'],
-        //     'page' => $request->page ? $request->page : 1,
-        //     'perPage' => 15
-        // ])->object();
+        try {
+            $response = Http::get('https://at-once.info/api/blog/c', [
+                'id' => $this->config['customerId'],
+                'type' => ['ma'],
+                'industry' => $request->industry,
+                'product' => $request->product,
+                'keyword' => $request->keyword,
+                'opportunity' => $request->opportunity,
+                'min' => $request->min,
+                'max' => $request->max,
+                'page' => $request->page ? $request->page : 1,
+                'perPage' => 6
+            ])->object();
+        } catch (\Throwable $th) {
+            $response = [];
+        }
+        
         $service_cats = ServiceCatMd::orderBy('sort')->get();
         $service_cat = ServiceCatMd::where(['id' => 5])->first();
         $ma_industries = MaIndustryMd::where(['status' => true])->orderBy('sort')->get();
-        $products =
-            MaProductMd::orderBy('sort')->get();
+        $products = MaProductMd::orderBy('sort')->get();
 
         $industryParam = request('industry');
         if ($industryParam) {
             $products = MaProductMd::where(['industry_id' => $industryParam])->orderBy('sort')->get();
         }
 
-
-
         $with = [
             // 'folder_prefix' => $this->config['folder_prefix'],
-            // 'blogs' => $response,
+            'blogs' => $response,
             'service_cats' => $service_cats,
             'service_cat' => $service_cat,
             'ma_industries' => $ma_industries,
@@ -163,7 +166,7 @@ class MaCtrl extends Controller
         // }
 
 
-        return  $products;
+        return $products;
     }
 
 
@@ -186,7 +189,7 @@ class MaCtrl extends Controller
         $keyword = "/$searchQEsc/i";
 
 
-        $filteredData = array_filter((array)$data, function ($item) use ($industryQ, $keyword, $searchQ, $minQ, $maxQ, $productsQ, $opportunityQ) {
+        $filteredData = array_filter((array) $data, function ($item) use ($industryQ, $keyword, $searchQ, $minQ, $maxQ, $productsQ, $opportunityQ) {
             $industryMatch = true;
             $searchMatch = true;
             $productsMatch = true;
