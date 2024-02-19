@@ -39,7 +39,7 @@
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
                                 <th scope="col" width="40%">Name Of Service Category</th>
-                                <th scope="col" class="text-center" width="10%">Type</th>
+                                {{-- <th scope="col" class="text-center" width="10%">Type</th> --}}
                                 <th scope="col" width="15%" class="text-center">Upload By</th>
                                 <th scope="col" width="15%" class="text-center">Created</th>
                                 <th scope="col" width="5%" class="text-center">Status</th>
@@ -62,9 +62,9 @@
                                                 <p>{{ $v->description }}</p>
                                             </div>
                                         </td>
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             <div class="btn btn-secondary btn-sm rounded-pill">{{ $v->type }}</div>
-                                        </td>
+                                        </td> --}}
                                         <td class="text-center">
                                             <div class="btn btn-info btn-sm rounded-pill">{{ $v->userName }}</div>
                                         </td>

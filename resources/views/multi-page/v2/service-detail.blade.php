@@ -129,7 +129,7 @@
 
                     </article>
 
-                    <div class="col-md-12 col-lg-1 order-lg-1">
+                    <div class="col-md-12 col-lg-1 order-lg-1 mt-4">
                         <div class="share sticky-share">
                             <div class="h6">Share</div>
                             <ul class="list-unstyled share-article">

@@ -80,14 +80,15 @@
             <div class="z-1 position-relative">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title heading-section d-flex flex-column align-items-center text-white">
-                        <span class=" mb-3" style="font-weight: 500;">OUR PHILOSOPHY</span>
-                        <span class="h1 mb-2 text-uppercase  " style="font-weight: 500;">What we give is
+                        <span class=" mb-3" style="font-weight: 500; ">OUR PHILOSOPHY</span>
+                        <span class=" mb-2 text-uppercase  " style="font-weight: 500; font-size: 3vw;">What we give
+                            is
                             What we get
                         </span>
-                        <span class="h1 mb-2 text-uppercase" style="font-weight: 500;">
+                        <span class="mb-2 text-uppercase" style="font-weight: 500;font-size: 3vw;">
                             Every issue comes from me
                         </span>
-                        <span class="h1 mb-3 text-uppercase" style="font-weight: 500;">
+                        <span class=" mb-3 text-uppercase" style="font-weight: 500;font-size: 3vw;">
                             Expand our responsibility</span>
                     </div>
                 </div>

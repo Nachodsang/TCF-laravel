@@ -148,9 +148,9 @@
                 imgBanner: {
                     required: true,
                 },
-                imgType: {
-                    required: true,
-                },
+                // imgType: {
+                //     required: true,
+                // },
             },
             messages: {
                 imgTitle: {
@@ -162,9 +162,9 @@
                 imgBanner: {
                     required: "กรุณาเลือกรูปภาพ",
                 },
-                imgType: {
-                    required: "กรุณาเลือกประเภท",
-                },
+                // imgType: {
+                //     required: "กรุณาเลือกประเภท",
+                // },
             },
             submitHandler: function(form) {
                 inputs = $('#bannerAddForm')[0];
@@ -216,9 +216,9 @@
                 imgAlt: {
                     required: true
                 },
-                imgType: {
-                    required: true
-                },
+                // imgType: {
+                //     required: true
+                // },
             },
             messages: {
                 imgTitle: {
@@ -227,9 +227,9 @@
                 imgAlt: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                imgType: {
-                    required: "กรุณาเลือกประเภท"
-                },
+                // imgType: {
+                //     required: "กรุณาเลือกประเภท"
+                // },
             },
             submitHandler: function(form) {
                 inputs = $('#bannerEditForm')[0];

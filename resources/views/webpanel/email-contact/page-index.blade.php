@@ -84,7 +84,7 @@
                                                                 </div>
                                                                 <div class="modal-body row">
                                                                     <div class="col-12 mb-4"
-                                                                        style="white-space: pre-wrap;
+                                                                        style="white-space: pre-line;
 overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
@@ -204,7 +204,7 @@ overflow-wrap: break-word;">
                                                                 </div>
                                                                 <div class="modal-body row">
                                                                     <div class="col-12 mb-4"
-                                                                        style="white-space: pre-wrap;
+                                                                        style="white-space: pre-line;
 overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
@@ -319,7 +319,7 @@ overflow-wrap: break-word;">
                                                                 </div>
                                                                 <div class="modal-body row">
                                                                     <div class="col-12 mb-4"
-                                                                        style="white-space: pre-wrap;
+                                                                        style="white-space: pre-line;
 overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>

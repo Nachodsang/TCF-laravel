@@ -59,7 +59,9 @@
                     <div class="col-lg-5 heading-section wow fadeIn" data-wow-delay="0.1s ">
                         <div class="subheading mb-2">TOKYO CONSULTING FIRM</div>
                         <h2 class="h2 mb-4">Our Services</h2>
-                        <p class="mb-4">{{ @$about_service->about_service_home }}</p>
+                        <p class="mb-4" style="white-space: pre-line;
+overflow-wrap: break-word;">
+                            {{ trim(@$about_service->about_service_home) }}</p>
                         <a class="btn btn-primary " href="{{ url('/service') }}">All Services</a>
                     </div>
                     <div class="col-lg-7">

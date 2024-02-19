@@ -20,7 +20,7 @@ class HomeCtrl extends Controller
     {
         $cover = BannerMd::select(['image', 'title', 'alt', 'url'])->where(['status' => 1])->get();
         $service = ServiceMd::limit(4)->where('status', 1)->orderBy('created_at', 'desc')->get();
-        $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
+        $service_cats = \App\Models\ServiceCatMd::where('service_category.status', 1)->orderBy('sort')->get();
         $client = OurClientMd::all();
         $blog = Http::get('https://at-once.info/api/blog/company', [
             'id' => $this->config['customerId'],
