@@ -103,7 +103,7 @@ class ServiceCategoryCtrl extends Controller
             if ($serviceCat->save()) {
                 $log = new TaskMd();
                 $log->action = "add-service-category-$serviceCat->id";
-                $log->module = "service";
+                $log->module = "service-category";
                 $log->action_by = Auth::user()->id;
                 $log->save();
                 return response()->json([
@@ -133,7 +133,7 @@ class ServiceCategoryCtrl extends Controller
             if ($serviceCat->save()) {
                 $log = new TaskMd();
                 $log->action = "update-service-category-$serviceCat->id";
-                $log->module = "service";
+                $log->module = "service-category";
                 $log->action_by = Auth::user()->id;
                 $log->save();
                 return response()->json([
@@ -156,7 +156,7 @@ class ServiceCategoryCtrl extends Controller
             $data = ServiceCatMd::find($id);
             if ($data->delete()) {
                 $log->action = "delete-service-category-$id";
-                $log->module = "service";
+                $log->module = "service-category";
                 $log->action_by = Auth::user()->id;
                 $log->save();
                 return response()->json([
@@ -179,14 +179,14 @@ class ServiceCategoryCtrl extends Controller
         if ($service->status == 0) {
             $service->update(['status' => '1']);
             $log->action = "online-service-category-$request->id";
-            $log->module = "service";
+            $log->module = "service-category";
             $log->action_by = Auth::user()->id;
             $log->save();
             return response()->json(true);
         } else {
             $service->update(['status' => '0']);
             $log->action = "offline-service-category-$request->id";
-            $log->module = "service";
+            $log->module = "service-category";
             $log->action_by = Auth::user()->id;
             $log->save();
             return response()->json(true);
@@ -229,7 +229,7 @@ class ServiceCategoryCtrl extends Controller
                 $data->service_page_detail = $request->detail_th;
                 if ($data->save()) {
                     $log->action = "update-service-page-detail";
-                    $log->module = "service";
+                    $log->module = "service-category";
                     $log->action_by = Auth::user()->id;
                     $log->save();
                     return redirect($request->fullUrl())->with([
@@ -247,7 +247,7 @@ class ServiceCategoryCtrl extends Controller
                 $data->service_page_detail = $request->detail_th;
                 if ($data->save()) {
                     $log->action = "add-new-service-page-detail";
-                    $log->module = "service";
+                    $log->module = "service-category";
                     $log->action_by = Auth::user()->id;
                     $log->save();
                     return redirect($request->fullUrl())->with([

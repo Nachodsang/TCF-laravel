@@ -277,7 +277,7 @@ class ContactCtrl extends Controller
         try {
 
             $new = new AddressMd;
-            $new->name = $request->name;
+            // $new->name = $request->name;
             $new->address = $request->address;
             $new->map = $request->map;
 
@@ -306,7 +306,7 @@ class ContactCtrl extends Controller
             'message' => 'An error occurred.'
         ];
         if (@$data->id) {
-            $data->name = $request->name;
+            // $data->name = $request->name;
             $data->address = $request->address;
             $data->map = $request->map;
             if ($data->save()) {
