@@ -71,7 +71,8 @@
     </section>
     <section class="section c-bg-secondary">
 
-        <div class="container heading-section">
+        <form method="GET" class="container heading-section">
+            @csrf
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
                 {!! @$service_cat->detail !!}
             </div>
@@ -214,7 +215,7 @@
                             </button>
                         </div>
                         <div class="col-6 col-lg-3 px-0 ">
-                            <button id="search-button"
+                            <button id="search-button" type="submit"
                                 class=" rounded-2 c-bg-primary btn btn-secondary d-flex align-items-center justify-content-center w-100">
                                 <i class="fas fa-search-dollar fa-lg"></i>
                                 <span>
@@ -270,51 +271,75 @@
             </div>
 
             <div class="row g-5">
-                @foreach ($ma_blogs as $k => $v)
-                    @php
-                        $dateString = $v->date;
-                        $dateTime = new DateTime($dateString);
-                        $formattedDate = $dateTime->format('F j, Y');
-                    @endphp
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                @if ($v->opportunity == 2)
-                                    <div class="corner-sale"><span>TO SALE</span></div>
-                                @elseif($v->opportunity == 1)
-                                    <div class="corner-buy"><span>TO BUY</span></div>
-                                @endif
-                                <img class="img-fluid" src="{{ $v->image }}" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1"
-                                        href="{{ $v->url }}"> <i class="far fa-eye fa-lg"></i></a>
+                @if (@$ma_blogs->links->allPage > 0)
+                    @foreach ($ma_blogs->data as $k => $v)
+                        @php
+                            $dateString = $v->date;
+                            $dateTime = new DateTime($dateString);
+                            $formattedDate = $dateTime->format('F j, Y');
+                        @endphp
+                        <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="blog-item">
+                                <div class="position-relative">
+                                    @if ($v->opportunity == 2)
+                                        <div class="corner-sale"><span>TO SALE</span></div>
+                                    @elseif($v->opportunity == 1)
+                                        <div class="corner-buy"><span>TO BUY</span></div>
+                                    @endif
+                                    <img class="img-fluid" src="{{ $v->image }}" alt="">
+                                    <div class="blog-overlay">
+                                        <a class="btn btn-square btn-primary rounded-circle m-1"
+                                            href="{{ $v->url }}"> <i class="far fa-eye fa-lg"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>{{ $formattedDate }}</span>
+                                <div class="text-center p-4">
+                                    <div class="meta mb-2">
+                                        <span>{{ $formattedDate }}</span>
+                                    </div>
+                                    <a class="d-block" href="{{ $v->url }}">
+                                        <h3>{{ $v->title }}</h3>
+                                    </a>
                                 </div>
-                                <a class="d-block" href="{{ $v->url }}">
-                                    <h3>{{ $v->title }}</h3>
-                                </a>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @else
+                    <div class="col-lg-12 text-center">ไม่พบทความ</div>
+                @endif
             </div>
+            @php
+                $page = Request::get('page');
+                $prev = $page > 1 ? $page - 1 : 0;
+                $next = $page == '' ? 2 : $page + 1;
+                $prevPage = $page > 1 ? "blog?page=$prev" : 'javascript:';
+                $nextPage = $page < @$ma_blogs->links->allPage ? "blog?page=$next" : 'javascript:';
+            @endphp
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="custom-pagination  text-center mt-5">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <span>...</span>
-                        <a href="#">15</a>
+                    <div class="custom-pagination text-center mt-5">
+                        @if (@$ma_blogs->links->allPage > 0)
+                            {{-- Previous Page Link --}}
+                            @if ($page > 1)
+                                <a href="blog?page={{ $page - 1 }}" class="prev-page"><i
+                                        class="fas fa-chevron-left"></i></a>
+                            @endif
+
+                            {{-- Pagination Links --}}
+                            @for ($i = 1; $i <= $blogs->links->allPage; $i++)
+                                <a href="blog?page={{ $i }}"
+                                    class="@if (Request::get('page') == $i) active @endif">{{ $i }}</a>
+                            @endfor
+
+                            {{-- Next Page Link --}}
+                            @if ($page < $blogs->links->allPage)
+                                <a href="blog?page={{ $page + 1 }}" class="next-page"><i
+                                        class="fas fa-chevron-right"></i></a>
+                            @endif
+                        @endif
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </section><!-- End Blog Section -->
     <!-- ======= Blog Section ======= -->
 

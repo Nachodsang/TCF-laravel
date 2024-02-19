@@ -16,91 +16,91 @@ class MaCtrl extends Controller
         $this->config = Config::get('web');
     }
 
-    public function mockData()
-    {
-        $data = array(
-            (object) [
-                'id' => 1,
-                'image' => 'images/robotic-hand.jpg',
-                'title' => 'TechInnovate Invites Strategic Acquisition Partners',
-                'type' => 'ma',
-                'opportunity' => '2',
-                'income' => 1000000,
-                'products' => array('40', '41', '42'),
-                'date' => '2022-02-15',
-                'industry' => '5',
-                'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
-            ],
-            (object) [
-                'id' => 2,
-                'image' => 'images/car-assembly1.jpg',
-                'title' => 'Anonymous Company Seeks Merger for Automotive Innovation',
-                'type' =>
-                    'ma',
-                'opportunity' => '2',
-                'income' => 150000000,
-                'products' => array('133'),
-                'date' => '2022-02-16',
-                'industry' => '16',
-                'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
-            ],
-            (object) [
-                'id' => 2,
-                'image' => 'images/retail1.jpg',
-                'title' => 'Anonymous Company Invites Merger Discussions in Retail Innovation',
-                'type' =>
-                    'ma',
-                'opportunity' => '1',
-                'income' => 20000000,
-                'products' => array('29', '33'),
-                'date' => '2022-02-16',
-                'industry' => '4',
-                'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
-            ],
-            (object) [
-                'id' => 2,
-                'image' => 'images/doctor1.jpg',
-                'title' => 'Anonymous Company Open to Strategic Merger Opportunities',
-                'type' =>
-                    'ma',
-                'opportunity' => '1',
-                'income' => 1500000000,
-                'products' => array('23', '24'),
-                'date' => '2022-02-16',
-                'industry' => '3',
-                'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
-            ],
-            (object) [
-                'id' => 2,
-                'image' => 'images/clean-en.jpg',
-                'title' => 'Anonymous Company Explores M&A for Renewable Energy Solutions',
-                'type' =>
-                    'ma',
-                'opportunity' => '1',
-                'income' => 380000000,
-                'products' => array('166', '167'),
-                'date' => '2022-02-16',
-                'industry' => '20',
-                'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
-            ],
-            (object) [
-                'id' => 2,
-                'image' => 'images/coins.jpg',
-                'title' => 'Anonymous Company Paves the Way for M&A in Financial Services',
-                'type' =>
-                    'ma',
-                'opportunity' => '2',
-                'income' => 80000000,
-                'products' => array('111', '115', '116'),
-                'date' => '2022-02-16',
-                'industry' => '14',
-                'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
-            ],
-            // Add more entries as needed
-        );
+    // public function mockData()
+    // {
+    //     $data = array(
+    //         (object) [
+    //             'id' => 1,
+    //             'image' => 'images/robotic-hand.jpg',
+    //             'title' => 'TechInnovate Invites Strategic Acquisition Partners',
+    //             'type' => 'ma',
+    //             'opportunity' => '2',
+    //             'income' => 1000000,
+    //             'products' => array('40', '41', '42'),
+    //             'date' => '2022-02-15',
+    //             'industry' => '5',
+    //             'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
+    //         ],
+    //         (object) [
+    //             'id' => 2,
+    //             'image' => 'images/car-assembly1.jpg',
+    //             'title' => 'Anonymous Company Seeks Merger for Automotive Innovation',
+    //             'type' =>
+    //                 'ma',
+    //             'opportunity' => '2',
+    //             'income' => 150000000,
+    //             'products' => array('133'),
+    //             'date' => '2022-02-16',
+    //             'industry' => '16',
+    //             'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
+    //         ],
+    //         (object) [
+    //             'id' => 2,
+    //             'image' => 'images/retail1.jpg',
+    //             'title' => 'Anonymous Company Invites Merger Discussions in Retail Innovation',
+    //             'type' =>
+    //                 'ma',
+    //             'opportunity' => '1',
+    //             'income' => 20000000,
+    //             'products' => array('29', '33'),
+    //             'date' => '2022-02-16',
+    //             'industry' => '4',
+    //             'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
+    //         ],
+    //         (object) [
+    //             'id' => 2,
+    //             'image' => 'images/doctor1.jpg',
+    //             'title' => 'Anonymous Company Open to Strategic Merger Opportunities',
+    //             'type' =>
+    //                 'ma',
+    //             'opportunity' => '1',
+    //             'income' => 1500000000,
+    //             'products' => array('23', '24'),
+    //             'date' => '2022-02-16',
+    //             'industry' => '3',
+    //             'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
+    //         ],
+    //         (object) [
+    //             'id' => 2,
+    //             'image' => 'images/clean-en.jpg',
+    //             'title' => 'Anonymous Company Explores M&A for Renewable Energy Solutions',
+    //             'type' =>
+    //                 'ma',
+    //             'opportunity' => '1',
+    //             'income' => 380000000,
+    //             'products' => array('166', '167'),
+    //             'date' => '2022-02-16',
+    //             'industry' => '20',
+    //             'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
+    //         ],
+    //         (object) [
+    //             'id' => 2,
+    //             'image' => 'images/coins.jpg',
+    //             'title' => 'Anonymous Company Paves the Way for M&A in Financial Services',
+    //             'type' =>
+    //                 'ma',
+    //             'opportunity' => '2',
+    //             'income' => 80000000,
+    //             'products' => array('111', '115', '116'),
+    //             'date' => '2022-02-16',
+    //             'industry' => '14',
+    //             'url' => 'https://at-once.info/th/blog/sixth-party-logistics'
+    //         ],
+    //         // Add more entries as needed
+    //     );
 
-        return $data;
-    }
+    //     return $data;
+    // }
 
 
     public function index(Request $request)
@@ -116,12 +116,12 @@ class MaCtrl extends Controller
                 'min' => $request->min,
                 'max' => $request->max,
                 'page' => $request->page ? $request->page : 1,
-                'perPage' => 6
+                'perPage' => 15
             ])->object();
         } catch (\Throwable $th) {
             $response = [];
         }
-        
+
         $service_cats = ServiceCatMd::orderBy('sort')->get();
         $service_cat = ServiceCatMd::where(['id' => 5])->first();
         $ma_industries = MaIndustryMd::where(['status' => true])->orderBy('sort')->get();
@@ -139,7 +139,7 @@ class MaCtrl extends Controller
             'service_cat' => $service_cat,
             'ma_industries' => $ma_industries,
             'products' => [],
-            'ma_blogs' => $this->mockData(),
+            'ma_blogs' => $response,
 
         ];
         return view($this->config['folder_prefix'] . "/ma", $with);

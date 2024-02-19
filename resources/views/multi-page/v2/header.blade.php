@@ -27,7 +27,7 @@
                             Service
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @foreach (\App\Models\ServiceCatMd::orderBy('sort')->get() as $k => $v)
+                            @foreach (\App\Models\ServiceCatMd::where('status', 1)-> orderBy('sort')->get() as $k => $v)
                                 @if ($v->type === 'sub-page')
                                     <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
                                             href="{{ url('/service/category/' . $v->url) }}"><small>{{ $v->name }}</small>
