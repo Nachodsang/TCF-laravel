@@ -18,7 +18,12 @@
                                             <option value="">Select Module</option>
                                             <option value="banner" @if(Request::get('module') == "banner") @selected(true) @endif>Banner</option>
                                             <option value="service" @if(Request::get('module') == "service") @selected(true) @endif>Service</option>
+                                            <option value="service-category" @if(Request::get('module') == "service-category") @selected(true) @endif>Service Category</option>
                                             <option value="user" @if(Request::get('module') == "user") @selected(true) @endif>Users</option>
+                                            <option value="filter" @if(Request::get('module') == "filter") @selected(true) @endif>Filter(MA)</option>
+                                            <option value="contact-email" @if(Request::get('module') == "contact-email") @selected(true) @endif>Contact Email</option>
+                                            <option value="consultant" @if(Request::get('module') == "consultant") @selected(true) @endif>Consultant</option>
+                                            <option value="home" @if(Request::get('module') == "home") @selected(true) @endif>Home</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-3 mb-2">
