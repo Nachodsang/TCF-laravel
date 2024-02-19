@@ -89,6 +89,7 @@
         <script type="text/javascript">
             let status = "{{ Session::get('status') }}";
             let message = "{{ Session::get('message') }}";
+
             function messageAlert() {
                 Swal.fire({
                     icon: status,
@@ -204,9 +205,9 @@
                 icon: {
                     required: true
                 },
-                type: {
-                    required: true,
-                },
+                // type: {
+                //     required: true,
+                // },
                 url: {
                     remote: {
                         url: "{{ url('webpanel/service-category/check/url') }}",
@@ -229,9 +230,9 @@
                 icon: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                type: {
-                    required: "กรุณาเลือกรูปภาพ",
-                },
+                // type: {
+                //     required: "กรุณาเลือกรูปภาพ",
+                // },
                 url: {
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"
@@ -299,9 +300,9 @@
                 icon: {
                     required: true
                 },
-                type: {
-                    required: true,
-                },
+                // type: {
+                //     required: true,
+                // },
                 url: {
                     remote: {
                         url: "{{ url('webpanel/service-category/check/url') }}",
@@ -325,9 +326,9 @@
                 icon: {
                     required: "กรุณากรอกข้อมูล"
                 },
-                type: {
-                    required: "กรุณาเลือกรูปภาพ",
-                },
+                // type: {
+                //     required: "กรุณาเลือกรูปภาพ",
+                // },
                 url: {
                     remote: 'URL นี้ถูกใช้ไปแล้ว',
                     required: "กรุณากรอกข้อมูล"

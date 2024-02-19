@@ -17,11 +17,11 @@
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
                                 <th scope="col" width="50%"></th>
-                                <th scope="col" class="text-center">Type</th>
+                                {{-- <th scope="col" class="text-center">Type</th> --}}
                                 <th scope="col" width="10%" class="text-center">Upload By</th>
                                 <th scope="col" width="10%" class="text-center">Created</th>
                                 <th scope="col" width="5%" class="text-center">Status</th>
-                                <th scope="col" width="10%"></th>
+                                <th scope="col" width=""></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,9 +32,9 @@
                                         <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="..."
                                                 style="max-height: 300px">
                                         </td>
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             <div class="btn btn-secondary btn-sm rounded-pill">{{ $v->type }}</div>
-                                        </td>
+                                        </td> --}}
                                         <td class="text-center">
                                             <div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div>
                                         </td>

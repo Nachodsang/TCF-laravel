@@ -15,26 +15,29 @@
                         <div class="row mb-2">
                             <div class="col-xl-6 mb-2">
                                 <label for="imgAlt" class="form-label">Name Of Service Category : </label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ $serviceCat->name }}">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    value="{{ $serviceCat->name }}">
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <label for="imgTitle" class="form-label">Icon : <small class="text-muted"><a
                                             href="https://fontawesome.com/v5/search?o=r&m=free">fontawesome.com</a></small></label>
-                                <input type="text" class="form-control" id="icon" name="icon" value="{{ $serviceCat->icon }}">
+                                <input type="text" class="form-control" id="icon" name="icon"
+                                    value="{{ $serviceCat->icon }}">
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <label for="url" class="form-label">URL : <small
                                         class="text-danger">service-category</small></label>
-                                <input type="text" class="form-control" id="url" name="url" value="{{ $serviceCat->url }}">
+                                <input type="text" class="form-control" id="url" name="url"
+                                    value="{{ $serviceCat->url }}">
                             </div>
-                            <div class="col-xl-6 mb-2">
+                            {{-- <div class="col-xl-6 mb-2">
                                 <label for="url" class="form-label">Type : </label>
                                 <select class="form-select" aria-label="Default select example" name="type" id="type">
                                     <option value="" hidden>Please Select ...</option>
-                                    <option value="sub-page" @if($serviceCat->type == "sub-page") selected @endif>Sub-Page</option>
-                                    <option value="main-page" @if($serviceCat->type == "main-page") selected @endif>Main-Page</option>
+                                    <option value="sub-page" @if ($serviceCat->type == 'sub-page') selected @endif>Sub-Page</option>
+                                    <option value="main-page" @if ($serviceCat->type == 'main-page') selected @endif>Main-Page</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-xl-12 mb-2">
                                 <label for="service" class="form-label">Description : </label>
                                 <textarea class="form-control" name="description" id="" cols="30" rows="5">{{ $serviceCat->description }}</textarea>
@@ -48,7 +51,8 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-primary btn-sm rounded-pill float-right">Upload</button>
+                                <button type="submit"
+                                    class="btn btn-primary btn-sm rounded-pill float-right">Upload</button>
                             </div>
                         </div>
                     </form>

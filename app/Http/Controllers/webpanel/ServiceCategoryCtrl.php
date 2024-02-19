@@ -14,7 +14,10 @@ class ServiceCategoryCtrl extends Controller
     public function index()
     {
         try {
-            $data = ServiceCatMd::select('service_category.*', 'users.name as userName')->leftJoin('users', 'service_category.upload_by', 'users.id')->paginate(10);
+            $data = ServiceCatMd::select('service_category.*', 'users.name as userName')
+                ->leftJoin('users', 'service_category.upload_by', 'users.id')
+                // ->where('service_category.status', 1)
+                ->paginate(10);
             $about_service = AboutServiceMd::find(1);
             return view('webpanel.service-category.index', [
                 'css' => [
@@ -91,7 +94,7 @@ class ServiceCategoryCtrl extends Controller
             $serviceCat = new ServiceCatMd;
             $serviceCat->name = $request->name;
             $serviceCat->detail = $request->detail_th;
-            $serviceCat->type = $request->type;
+            $serviceCat->type = 'sub-page';
             $serviceCat->description = $request->description;
             $serviceCat->icon = $request->icon;
             $serviceCat->url = $request->url;
@@ -122,7 +125,7 @@ class ServiceCategoryCtrl extends Controller
             $serviceCat = ServiceCatMd::find($id);
             $serviceCat->name = $request->name;
             $serviceCat->detail = $request->detail_th;
-            $serviceCat->type = $request->type;
+            $serviceCat->type = 'sub-page';
             $serviceCat->description = $request->description;
             $serviceCat->icon = $request->icon;
             $serviceCat->url = $request->url;

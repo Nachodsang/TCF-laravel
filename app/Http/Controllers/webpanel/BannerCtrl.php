@@ -20,14 +20,13 @@ class BannerCtrl extends Controller
     {
 
         try {
-            $data = BannerMd::select('banner.*','users.name')->leftJoin('users','banner.upload_by','users.id')->paginate(10);
+            $data = BannerMd::select('banner.*', 'users.name')->leftJoin('users', 'banner.upload_by', 'users.id')->paginate(10);
 
             return view('webpanel.banner.index', [
                 'module' => 'banner',
                 'page' => 'page-index',
                 'banner' => $data,
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -38,7 +37,7 @@ class BannerCtrl extends Controller
      */
     public function store(Request $request)
     {
-        
+
         try {
             $banner = new BannerMd;
 
@@ -55,7 +54,7 @@ class BannerCtrl extends Controller
             $banner->title = $request->imgTitle;
             $banner->alt = $request->imgAlt;
             $banner->url = $request->imgUrl;
-            $banner->type = $request->imgType;
+            // $banner->type = $request->imgType;
             $banner->status = 0;
             $banner->upload_by = Auth::user()->id;
 
@@ -91,7 +90,6 @@ class BannerCtrl extends Controller
                 'page' => 'edit',
                 'banner' => $banner
             ]);
-
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -100,15 +98,14 @@ class BannerCtrl extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id=null)
+    public function update(Request $request, $id = null)
     {
         try {
             $update = BannerMd::find($request->bannerId);
-   
-            if(@$update->id)
-            {
+
+            if (@$update->id) {
                 if ($request->imgBanner) {
-                    if($update->image!='') Storage::disk(env('disk', 'ftp'))->delete($update->image);
+                    if ($update->image != '') Storage::disk(env('disk', 'ftp'))->delete($update->image);
                     $image = Image::make($request->imgBanner->getRealPath());
                     $ext = '.' . explode("/", $image->mime())[1];
                     $fileName = 'banner_' . date('dmY-His');
@@ -117,13 +114,13 @@ class BannerCtrl extends Controller
                     Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
                     $update->image = $newfile;
                 }
-    
+
                 $update->title = $request->imgTitle;
                 $update->alt = $request->imgAlt;
                 $update->url = $request->imgUrl;
-                $update->type = $request->imgType;
+                // $update->type = $request->imgType;
                 $update->modified_by = Auth::user()->id;
-    
+
                 if ($update->save()) {
                     $log = new TaskMd;
                     $log->action = "update-banner-$update->id";
@@ -134,12 +131,11 @@ class BannerCtrl extends Controller
                 } else {
                     $res = ["status" => 500];
                 }
-            }else{
+            } else {
                 $res = ["status" => 500];
             }
 
-            return response()->json($res,200);
-
+            return response()->json($res, 200);
         } catch (\Exception $e) {
             return $e->getMessage();
         }

@@ -10,6 +10,7 @@
                     style="background-image: url('{{ $v->image }}');">
                     <div class="position-absolute top-0 bottom-0  w-100 banner-overlay-sm     ">
                     </div>
+
                     <div class="container h-100 position-relative ">
                         @if ($logoFooter)
                             <div data-animation="bounceInDown" data-delay="200ms"
@@ -21,6 +22,9 @@
                                     <img src="{{ $logoFooter->detail }}" class="w-100 position-relative z-1" />
                                 </div>
                             </div>
+                        @endif
+                        @if ($v->url)
+                            <a class="position-absolute top-0 bottom-0 w-100" href="{{ $v->url }}"></a>
                         @endif
                         <div class="row h-100 align-items-center ">
                             <!-- Welcome Text -->

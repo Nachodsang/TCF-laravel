@@ -17,7 +17,7 @@ class ConsultantCtrl extends Controller
     {
         $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
         $data = \App\Models\AboutServiceMd::find(1);
-        $consultants = \App\Models\ConsultantMd::orderBy('sort')->get();
+        $consultants = \App\Models\ConsultantMd::where('status', '1')->orderBy('sort')->get();
         // $client = OurClientMd::all();
         return view($this->config['folder_prefix'] . "/consultant", [
             'about' => $data,
