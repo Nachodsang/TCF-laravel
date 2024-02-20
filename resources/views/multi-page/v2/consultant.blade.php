@@ -76,69 +76,106 @@ overflow-wrap: break-word;">
                         <a class="btn btn-primary" href="{{ url('/service') }}">Our Services</a>
                     </div>
                     <div class="col-lg-7">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="row g-4">
-                                    @for ($i = 0; $i < count($consultants) / 2; $i++)
-                                        <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
-                                            <div style="min-height:300px"
-                                                class="service-item d-flex flex-column justify-content-center text-center rounded"
-                                                style=" transform:translateX(6px)">
-                                                <div class="service-icon btn-square shadow c-bg-primary">
-                                                    <img src="{{ $consultants[$i]->image }}"
-                                                        alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle"
-                                                        style="width:100%; height:100%; transform:translateX(-6px)" />
-                                                </div>
+                        <div class="row g-4 card-collection">
+                            @for ($i = 0; $i < count($consultants); $i++)
+                                <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
+                                    <div style="min-height:300px"
+                                        class="service-item d-flex flex-column justify-content-center text-center rounded"
+                                        style=" transform:translateX(6px)">
+                                        <div class="service-icon btn-square shadow c-bg-primary">
+                                            <img src="{{ $consultants[$i]->image }}"
+                                                alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle"
+                                                style="width:100%; height:100%; transform:translateX(-6px)" />
+                                        </div>
 
-                                                <h3 class="h3">{{ $consultants[$i]->name }}</h3>
-                                                <span class="">{{ $consultants[$i]->role }}</span>
+                                        <h3 class="h3">{{ $consultants[$i]->name }}</h3>
+                                        <span class="">{{ $consultants[$i]->role }}</span>
 
-                                                <p
-                                                    style=" text-overflow: ellipsis;
+                                        <p {{-- style=" text-overflow: ellipsis;
                 -webkit-line-clamp:5;
                 overflow: hidden;
                 display: -webkit-box;
                 line-height: 25px;
-                -webkit-box-orient: vertical;">
-                                                    {{ $consultants[$i]->description }}</p>
-                                                <a class="btn px-3 mt-auto mx-auto"
-                                                    href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
-                                                    More</a>
+                -webkit-box-orient: vertical;" --}}>
+                                            {{ $consultants[$i]->description }}</p>
+                                        <a class="btn px-3 mt-auto mx-auto"
+                                            href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            @endfor
+
+                        </div>
+                        <div class="row g-4 card-collection-lg">
+                            <div class="col-md-6">
+
+                                <div class="row g-4 ">
+                                    {{-- @for ($i = 0; $i < count($consultants) / 2; $i++) --}}
+                                    @for ($i = 0; $i < count($consultants); $i++)
+                                        @if ($i % 2 == 0)
+                                            <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
+                                                <div style="min-height:300px"
+                                                    class="service-item d-flex flex-column justify-content-center text-center rounded"
+                                                    style=" transform:translateX(6px)">
+                                                    <div class="service-icon btn-square shadow c-bg-primary">
+                                                        <img src="{{ $consultants[$i]->image }}"
+                                                            alt="{{ $consultants[$i]->image_alt }}"
+                                                            class="rounded-circle"
+                                                            style="width:100%; height:100%; transform:translateX(-6px)" />
+                                                    </div>
+
+                                                    <h3 class="h3">{{ $consultants[$i]->name }}</h3>
+                                                    <span class="">{{ $consultants[$i]->role }}</span>
+
+                                                    <p {{-- style=" text-overflow: ellipsis;
+                -webkit-line-clamp:5;
+                overflow: hidden;
+                display: -webkit-box;
+                line-height: 25px;
+                -webkit-box-orient: vertical;" --}}>
+                                                        {{ $consultants[$i]->description }}</p>
+                                                    <a class="btn px-3 mt-auto mx-auto"
+                                                        href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
+                                                        More</a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endfor
 
 
                                 </div>
                             </div>
-                            <div class="col-md-6 pt-md-4">
+                            <div class="col-md-6 padding-top-10">
                                 <div class="row g-4">
-                                    @for ($i = count($consultants) / 2; $i < count($consultants); $i++)
-                                        <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
-                                            <div style="min-height:300px"
-                                                class="service-item d-flex flex-column justify-content-center text-center rounded"
-                                                style=" transform:translateX(6px)">
-                                                <div class="service-icon btn-square shadow c-bg-primary">
-                                                    <img src="{{ $consultants[$i]->image }}"
-                                                        alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle"
-                                                        style="width:100%; height:100%; transform:translateX(-6px)" />
-                                                </div>
+                                    {{-- @for ($i = round(count($consultants) / 2); $i < count($consultants); $i++) --}}
+                                    @for ($i = 0; $i < count($consultants); $i++)
+                                        @if ($i % 2 == 1)
+                                            <div class="col-12 wow fadeIn" data-wow-delay="0.1s">
+                                                <div style="min-height:300px"
+                                                    class="service-item d-flex flex-column justify-content-center text-center rounded"
+                                                    style=" transform:translateX(6px)">
+                                                    <div class="service-icon btn-square shadow c-bg-primary">
+                                                        <img src="{{ $consultants[$i]->image }}"
+                                                            alt="{{ $consultants[$i]->image_alt }}"
+                                                            class="rounded-circle"
+                                                            style="width:100%; height:100%; transform:translateX(-6px)" />
+                                                    </div>
 
-                                                <h3 class="mb-3 h3">{{ $consultants[$i]->name }}</h3>
-                                                <span class="">{{ $consultants[$i]->role }}</span>
-                                                <p
-                                                    style=" text-overflow: ellipsis;
+                                                    <h3 class="mb-3 h3">{{ $consultants[$i]->name }}</h3>
+                                                    <span class="">{{ $consultants[$i]->role }}</span>
+                                                    <p {{-- style=" text-overflow: ellipsis;
                 -webkit-line-clamp:5;
                 overflow: hidden;
                 display: -webkit-box;
                 line-height: 25px;
-                -webkit-box-orient: vertical;">
-                                                    {{ $consultants[$i]->description }}</p>
-                                                <a class="btn px-3 mt-auto mx-auto"
-                                                    href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
-                                                    More</a>
+                -webkit-box-orient: vertical;" --}}>
+                                                        {{ $consultants[$i]->description }}</p>
+                                                    <a class="btn px-3 mt-auto mx-auto"
+                                                        href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
+                                                        More</a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     @endfor
 
                                 </div>

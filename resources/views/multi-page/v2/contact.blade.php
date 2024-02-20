@@ -63,7 +63,7 @@
                 <div class="col-md-12">
                     <div class="contact-box">
                         <div class="row no-gutters">
-                            <div class="col-lg-7 col-md-7 d-flex align-items-stretch">
+                            <div class="col-xl-7 col-xl-7 d-flex align-items-stretch">
                                 <div class=" w-100 mb-5 p-md-5 p-4">
                                     <h3 class="h3 mb-4">Get in touch</h3>
 
@@ -118,15 +118,16 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-lg-5 col-md-5 d-flex align-items-stretch order-md-last">
-                                <div class="info-wrap c-bg-primary w-100 p-md-5 p-4">
+                            <div class="col-xl-5 d-flex align-items-stretch order-md-last">
+                                <div class="info-wrap c-bg-primary w-100 p-md-5 p-sm-4 px-2 py-4">
                                     <h3>Let's get in touch</h3>
                                     <p class="mb-4">Tokyo Consulting Firm Co., Ltd.</p>
-                                    <div class="dbox w-100 d-flex align-items-start">
-                                        <div class="icon d-flex align-items-center justify-content-center">
+                                    <div class="dbox w-100 d-flex flex-sm-row  flex-column align-items-center">
+                                        <div
+                                            class="icon d-flex align-items-center justify-content-center mb-2 mb-sm-0">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </div>
-                                        <div class="text pl-3">
+                                        <div class="text text-center text-sm-start pl-3">
                                             @if ($map->count() > 0)
                                                 @foreach ($map as $k => $v)
                                                     <div>
@@ -136,22 +137,24 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="dbox w-100 d-flex align-items-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
+                                    <div class="dbox w-100 d-flex flex-sm-row  flex-column  align-items-center">
+                                        <div
+                                            class="icon d-flex align-items-center justify-content-center mb-2 mb-sm-0">
                                             <i class="fas fa-phone-alt"></i>
                                         </div>
-                                        <div class="text pl-3">
+                                        <div class="text text-center text-sm-start pl-3">
                                             <p><span>Phone: </span> <a href="tel:{{ @$contact->telephone }}">
                                                     {{ @$contact->telephone }}</a>
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div class="dbox w-100 d-flex align-items-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
+                                    <div class="dbox w-100 d-flex flex-sm-row  flex-column  align-items-center">
+                                        <div
+                                            class="icon d-flex align-items-center justify-content-center mb-2 mb-sm-0">
                                             <i class="far fa-paper-plane"></i>
                                         </div>
-                                        <div class="text pl-3">
+                                        <div class="text text-center text-sm-start pl-3">
                                             <p><span>Email:</span> <a
                                                     href="mailto:{{ @$contact->email }}">{{ @$contact->email }}</a>
                                             </p>
@@ -190,7 +193,7 @@
             errorClass: "is-invalid",
             errorElement: "small",
             rules: {
-                'company-name': {
+                companyName: {
                     required: true
                 },
                 name: {

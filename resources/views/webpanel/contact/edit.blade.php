@@ -109,7 +109,7 @@
 <section class="maps-section">
     <div class="d-flex align-items-center my-3">
         <h5 class="m-0 p-0 align-content-center">Google Map Iframe</h5>
-        <a href="javascript:" class="btn btn-primary btn-sm ml-2 add-map"><i class="fas fa-plus"></i></a>
+        <a href="javascript:" class="btn btn-primary btn-sm ml-2 add-map d-none"><i class="fas fa-plus"></i></a>
     </div>
     <div class="row mb-3">
         @if (@$map->count() > 0)
@@ -117,9 +117,9 @@
                 <div class="col-lg-6 map-item mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn-close delete-map"></button><span
+                            <button type="button" class="btn-close delete-map d-none"></button><span
                                 class="text-danger float-right">*กำหนด width="100%"</span>
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-2 d-none">
                                 <input name="name" id="name" type="text" class="form-control"
                                     old="{{ $v->name }}" @readonly(true) value="{{ $v->name }}">
                             </div>

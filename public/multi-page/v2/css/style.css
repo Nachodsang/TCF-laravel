@@ -609,11 +609,19 @@ input:focus-visible {
     .cover-logo {
         width: 20%;
     }
+
+    .card-collection {
+        display:none
+    }
 }
 @media (max-width: 768px) {
     .cover-logo {
         width: 20%;
         display: none;
+    }
+
+    .card-collection-lg {
+        display:none;
     }
 }
 @media (max-width: 996px) {

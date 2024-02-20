@@ -65,38 +65,58 @@ overflow-wrap: break-word;">
                         <a class="btn btn-primary " href="{{ url('/service') }}">All Services</a>
                     </div>
                     <div class="col-lg-7">
-                        <div class="row g-4">
+                        <div class="card-collection">
+                            <div class="row g-4">
+                                {{-- @for ($i = 0; $i < count(@$service_cats) / 2; $i++) --}}
+                                @for ($i = 0; $i < count(@$service_cats); $i++)
+                                    <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
+                                        <div style="min-height:200px;"
+                                            class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
+                                            <div class="service-icon btn-square">
+                                                <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                            </div>
+                                            <h3 class="h3 mb-3"> {{ $service_cats[$i]->name }}
+                                            </h3>
+                                            <p>{{ $service_cats[$i]->description }}</p>
+                                            @if ($service_cats[$i]->type === 'sub-page')
+                                                <a class="btn px-3 mt-auto mx-auto"
+                                                    href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
+                                                    More</a>
+                                            @else
+                                                <a class="btn px-3 mt-auto mx-auto"
+                                                    href="{{ url('/' . $service_cats[$i]->url) }}">Read
+                                                    More</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endfor
+                            </div>
+
+                        </div>
+                        <div class="row g-4 card-collection-lg">
                             <div class="col-md-6">
                                 <div class="row g-4">
-                                    @for ($i = 0; $i <= count(@$service_cats) / 2; $i++)
-                                        @if ($service_cats[$i]->type === 'sub-page')
+                                    {{-- @for ($i = 0; $i < count(@$service_cats) / 2; $i++) --}}
+                                    @for ($i = 0; $i < count(@$service_cats); $i++)
+                                        @if ($i % 2 == 0)
                                             <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
                                                         <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <h3 class="h3 mb-3"> {{ $service_cats[$i]->name }}
+                                                    </h3>
                                                     <p>{{ $service_cats[$i]->description }}</p>
-
-                                                    <a class="btn px-3 mt-auto mx-auto"
-                                                        href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
-                                                <div style="min-height:200px;"
-                                                    class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
-                                                    <div class="service-icon btn-square">
-                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
-                                                    </div>
-                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
-                                                    <p>{{ $service_cats[$i]->description }}</p>
-
-                                                    <a class="btn px-3 mt-auto mx-auto"
-                                                        href="{{ url('/' . $service_cats[$i]->url) }}">Read
-                                                        More</a>
+                                                    @if ($service_cats[$i]->type === 'sub-page')
+                                                        <a class="btn px-3 mt-auto mx-auto"
+                                                            href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
+                                                            More</a>
+                                                    @else
+                                                        <a class="btn px-3 mt-auto mx-auto"
+                                                            href="{{ url('/' . $service_cats[$i]->url) }}">Read
+                                                            More</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         @endif
@@ -106,35 +126,28 @@ overflow-wrap: break-word;">
                             </div>
                             <div class="col-md-6 padding-top-10">
                                 <div class="row g-4">
-                                    @for ($i = count(@$service_cats) / 2 + 1; $i < count($service_cats); $i++)
-                                        @if ($service_cats[$i]->type === 'sub-page')
+                                    {{-- @for ($i = round(count(@$service_cats) / 2); $i < count($service_cats); $i++) --}}
+                                    @for ($i = 0; $i < count(@$service_cats); $i++)
+                                        @if ($i % 2 == 1)
                                             <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
                                                         <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
                                                     </div>
-                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
+                                                    <h3 class="h3 mb-3">
+                                                        {{ $service_cats[$i]->name }}
+                                                    </h3>
                                                     <p>{{ $service_cats[$i]->description }}</p>
-
-                                                    <a class="btn px-3 mt-auto mx-auto"
-                                                        href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
-                                                        More</a>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="col-12 wow fadeIn" data-wow-delay="0.1s ">
-                                                <div style="min-height:200px;"
-                                                    class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
-                                                    <div class="service-icon btn-square">
-                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
-                                                    </div>
-                                                    <h3 class="h3 mb-3">{{ $service_cats[$i]->name }}</h3>
-                                                    <p>{{ $service_cats[$i]->description }}</p>
-
-                                                    <a class="btn px-3 mt-auto mx-auto"
-                                                        href="{{ url('/' . $service_cats[$i]->url) }}">Read
-                                                        More</a>
+                                                    @if ($service_cats[$i]->type === 'sub-page')
+                                                        <a class="btn px-3 mt-auto mx-auto"
+                                                            href="{{ url('/service/category/' . $service_cats[$i]->url) }}">Read
+                                                            More</a>
+                                                    @else
+                                                        <a class="btn px-3 mt-auto mx-auto"
+                                                            href="{{ url('/' . $service_cats[$i]->url) }}">Read
+                                                            More</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         @endif
