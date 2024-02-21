@@ -108,10 +108,10 @@ overflow-wrap: break-word;">
                                                 </td>
                                                 <td class="text-left">
 
-                                                    <a class="btn btn-success rounded-pill btn-sm status"
+                                                    <a class="btn btn-success rounded-pill btn-sm status mr-1"
                                                         role="button" data-id="{{ $v->id }}">
                                                         <i class="far fa-check-square"></i></a>
-                                                    <a class="btn btn-primary btn-sm rounded-pill"
+                                                    <a class="btn btn-primary btn-sm rounded-pill mr-1"
                                                         data-id="{{ $v->id }}"
                                                         href="mailto:{{ $v->email }}" role="button">
                                                         <i class="fas fa-paper-plane"></i></a>
@@ -166,11 +166,12 @@ overflow-wrap: break-word;">
                                             @php
                                                 $no += 1;
                                             @endphp
-                                            <tr class="emailRow-{{ $v->id }}">
+                                            <tr class="emailRow-{{ $v->id }}"
+                                                style= "{{ $key % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }}">
                                                 <td class="">
                                                     {{ $no }}
                                                     @if ($v->status)
-                                                        <i class="far fa-check-circle text-success"></i>
+                                                        <i class="far fa-check-circle text-success fa-2x"></i>
                                                     @endif
                                                 </td>
                                                 <td> {{ $v->email }}
@@ -227,14 +228,14 @@ overflow-wrap: break-word;">
                                                     </div>
                                                 </td>
                                                 <td class="text-left">
-                                                    <a class="btn btn-success rounded-pill btn-sm status"
+                                                    <a class="btn {{ $v->status ? 'btn-secondary' : 'btn-success' }} rounded-pill btn-sm status mr-1"
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="far fa-check-square"></i></a>
-                                                    <a class="btn btn-primary btn-sm rounded-pill"
+                                                    <a class="btn btn-primary btn-sm rounded-pill mr-1"
                                                         data-id="{{ $v->id }}"
                                                         href="mailto:{{ $v->email }}" role="button">
                                                         <i class="fas fa-paper-plane"></i></a>
-                                                    <a class="btn btn-warning rounded-pill btn-sm favourite"
+                                                    <a class="btn btn-secondary rounded-pill btn-sm favourite"
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="fas fa-star"></i></a>
 
@@ -281,11 +282,12 @@ overflow-wrap: break-word;">
                                             @php
                                                 $no += 1;
                                             @endphp
-                                            <tr class="emailRow-{{ $v->id }}">
+                                            <tr class="emailRow-{{ $v->id }}"
+                                                style= "{{ $key % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }}">
                                                 <td class="">
                                                     {{ $no }}
                                                     @if ($v->favourite)
-                                                        <i class="fas fa-star text-warning"></i>
+                                                        <i class="fas fa-star text-warning fa-2x"></i>
                                                     @endif
 
                                                 </td>
@@ -342,14 +344,14 @@ overflow-wrap: break-word;">
                                                     </div>
                                                 </td>
                                                 <td class="text-left">
-                                                    <a class="btn btn-success rounded-pill btn-sm status"
+                                                    <a class="btn btn-secondary rounded-pill btn-sm status mr-1"
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="far fa-check-square"></i></a>
-                                                    <a class="btn btn-primary btn-sm rounded-pill"
+                                                    <a class="btn btn-primary btn-sm rounded-pill mr-1"
                                                         data-id="{{ $v->id }}"
                                                         href="mailto:{{ $v->email }}" role="button">
                                                         <i class="fas fa-paper-plane"></i></a>
-                                                    <a class="btn btn-warning rounded-pill btn-sm favourite"
+                                                    <a class="btn {{ $v->favourite ? 'btn-secondary' : 'btn-warning' }}  rounded-pill btn-sm favourite"
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="fas fa-star"></i></a>
 

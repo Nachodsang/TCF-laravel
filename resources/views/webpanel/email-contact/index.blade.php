@@ -187,10 +187,10 @@ overflow-wrap: break-word;">${v.details}</div>
                         $('#favourite-table').append(
 
                             `
-    <tr class='emailRow-${v.id}'>
+    <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }">
         <td class=''>
             ${k + 1}
-            ${v.status == 1 ? "<i class='far fa-check-circle text-success'></i>" : ""}
+            ${v.status == 1 ? "<i class='far fa-check-circle fa-2x text-success'></i>" : ""}
         </td>
         <td>${v.email}</td>
         <td>${v.company_name}</td>
@@ -225,9 +225,9 @@ overflow-wrap: break-word;">
             </div>
         </td>
         <td class='text-left'>
-            <a class='btn btn-success rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+            <a class='btn ${ v.status == 1? 'btn-secondary' : 'btn-success' } rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
             <a class='btn btn-primary btn-sm rounded-pill mr-1' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+            <a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
         </td>
         <td class='text-center'>${formattedDate}</td>
         <td>
@@ -251,8 +251,8 @@ overflow-wrap: break-word;">
                         $('#done-table').append(
 
                             `
-    <tr class='emailRow-${v.id}'>
-        <td class=''>${k + 1}${v.favourite == 1 ? " <i class='fas fa-star text-warning'></i>" : ""}</td>
+    <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }">
+        <td class=''>${k + 1}${v.favourite == 1 ? " <i class='fas fa-star fa-2x text-warning'></i>" : ""}</td>
         <td>${v.email}</td>
         <td>${v.company_name}</td>
         <td>${v.name}</td>
@@ -284,9 +284,9 @@ overflow-wrap: break-word;" >${v.details}</div>
             </div>
         </td>
         <td class='text-left'>
-            <a class='btn btn-success rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+            <a class='btn btn-secondary rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
             <a class='btn btn-primary btn-sm rounded-pill mr-1' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+            <a class='btn  ${ v.favourite == 1 ? 'btn-secondary' : 'btn-warning' } rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
         </td>
         <td class='text-center'>${formattedDate}</td>
         <td>
@@ -411,8 +411,8 @@ overflow-wrap: break-word;" >${v.details}</div>
                             });
                         $('#favourite-table').append(
                             `
-    <tr class='emailRow-${v.id}'>
-        <td class=''>${k + 1}${v.status == 1 ? "<i class='far fa-check-circle text-success'></i>" : ""}</td>
+    <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }">
+        <td class=''>${k + 1}${v.status == 1 ? "<i class='far fa-check-circle fa-2x text-success'></i>" : ""}</td>
         <td>${v.email}</td>
         <td>${v.company_name}</td>
         <td>${v.name}</td>
@@ -444,9 +444,10 @@ overflow-wrap: break-word;" >${v.details}</div>
             </div>
         </td>
         <td class='text-left'>
-            <a class='btn btn-success rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+            ${ v.status == 1 ? ` <a class='btn btn-secondary  rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>` : ` <a class='btn btn-success  rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>` }
+           
             <a class='btn btn-primary btn-sm rounded-pill mr-1' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+            <a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
         </td>
         <td class='text-center'>${formattedDate}</td>
         <td>
@@ -470,8 +471,8 @@ overflow-wrap: break-word;" >${v.details}</div>
                         $('#done-table').append(
 
                             `
-    <tr class='emailRow-${v.id}'>
-        <td class=''>${k + 1}${v.favourite == 1 ? "<i class='fas fa-star text-warning'></i>" : ""}</td>
+    <tr class='emailRow-${v.id}'  style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }">
+        <td class=''>${k + 1}${v.favourite == 1 ? "<i class='fas fa-star fa-2x text-warning'></i>" : ""}</td>
         <td>${v.email}</td>
         <td>${v.company_name}</td>
         <td>${v.name}</td>
@@ -503,9 +504,9 @@ overflow-wrap: break-word;" >${v.details}</div>
             </div>
         </td>
         <td class='text-left'>
-            <a class='btn btn-success rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+            <a class='btn btn-secondary rounded-pill btn-sm status mr-1' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
             <a class='btn btn-primary btn-sm rounded-pill mr-1' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+            ${ v.favourite == 1 ? `<a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>` : `<a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>` }  
         </td>
         <td class='text-center'>${formattedDate}</td>
         <td>
