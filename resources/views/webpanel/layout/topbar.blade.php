@@ -46,47 +46,49 @@
         </li>
 
         <!-- Nav Item - Alerts -->
-        @php
-            $log = \App\Models\TaskMd::whereDate('created_at', '=', date('Y/m/d'))->where('action_by', Auth::user()->id);
-            $count = $log->count();
-            $logs = $log->limit(5)->get();
-        @endphp
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                aria-expanded="false" id="alertsDropdown">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">
-                    @if ($count > 5)
-                        5+
-                    @else
-                        {{ $count }}
-                    @endif
-                </span>
-            </a>
-            <!-- Dropdown - Alerts -->
-            <div class="dropdown-list dropdown-menu dropdown-menu-end  shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header" style="background-color: #06999c; border-color:#06999c">
-                    Log Modified
-                </h6>
-                @foreach ($logs as $k => $v)
-                    <a class="dropdown-item d-flex align-items-center" href="javascript:0">
-                        <div class="mr-3">
-                            <div class="icon-circle bg-primary">
-                                <i class="fas fa-user-cog text-white"></i>
+        @if (Auth::user()->type == 'super')
+            @php
+                $log = \App\Models\TaskMd::whereDate('created_at', '=', date('Y/m/d'))->where('action_by', Auth::user()->id);
+                $count = $log->count();
+                $logs = $log->limit(5)->get();
+            @endphp
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false" id="alertsDropdown">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter">
+                        @if ($count > 5)
+                            5+
+                        @else
+                            {{ $count }}
+                        @endif
+                    </span>
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-end  shadow animated--grow-in"
+                    aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header" style="background-color: #06999c; border-color:#06999c">
+                        Log Modified
+                    </h6>
+                    @foreach ($logs as $k => $v)
+                        <a class="dropdown-item d-flex align-items-center" href="javascript:0">
+                            <div class="mr-3">
+                                <div class="icon-circle bg-primary">
+                                    <i class="fas fa-user-cog text-white"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="small text-gray-500">{{ $v->created_at }}</div>
-                            <span class="font-weight-bold">{{ $v->module }} - {{ $v->action }}</span>
-                        </div>
-                    </a>
-                @endforeach
-                <a class="dropdown-item text-center small text-gray-500"
-                    href="{{ url('webpanel/dashboard/task') }}">Show All Log</a>
-            </div>
-        </li>
+                            <div>
+                                <div class="small text-gray-500">{{ $v->created_at }}</div>
+                                <span class="font-weight-bold">{{ $v->module }} - {{ $v->action }}</span>
+                            </div>
+                        </a>
+                    @endforeach
+                    <a class="dropdown-item text-center small text-gray-500"
+                        href="{{ url('webpanel/dashboard/task') }}">Show All Log</a>
+                </div>
+            </li>
+        @endif
 
         <div class="topbar-divider d-none d-sm-block"></div>
         @if (Auth::check())
@@ -103,10 +105,13 @@
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
-                    <a class="dropdown-item" href="{{ url('webpanel/dashboard/task') }}">
-                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Activity Log
-                    </a>
+                    @if (Auth::user()->type == 'super')
+                        <a class="dropdown-item" href="{{ url('webpanel/dashboard/task') }}">
+                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Activity Log
+                        </a>
+                    @endif
+
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ url('webpanel/logout') }}" data-toggle="modal"
                         data-target="#logoutModal">

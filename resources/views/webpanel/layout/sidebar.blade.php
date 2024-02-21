@@ -47,21 +47,28 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-toggle="collapse" href="#collapseSetting" role="button"
-            aria-expanded="false" aria-controls="collapseSetting">
-            <i class="fas fa-cog"></i>
-            <span>Setting</span>
-        </a>
-        <div class="collapse" id="collapseSetting">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Setting</h6>
-                <a class="collapse-item" href="{{ url('webpanel/user') }}">Users</a>
-                <a class="collapse-item" href="{{ url('webpanel/menu') }}">Menu</a>
-                <a class="collapse-item" href="{{ url('webpanel/dashboard/task') }}">Task</a>
+    @if (Auth::user()->type == 'super' || Auth::user()->type == 'admin')
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-toggle="collapse" href="#collapseSetting" role="button"
+                aria-expanded="false" aria-controls="collapseSetting">
+                <i class="fas fa-cog"></i>
+                <span>Setting</span>
+            </a>
+            <div class="collapse" id="collapseSetting">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Setting</h6>
+                    @if (Auth::user()->type == 'super')
+                        <a class="collapse-item" href="{{ url('webpanel/user') }}">Users</a>
+                        <a class="collapse-item" href="{{ url('webpanel/menu') }}">Menu</a>
+                        <a class="collapse-item" href="{{ url('webpanel/dashboard/task') }}">Task</a>
+                    @elseif(Auth::user()->type == 'admin')
+                        <a class="collapse-item" href="{{ url('webpanel/user') }}">Users</a>
+                    @endif
+
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
+    @endif
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

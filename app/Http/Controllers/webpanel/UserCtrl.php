@@ -112,8 +112,8 @@ class UserCtrl extends Controller
                 'regex:/^(([^<>()[\]\\`.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
                 Rule::unique('users', 'email')->ignore($id),
             ],
-            'password' => 'required|confirmed',
-            'password_confirmation' => 'required|same:password',
+            // 'password' => 'required|confirmed',
+            'password_confirmation' => 'required_with:password|same:password',
         ], [
             'type.required' => 'Type is required',
             'name.required' => 'Name is required',
@@ -122,7 +122,7 @@ class UserCtrl extends Controller
             'email.unique' => 'Duplicate email',
             'password.required' => 'Password is required',
             'password.confirmed' => 'Password does not match',
-            'password_confirmation.required' => 'Confirm Password is required',
+            'password_confirmation.required_with' => 'Confirm Password is required',
             'password_confirmation.same' => 'Confirm Password does not match',
         ]);
 
@@ -130,7 +130,11 @@ class UserCtrl extends Controller
         $data->type = $request->type;
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = Hash::make($request->password);
+
+
+        if ($data->password)
+            $data->password = Hash::make($request->password);
+
 
         if ($data->save()) {
             return redirect()->back()->with([
@@ -170,11 +174,9 @@ class UserCtrl extends Controller
 
     function restore()
     {
-
     }
 
     function forceDelete()
     {
-
     }
 }
