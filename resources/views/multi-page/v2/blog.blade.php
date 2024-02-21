@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,6 +32,7 @@
 			{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"TCF Thailand","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization","name":"TCF Thailand","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},{"@type":"BreadcrumbList","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"nextItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"previousItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"}]},{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#webpage","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home - TCF Thailand","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website"},"breadcrumb":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist"},"datePublished":"2014-04-30T15:47:48+00:00","dateModified":"2022-05-25T04:51:06+00:00"}]}
 		</script>
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -109,38 +111,35 @@
                 $prevPage = $page > 1 ? "blog?page=$prev" : 'javascript:';
                 $nextPage = $page < @$blogs->links->allPage ? "blog?page=$next" : 'javascript:';
             @endphp
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="custom-pagination text-center mt-5">
-                        @if (@$blogs->links->allPage > 0)
-                            {{-- Previous Page Link --}}
-                            @if ($page > 1)
-                                <a href="blog?page={{ $page - 1 }}" class="prev-page"><i
-                                        class="fas fa-chevron-left"></i></a>
-                            @endif
-
-                            {{-- Pagination Links --}}
-                            @for ($i = 1; $i <= $blogs->links->allPage; $i++)
-                                <a href="blog?page={{ $i }}"
-                                    class="@if (Request::get('page') == $i) active @endif">{{ $i }}</a>
-                            @endfor
-
-                            {{-- Next Page Link --}}
-                            @if ($page < $blogs->links->allPage)
-                                <a href="blog?page={{ $page + 1 }}" class="next-page"><i
-                                        class="fas fa-chevron-right"></i></a>
-                            @endif
-                        @endif
+            @if (@$blogs->links->allPage > 0)
+                <div class="pagination-area mt-5">
+                    <div class="container">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-auto">
+                                <a
+                                    href="{{ $prevPage }}"class="prev-page @if ($prev == 0) d-none @endif">ก่อนหน้า</a>
+                            </div>
+                            <div class="col-auto">
+                                @if (@$blogs->links->allPage)
+                                    <select name="page" class="form-select form-select-sm paginate">
+                                        @for ($i = 1; $i <= $blogs->links->allPage; $i++)
+                                            <option value="blog?page={{ $i }}"
+                                                @if (Request::get('page') == $i) selected @endif>{{ $i }}
+                                            </option>
+                                        @endfor
+                                    </select>
+                                @endif
+                            </div>
+                            <div class="col-auto">
+                                <a
+                                    href="{{ $nextPage }}"class="next-page font-weight-bold @if ($page >= $blogs->links->allPage) d-none @endif">ถัดไป</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </section><!-- End Blog Section -->
-
-
-
-
-
     @include(config('web.folder_prefix') . '/footer')
     <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>

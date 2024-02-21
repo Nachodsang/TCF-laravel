@@ -18,10 +18,9 @@
 
     <meta name="keywords"
         content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
-
     <meta name="description"
         content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
-    <meta name="robots" content="max-image-preview:large" />
+    {{-- <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="TCF Thailand -" />
@@ -33,13 +32,8 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Home - TCF Thailand" />
     <meta name="twitter:description"
-        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
-    <script type="application/ld+json" class="aioseo-schema">
-			{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"TCF Thailand","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization"},"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@type":"Organization","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#organization","name":"TCF Thailand","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},{"@type":"BreadcrumbList","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"nextItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/"},"previousItem":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#listItem"}]},{"@type":"WebPage","@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#webpage","url":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/","name":"Home - TCF Thailand","description":"Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services.","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#website"},"breadcrumb":{"@id":"https:\/\/www.tokyoconsultingfirm.com\/thailand\/#breadcrumblist"},"datePublished":"2014-04-30T15:47:48+00:00","dateModified":"2022-05-25T04:51:06+00:00"}]}
-		</script>
-
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." /> --}}
 </head>
-
 
 <body>
     <!-- Preloader -->
@@ -47,9 +41,7 @@
         <div class="loader"></div>
     </div>
     <!-- /Preloader -->
-
     @include(config('web.folder_prefix') . '/header')
-
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
         <div class="container">
@@ -59,7 +51,6 @@
                             <a href="{{ url('/') }}">Home <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
-
                             <a href="{{ url('/service') }}">Services <span class="icon material-symbols-outlined">
                                     arrow_forward_ios
                                 </span></a>
@@ -70,9 +61,7 @@
         </div>
     </section>
     <section class="section c-bg-secondary">
-
-        <form method="GET" class="container heading-section">
-            @csrf
+        <div class="container">
             <div class="mx-auto wow fadeIn" data-wow-delay="0.1s">
                 {!! @$service_cat->detail !!}
             </div>
@@ -104,8 +93,8 @@
                                         <span>All</span>
                                     </li>
                                     @foreach ($ma_industries as $k => $v)
-                                        <li class="capitalize industry-item cursor-pointer d-flex align-items-center   dropdown-item c-primary"
-                                            value={{ $v->id }} id="{{ $v->name }}">
+                                        <li class="capitalize industry-item cursor-pointer d-flex align-items-center dropdown-item c-primary"
+                                            name="industry" value={{ $v->id }} id="{{ $v->name }}">
                                             <div style="width:30px">
                                                 {!! @$v->icon !!}
                                             </div>
@@ -139,7 +128,7 @@
                                     </li>
                                     <li><span name="header-menu"
                                             class="dropdown-item opportunity-item  c-primary cursor-pointer"
-                                            value="0">All</a>
+                                            value="">All</a>
                                     </li>
                                 </ul>
                             </div>
@@ -206,153 +195,62 @@
                     <div class="w-100  mt-3 row d-flex justify-content-end mx-0 p-0 ">
                         <div class="col-6 col-lg-3 px-1 ">
                             <button
-                                class=" rounded-2 c-bg-primary btn btn-primary  d-flex justify-content-center  align-items-center w-100 "
+                                class="rounded-2 c-bg-primary btn btn-primary d-flex justify-content-center align-items-center w-100"
                                 id="clear-button">
-                                <i class="fas fa-sync-alt fa-x"></i>
-                                <span>
-                                    Clear
-                                </span>
+                                <i class="fas fa-sync-alt fa-x"></i><span>Clear</span>
                             </button>
                         </div>
                         <div class="col-6 col-lg-3 px-0 ">
-                            <button id="search-button" type="submit"
+                            <button id="search-button"
                                 class=" rounded-2 c-bg-primary btn btn-secondary d-flex align-items-center justify-content-center w-100">
-                                <i class="fas fa-search-dollar fa-lg"></i>
-                                <span>
-                                    Search
-                                </span>
+                                <i class="fas fa-search-dollar fa-lg"></i><span>Search</span>
                             </button>
                         </div>
-
-
-
                     </div>
                 </div>
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title fs-5 test" id="exampleModalLabel">Please Select Industry</h3>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+            </div>
+            <div class="row g-5 blog-data">
+                {{-- blog show here --}}
+            </div>
+            <div class="container middle mt-4 mb-3">
+                <div class="pagination form-inline d-flex justify-content-between"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fs-5 test" id="exampleModalLabel">Please Select Industry
+                    </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="product-list">
+                    {{-- product list goes here --}}
+                </div>
+                <div class="modal-footer  ">
+                    <div class="w-100 d-flex flex-column flex-sm-row  justify-content-between">
+                        <div class="w-100 row m-0">
+                            <div class="p-0 pe-1 col-6 col-sm-3">
+                                <button type="button" class="btn btn-primary w-100" {{-- data-bs-dismiss="modal" --}}
+                                    id="modal-clear">Clear</button>
                             </div>
-                            <div class="modal-body" id="product-list">
-                                {{-- product list goes here --}}
-
-                            </div>
-                            <div class="modal-footer  ">
-                                <div class="w-100 d-flex flex-column flex-sm-row  justify-content-between">
-                                    <div class="w-100 row m-0">
-                                        <div class="p-0 pe-1 col-6 col-sm-3">
-
-                                            <button type="button" class="btn btn-primary w-100" {{-- data-bs-dismiss="modal" --}}
-                                                id="modal-clear">Clear</button>
-                                        </div>
-                                        <div class="p-0 ps-1 col-6 col-sm-5">
-                                            <button type="button" class="btn btn-secondary w-100  "
-                                                id="modal-all">Select
-                                                All</button>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-success mt-1 mt-sm-0"
-                                        data-bs-dismiss="modal" id="modal-confirm">Confirm</button>
-                                </div>
+                            <div class="p-0 ps-1 col-6 col-sm-5">
+                                <button type="button" class="btn btn-secondary w-100  " id="modal-all">Select
+                                    All</button>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-            <div class="row g-5">
-                @if (@$ma_blogs->links->allPage > 0)
-                    @foreach ($ma_blogs->data as $k => $v)
-                        @php
-                            $dateString = $v->date;
-                            $dateTime = new DateTime($dateString);
-                            $formattedDate = $dateTime->format('F j, Y');
-                        @endphp
-                        <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="blog-item">
-                                <div class="position-relative">
-                                    @if ($v->opportunity == 2)
-                                        <div class="corner-sale"><span>TO SALE</span></div>
-                                    @elseif($v->opportunity == 1)
-                                        <div class="corner-buy"><span>TO BUY</span></div>
-                                    @endif
-                                    <img class="img-fluid" src="{{ $v->image }}" alt="">
-                                    <div class="blog-overlay">
-                                        <a class="btn btn-square btn-primary rounded-circle m-1"
-                                            href="{{ $v->url }}"> <i class="far fa-eye fa-lg"></i></a>
-                                    </div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <div class="meta mb-2">
-                                        <span>{{ $formattedDate }}</span>
-                                    </div>
-                                    <a class="d-block" href="{{ $v->url }}">
-                                        <h3>{{ $v->title }}</h3>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="col-lg-12 text-center">ไม่พบทความ</div>
-                @endif
-            </div>
-            @php
-                $page = Request::get('page');
-                $prev = $page > 1 ? $page - 1 : 0;
-                $next = $page == '' ? 2 : $page + 1;
-                $prevPage = $page > 1 ? "blog?page=$prev" : 'javascript:';
-                $nextPage = $page < @$ma_blogs->links->allPage ? "blog?page=$next" : 'javascript:';
-            @endphp
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="custom-pagination text-center mt-5">
-                        @if (@$ma_blogs->links->allPage > 0)
-                            {{-- Previous Page Link --}}
-                            @if ($page > 1)
-                                <a href="blog?page={{ $page - 1 }}" class="prev-page"><i
-                                        class="fas fa-chevron-left"></i></a>
-                            @endif
-
-                            {{-- Pagination Links --}}
-                            @for ($i = 1; $i <= $blogs->links->allPage; $i++)
-                                <a href="blog?page={{ $i }}"
-                                    class="@if (Request::get('page') == $i) active @endif">{{ $i }}</a>
-                            @endfor
-
-                            {{-- Next Page Link --}}
-                            @if ($page < $blogs->links->allPage)
-                                <a href="blog?page={{ $page + 1 }}" class="next-page"><i
-                                        class="fas fa-chevron-right"></i></a>
-                            @endif
-                        @endif
+                        <button type="button" class="btn btn-success mt-1 mt-sm-0" data-bs-dismiss="modal"
+                            id="modal-confirm">Confirm</button>
                     </div>
                 </div>
             </div>
-            </div>
-    </section><!-- End Blog Section -->
+        </div>
+    </div>
     <!-- ======= Blog Section ======= -->
-
-
-
-
-
-
     @include(config('web.folder_prefix') . '/footer')
-
-
-
-
     <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/owl.carousel.min.js"></script>
@@ -362,283 +260,138 @@
     <script src="{{ config('web.folder_prefix') }}/js/active.js"></script>
     <script src="js/sweetalert2.min.js"></script>
     {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script> --}}
-
-
-
-
     <script>
-        document.addEventListener('change', function(e) {
-            const paginate = e.target.closest('.paginate');
-            if (paginate) {
-                window.location.href = paginate.value;
-            }
-        })
-    </script>
+        let industry, opportunity, min, max, search;
+        let products = [];
 
-    <script>
-        $(document).ready(function() {
-
-            let industry, opportunity, min, max, search
-            let products = []
-
-            $('#clear-button').on('click', function() {
-                $('[name="min-income"]').html("Minimum Yearly Income")
-                $('[name="max-income"]').html("Maximum Yearly Income")
-                $('#industry-dropdown-name').html("Industry");
-                $('[name="opportunity-name"]').html("Opportunity");
-                $('#advance-search').addClass('d-none');
-                $('#search-input').val("")
-                $('.dropdown-item').removeClass('dropdown-item-selected')
-                industry = ""
-                opportunity = ""
-                min = ""
-                max = ""
-                search = ""
-                products = []
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top",
-                    showConfirmButton: false,
-                    timer: 500,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: `Cleared`
-                });
-            })
-
-            $('#search-input').on('change', function() {
-                search = $(this).val()
-            })
-
-            $('.min-income-item').on('click', function() {
-
-
-
-                var minIncomeTitle = $(this).html();
-                $('[name="min-income"]').html(minIncomeTitle)
-
-                min = $(this).attr('value');
-
-                $('.min-income-item').each(
-                    function() {
-
-                        $(this).attr('value') == min ? $(this).addClass(
-                            'dropdown-item-selected') : $(this).removeClass(
-                            'dropdown-item-selected')
-                    })
-            })
-            $('.max-income-item').on('click', function() {
-                var maxIncomeTitle = $(this).html();
-                $('[name="max-income"]').html(maxIncomeTitle)
-                max = $(this).attr('value');
-
-                $('.max-income-item').each(
-                    function() {
-
-                        $(this).attr('value') == max ? $(this).addClass(
-                            'dropdown-item-selected') : $(this).removeClass(
-                            'dropdown-item-selected')
-                    })
-            })
-            $('.opportunity-item').on('click', function() {
-                var opportunityTitle = $(this).html();
-                $('[name="opportunity-name"]').html(opportunityTitle)
-                opportunity = $(this).attr('value')
-
-                $('.opportunity-item').each(
-                    function() {
-                        $(this).attr('value') == opportunity ? $(this).addClass(
-                            'dropdown-item-selected') : $(this).removeClass(
-                            'dropdown-item-selected')
-                    })
-            })
-
-            $('.test').on('click', function() {
-                console.log("test click")
-            })
-
-
-            $('.industry-item').on('click', function() {
-
-                // Get the value attribute of the clicked item
-                var selectedValue = $(this).attr('value');
-                let selectedName = $(this).attr('id').toString();
-                industry = selectedValue
-
-
-
-                $('#industry-dropdown-name').html(selectedName);
-                $('#exampleModalLabel').html(selectedName);
-                $('#advance-search').removeClass('d-none');
-
-
-
-                $('.industry-item').each(
-                    function() {
-
-                        $(this).attr('value') == selectedValue ? $(this).addClass(
-                            'dropdown-item-selected') : $(this).removeClass(
-                            'dropdown-item-selected')
-                    })
-
-
-
-                if (selectedValue == 0) {
-                    $('#modalButton').addClass('d-none')
-                    $('.advance-search-item').removeClass('col-lg-4')
-                    $('.income-drop').addClass('col-lg-6')
-
-                } else {
-                    $('#modalButton').removeClass('d-none')
-                    $('.advance-search-item').removeClass('col-lg-4')
-                    $('.advance-search-item').removeClass('col-lg-6')
-                    $('.advance-search-item').addClass('col-lg-4')
-                }
-
-
-                $.ajax({
-                    method: 'get',
-                    url: `m&a/product/${selectedValue}`,
-
-
-                    success: function(res) {
-                        products = []
-                        // console.log(res)
-                        // Clear existing checkboxes
-                        $('#product-list').html("");
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top",
-                            showConfirmButton: false,
-                            timer: 1000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.onmouseenter = Swal.stopTimer;
-                                toast.onmouseleave = Swal.resumeTimer;
-                            }
-                        });
-                        Toast.fire({
-                            icon: "success",
-                            title: `${selectedName} Selected`
-                        });
-
-                        $.each(res, function(k, v) {
-                            $('#product-list').append(
-                                "<div class='d-flex gap-2 text-capitalize ' data-product-id='" +
-                                v.id + "'>" +
-                                "<input type='checkbox'  value='" + v.id +
-                                "' class='cursor-pointer product-items'" +
-                                " />" +
-                                v.name +
-                                "</div>"
-                            );
-                        });
-
-                        $('.product-items').on('click', function() {
-
-                            const productId = $(this).attr('value')
-                            if ($(this).is(':checked')) {
-                                // Perform actions when the checkbox is checked
-                                products = [...products, productId]
-                            } else {
-                                // Perform actions when the checkbox is unchecked
-                                products = products.filter((i) => i != productId)
-                            }
-
-                        })
-
-                        $('#modal-clear').on('click', function() {
-                            $('.product-items').prop('checked', false);
-                            products = []
-
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: "top",
-                                showConfirmButton: false,
-                                timer: 500,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.onmouseenter = Swal.stopTimer;
-                                    toast.onmouseleave = Swal
-                                        .resumeTimer;
-                                }
-                            });
-                            Toast.fire({
-                                icon: "success",
-                                title: `Cleared`
-                            });
-
-                        })
-
-                        $('#modal-all').on('click', function() {
-                            $('.product-items').prop('checked', true);
-                            $('.product-items').each(function() {
-                                if ($('.product-items').is(':checked')) {
-                                    // Perform actions when the checkbox is checked
-                                    const i = $(this)
-                                    const productId = i.attr('value')
-
-                                    if (!products?.includes(productId)) {
-                                        products = [...(products || []),
-                                            productId
-                                        ];
-                                    }
-                                }
-                            })
-                            const Toast = Swal.mixin({
-                                toast: true,
-                                position: "top",
-                                showConfirmButton: false,
-                                timer: 500,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.onmouseenter = Swal.stopTimer;
-                                    toast.onmouseleave = Swal
-                                        .resumeTimer;
-                                }
-                            });
-                            Toast.fire({
-                                icon: "success",
-                                title: `Select all product from ${selectedName} `
-                            });
-
-                        })
-
-                    },
-                    error: function(error) {
-                        console.error("Error fetching products:", error);
-                    }
-                });
+        $('#clear-button').on('click', function() {
+            $('[name="min-income"]').html("Minimum Yearly Income")
+            $('[name="max-income"]').html("Maximum Yearly Income")
+            $('#industry-dropdown-name').html("Industry");
+            $('[name="opportunity-name"]').html("Opportunity");
+            $('#advance-search').addClass('d-none');
+            $('#search-input').val("")
+            $('.dropdown-item').removeClass('dropdown-item-selected')
+            industry = "";
+            opportunity = "";
+            min = "";
+            max = "";
+            search = "";
+            products = [];
+            getBlog().then(data => {
+                loadItems(data);
+                loadPaginate(data);
             });
+        })
 
-            $('#search-button').on('click', () => {
-                // values to be used
+        $('#search-input').on('change', function() {
+            search = $(this).val()
+        })
 
-                const data = {
-                    industry,
-                    opportunity,
-                    products,
-                    min,
-                    max,
-                    search
-                }
-                // console.log({
-                //     data
-                // })
-                // var queryString = $.param(data);
-                $.ajax({
-                    method: 'get',
-                    url: `m&a/filter/`,
-                    dataType: 'json',
-                    data: data,
-                    success: function(res) {
-
+        $('.min-income-item').on('click', function() {
+            var minIncomeTitle = $(this).html();
+            $('[name="min-income"]').html(minIncomeTitle)
+            min = $(this).attr('value');
+            $('.min-income-item').each(
+                function() {
+                    $(this).attr('value') == min ? $(this).addClass(
+                        'dropdown-item-selected') : $(this).removeClass(
+                        'dropdown-item-selected')
+                })
+        })
+        $('.max-income-item').on('click', function() {
+            var maxIncomeTitle = $(this).html();
+            $('[name="max-income"]').html(maxIncomeTitle)
+            max = $(this).attr('value');
+            $('.max-income-item').each(
+                function() {
+                    $(this).attr('value') == max ? $(this).addClass(
+                        'dropdown-item-selected') : $(this).removeClass(
+                        'dropdown-item-selected')
+                })
+        })
+        $('.opportunity-item').on('click', function() {
+            var opportunityTitle = $(this).html();
+            $('[name="opportunity-name"]').html(opportunityTitle)
+            opportunity = $(this).attr('value')
+            $('.opportunity-item').each(
+                function() {
+                    $(this).attr('value') == opportunity ? $(this).addClass(
+                        'dropdown-item-selected') : $(this).removeClass(
+                        'dropdown-item-selected')
+                })
+        })
+        $('.industry-item').on('click', function() {
+            // Get the value attribute of the clicked item
+            var selectedValue = $(this).attr('value');
+            let selectedName = $(this).attr('id').toString();
+            industry = selectedValue
+            $('#industry-dropdown-name').html(selectedName);
+            $('#exampleModalLabel').html(selectedName);
+            $('#advance-search').removeClass('d-none');
+            $('.industry-item').each(
+                function() {
+                    $(this).attr('value') == selectedValue ? $(this).addClass(
+                        'dropdown-item-selected') : $(this).removeClass(
+                        'dropdown-item-selected')
+                })
+            if (selectedValue == 0) {
+                $('#modalButton').addClass('d-none')
+                $('.advance-search-item').removeClass('col-lg-4')
+                $('.income-drop').addClass('col-lg-6')
+            } else {
+                $('#modalButton').removeClass('d-none')
+                $('.advance-search-item').removeClass('col-lg-4')
+                $('.advance-search-item').removeClass('col-lg-6')
+                $('.advance-search-item').addClass('col-lg-4')
+            }
+            $.ajax({
+                method: 'get',
+                url: `m&a/product/${selectedValue}`,
+                success: function(res) {
+                    products = []
+                    // console.log(res)
+                    // Clear existing checkboxes
+                    $('#product-list').html("");
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top",
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: `${selectedName} Selected`
+                    });
+                    $.each(res, function(k, v) {
+                        $('#product-list').append(
+                            "<div class='d-flex gap-2 text-capitalize ' data-product-id='" +
+                            v.id + "'>" +
+                            "<input type='checkbox'  value='" + v.id +
+                            "' class='cursor-pointer product-items'" +
+                            " />" +
+                            v.name +
+                            "</div>"
+                        );
+                    });
+                    $('.product-items').on('click', function() {
+                        const productId = $(this).attr('value')
+                        if ($(this).is(':checked')) {
+                            // Perform actions when the checkbox is checked
+                            products = [...products, productId]
+                        } else {
+                            // Perform actions when the checkbox is unchecked
+                            products = products.filter((i) => i != productId)
+                        }
+                    })
+                    $('#modal-clear').on('click', function() {
+                        $('.product-items').prop('checked', false);
+                        products = []
                         const Toast = Swal.mixin({
                             toast: true,
                             position: "top",
@@ -647,19 +400,202 @@
                             timerProgressBar: true,
                             didOpen: (toast) => {
                                 toast.onmouseenter = Swal.stopTimer;
-                                toast.onmouseleave = Swal.resumeTimer;
+                                toast.onmouseleave = Swal
+                                    .resumeTimer;
                             }
                         });
                         Toast.fire({
                             icon: "success",
-                            title: `Searching`
+                            title: `Cleared`
                         });
-
-                        console.log(res)
-                    }
-                })
-            })
+                    })
+                    $('#modal-all').on('click', function() {
+                        $('.product-items').prop('checked', true);
+                        $('.product-items').each(function() {
+                            if ($('.product-items').is(':checked')) {
+                                // Perform actions when the checkbox is checked
+                                const i = $(this)
+                                const productId = i.attr('value')
+                                if (!products?.includes(productId)) {
+                                    products = [...(products || []),
+                                        productId
+                                    ];
+                                }
+                            }
+                        })
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top",
+                            showConfirmButton: false,
+                            timer: 500,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal
+                                    .resumeTimer;
+                            }
+                        });
+                        Toast.fire({
+                            icon: "success",
+                            title: `Select all product from ${selectedName} `
+                        });
+                    })
+                },
+                error: function(error) {
+                    console.error("Error fetching products:", error);
+                }
+            });
         });
+
+        // fetch blogs //
+
+        var rows = document.querySelector('.blog-data');
+        var allPage = 0;
+        var perPage = 6;
+        var currentPage = 1;
+        var cid = 64;
+        var type = ['ma'];
+
+        getBlog().then(data => {
+            loadItems(data);
+            loadPaginate(data);
+        });
+
+        $('#search-button').on('click', (e) => {
+            getBlog().then(data => {
+                loadItems(data);
+                loadPaginate(data);
+            });
+        });
+
+        function getBlog(page) {
+            const data = {
+                id: cid,
+                industry: industry,
+                opportunity: opportunity,
+                products: products,
+                min: min,
+                max: max,
+                search: search,
+                type: type,
+                perPage: perPage,
+                page: page ? page : 1
+            }
+            return res = $.ajax({
+                method: 'get',
+                url: `http://127.0.0.1:8888/api/blog/c`,
+                dataType: 'json',
+                data: data,
+                success: function(res) {
+                    return res;
+                }
+            });
+        }
+
+        document.addEventListener('change', function(e) {
+            const select = e.target.closest('[name="pagination"]');
+            if (select) {
+                select.setAttribute('selected', true);
+                lazyNext(select.value)
+            }
+        })
+
+        function lazyNext(page) {
+            getBlog(page).then(data => {
+                loadItems(data);
+                adjustPagination();
+            });
+        }
+
+        function loadItems(res) {
+            let htmlItem = '';
+            const onItem = `<div class="col-lg-12 text-center"><p>ไม่พบข้อมูล</p></div>`;
+            if (res.data.length == 0) {
+                rows.innerHTML = onItem;
+            } else {
+                res.data.forEach(function(v) {
+                    let originalDate = new Date(v.publish);
+                    let formattedDate = originalDate.toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    }).toUpperCase();
+                    htmlItem += `
+                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                    ${v.opportunity == 1 ? "<div class='corner-buy'><span>TO BUY</span></div>" : "<div class='corner-sale'><span>TO SALE</span></div>"}
+                                <img class="img-fluid" src="${v.cover}" alt="">
+                                <div class="blog-overlay">
+                                    <a class="btn btn-square btn-primary rounded-circle m-1" href="${v.url}"> <i class="far fa-eye fa-lg"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4">
+                                <div class="meta mb-2">
+                                    <span>${formattedDate}</span>
+                                </div>
+                                <a class="d-block" href="${v.url}">
+                                    <h3>${v.name}</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                });
+                rows.innerHTML = htmlItem;
+            }
+        }
+
+        function loadPaginate(e) {
+            if (e.links.allPage == 0) return false;
+            let select = `
+                <div class="pagination-control prev-page invisible"><a href="javascript:" class="font-weight-bold control-item" action="prev">ก่อนหน้า</a></div>
+                <div class="select-option"><span class="mr-2">หน้า</span><select class="form-control pagination-select" name="pagination">
+            `;
+            const links = e.links;
+
+            for (let i = 0; i < links.allPage; i++) {
+                select += `<option value="${i+1}">${i+1}</option>`;
+            }
+            select +=
+                `
+                        </select>
+                    <span class="ml-2">ของ ${links.allPage}</span>
+                </div>
+            <div class="pagination-control next-page"><a href="javascript:" class="font-weight-bold control-item" action="next">ถัดไป</a></div>`;
+            const paginateion = document.querySelector('.pagination');
+            paginateion.innerHTML == '';
+            paginateion.innerHTML = select;
+            allPage = links.allPage;
+            Array.prototype.map.call(document.querySelectorAll('.control-item'), (item) => {
+                item.onclick = adjustPage;
+            });
+            adjustPagination();
+        }
+
+        function adjustPagination() {
+            select = document.querySelector('.pagination-select');
+            currentPage = select.selectedIndex + 1;
+            console.log(currentPage);
+            const prev = document.querySelector('.prev-page');
+            const next = document.querySelector('.next-page');
+            if (currentPage > 1) prev.classList.remove('invisible');
+            else prev.classList.add('invisible')
+            if (currentPage == allPage) next.classList.add('invisible');
+            else next.classList.remove('invisible');
+        }
+
+        function adjustPage() {
+            pagination = document.querySelector('.pagination');
+            const cur = this;
+            const action = cur.getAttribute('action');
+            const select = pagination.querySelector('select');
+            let page = select.selectedIndex + 1;
+            if (action == 'next') page++;
+            else page--;
+            select[(page - 1)].selected = 'selected';
+            lazyNext(select[(page - 1)].value);
+        }
     </script>
 </body>
 
