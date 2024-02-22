@@ -15,7 +15,8 @@
                                 <h5 class="text-center mt-2 mb-3 font-weight-bold text-primary">Filter information</h5>
                                 <div class="row mb-3">
                                     <div class="col-xl-12 d-flex justify-content-between">
-                                        <a href="{{ url('webpanel/ma') }}" class="btn btn-sm btn-outline-secondary rounded-pill">Cancel</a>
+                                        <a href="{{ url('webpanel/ma') }}"
+                                            class="btn btn-sm btn-outline-secondary rounded-pill">Cancel</a>
                                         <button type="submit" class="btn btn-sm btn-primary rounded-pill">Save</button>
                                     </div>
                                 </div>
@@ -44,7 +45,8 @@
                                 </div>
                                 <div class="row mt-3 mb-2">
                                     <div class="col-xl-12">
-                                        <button type="button" class="btn btn-sm btn-primary addMore" disabled>+ Add</button>
+                                        <button type="button" class="btn btn-sm btn-primary addMore" disabled>+
+                                            Add</button>
                                     </div>
                                 </div>
                                 <div class="row filter">
@@ -53,19 +55,23 @@
                                             <div class="card-body p-2">
                                                 <div class="form-group m-0">
                                                     <div class="card-header-actions">
-                                                        <small class="text-muted"><a href="https://fontawesome.com/v5/search?o=r&m=free">fontawesome.com</a></small>
+                                                        <small class="text-muted"><a
+                                                                href="https://fontawesome.com/v5/search?o=r&m=free"
+                                                                target=”_blank”>fontawesome.com</a></small>
                                                     </div>
                                                     <div class="input-group input-group-sm mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" for="icon">Icon</span>
                                                         </div>
-                                                        <input class="form-control" id="icon" type="text" name="icon[]" disabled>
+                                                        <input class="form-control" id="icon" type="text"
+                                                            name="icon[]" disabled>
                                                     </div>
                                                     <div class="input-group input-group-sm">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" for="name">Name</span>
                                                         </div>
-                                                        <input class="form-control required" id="name" type="text" name="name[]" disabled>
+                                                        <input class="form-control required" id="name"
+                                                            type="text" name="name[]" disabled>
                                                     </div>
                                                 </div>
                                             </div>

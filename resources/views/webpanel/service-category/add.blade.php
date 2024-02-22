@@ -17,7 +17,7 @@
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <label for="imgTitle" class="form-label">Icon : <small class="text-muted"><a
-                                            href="https://fontawesome.com/v5/search?o=r&m=free">fontawesome.com</a></small></label>
+                                            href="https://fontawesome.com/v5/search?o=r&m=free" target=”_blank”>fontawesome.com</a></small></label>
                                 <input type="text" class="form-control" id="icon" name="icon">
                             </div>
                             <div class="col-xl-6 mb-2">

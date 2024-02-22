@@ -98,7 +98,8 @@
                     <div class="card-body p-2">
                         <div class="form-group m-0">
                             <div class="card-header-actions d-flex justify-content-between">
-                                <small class="text-muted"><a href="https://fontawesome.com/icons">fontawesome.com</a></small>
+                                <small class="text-muted"><a  href="https://fontawesome.com/v5/search?o=r&m=free"
+                                                                target=”_blank”>fontawesome.com</a></small>
                                 <a href="javascript:0" class="deleteMore"><i class="fas fa-times"></i></a>
                             </div>
                             <div class="input-group input-group-sm mb-2">

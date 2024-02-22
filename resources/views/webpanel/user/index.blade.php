@@ -79,39 +79,48 @@
         $(".deleteUser").on('click', function(e) {
             e.preventDefault();
             let id = $(this).attr('data-id');
-            $.ajax({
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                url: `webpanel/user/delete/${id}`,
-                data: {
-                    _method: 'DELETE'
-                },
-                async: false,
-                beforeSend: function() {
-                    $('#loading').show();
-                },
-                complete: function() {
-                    $('#loading').hide();
-                },
-                success: function() {
-                    Swal.fire({
-                        icon: "success",
-                        title: "User has been Deleted",
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                        $(`.UserRow-${id}`).remove();
-                    });
-                },
-                error: function() {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Please try again later",
-                        showConfirmButton: true,
+            Swal.fire({
+                title: "Do you want to this User ?",
+                showCancelButton: true,
+                confirmButtonText: "Confirm",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        url: `webpanel/user/delete/${id}`,
+                        data: {
+                            _method: 'DELETE'
+                        },
+                        async: false,
+                        beforeSend: function() {
+                            $('#loading').show();
+                        },
+                        complete: function() {
+                            $('#loading').hide();
+                        },
+                        success: function() {
+                            Swal.fire({
+                                icon: "success",
+                                title: "User has been Deleted",
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                $(`.UserRow-${id}`).remove();
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Please try again later",
+                                showConfirmButton: true,
+                            });
+                        }
                     });
                 }
             });
+
         });
     </script>
