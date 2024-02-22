@@ -132,8 +132,9 @@ class UserCtrl extends Controller
         $data->email = $request->email;
 
 
-        if ($data->password)
+        if ($request->password) {
             $data->password = Hash::make($request->password);
+        }
 
 
         if ($data->save()) {
