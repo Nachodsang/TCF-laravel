@@ -73,17 +73,24 @@
         <div class="">
             <div class="container ">
                 <div class="row g-5 align-items-center">
-                    <div class="col-lg-12 heading-section wow fadeIn" data-wow-delay="0.1s">
+                    <div class="col-lg-12  heading-section wow fadeIn" data-wow-delay="0.1s">
                         {!! $service_cat->detail !!}
                     </div>
                     @foreach ($services as $k => $v)
-                        <div class="col-md-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="col-xl-4 col-md-6 wow fadeIn" data-wow-delay="0.5s">
                             <div class="service-item d-flex flex-column justify-content-center text-center rounded">
                                 <div class="service-icon btn-square">
                                     {!! $v->icon !!}
                                 </div>
                                 <h3 class="mb-3 h3">{{ $v->service }}</h3>
-                                <p>{{ $v->description }}</p>
+                                <p
+                                    style=" text-overflow: ellipsis;
+                -webkit-line-clamp:8;
+                overflow: hidden;
+                display: -webkit-box;
+                line-height: 25px;
+                -webkit-box-orient: vertical;">
+                                    {{ $v->description }}</p>
 
                                 <a class="btn px-3 mt-auto mx-auto" href="{{ url("/service/$v->url") }}">Read
                                     More</a>
