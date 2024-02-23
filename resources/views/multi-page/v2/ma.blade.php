@@ -248,6 +248,7 @@
                 </div>
             </div>
         </div>
+        <div id="allIndustries" class="d-none" data-my-data="{{ json_encode($all_ma_industries) }}"></div>
     </div>
     <!-- ======= Blog Section ======= -->
     @include(config('web.folder_prefix') . '/footer')
@@ -264,7 +265,12 @@
         let industry, opportunity, min, max, search;
         let products = [];
 
+        const industries = JSON.parse($('#allIndustries')?.attr('data-my-data'))
+
+
         $('#clear-button').on('click', function() {
+            console.log('asdfklj')
+            console.log(industries)
             $('[name="min-income"]').html("Minimum Yearly Income")
             $('[name="max-income"]').html("Maximum Yearly Income")
             $('#industry-dropdown-name').html("Industry");
@@ -282,6 +288,7 @@
                 loadItems(data);
                 loadPaginate(data);
             });
+
         })
 
         $('#search-input').on('change', function() {
@@ -487,7 +494,17 @@
                 dataType: 'json',
                 data: data,
                 success: function(res) {
-                    return res;
+
+
+                    const mergeById = (a1: any, a2: any) =>
+                        a1.map((itm: any) => ({
+                            ...a2.find((item: any) => item.industry == itm.id),
+                            ...itm,
+                        }));
+                    const mergedArr = mergeById(industries, res.data);
+
+
+                    return mergedArr;
                 }
             });
         }

@@ -37,10 +37,12 @@ class MaCtrl extends Controller
 
         $service_cat = ServiceCatMd::where(['id' => 5])->first();
         $ma_industries = MaIndustryMd::where(['status' => true])->orderBy('sort')->get();
+        $all_ma_industries = MaIndustryMd::get();
 
         $with = [
             'service_cat' => $service_cat,
             'ma_industries' => $ma_industries,
+            'all_ma_industries' => $all_ma_industries,
             'products' => [],
             'ma_blogs' => $response,
         ];
