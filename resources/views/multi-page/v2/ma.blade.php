@@ -527,14 +527,14 @@
                                     ${v.opportunity == 1 ? "<div class='corner-buy'><span>TO BUY</span></div>" : "<div class='corner-sale'><span>TO SALE</span></div>"}
                                 <img class="img-fluid blog-card-img" src="${v.cover}" alt="">
                                 <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1" href="${v.url}"> <i class="far fa-eye fa-lg"></i></a>
+                                    <a class="btn btn-square btn-primary rounded-circle m-1" target="_blank" href="${v.url}"> <i class="far fa-eye fa-lg"></i></a>
                                 </div>
                             </div>
                             <div class="text-center p-4">
                                 <div class="meta mb-2">
                                     <span>${formattedDate}</span>
                                 </div>
-                                <a class="d-block" href="${v.url}">
+                                <a class="d-block" href="${v.url}" target="_blank">
                                     <h3>${v.name}</h3>
                                 </a>
                             </div>

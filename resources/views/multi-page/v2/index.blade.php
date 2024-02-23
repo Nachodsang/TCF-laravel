@@ -181,7 +181,7 @@ overflow-wrap: break-word;">
                                             alt="">
                                         <div class="blog-overlay">
                                             <a class="btn btn-square btn-primary rounded-circle m-1"
-                                                href="{{ $v->url }}">
+                                                href="{{ $v->url }}" target="_blank">
 
                                                 <i class="far fa-eye fa-lg"></i>
                                             </a>
@@ -197,7 +197,7 @@ overflow-wrap: break-word;">
 
                                             <span>{{ $formattedDate }}</span>
                                         </div>
-                                        <a class="d-block" href="{{ $v->url }}">
+                                        <a class="d-block" href="{{ $v->url }}" target="_blank">
                                             <h3 class="h3">{{ $v->name }}</h3>
                                         </a>
                                     </div>
@@ -220,7 +220,7 @@ overflow-wrap: break-word;">
                                                 alt="">
                                             <div class="blog-overlay">
                                                 <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
-                                                    href="{{ $v->url }}">
+                                                    href="{{ $v->url }}" target="_blank">
 
                                                     <i class="far fa-eye fa-lg"></i>
                                                 </a>
@@ -236,7 +236,7 @@ overflow-wrap: break-word;">
 
                                                 <span>{{ $formattedDate }}</span>
                                             </div>
-                                            <a class="d-block" href="{{ $v->url }}">
+                                            <a class="d-block" href="{{ $v->url }}" target="_blank">
                                                 <h3 class="h3">{{ $v->name }}</h3>
                                             </a>
                                         </div>
@@ -303,7 +303,7 @@ overflow-wrap: break-word;">
                                             alt="">
                                         <div class="blog-overlay">
                                             <a class="btn btn-square btn-primary rounded-circle m-1"
-                                                href="{{ $v->url }}">
+                                                href="{{ $v->url }}" target="_blank">
 
                                                 <i class="far fa-eye fa-lg"></i>
                                             </a>
@@ -319,7 +319,7 @@ overflow-wrap: break-word;">
 
                                             <span>{{ $formattedDate }}</span>
                                         </div>
-                                        <a class="d-block" href="{{ $v->url }}">
+                                        <a class="d-block" href="{{ $v->url }}" target="_blank">
                                             <h3 class="h3">{{ $v->name }}</h3>
                                         </a>
                                     </div>
@@ -343,7 +343,7 @@ overflow-wrap: break-word;">
                                                 alt="">
                                             <div class="blog-overlay">
                                                 <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
-                                                    href="{{ $v->url }}">
+                                                    href="{{ $v->url }}" target="_blank">
 
                                                     <i class="far fa-eye fa-lg"></i>
                                                 </a>
@@ -359,7 +359,7 @@ overflow-wrap: break-word;">
 
                                                 <span>{{ $formattedDate }}</span>
                                             </div>
-                                            <a class="d-block" href="{{ $v->url }}">
+                                            <a class="d-block" href="{{ $v->url }}" target="_blank">
                                                 <h3 class="h3">{{ $v->name }}</h3>
                                             </a>
                                         </div>
