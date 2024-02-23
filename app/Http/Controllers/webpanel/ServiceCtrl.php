@@ -20,9 +20,9 @@ class ServiceCtrl extends Controller
     public function index()
     {
         try {
-            $data = ServiceMd::select('service.*', 'users.name', 'service_category.name')
+            $data = ServiceMd::select('service.*', 'users.name as userName', 'service_category.name')
                 ->leftJoin('users', 'service.upload_by', 'users.id')
-                ->leftJoin('service_category', 'service_category.id', 'service.cat_id') // Joining on cat_id
+                ->leftJoin('service_category', 'service_category.id', 'service.cat_id')
                 ->paginate(10); // $data = ServiceMd::select('service.*', 'users.name')->leftJoin('users', 'service.upload_by', 'users.id')->paginate(10);
 
             $serviceCats = ServiceCatMd::orderBy('sort', 'desc')->get();

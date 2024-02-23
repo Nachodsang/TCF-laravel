@@ -168,73 +168,82 @@ overflow-wrap: break-word;">
                     <span class="subheading mb-2">Looking for new opportunity? Start from here.</span>
                     <h2 class=" h2 mb-5">Mergers and Acquisitions (M&A)</h2>
                 </div>
-                <div class="row g-5 gx-4">
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
-                            <div class="position-relative ">
-                                <div class="corner-sale"><span>TO SALE</span></div>
-                                <img class="img-fluid" src="images/robotic-hand.jpg" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-tech.php"><span
-                                            class="material-symbols-outlined">
-                                            visibility
-                                        </span></a>
+
+                <div class="row g-5 gx-4 hidden" id="ma-narrow">
+                    @if (@$ma)
+                        @foreach ($ma->data as $i => $v)
+                            <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp"
+                                data-wow-delay="0.{{ $i }}s">
+                                <div class="blog-item">
+                                    <div class="position-relative">
+
+                                        <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                        <div class="blog-overlay">
+                                            <a class="btn btn-square btn-primary rounded-circle m-1"
+                                                href="{{ $v->url }}">
+
+                                                <i class="far fa-eye fa-lg"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="text-center p-3 blog-card-text">
+                                        <div class="meta mb-2">
+                                            @php
+                                                $dateString = $v->publish;
+                                                $dateTime = new DateTime($dateString);
+                                                $formattedDate = $dateTime->format('F j, Y');
+                                            @endphp
+
+                                            <span>{{ $formattedDate }}</span>
+                                        </div>
+                                        <a class="d-block" href="{{ $v->url }}">
+                                            <h3 class="h3">{{ $v->name }}</h3>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>September 25, 2023</span>
+                        @endforeach
+                    @endif
+
+                </div>
+                <div class="row g-5 gx-4 hidden" id="ma-wide">
+                    @if (@$ma)
+                        @foreach ($ma->data as $i => $v)
+                            @if ($i < 3)
+                                <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp"
+                                    data-wow-delay="0.{{ $i }}s">
+                                    <div class="blog-item">
+                                        <div class="position-relative">
+
+                                            <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                            <div class="blog-overlay">
+                                                <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
+                                                    href="{{ $v->url }}">
+
+                                                    <i class="far fa-eye fa-lg"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center p-3 blog-card-text">
+                                            <div class="meta mb-2">
+                                                @php
+                                                    $dateString = $v->publish;
+                                                    $dateTime = new DateTime($dateString);
+                                                    $formattedDate = $dateTime->format('F j, Y');
+                                                @endphp
+
+                                                <span>{{ $formattedDate }}</span>
+                                            </div>
+                                            <a class="d-block" href="{{ $v->url }}">
+                                                <h3 class="h3">{{ $v->name }}</h3>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a class="d-block" href="m&a-tech.php">
-                                    <h3 class="h3">TechInnovate Invites Strategic Acquisition Partners</h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <div class="corner-sale"><span>TO SALE</span></div>
-                                <img class="img-fluid" src="images/car-assembly1.jpg" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1" href="m&a-auto.php"><span
-                                            class="material-symbols-outlined">
-                                            visibility
-                                        </span></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>September 25, 2023</span>
-                                </div>
-                                <a class="d-block" href="m&a-auto.php">
-                                    <h3 class="h3">Anonymous Company Seeks Merger for Automotive Innovation</h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <div class="corner-buy"><span>TO BUY</span></div>
-                                <img class="img-fluid" src="images/doctor1.jpg" alt="">
-                                <div class="blog-overlay">
-                                    <a class="btn btn-square btn-primary rounded-circle m-1"
-                                        href="m&a-health-care.php"><span class="material-symbols-outlined">
-                                            visibility
-                                        </span></a>
-                                </div>
-                            </div>
-                            <div class="text-center p-4">
-                                <div class="meta mb-2">
-                                    <span>September 25, 2023</span>
-                                </div>
-                                <a class="d-block" href="m&a-health-care.php">
-                                    <h3 class="h3">Anonymous Company Open to Strategic Merger Opportunities</h3>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                            @endif
+                        @endforeach
+                    @endif
+
                 </div>
             </div>
             <div class="text-center">
@@ -250,10 +259,13 @@ overflow-wrap: break-word;">
 
 
 
-                <div class="col-md-12  section wow fadeIn" data-wow-delay="0.5s">
+                <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
                     <div class="split-box  center-block container-padding equalheight template-container">
                         <div class="heading-title padding">
-                            {!! @$detail_first->detail !!}
+                            <div class="pb-5">
+
+                                {!! @$detail_first->detail !!}
+                            </div>
 
                             <div class=" text-center ">
                                 <a href="{{ url('/about') }}" class="btn btn-primary">Learn More</a>
@@ -387,9 +399,13 @@ overflow-wrap: break-word;">
             if (window.innerWidth > 990) {
                 $("#blog-narrow").addClass('hidden')
                 $("#blog-wide").removeClass('hidden')
+                $("#ma-narrow").addClass('hidden')
+                $("#ma-wide").removeClass('hidden')
             } else {
                 $("#blog-narrow").removeClass('hidden')
                 $("#blog-wide").addClass('hidden')
+                $("#ma-narrow").removeClass('hidden')
+                $("#ma-wide").addClass('hidden')
             }
 
 

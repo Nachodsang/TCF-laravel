@@ -44,7 +44,7 @@
                                             <h6>{{ $v->name }}</h6>
                                         </td>
                                         <td class="text-center">
-                                            <div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div>
+                                            <div class="btn btn-info btn-sm rounded-pill">{{ $v->userName }}</div>
                                         </td>
                                         <td class="text-center">{{ $v->created_at }}</td>
                                         <td class="text-center">

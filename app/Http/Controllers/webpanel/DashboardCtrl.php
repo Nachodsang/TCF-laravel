@@ -38,7 +38,7 @@ class DashboardCtrl extends Controller
                 'module' => 'dashboard',
                 'page' => 'home',
                 'description' => $about_service->about_service_home,
-                
+
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -152,7 +152,8 @@ class DashboardCtrl extends Controller
         $module = $request->module;
 
         try {
-            $log = TaskMd::select('task.*', 'users.name')->leftJoin('users', 'task.action_by', 'users.id')
+            $log = TaskMd::select('task.*', 'users.name')
+                ->leftJoin('users', 'task.action_by', '=', 'users.id')
                 ->when($request->module, function ($query) use ($module) {
                     $query->where('task.module', $module);
                 })
@@ -160,7 +161,7 @@ class DashboardCtrl extends Controller
                     $query->whereDate('task.created_at', '>=', $date[0])
                         ->whereDate('task.created_at', '<=', $date[1]);
                 })
-                ->orderBy('created_at', 'desc')
+                ->orderBy('task.created_at', 'desc') // specify the table name for sorting
                 ->paginate(50);
             return view("$this->folderPrefix.dashboard.index", [
                 'module' => 'dashboard',

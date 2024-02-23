@@ -27,6 +27,13 @@ class HomeCtrl extends Controller
             'page' => 1,
             'perPage' => 4
         ])->object();
+        // where type == ma
+        $ma = Http::get('https://at-once.info/api/blog/company', [
+            'id' => $this->config['customerId'],
+            // 'type' => ['ma'],
+            'page' => 1,
+            'perPage' => 4
+        ])->object();
         $about = \App\Models\AboutUsMd::find(1);
         $about_service = \App\Models\AboutServiceMd::find(1);
 
@@ -40,6 +47,7 @@ class HomeCtrl extends Controller
             'service_cats' => $service_cats,
             'ourClient' => $client,
             'blog' => $blog,
+            'ma' => $blog,
             'detail_first' => \App\Models\HomeMd::find(1),
             'detail_secondary' => \App\Models\HomeMd::find(2)
         ];

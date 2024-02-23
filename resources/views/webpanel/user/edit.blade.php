@@ -34,29 +34,34 @@
                                                 <option value="user"
                                                     @if ($user->type == 'user') selected @endif>
                                                     User
+                                                </option>\
+                                            </select>
+
+                                        </div>
+                                    @else
+                                        <div class="form-group">
+                                            <label for="name">Type of user:</label>
+                                            <select name="type" id="type"
+                                                class="form-select @error('type') is-invalid @enderror">
+                                                <option value="admin"
+                                                    @if ($user->type == 'admin') selected @endif>
+                                                    Admin
                                                 </option>
+                                                <option value="user"
+                                                    @if ($user->type == 'user') selected @endif>
+                                                    User
+                                                </option>
+                                                @if ($user->type == 'super' || Auth::user()->type == 'super')
+                                                    <option value="super"
+                                                        @if ($user->type == 'super') selected @endif>
+                                                        Super</option>
+                                                @endif
+                                            </select>
+                                            @error('type')
+                                                <small class="is-invalid">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                     @endif
-                                    <div class="form-group">
-                                        <label for="name">Type of user:</label>
-                                        <select name="type" id="type"
-                                            class="form-select @error('type') is-invalid @enderror">
-                                            <option value="admin" @if ($user->type == 'admin') selected @endif>
-                                                Admin
-                                            </option>
-                                            <option value="user" @if ($user->type == 'user') selected @endif>
-                                                User
-                                            </option>
-                                            @if ($user->type == 'super' || Auth::user()->type == 'super')
-                                                <option value="super"
-                                                    @if ($user->type == 'super') selected @endif>
-                                                    Super</option>
-                                            @endif
-                                        </select>
-                                        @error('type')
-                                            <small class="is-invalid">{{ $message }}</small>
-                                        @enderror
-                                    </div>
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="form-group">
