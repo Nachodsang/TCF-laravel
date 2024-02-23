@@ -18,23 +18,6 @@ class MaCtrl extends Controller
 
     public function index(Request $request)
     {
-        try {
-            $response = Http::get('http://127.0.0.1:8888/api/blog/c', [
-                'id' => $this->config['customerId'],
-                'type' => ['ma'],
-                'industry' => $request->industry,
-                'product' => $request->product,
-                'keyword' => $request->keyword,
-                'opportunity' => $request->opportunity,
-                'min' => $request->min,
-                'max' => $request->max,
-                'page' => $request->page ? $request->page : 1,
-                'perPage' => 6
-            ])->object();
-        } catch (\Throwable $th) {
-            $response = [];
-        }
-
         $service_cat = ServiceCatMd::where(['id' => 5])->first();
         $ma_industries = MaIndustryMd::where(['status' => true])->orderBy('sort')->get();
         $all_ma_industries = MaIndustryMd::get();
@@ -44,7 +27,6 @@ class MaCtrl extends Controller
             'ma_industries' => $ma_industries,
             'all_ma_industries' => $all_ma_industries,
             'products' => [],
-            'ma_blogs' => $response,
         ];
         return view($this->config['folder_prefix'] . "/ma", $with);
     }

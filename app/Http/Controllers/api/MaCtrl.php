@@ -12,7 +12,7 @@ class MaCtrl extends Controller
     public function getIndustry()
     {
         try {
-            $data = MaIndustryMd::all();
+            $data = MaIndustryMd::get();
             return $data;
         } catch (\Exception $e) {
             return response()->json([

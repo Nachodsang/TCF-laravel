@@ -14,12 +14,9 @@ class maCtrl extends Controller
     public function index()
     {
         try {
-            $maIndustry = MaIndustryMd::orderBy('sort', 'asc')->paginate(15);
-
             return view("webpanel.ma.index", [
                 'page' => 'page-index',
                 'module' => 'ma',
-                'industry' => $maIndustry
             ]);
 
         } catch (\Exception $e) {

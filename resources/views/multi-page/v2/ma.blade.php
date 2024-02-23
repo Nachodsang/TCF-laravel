@@ -490,22 +490,10 @@
             }
             return res = $.ajax({
                 method: 'get',
-                url: `http://127.0.0.1:8888/api/blog/c`,
+                url: `http://192.168.0.106:8888/api/blog/c`,
                 dataType: 'json',
                 data: data,
-                success: function(res) {
-
-
-                    const mergeById = (a1: any, a2: any) =>
-                        a1.map((itm: any) => ({
-                            ...a2.find((item: any) => item.industry == itm.id),
-                            ...itm,
-                        }));
-                    const mergedArr = mergeById(industries, res.data);
-
-
-                    return mergedArr;
-                }
+                async: false,
             });
         }
 
@@ -525,12 +513,21 @@
         }
 
         function loadItems(res) {
+            const mergeById = (a1, a2) =>
+                a1.map((itm) => ({
+                    ...a2.find((item) => item.id == itm.industry),
+                    ...itm,
+                }));
+            const mergedArr = mergeById(res.data, industries);
+            let blog = mergedArr.filter(e => {
+                return e.status == 1;
+            })
             let htmlItem = '';
             const onItem = `<div class="col-lg-12 text-center"><p>ไม่พบข้อมูล</p></div>`;
-            if (res.data.length == 0) {
+            if (blog.length == 0) {
                 rows.innerHTML = onItem;
             } else {
-                res.data.forEach(function(v) {
+                blog.forEach(function(v) {
                     let originalDate = new Date(v.publish);
                     let formattedDate = originalDate.toLocaleDateString('en-US', {
                         month: 'long',
@@ -593,7 +590,6 @@
         function adjustPagination() {
             select = document.querySelector('.pagination-select');
             currentPage = select.selectedIndex + 1;
-            console.log(currentPage);
             const prev = document.querySelector('.prev-page');
             const next = document.querySelector('.next-page');
             if (currentPage > 1) prev.classList.remove('invisible');
