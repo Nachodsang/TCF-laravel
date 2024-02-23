@@ -550,7 +550,7 @@
             if (e.links.allPage == 0) return false;
             let select = `
                 <div class="pagination-control prev-page invisible"><a href="javascript:" class="font-weight-bold control-item" action="prev">ก่อนหน้า</a></div>
-                <div class="select-option d-flex align-items-center"><span class="mr-2">หน้า</span><select class="form-control pagination-select" name="pagination">
+                <div class="select-option d-flex align-items-center"><span class="mr-2">หน้า</span><select class="form-control pagination-select w-25" name="pagination">
             `;
             const links = e.links;
 
@@ -560,7 +560,7 @@
             select +=
                 `
                         </select>
-                    <span class="ml-2">ของ ${links.allPage}</span>
+                    <span class="ml-2 width-100">ของ ${links.allPage}</span>
                 </div>
             <div class="pagination-control next-page"><a href="javascript:" class="font-weight-bold control-item" action="next">ถัดไป</a></div>`;
             const paginateion = document.querySelector('.pagination');

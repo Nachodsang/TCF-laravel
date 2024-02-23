@@ -608,6 +608,9 @@ input:focus-visible {
 
 
 }
+.width-100 {
+    width:100px
+}
 
 @media (min-width: 768px) {
     /* CSS rules for screens larger than 768px go here */
