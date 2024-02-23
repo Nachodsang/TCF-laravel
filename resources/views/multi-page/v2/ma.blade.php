@@ -525,7 +525,7 @@
                         <div class="blog-item">
                             <div class="position-relative">
                                     ${v.opportunity == 1 ? "<div class='corner-buy'><span>TO BUY</span></div>" : "<div class='corner-sale'><span>TO SALE</span></div>"}
-                                <img class="img-fluid" src="${v.cover}" alt="">
+                                <img class="img-fluid blog-card-img" src="${v.cover}" alt="">
                                 <div class="blog-overlay">
                                     <a class="btn btn-square btn-primary rounded-circle m-1" href="${v.url}"> <i class="far fa-eye fa-lg"></i></a>
                                 </div>
@@ -550,7 +550,7 @@
             if (e.links.allPage == 0) return false;
             let select = `
                 <div class="pagination-control prev-page invisible"><a href="javascript:" class="font-weight-bold control-item" action="prev">ก่อนหน้า</a></div>
-                <div class="select-option"><span class="mr-2">หน้า</span><select class="form-control pagination-select" name="pagination">
+                <div class="select-option d-flex align-items-center"><span class="mr-2">หน้า</span><select class="form-control pagination-select" name="pagination">
             `;
             const links = e.links;
 

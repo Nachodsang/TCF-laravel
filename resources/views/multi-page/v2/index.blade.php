@@ -177,7 +177,8 @@ overflow-wrap: break-word;">
                                 <div class="blog-item">
                                     <div class="position-relative">
 
-                                        <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                        <img class="img-fluid blog-card-img" src="{{ $v->cover }}"
+                                            alt="">
                                         <div class="blog-overlay">
                                             <a class="btn btn-square btn-primary rounded-circle m-1"
                                                 href="{{ $v->url }}">
@@ -215,7 +216,8 @@ overflow-wrap: break-word;">
                                     <div class="blog-item">
                                         <div class="position-relative">
 
-                                            <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                            <img class="img-fluid blog-card-img" src="{{ $v->cover }}"
+                                                alt="">
                                             <div class="blog-overlay">
                                                 <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
                                                     href="{{ $v->url }}">
@@ -297,7 +299,8 @@ overflow-wrap: break-word;">
                                 <div class="blog-item">
                                     <div class="position-relative">
 
-                                        <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                        <img class="img-fluid blog-card-img" src="{{ $v->cover }}"
+                                            alt="">
                                         <div class="blog-overlay">
                                             <a class="btn btn-square btn-primary rounded-circle m-1"
                                                 href="{{ $v->url }}">
@@ -327,6 +330,7 @@ overflow-wrap: break-word;">
 
                 </div>
                 <div class="row g-5 gx-4 hidden" id="blog-wide">
+
                     @if (@$blog)
                         @foreach ($blog->data as $i => $v)
                             @if ($i < 3)
@@ -335,7 +339,8 @@ overflow-wrap: break-word;">
                                     <div class="blog-item">
                                         <div class="position-relative">
 
-                                            <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                            <img class="img-fluid blog-card-img" src="{{ $v->cover }}"
+                                                alt="">
                                             <div class="blog-overlay">
                                                 <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
                                                     href="{{ $v->url }}">

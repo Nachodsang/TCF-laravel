@@ -595,6 +595,19 @@ input:focus-visible {
     background-color: var(--bs-dropdown-link-hover-bg);
 }
 
+.select-option {
+    display:flex;
+    align-items: center;
+}
+
+
+.blog-card-img {
+    width:100%;
+    aspect-ratio: 3/2 ;
+    object-fit: cover;
+
+
+}
 
 @media (min-width: 768px) {
     /* CSS rules for screens larger than 768px go here */
