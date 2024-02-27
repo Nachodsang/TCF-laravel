@@ -234,7 +234,7 @@ class ConsultantCtrl extends Controller
         }
     }
 
-    public function description(Request $request)
+    public function Description(Request $request)
     {
         try {
             $log = new TaskMd;

@@ -123,7 +123,7 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show'])->where(['id' => '[0-9]+']);
         Route::post('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'update'])->where(['id' => '[0-9]+']);
         Route::delete('/delete/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
-        Route::post('/description', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'description']);
+        Route::post('/description-consultant', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'Description']);
         Route::post('/check/url', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'checkUrl']);
     });
 

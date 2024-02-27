@@ -431,7 +431,7 @@
 
                 $.ajax({
                     method: 'POST',
-                    url: `webpanel/consultant/description/`,
+                    url: `webpanel/consultant/description-consultant`,
                     data: formData,
                     async: false,
                     processData: false,
