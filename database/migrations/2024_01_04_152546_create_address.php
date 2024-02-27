@@ -14,7 +14,7 @@ return new class extends Migration {
             Schema::create('address', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->string('name')->nullable();
                 $table->string('address')->nullable();
                 $table->text('map')->nullable();

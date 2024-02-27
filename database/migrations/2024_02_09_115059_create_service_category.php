@@ -14,7 +14,7 @@ return new class extends Migration {
             Schema::create('service_category', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->integer('sort')->nullable();
                 $table->string('url')->nullable();
                 $table->string('type')->nullable();

@@ -15,7 +15,7 @@ return new class extends Migration
             Schema::create('color', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->string('primary')->nullable();
                 $table->string('secondary')->nullable();
                 $table->string('info')->nullable();

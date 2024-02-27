@@ -13,7 +13,7 @@ return new class extends Migration {
         if (!Schema::hasTable('about_us')) {
 
             Schema::create('about_us', function (Blueprint $table) {
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->longText('description_th')->nullable();
                 $table->longText('description_en')->nullable();
                 $table->longText('detail_th')->nullable();

@@ -15,7 +15,7 @@ return new class extends Migration
             Schema::create('menu', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->string('name')->nullable();
                 $table->string('rules')->nullable();
                 $table->string('url')->nullable();

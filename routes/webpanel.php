@@ -141,6 +141,7 @@ Route::middleware(['Webpanel'])->group(function () {
 Route::prefix('media')->group(function () {
     Route::get('/profile-images', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'profileImages']);
     Route::put('/image/upload', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'uploadImage']);
+    Route::get('/delete/profile-image',[\App\Http\Controllers\Webpanel\MediaCtrl::class, 'deleteImage']);
 });
 Route::get('login', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'index']);
 Route::post('login', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'login']);

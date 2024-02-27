@@ -15,7 +15,7 @@ return new class extends Migration {
             Schema::create('home', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->text('detail')->nullable();
                 $table->string('type')->nullable();
                 $table->timestamps();

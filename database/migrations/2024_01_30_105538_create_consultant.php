@@ -15,7 +15,7 @@ return new class extends Migration
             Schema::create('consultant', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->integer('sort')->nullable();
                 $table->string('url')->nullable();
                 $table->text('image')->nullable();

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('task', function (Blueprint $table) {
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('action')->nullable();
             $table->string('module')->nullable();
             $table->integer('action_by')->nullable();

@@ -14,7 +14,7 @@ return new class extends Migration {
             Schema::create('banner', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->string('image')->nullable();
                 $table->string('title')->nullable();
                 $table->string('alt')->nullable();

@@ -15,7 +15,7 @@ return new class extends Migration
             Schema::create('ma_product', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
-                $table->id();
+                $table->id()->autoIncrement();
                 $table->integer('sort')->nullable();
                 $table->integer('industry_id')->nullable();
                 $table->string('name')->nullable();
