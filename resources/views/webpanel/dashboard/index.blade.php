@@ -128,7 +128,7 @@
 
                 $.ajax({
                     method: 'POST',
-                    url: `webpanel/service/description/`,
+                    url: `webpanel/service/description-service`,
                     data: formData,
                     async: false,
                     processData: false,

@@ -119,9 +119,8 @@
         </div>
         <div class="col-lg-4 col-xs-12 card mb-3 ">
             <div class="card-body">
-                <form method="POST" id="serviceDescription" class="col-xl-12 ">
+                <form id="serviceDescription" class="col-xl-12 ">
                     @csrf
-                    @method('POST')
                     <label for="description" class="form-label">Service Description</label>
                     <textarea class="form-control mb-4" name="description" id="description" rows="4">{{ @$description }}</textarea>
                     <div class="d-flex justify-content-end ">

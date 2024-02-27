@@ -253,7 +253,7 @@ class ServiceCtrl extends Controller
         return response()->json($query);
     }
 
-    public function description(Request $request)
+    public function Description(Request $request)
     {
         try {
             $log = new TaskMd;

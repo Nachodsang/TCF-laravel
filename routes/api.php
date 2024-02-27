@@ -17,19 +17,19 @@ use Illuminate\Support\Facades\Route;
 
 //  Protected routes
 Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::get('profile',[\App\Http\Controllers\Api\AuthCtrl::class,'profile']);
-    Route::get('/logout',[\App\Http\Controllers\Api\AuthCtrl::class,'logout']);
-    Route::get('/get/token',[\App\Http\Controllers\Api\AuthCtrl::class,'getToken']);
+    Route::get('profile',[\App\Http\Controllers\api\AuthCtrl::class,'profile']);
+    Route::get('/logout',[\App\Http\Controllers\api\AuthCtrl::class,'logout']);
+    Route::get('/get/token',[\App\Http\Controllers\api\AuthCtrl::class,'getToken']);
 });
 
-Route::post('login',[\App\Http\Controllers\Api\AuthCtrl::class,'login']);
+Route::post('login',[\App\Http\Controllers\api\AuthCtrl::class,'login']);
 
 Route::prefix('contact')->group(function(){
-    Route::post('sendemail',[\App\Http\Controllers\Api\ContactCtrl::class,'sendEmail']);
+    Route::post('sendemail',[\App\Http\Controllers\api\ContactCtrl::class,'sendEmail']);
 });
 
 Route::prefix('get')->group(function(){
-    Route::get('menu',[\App\Http\Controllers\Api\MenuCtrl::class,'get']);
+    Route::get('menu',[\App\Http\Controllers\api\MenuCtrl::class,'get']);
 });
 
 Route::prefix('ma-filter')->group(function(){

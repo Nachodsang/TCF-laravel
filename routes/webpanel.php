@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\Webpanel\DashboardCtrl;
-use App\Http\Controllers\Webpanel\maCtrl;
+use App\Http\Controllers\Webpanel\maCtrl as WebmaCtrl;
 use App\Http\Controllers\Webpanel\ServiceCategoryCtrl;
-use App\Http\Controllers\Webpanel\ServiceCtrl;
+use App\Http\Controllers\Webpanel\ServiceCtrl as WebServiceCtrl;
 use App\Models\AboutServiceMd;
 use Illuminate\Support\Facades\Route;
 
@@ -49,15 +49,15 @@ Route::middleware(['Webpanel'])->group(function () {
     });
 
     Route::prefix('service')->group(function () {
-        Route::get('/', [ServiceCtrl::class, 'index']);
-        Route::get('/add', [ServiceCtrl::class, 'addService']);
-        Route::post('/add', [ServiceCtrl::class, 'store']);
-        Route::post('/status', [ServiceCtrl::class, 'statusService']);
-        Route::get('/update/{id}', [ServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
-        Route::post('/update/{id}', [ServiceCtrl::class, 'update'])->where(['id' => '[0-9]+']);
-        Route::delete('/delete/{id}', [ServiceCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
-        Route::post('/description', [ServiceCtrl::class, 'description']);
-        Route::post('/check/url', [ServiceCtrl::class, 'checkUrl']);
+        Route::get('/', [WebServiceCtrl::class, 'index']);
+        Route::get('/add', [WebServiceCtrl::class, 'addService']);
+        Route::post('/add', [WebServiceCtrl::class, 'store']);
+        Route::post('/status', [WebServiceCtrl::class, 'statusService']);
+        Route::get('/update/{id}', [WebServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
+        Route::post('/update/{id}', [WebServiceCtrl::class, 'update'])->where(['id' => '[0-9]+']);
+        Route::delete('/delete/{id}', [WebServiceCtrl::class, 'destroy'])->where(['id' => '[0-9]+']);
+        Route::post('/description-service', [WebServiceCtrl::class, 'Description']);
+        Route::post('/check/url', [WebServiceCtrl::class, 'checkUrl']);
     });
 
     Route::prefix('service-category')->group(function () {
@@ -128,13 +128,13 @@ Route::middleware(['Webpanel'])->group(function () {
     });
 
     Route::prefix('ma')->group(function () {
-        Route::get('/', [maCtrl::class, 'index']);
-        Route::get('/add', [maCtrl::class, 'add']);
-        Route::post('/add', [maCtrl::class, 'store']);
-        Route::post('/status', [maCtrl::class, 'status']);
-        Route::get('/update/{type}/{id}', [maCtrl::class, 'show'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
-        Route::put('/update', [maCtrl::class, 'update'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
-        Route::delete('/delete/{type}/{id}', [maCtrl::class, 'destroy'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
+        Route::get('/', [WebmaCtrl::class, 'index']);
+        Route::get('/add', [WebmaCtrl::class, 'add']);
+        Route::post('/add', [WebmaCtrl::class, 'store']);
+        Route::post('/status', [WebmaCtrl::class, 'status']);
+        Route::get('/update/{type}/{id}', [WebmaCtrl::class, 'show'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
+        Route::put('/update', [WebmaCtrl::class, 'update'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
+        Route::delete('/delete/{type}/{id}', [WebmaCtrl::class, 'destroy'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
     });
 });
 
