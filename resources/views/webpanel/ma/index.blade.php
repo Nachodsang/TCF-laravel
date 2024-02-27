@@ -27,7 +27,7 @@
             <link href="{{ $css }}" rel="stylesheet">
         @endforeach
     @endif
-    
+
     @livewireStyles
 </head>
 
@@ -89,7 +89,7 @@
 
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
-    
+
     <script>
         $(".loading").hide();
 

@@ -269,8 +269,6 @@
 
 
         $('#clear-button').on('click', function() {
-            console.log('asdfklj')
-            console.log(industries)
             $('[name="min-income"]').html("Minimum Yearly Income")
             $('[name="max-income"]').html("Maximum Yearly Income")
             $('#industry-dropdown-name').html("Industry");
@@ -462,6 +460,7 @@
         var currentPage = 1;
         var cid = 64;
         var type = ['ma'];
+        let BLOG_API = "{{ env('BLOG_API') }}";
 
         getBlog().then(data => {
             loadItems(data);
@@ -490,7 +489,7 @@
             }
             return res = $.ajax({
                 method: 'get',
-                url: `http://192.168.0.106:8888/api/blog/c`,
+                url: BLOG_API + `api/blog/c`,
                 dataType: 'json',
                 data: data,
                 async: false,

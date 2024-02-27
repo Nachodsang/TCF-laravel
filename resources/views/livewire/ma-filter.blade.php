@@ -3,15 +3,13 @@
         <a href="{{ url('webpanel/ma/add') }}" class="btn btn-primary btn-sm float-right rounded-pill">
             <i class="fas fa-plus fa-xs"></i> ADD
         </a>
-        <button class="btn btn-outline-secondary btn-sm rounded-pill float-right mr-2" id="sort" data-text="Sort"><i
-                class="fas fa-sort"></i> Sort</button>
     </caption>
     <thead>
         <tr>
-            <th scope="col" class="text-center" width="5%"></th>
-            <th scope="col" class="text-center" width="5%">#</th>
+            <th scope="col" class="text-center" width="3%"></th>
+            <th scope="col" class="text-center" width="3%">#</th>
             <th scope="col" width="60%">Industry</th>
-            <th scope="col" width="15%" class="text-center">Created</th>
+            <th scope="col" width="19%" class="text-center">Created</th>
             <th scope="col" width="5%" class="text-center">Status</th>
             <th scope="col" width="10%" class="text-center">Actions</th>
         </tr>

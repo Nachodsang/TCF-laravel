@@ -16,7 +16,7 @@ class BlogCtrl extends Controller
     public function index(Request $request)
     {
         try {
-            $response = Http::get('https://at-once.info/api/blog/c', [
+            $response = Http::get(env('BLOG_API') . 'api/blog/c/all', [
                 'id' => $this->config['customerId'],
                 'type' => ['selfedit', 'customer', 'marketing-blog'],
                 'industry' => $request->industry,
@@ -28,7 +28,7 @@ class BlogCtrl extends Controller
                 'page' => $request->page ? $request->page : 1,
                 'perPage' => 15
             ])
-            ->object();
+                ->object();
 
             $with = [
                 'folder_prefix' => $this->config['folder_prefix'],
