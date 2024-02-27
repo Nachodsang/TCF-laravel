@@ -73,7 +73,7 @@
                             <div class="blog-item">
                                 <div class="position-relative">
 
-                                    <img class="img-fluid" src="{{ $v->cover }}" alt="">
+                                    <img class="img-fluid blog-card-img" src="{{ $v->cover }}" alt="">
                                     <div class="blog-overlay">
                                         <a class="btn btn-square btn-primary opacity-75 rounded-circle m-1"
                                             href="{{ $v->url }}">

@@ -269,6 +269,7 @@
 
 
         $('#clear-button').on('click', function() {
+
             $('[name="min-income"]').html("Minimum Yearly Income")
             $('[name="max-income"]').html("Maximum Yearly Income")
             $('#industry-dropdown-name').html("Industry");

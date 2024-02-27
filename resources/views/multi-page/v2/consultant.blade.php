@@ -84,7 +84,7 @@ overflow-wrap: break-word;">
                                         style=" transform:translateX(6px)">
                                         <div class="service-icon btn-square shadow c-bg-primary">
                                             <img src="{{ $consultants[$i]->image }}"
-                                                alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle"
+                                                alt="{{ $consultants[$i]->image_alt }}" class="rounded-circle aspect1"
                                                 style="width:100%; height:100%; transform:translateX(-6px)" />
                                         </div>
 
@@ -120,7 +120,7 @@ overflow-wrap: break-word;">
                                                     <div class="service-icon btn-square shadow c-bg-primary">
                                                         <img src="{{ $consultants[$i]->image }}"
                                                             alt="{{ $consultants[$i]->image_alt }}"
-                                                            class="rounded-circle"
+                                                            class="rounded-circle aspect1"
                                                             style="width:100%; height:100%; transform:translateX(-6px)" />
                                                     </div>
 

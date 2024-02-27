@@ -33,7 +33,7 @@
 
                                     <div class="col-xl-6 mb-2">
                                         <label for="url" class="form-label">URL : <small class="text-danger">ex :
-                                                /service-one</small></label>
+                                                service-one</small></label>
                                         <input type="text" class="form-control" id="url" name="url">
                                     </div>
                                     <div class="col-xl-6 mb-2">

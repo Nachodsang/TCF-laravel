@@ -32,7 +32,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-xl-6 col-md-12">
-                                <h6>Image URL : <small class="text-danger">ex. /service, /about</small></h6>
+                                <h6>Image URL : <small class="text-danger"></small></h6>
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="imgUrl" name="imgUrl"
                                         placeholder="" value="{{ $banner->url }}">

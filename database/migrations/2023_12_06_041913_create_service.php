@@ -4,12 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
-    public function up(): void {
-        if(!Schema::hasTable('service')) {
+    public function up(): void
+    {
+        if (!Schema::hasTable('service')) {
             Schema::create('service', function (Blueprint $table) {
                 $table->charset = 'utf8';
                 $table->collation = 'utf8_general_ci';
@@ -25,6 +27,7 @@ return new class extends Migration {
                 $table->boolean('status');
                 $table->string('upload_by')->nullable();
                 $table->integer('modified_by')->nullable();
+                $table->integer('sort');
                 $table->timestamps();
                 $table->timestamp('deleted_at')->nullable();
             });
@@ -34,7 +37,8 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down(): void {
+    public function down(): void
+    {
         Schema::dropIfExists('service');
     }
 };

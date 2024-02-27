@@ -277,9 +277,10 @@
                             title: "Service has been saved",
                             showConfirmButton: false,
                             timer: 1500
-                        }).then((result) => {
-                            location.reload();
-                        });
+                        })
+                        setTimeout(function() {
+                            window.location.href = "{{ url('/webpanel/service') }}";
+                        }, 1000);
                     },
                     error: function() {
                         Swal.fire({
@@ -389,9 +390,10 @@
                             title: "Service has been Updated",
                             showConfirmButton: false,
                             timer: 1500
-                        }).then((result) => {
-                            location.reload();
-                        });
+                        })
+                        setTimeout(function() {
+                            window.location.href = "{{ url('/webpanel/service') }}";
+                        }, 1000);
                     },
                     error: function() {
                         Swal.fire({

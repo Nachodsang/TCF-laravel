@@ -32,15 +32,15 @@
                                 <caption class="text-primary h3"><i class="fas fa-inbox"></i>My Inbox</caption>
                                 <thead>
                                     <tr class="text-primary">
-                                        <th scope="col" class="text-center" width="5%">#</th>
-                                        <th scope="col" width="15%">Email</th>
+                                        <th scope="col" class="5%" width="">#</th>
+                                        <th scope="col" width="">Email</th>
                                         <th scope="col" width="">Company</th>
                                         <th scope="col" width="">Name</th>
                                         <th scope="col" width="">Telephone</th>
-                                        <th scope="col" width="15%">Detail</th>
-                                        <th scope="col" width="10%">Action</th>
-                                        <th scope="col" width="15%" class="text-center">Sent</th>
-                                        <th scope="col" width="5%" class="text-start">Delete</th>
+                                        <th scope="col" width="">Detail</th>
+                                        <th scope="col" width="15%">Action</th>
+                                        <th scope="col" width="" class="text-center">Sent</th>
+                                        <th scope="col" width="" class="text-start">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="inbox-table">
@@ -108,10 +108,10 @@ overflow-wrap: break-word;">
                                                 </td>
                                                 <td class="text-left">
 
-                                                    <a class="btn btn-success rounded-pill btn-sm status mr-1"
+                                                    <a class="btn btn-success rounded-pill btn-sm status "
                                                         role="button" data-id="{{ $v->id }}">
                                                         <i class="far fa-check-square"></i></a>
-                                                    <a class="btn btn-primary btn-sm rounded-pill mr-1"
+                                                    <a class="btn btn-primary btn-sm rounded-pill "
                                                         data-id="{{ $v->id }}"
                                                         href="mailto:{{ $v->email }}" role="button">
                                                         <i class="fas fa-paper-plane"></i></a>
@@ -146,15 +146,15 @@ overflow-wrap: break-word;">
                                 <caption class="text-warning h3"><i class="fas fa-star"></i>My Favourites</caption>
                                 <thead>
                                     <tr class="text-warning">
-                                        <th scope="col" class="" width="5%">#</th>
-                                        <th scope="col" width="15%">Email</th>
+                                        <th scope="col" class="5%" width="">#</th>
+                                        <th scope="col" width="">Email</th>
                                         <th scope="col" width="">Company</th>
                                         <th scope="col" width="">Name</th>
                                         <th scope="col" width="">Telephone</th>
-                                        <th scope="col" width="15%">Detail</th>
-                                        <th scope="col" width="10%">Action</th>
-                                        <th scope="col" width="15%" class="text-center">Sent</th>
-                                        <th scope="col" width="5%" class="text-start">Delete</th>
+                                        <th scope="col" width="">Detail</th>
+                                        <th scope="col" width="15%">Action</th>
+                                        <th scope="col" width="" class="text-center">Sent</th>
+                                        <th scope="col" width="" class="text-start">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="favourite-table">
@@ -228,10 +228,10 @@ overflow-wrap: break-word;">
                                                     </div>
                                                 </td>
                                                 <td class="text-left">
-                                                    <a class="btn {{ $v->status ? 'btn-secondary' : 'btn-success' }} rounded-pill btn-sm status mr-1"
+                                                    <a class="btn {{ $v->status ? 'btn-secondary' : 'btn-success' }} rounded-pill btn-sm status "
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="far fa-check-square"></i></a>
-                                                    <a class="btn btn-primary btn-sm rounded-pill mr-1"
+                                                    <a class="btn btn-primary btn-sm rounded-pill "
                                                         data-id="{{ $v->id }}"
                                                         href="mailto:{{ $v->email }}" role="button">
                                                         <i class="fas fa-paper-plane"></i></a>
@@ -262,15 +262,15 @@ overflow-wrap: break-word;">
                                 </caption>
                                 <thead>
                                     <tr class="text-success">
-                                        <th scope="col" class="" width="5%">#</th>
-                                        <th scope="col" width="15%">Email</th>
+                                        <th scope="col" class="5%" width="">#</th>
+                                        <th scope="col" width="">Email</th>
                                         <th scope="col" width="">Company</th>
                                         <th scope="col" width="">Name</th>
                                         <th scope="col" width="">Telephone</th>
-                                        <th scope="col" width="15%">Detail</th>
-                                        <th scope="col" width="10%">Action</th>
-                                        <th scope="col" width="15%" class="text-center">Sent</th>
-                                        <th scope="col" width="5%" class="text-start">Delete</th>
+                                        <th scope="col" width="">Detail</th>
+                                        <th scope="col" width="15%">Action</th>
+                                        <th scope="col" width="" class="text-center">Sent</th>
+                                        <th scope="col" width="" class="text-start">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="done-table">
@@ -344,10 +344,10 @@ overflow-wrap: break-word;">
                                                     </div>
                                                 </td>
                                                 <td class="text-left">
-                                                    <a class="btn btn-secondary rounded-pill btn-sm status mr-1"
+                                                    <a class="btn btn-secondary rounded-pill btn-sm status "
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="far fa-check-square"></i></a>
-                                                    <a class="btn btn-primary btn-sm rounded-pill mr-1"
+                                                    <a class="btn btn-primary btn-sm rounded-pill "
                                                         data-id="{{ $v->id }}"
                                                         href="mailto:{{ $v->email }}" role="button">
                                                         <i class="fas fa-paper-plane"></i></a>

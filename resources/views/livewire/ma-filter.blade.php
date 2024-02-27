@@ -6,7 +6,7 @@
     </caption>
     <thead>
         <tr>
-            <th scope="col" class="text-center" width="3%"></th>
+            <th scope="col" class="text-center" width="3%">Sort</th>
             <th scope="col" class="text-center" width="3%">#</th>
             <th scope="col" width="60%">Industry</th>
             <th scope="col" width="19%" class="text-center">Created</th>
@@ -22,8 +22,9 @@
                         ->orderBy('sort')
                         ->get();
                 @endphp
-                <tr class="FilterRow_industry_{{ $v->id }}" wire:sortable.item="{{ $v->id }}" wire:key="sort-{{ $v->id }}">
-                    <td class="text-center" wire:sortable.handle><i class="fas fa-bars"></i></td>
+                <tr class="FilterRow_industry_{{ $v->id }}" wire:sortable.item="{{ $v->id }}"
+                    wire:key="sort-{{ $v->id }}">
+                    <td class="text-center cursor-sort" wire:sortable.handle><i class="fas fa-bars"></i></td>
                     <td class="text-center">
                         {{ $key + 1 }}
                     </td>

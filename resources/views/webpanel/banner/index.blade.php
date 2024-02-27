@@ -188,9 +188,11 @@
                             title: "Banner has been saved",
                             showConfirmButton: false,
                             timer: 1500
-                        }).then((result) => {
-                            location.reload();
-                        });
+                        })
+                        setTimeout(function() {
+                            window.location.href = "{{ url('/webpanel/banner') }}";
+                        }, 1000);
+
                     },
                     error: function() {
                         Swal.fire({
@@ -260,6 +262,9 @@
                         }).then((result) => {
                             location.reload();
                         });
+                        setTimeout(function() {
+                            window.location.href = "{{ url('/webpanel/banner') }}";
+                        }, 1000);
                     },
                     error: function() {
                         Swal.fire({

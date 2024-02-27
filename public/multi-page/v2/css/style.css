@@ -572,6 +572,9 @@ input:focus-visible {
     cursor: pointer;
 }
 
+.cursor-sort:hover {
+    cursor: move;
+}
 
 .header-dropdown {
     color: #000000A6;
@@ -608,6 +611,13 @@ input:focus-visible {
 
 
 }
+
+.aspect1 {
+  
+    aspect-ratio: 1/1 ;
+    object-fit: cover;
+}
+
 .width-100 {
     width:100px
 }

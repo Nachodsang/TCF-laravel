@@ -10975,6 +10975,11 @@ form.user .btn-user {
   width: 12.5rem;
 }
 
+.cursor-sort:hover {
+    cursor: move;
+}
+
+
 @-webkit-keyframes noise-anim {
   0% {
     clip: rect(49px, 9999px, 40px, 0);
