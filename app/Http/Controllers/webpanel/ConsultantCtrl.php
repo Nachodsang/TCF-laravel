@@ -28,7 +28,7 @@ class ConsultantCtrl extends Controller
                 'module' => 'consultant',
                 'page' => 'page-index',
                 'consultant' => $data,
-                'description' => $description->consultant_page_description
+                'description' => @$description->consultant_page_description
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();
@@ -241,7 +241,7 @@ class ConsultantCtrl extends Controller
             $data = AboutServiceMd::find(1);
             if ($data) {
 
-                $data->consultant_page_description = $request->description;
+                @$data->consultant_page_description = $request->description;
                 if ($data->save()) {
                     $log->action = "update-consultant-page-description";
                     $log->module = "consultant";
@@ -263,7 +263,7 @@ class ConsultantCtrl extends Controller
                 }
             } else {
                 $data = new AboutServiceMd;
-                $data->consultant_page_description = $request->description;
+                @$data->consultant_page_description = $request->description;
                 if ($data->save()) {
                     $log->action = "add-new-consultant-page-description";
                     $log->module = "consultant";

@@ -37,9 +37,9 @@
                                 Product
                             </a>
                             <div class="collapse" id="col2{{ $key }}">
-                                <div class="sort-action text-right">
+                                {{-- <div class="sort-action text-right">
                                     <a class="badge badge-secondary sort-category" href="javascript:">Sort</a>
-                                </div>
+                                </div> --}}
                                 <ul class="list-group" id="sort{{ $key }}" style="margin-top:5px">
                                     @foreach ($product as $col2)
                                         <li class="list-group-item p-2 FilterRow_product_{{ $col2->id }}">
@@ -125,10 +125,10 @@
                                                 Product
                                             </a>
                                             <div class="collapse" id="col2{{ $key }}">
-                                                <div class="sort-action text-right">
+                                                {{-- <div class="sort-action text-right">
                                                     <a class="badge badge-secondary sort-category"
                                                         href="javascript:">Sort</a>
-                                                </div>
+                                                </div> --}}
                                                 <ul class="list-group" id="sort{{ $key }}"
                                                     style="margin-top:5px">
                                                     @foreach ($product as $col2)

@@ -15,7 +15,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea id="description" class="form-control" rows="5" name="description">{{ $row->description }}</textarea>
+                                <textarea id="description" class="form-control" rows="5" name="description">{{ @$row->description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         <div class="col-12">
                             <label for="detail_first"class="form-label">Detail First</label>
                             <div class="sk-area" data-lang="th">
-                                <textarea name="detail_first" id="detail_first" class="sk-editor" hidden="">{{ $row->detail_first }}</textarea>
+                                <textarea name="detail_first" id="detail_first" class="sk-editor" hidden="">{{ @$row->detail_first }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="col-12">
                             <label for="detail_secondary"class="form-label">Detail Secondary</label>
                             <div class="sk-area" data-lang="th">
-                                <textarea name="detail_secondary" id="detail_secondary" class="sk-editor" hidden="">{{ $row->detail_secondary }}</textarea>
+                                <textarea name="detail_secondary" id="detail_secondary" class="sk-editor" hidden="">{{ @$row->detail_secondary }}</textarea>
                             </div>
                         </div>
                     </div>

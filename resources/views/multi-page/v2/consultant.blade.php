@@ -72,7 +72,7 @@
                         <h2 class="mb-4 h2">Consultant Introduction</h2>
                         <p class="mb-4" style="white-space: pre-line;
 overflow-wrap: break-word;">
-                            {{ $about->consultant_page_description }}</p>
+                            {{ @$about->consultant_page_description }}</p>
                         <a class="btn btn-primary" href="{{ url('/service') }}">Our Services</a>
                     </div>
                     <div class="col-lg-7">

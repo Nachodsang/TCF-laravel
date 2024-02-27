@@ -37,7 +37,7 @@ class DashboardCtrl extends Controller
                 ],
                 'module' => 'dashboard',
                 'page' => 'home',
-                'description' => $about_service->about_service_home,
+                'description' => @$about_service->about_service_home,
 
             ]);
         } catch (\Exception $e) {
@@ -57,8 +57,8 @@ class DashboardCtrl extends Controller
                 HomeMd::insert(['created_at' => date('Y-m-d H:i:s')]);
             }
             $data = HomeMd::find(1);
-            $data->detail = $request->detail_first;
-            $data->type = $type;
+            @$data->detail = $request->detail_first;
+            @$data->type = $type;
             if ($data->save()) {
                 return redirect()->back()->with([
                     'status' => 'success',
@@ -112,10 +112,10 @@ class DashboardCtrl extends Controller
     {
         $res = ["status" => 500];
         $data = \App\Models\ColorMd::find(1);
-        $data->primary = $request->input('--c-primary');
-        $data->secondary = $request->input('--c-secondary');
-        $data->button_primary = $request->input('--btn-primary');
-        $data->button_secondary = $request->input('--btn-secondary');
+        @$data->primary = $request->input('--c-primary');
+        @$data->secondary = $request->input('--c-secondary');
+        @$data->button_primary = $request->input('--btn-primary');
+        @$data->button_secondary = $request->input('--btn-secondary');
         if ($data->save()) {
             $res = ['status' => true];
         }

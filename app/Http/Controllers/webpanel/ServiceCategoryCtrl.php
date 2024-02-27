@@ -33,7 +33,7 @@ class ServiceCategoryCtrl extends Controller
                 'module' => 'service-category',
                 'page' => 'page-index',
                 'serviceCat' => $data,
-                'servicePageDetail' => $about_service->service_page_detail
+                'servicePageDetail' => @$about_service->service_page_detail
 
             ]);
         } catch (\Exception $e) {
@@ -226,7 +226,7 @@ class ServiceCategoryCtrl extends Controller
             $data = AboutServiceMd::find(1);
 
             if ($data) {
-                $data->service_page_detail = $request->detail_th;
+                @$data->service_page_detail = $request->detail_th;
                 if ($data->save()) {
                     $log->action = "update-service-page-detail";
                     $log->module = "service-category";
@@ -244,7 +244,7 @@ class ServiceCategoryCtrl extends Controller
                 }
             } else {
                 $data = new AboutServiceMd;
-                $data->service_page_detail = $request->detail_th;
+                @$data->service_page_detail = $request->detail_th;
                 if ($data->save()) {
                     $log->action = "add-new-service-page-detail";
                     $log->module = "service-category";

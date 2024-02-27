@@ -28,14 +28,14 @@ class ServiceCtrl extends Controller
             'check_type' => gettype($servicesArray),
 
             'services' => $servicesArray,
-            'service_detail' => $about_service->service_page_detail,
+            'service_detail' => @$about_service->service_page_detail,
             'links' => [
                 // 'allPage' => $allPage,
                 // 'perPage' => $perPage,
                 // 'page' => $page,
                 // 'query_string' => $queryString
             ],
-            'service_cats' => $service_cats,
+            'service_cats' => @$service_cats,
         ];
         return view($this->config['folder_prefix'] . "/service", $data);
     }
