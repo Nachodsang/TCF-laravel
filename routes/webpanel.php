@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Webpanel\DashboardCtrl;
-use App\Http\Controllers\webpanel\maCtrl;
-use App\Http\Controllers\webpanel\ServiceCategoryCtrl;
+use App\Http\Controllers\Webpanel\maCtrl;
+use App\Http\Controllers\Webpanel\ServiceCategoryCtrl;
 use App\Http\Controllers\Webpanel\ServiceCtrl;
 use App\Models\AboutServiceMd;
 use Illuminate\Support\Facades\Route;
@@ -24,18 +24,18 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::get('/set/color', [\App\Http\Controllers\Webpanel\CssCtrl::class, 'configColorUpdate']);
     });
 
-    Route::get('/', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'index']);
+    Route::get('/', [DashboardCtrl::class, 'index']);
 
     Route::prefix('dashboard')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'index']);
-        Route::get('/task', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'userLog']);
-        Route::post('/home-top', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'store']);
+        Route::get('/', [DashboardCtrl::class, 'index']);
+        Route::get('/task', [DashboardCtrl::class, 'userLog']);
+        Route::post('/home-top', [DashboardCtrl::class, 'store']);
     });
     Route::prefix('logo')->group(function () {
-        Route::post('{type}', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'logo'])->where(['type' => '[a-z]+']);
+        Route::post('{type}', [DashboardCtrl::class, 'logo'])->where(['type' => '[a-z]+']);
     });
     Route::prefix('color')->group(function () {
-        Route::post('/update', [\App\Http\Controllers\Webpanel\DashboardCtrl::class, 'color']);
+        Route::post('/update', [DashboardCtrl::class, 'color']);
     });
 
     Route::prefix('banner')->group(function () {

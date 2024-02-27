@@ -53,7 +53,7 @@ class ServiceCtrl extends Controller
                 $fileName = 'service_cover_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/service/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $service->image = $newfile;
             }
 
@@ -128,13 +128,13 @@ class ServiceCtrl extends Controller
 
             if ($request->imgService) {
                 if ($update->image != '')
-                    Storage::disk(env('disk', 'ftp'))->delete($update->image);
+                    Storage::disk(env('disk', 'public'))->delete($update->image);
                 $image = Image::make($request->imgService->getRealPath());
                 $ext = '.' . explode("/", $image->mime())[1];
                 $fileName = 'banner_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/service/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $update->image = $newfile;
             }
 
@@ -176,7 +176,7 @@ class ServiceCtrl extends Controller
         try {
             $log = new TaskMd;
             $data = ServiceMd::find($id);
-            Storage::disk(env('disk', 'ftp'))->delete($data->image);
+            Storage::disk(env('disk', 'public'))->delete($data->image);
             if ($data->delete()) {
                 $log->action = "delete-service-$id";
                 $log->module = "service";

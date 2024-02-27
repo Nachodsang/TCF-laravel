@@ -67,7 +67,7 @@ class ConsultantCtrl extends Controller
                 $fileName = 'consultant_cover_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/consultant/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $consultant->image = $newfile;
             }
 
@@ -169,13 +169,13 @@ class ConsultantCtrl extends Controller
 
             if ($request->imgConsultant) {
                 if ($update->image != '')
-                    Storage::disk(env('disk', 'ftp'))->delete($update->image);
+                    Storage::disk(env('disk', 'public'))->delete($update->image);
                 $image = Image::make($request->imgConsultant->getRealPath());
                 $ext = '.' . explode("/", $image->mime())[1];
                 $fileName = 'consultant_cover_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/consultant/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $update->image = $newfile;
             }
 
@@ -215,7 +215,7 @@ class ConsultantCtrl extends Controller
         try {
             $log = new TaskMd;
             $data = ConsultantMd::find($id);
-            Storage::disk(env('disk', 'ftp'))->delete($data->image);
+            Storage::disk(env('disk', 'public'))->delete($data->image);
             if ($data->delete()) {
                 $log->action = "delete-consultant-$id";
                 $log->module = "consultant";

@@ -47,7 +47,7 @@ class BannerCtrl extends Controller
                 $fileName = 'banner_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/banner/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $banner->image = $newfile;
             }
 
@@ -105,13 +105,13 @@ class BannerCtrl extends Controller
 
             if (@$update->id) {
                 if ($request->imgBanner) {
-                    if ($update->image != '') Storage::disk(env('disk', 'ftp'))->delete($update->image);
+                    if ($update->image != '') Storage::disk(env('disk', 'public'))->delete($update->image);
                     $image = Image::make($request->imgBanner->getRealPath());
                     $ext = '.' . explode("/", $image->mime())[1];
                     $fileName = 'banner_' . date('dmY-His');
                     $image->stream();
                     $newfile = 'images/banner/' . $fileName . $ext;
-                    Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                    Storage::disk(env('disk', 'public'))->put($newfile, $image);
                     $update->image = $newfile;
                 }
 
@@ -149,7 +149,7 @@ class BannerCtrl extends Controller
         try {
             $data = BannerMd::find($id);
             $log = new TaskMd;
-            Storage::disk(env('disk', 'ftp'))->delete($data->image);
+            Storage::disk(env('disk', 'public'))->delete($data->image);
             if ($data->delete()) {
                 $log->action = "delete-banner-$id";
                 $log->module = "banner";

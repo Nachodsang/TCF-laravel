@@ -123,7 +123,7 @@ class AboutUsCtrl extends Controller
                 $fileName = 'client_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/client/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $new->image = $newfile;
             }
 
@@ -156,13 +156,13 @@ class AboutUsCtrl extends Controller
             $data = OurClientMd::find($id);
             $log = new TaskMd;
             if ($request->img) {
-                if ($data->image != '') Storage::disk(env('disk'))->delete($data->image);
+                if ($data->image != '') Storage::disk(env('disk', 'public'))->delete($data->image);
                 $image = Image::make($request->img->getRealPath());
                 $ext = '.' . explode("/", $image->mime())[1];
                 $fileName = 'client_' . date('dmY-His');
                 $image->stream();
                 $newfile = 'images/client/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($newfile, $image);
+                Storage::disk(env('disk', 'public'))->put($newfile, $image);
                 $data->image = $newfile;
             }
             $data->alt = $request->imgalt;
@@ -194,7 +194,7 @@ class AboutUsCtrl extends Controller
         try {
             $get = OurClientMd::find($id);
             $log = new TaskMd;
-            Storage::disk(env('disk', 'ftp'))->delete($get->image);
+            Storage::disk(env('disk', 'public'))->delete($get->image);
             if ($get->delete()) {
                 $log->action = "delete-client-$id";
                 $log->module = "banner";

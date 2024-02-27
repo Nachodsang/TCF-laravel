@@ -84,14 +84,14 @@ class DashboardCtrl extends Controller
             $image = $request->image;
             if ($image) {
                 if ($get->detail != '')
-                    Storage::disk(env('disk', 'ftp'))->delete($get->detail);
+                    Storage::disk(env('disk', 'public'))->delete($get->detail);
 
                 $new = Image::make($request->image->getRealPath());
                 $ext = '.' . explode("/", $new->mime())[1];
                 $fileName = 'logo_' . $type . '_' . date('dmY-His');
                 $new->stream();
                 $imgPath = 'images/logo/' . $fileName . $ext;
-                Storage::disk(env('disk', 'ftp'))->put($imgPath, $new);
+                Storage::disk(env('disk', 'public'))->put($imgPath, $new);
                 $get->detail = $imgPath;
                 if ($get->save()) {
                     $log = new TaskMd;
