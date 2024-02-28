@@ -3,15 +3,9 @@
         <div class="d-flex justify-content-between  align-items-center ">
 
             <div class="col d-flex mb-2 align-items-center justify-content-between ">
-                <h2 class="m-0"><span class="badge bg-main"># Consultant</span></h2>
+                <h2 class="m-0"><span class="badge bg-main"># Statistics</span></h2>
             </div>
-            <button class="btn btn-primary d-flex align-items-center gap-1 " type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <i class="far fa-edit"></i>
-                <span>
-                    Edit Page Description
-                </span>
-            </button>
+
         </div>
     </div>
     <div>
@@ -33,20 +27,39 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
+                    <div class="row p-4">
+                        <div class="col-4  d-flex justify-content-center">
+                            <div
+                                class="bg-primary text-white w-75 text-center d-flex flex-column align-items-center py-2 rounded">
+                                <h2><i class="fas fa-eye"></i> Visits </h2>
+                                <h2>xxxxx</h2>
+                            </div>
+                        </div>
+                        <div class="col-4   d-flex justify-content-center">
+                            <div
+                                class="bg-info text-white  w-75 text-center  d-flex flex-column align-items-center py-2 rounded">
+
+                                <h2><i class="fas fa-inbox"></i> Messages</h2>
+                                <h2>xxxxx</h2>
+
+                            </div>
+                        </div>
+                        <div class="col-4  d-flex justify-content-center">
+                            <div
+                                class="bg-success text-white w-75 text-center d-flex flex-column align-items-center py-2 rounded">
+                                Date</div>
+                        </div>
+                    </div>
                     <table class="table caption-top table-hover">
-                        <caption>List of Consultant<a href="{{ url('webpanel/consultant/add') }}"
-                                class="btn btn-primary btn-sm rounded-pill float-right"><i
-                                    class="fas fa-plus fa-xs"></i> ADD</a>
+                        <caption>Locations
                         </caption>
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>
-                                <th scope="col" width="10%"></th>
-                                <th scope="col" width="40%">Consultant Name</th>
-                                <th scope="col" width="15%" class="text-center">Upload By</th>
-                                <th scope="col" width="15%" class="text-center">Created</th>
-                                <th scope="col" width="5%" class="text-center">Status</th>
-                                <th scope="col" width="10%"></th>
+
+                                <th scope="col" width="40%">Cities</th>
+
+                                <th scope="col" width="10%">Clicks</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,30 +70,16 @@
                                 @foreach ($consultant as $key => $v)
                                     <tr class="ConsultantRow-{{ $v->id }}">
                                         <td class="text-center">{{ $item + $key }}</td>
-                                        <td><img src="{{ $v->image }}" class="img-fluid rounded" alt="..."
-                                                style="max-height: 250px">
-                                        </td>
+
                                         <td>
                                             <div>
                                                 <h6 class="fw-bold">{{ $v->name }}</h6>
-                                                <i>{{ $v->role }}</i>
+
                                             </div>
-                                            <div>
-                                                <p>{{ $v->description }}</p>
-                                            </div>
+
                                         </td>
-                                        <td class="text-center">
-                                            <div class="btn btn-info btn-sm rounded-pill">{{ $v->userUpload }}</div>
-                                        </td>
-                                        <td class="text-center">{{ $v->created_at }}</td>
-                                        <td class="text-center">
-                                            <div class="form-switch">
-                                                <input class="form-check-input status" type="checkbox"
-                                                    id="statusConsultant" data-id="{{ $v->id }}"
-                                                    @if ($v->status == true) checked @endif>
-                                            </div>
-                                        </td>
-                                        <td class="text-right">
+
+                                        <td class="text-left">
                                             <a class="btn btn-warning rounded-pill btn-sm"
                                                 href="{{ url("webpanel/consultant/update/$v->id") }}" role="button"><i
                                                     class="far fa-edit"></i></a>
