@@ -28,7 +28,5 @@
     $('#cookiesBtn').on('click', (e) => {
         $('#cookies').removeClass('d-block')
         $('#cookies').addClass('d-none')
-
-        
     });
 </script>
