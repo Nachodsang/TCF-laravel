@@ -176,7 +176,7 @@ class ServiceCtrl extends Controller
         try {
             $log = new TaskMd;
             $data = ServiceMd::find($id);
-            Storage::disk(env('disk', 'public'))->delete($data->image);
+            if($data->image) Storage::disk(env('disk', 'public'))->delete(@$data->image);
             if ($data->delete()) {
                 $log->action = "delete-service-$id";
                 $log->module = "service";
