@@ -48,6 +48,7 @@
 
     @include(config('web.folder_prefix') . '/header')
     @include(config('web.folder_prefix') . '/banner')
+    @include(config('web.folder_prefix') . '/cookies')
 
 
 
@@ -418,6 +419,18 @@ overflow-wrap: break-word;">
         }
         window.addEventListener('resize', checkScreenWidth);
         window.onload = checkScreenWidth
+
+        // check for cookie then
+        // setTimeout(() => {
+        //     $('#cookies').removeClass('d-none')
+        //     $('#cookies').addClass('d-block')
+        // }, 3000);
+
+        // $('#cookiesBtn').on('click', (e) => {
+
+        //     $('#cookies').removeClass('d-block')
+        //     $('#cookies').addClass('d-none')
+        // });
     </script>
 
 

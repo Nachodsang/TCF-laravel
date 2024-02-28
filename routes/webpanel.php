@@ -38,6 +38,10 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::post('/update', [DashboardCtrl::class, 'color']);
     });
 
+    Route::prefix('stat')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Webpanel\StatCtrl::class, 'index']);
+    });
+
     Route::prefix('banner')->group(function () {
         Route::get('/', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'index']);
         Route::get('/add', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'addBanner']);
@@ -141,7 +145,7 @@ Route::middleware(['Webpanel'])->group(function () {
 Route::prefix('media')->group(function () {
     Route::get('/profile-images', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'profileImages']);
     Route::put('/image/upload', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'uploadImage']);
-    Route::get('/delete/profile-image',[\App\Http\Controllers\Webpanel\MediaCtrl::class, 'deleteImage']);
+    Route::get('/delete/profile-image', [\App\Http\Controllers\Webpanel\MediaCtrl::class, 'deleteImage']);
 });
 Route::get('login', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'index']);
 Route::post('login', [\App\Http\Controllers\Webpanel\AuthCtrl::class, 'login']);

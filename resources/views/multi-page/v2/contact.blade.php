@@ -212,21 +212,21 @@
             },
             messages: {
                 companyName: {
-                    required: "กรุณากรอกข้อมูล"
+                    required: "Please fill in the blank"
                 },
                 name: {
-                    required: "กรุณากรอกข้อมูล"
+                    required: "Please fill in the blank"
                 },
                 email: {
-                    required: "กรุณากรอกข้อมูล",
-                    email: "กรุณากรอกอีเมลให้ถูกต้อง"
+                    required: "Please fill in the blank",
+                    email: "e-mail formet is required"
                 },
                 telephone: {
-                    required: "กรุณากรอกข้อมูล",
-                    number: "กรอกตัวเลขเท่านั้น"
+                    required: "Please fill in the blank",
+                    number: "numbers only"
                 },
                 detail: {
-                    required: "กรุณากรอกข้อมูล"
+                    required: "Please fill in the blank"
                 },
             },
             submitHandler: function(form) {
@@ -259,7 +259,7 @@
                         });
                         Toast.fire({
                             icon: "success",
-                            title: "Send Email Success"
+                            title: "Email Sent Successfully"
                         }).then(() => {
                             $('.alert').removeClass('d-none').removeClass('alert-danger')
                                 .addClass(`alert-${result.status}`).addClass('d-flex').html(
@@ -277,7 +277,7 @@
                         }).then(() => {
                             $('.alert').removeClass('d-none').addClass('alert-danger')
                                 .addClass('d-flex').html(
-                                    'ส่งอีเมลไม่สำเร็จ กรุณาลองอีกครั้ง')
+                                    'Failed, Please try again later')
                         });
                     }
                 });
