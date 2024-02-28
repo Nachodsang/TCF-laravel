@@ -16,23 +16,41 @@
                                         <label for="module" class="form-label">Module</label>
                                         <select class="form-select rounded-pill" id="module" name="module">
                                             <option value="">Select Module</option>
-                                            <option value="banner" @if(Request::get('module') == "banner") @selected(true) @endif>Banner</option>
-                                            <option value="service" @if(Request::get('module') == "service") @selected(true) @endif>Service</option>
-                                            <option value="service-category" @if(Request::get('module') == "service-category") @selected(true) @endif>Service Category</option>
-                                            <option value="user" @if(Request::get('module') == "user") @selected(true) @endif>Users</option>
-                                            <option value="filter" @if(Request::get('module') == "filter") @selected(true) @endif>Filter(MA)</option>
-                                            <option value="contact-email" @if(Request::get('module') == "contact-email") @selected(true) @endif>Contact Email</option>
-                                            <option value="consultant" @if(Request::get('module') == "consultant") @selected(true) @endif>Consultant</option>
-                                            <option value="home" @if(Request::get('module') == "home") @selected(true) @endif>Home</option>
+                                            <option value="banner"
+                                                @if (Request::get('module') == 'banner') @selected(true) @endif>
+                                                Banner</option>
+                                            <option value="service"
+                                                @if (Request::get('module') == 'service') @selected(true) @endif>
+                                                Service</option>
+                                            <option value="service-category"
+                                                @if (Request::get('module') == 'service-category') @selected(true) @endif>
+                                                Service Category</option>
+                                            <option value="user"
+                                                @if (Request::get('module') == 'user') @selected(true) @endif>
+                                                Users</option>
+                                            <option value="filter"
+                                                @if (Request::get('module') == 'filter') @selected(true) @endif>
+                                                Filter(MA)</option>
+                                            <option value="contact-email"
+                                                @if (Request::get('module') == 'contact-email') @selected(true) @endif>
+                                                Contact Email</option>
+                                            <option value="consultant"
+                                                @if (Request::get('module') == 'consultant') @selected(true) @endif>
+                                                Consultant</option>
+                                            <option value="home"
+                                                @if (Request::get('module') == 'home') @selected(true) @endif>
+                                                Home</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-3 mb-2">
                                         <label for="date" class="form-label">Date Picker</label>
-                                        <input id="date" name="date" class="form-control rounded-pill" type="text" placeholder="Date" value="{{Request::get('date')}}"/>
+                                        <input id="date" name="date" class="form-control rounded-pill"
+                                            type="text" placeholder="Date" value="{{ Request::get('date') }}" />
                                     </div>
                                     <div class="col-xl-1 mb-2">
                                         <label class="form-label text-white">.</label>
-                                        <input class="form-control btn btn-primary rounded-pill" type="submit" value="Search" />
+                                        <input class="form-control btn btn-primary rounded-pill" type="submit"
+                                            value="Search" />
                                     </div>
                                 </div>
                             </form>
@@ -54,12 +72,21 @@
                                 </thead>
                                 <tbody>
                                     @if (count($log) > 0)
+                                        @php
+                                            $item = $log->firstItem();
+                                        @endphp
                                         @foreach ($log as $key => $v)
                                             <tr class="LogRow">
-                                                <td class="text-center">{{ $key + 1 }}</td>
+                                                <td class="text-center">{{ $item + $key }}</td>
                                                 <td>{{ $v->action }}</td>
-                                                <td class="text-center"><div class="btn btn-warning btn-sm rounded-pill">{{ $v->module }}</div></td>
-                                                <td class="text-center"><div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}</div></td>
+                                                <td class="text-center">
+                                                    <div class="btn btn-warning btn-sm rounded-pill">{{ $v->module }}
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="btn btn-info btn-sm rounded-pill">{{ $v->name }}
+                                                    </div>
+                                                </td>
                                                 <td class="text-center">{{ $v->created_at }}</td>
                                             </tr>
                                         @endforeach

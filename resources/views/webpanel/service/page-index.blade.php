@@ -26,10 +26,12 @@
                         </thead>
                         <tbody>
                             @if (count($service) > 0)
+                                @php
+                                    $item = $service->firstItem();
+                                @endphp
                                 @foreach ($service as $key => $v)
                                     <tr class="ServiceRow-{{ $v->id }}">
-                                        <td class="text-center">{{ $key + 1 }}</td>
-
+                                        <td class="text-center">{{ $item + $key}}</td>
                                         <td>
                                             <div>
                                                 <h6><b>{{ $v->service }}</b></h6>

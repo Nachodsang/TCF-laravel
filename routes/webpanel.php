@@ -4,7 +4,6 @@ use App\Http\Controllers\Webpanel\DashboardCtrl;
 use App\Http\Controllers\Webpanel\maCtrl as WebmaCtrl;
 use App\Http\Controllers\Webpanel\ServiceCategoryCtrl;
 use App\Http\Controllers\Webpanel\ServiceCtrl as WebServiceCtrl;
-use App\Models\AboutServiceMd;
 use Illuminate\Support\Facades\Route;
 
 /*
