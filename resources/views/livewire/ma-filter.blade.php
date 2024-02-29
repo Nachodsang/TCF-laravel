@@ -19,8 +19,9 @@
             @foreach ($industry as $key => $v)
                 @php
                     $product = \App\Models\MaProductMd::where('industry_id', $v->id)
-                        ->orderBy('sort')
+                        ->orderBy('name')
                         ->get();
+
                 @endphp
                 <tr class="FilterRow_industry_{{ $v->id }}" wire:sortable.item="{{ $v->id }}"
                     wire:key="sort-{{ $v->id }}">
@@ -41,11 +42,12 @@
                                     <a class="badge badge-secondary sort-category" href="javascript:">Sort</a>
                                 </div> --}}
                                 <ul class="list-group" id="sort{{ $key }}" style="margin-top:5px">
+
                                     @foreach ($product as $col2)
                                         <li class="list-group-item p-2 FilterRow_product_{{ $col2->id }}">
                                             <div class="d-flex justify-content-between">
                                                 <span>
-                                                    {{ $col2->name }}
+                                                    {{ ucfirst($col2->name) }}
                                                 </span>
                                                 <div class="justify-content-end">
                                                     <a class="badge badge-warning"

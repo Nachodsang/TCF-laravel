@@ -1,5 +1,7 @@
-<div class="row fixed-bottom  d-none" id="cookies">
-    <div class=" col-xl-4 col-lg-6 col-12 bg-white p-5 rounded-top-4 shadow-lg ">
+<link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+
+<div class="row d-none w-100 " id="cookies">
+    <div class=" col-xl-2  col-lg-4 col-12 bg-white p-4  shadow-lg  position-relative">
 
         <div class="d-flex flex-column align-items-center gap-3">
             <div class="c-secondary d-flex align-items-center  justify-content-center gap-2">
@@ -8,9 +10,11 @@
                     We use cookies
                 </h3>
             </div>
-            <p>Cookies help us deliver the best experience on our website. By using our website, you agree to the use of
+            <p class="" style="font-size:0.8rem">Cookies help us deliver the best experience on our website. By
+                using
+                our website, you agree to the use of
                 cookies.</p>
-            <button class="btn btn-secondary" id="cookiesBtn">Accept Cookies</button>
+            <button class="btn btn-secondary btn-sm" id="cookiesBtn">Accept Cookies</button>
 
         </div>
 

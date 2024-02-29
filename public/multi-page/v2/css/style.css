@@ -654,12 +654,37 @@ input:focus-visible {
 .banner-overlay-sm {
     background-color:rgba(255,255,255,0.75);
 }
+
+#cookies {
+    position:fixed;
+    /* left:0; */
+    right:0;
+    left:0;
+    bottom:0;
+    --bs-gutter-x: 0rem;
+    
+
+}
+
 }
 
 @media (min-width: 996px) {
 .banner-overlay-lg {
     background-color:rgba(255,255,255,0.75);
     box-shadow:var(--bs-box-shadow-lg) !important;
+}
+
+#cookies {
+    position:fixed;
+    left:3%;
+    bottom:3%;
+    z-index: 1;
+    
+
+}
+
+#cookies div {
+    border-radius:16px;
 }
 }
 

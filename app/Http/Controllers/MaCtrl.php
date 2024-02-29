@@ -39,7 +39,6 @@ class MaCtrl extends Controller
             $products = MaProductMd::join('ma_industry', 'ma_product.industry_id', '=', 'ma_industry.id')
                 ->orderBy('ma_industry.sort')
                 ->orderBy('ma_product.sort')
-                // ->orderBy('ma_product.name')
                 ->get(['ma_product.*', 'ma_industry.sort as industry_number'])
                 ->toArray();
         } else {

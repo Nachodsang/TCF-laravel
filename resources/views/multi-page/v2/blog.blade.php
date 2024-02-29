@@ -102,7 +102,7 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="col-lg-12 text-center">ไม่พบทความ</div>
+                    <div class="col-lg-12 text-center">Item not Found</div>
                 @endif
 
             </div>
@@ -119,7 +119,7 @@
                         <div class="row d-flex justify-content-between">
                             <div class="col-auto">
                                 <a
-                                    href="{{ $prevPage }}"class="prev-page @if ($prev == 0) d-none @endif">ก่อนหน้า</a>
+                                    href="{{ $prevPage }}"class="prev-page @if ($prev == 0) d-none @endif">Previous</a>
                             </div>
                             <div class="col-auto">
                                 @if (@$blogs->links->allPage)
@@ -134,7 +134,7 @@
                             </div>
                             <div class="col-auto">
                                 <a
-                                    href="{{ $nextPage }}"class="next-page font-weight-bold @if ($page >= $blogs->links->allPage) d-none @endif">ถัดไป</a>
+                                    href="{{ $nextPage }}"class="next-page font-weight-bold @if ($page >= $blogs->links->allPage) d-none @endif">Next</a>
                             </div>
                         </div>
                     </div>

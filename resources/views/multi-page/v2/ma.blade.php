@@ -20,7 +20,7 @@
         content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
     <meta name="description"
         content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
-    {{-- <meta name="robots" content="max-image-preview:large" />
+    <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="TCF Thailand -" />
@@ -32,7 +32,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Home - TCF Thailand" />
     <meta name="twitter:description"
-        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." /> --}}
+        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
 </head>
 
 <body>
@@ -42,7 +42,7 @@
     </div>
     <!-- /Preloader -->
     @include(config('web.folder_prefix') . '/header')
-    @include(config('web.folder_prefix') . '/cookies')
+    {{-- @include(config('web.folder_prefix') . '/cookies') --}}
 
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
@@ -126,7 +126,7 @@
                                     </li>
                                     <li><span name="header-menu"
                                             class="dropdown-item opportunity-item  c-primary cursor-pointer"
-                                            value="2">Sale</a>
+                                            value="2">Sell</a>
                                     </li>
                                     <li><span name="header-menu"
                                             class="dropdown-item opportunity-item  c-primary cursor-pointer"
@@ -357,8 +357,23 @@
                 method: 'get',
                 url: `m&a/product/${selectedValue}`,
                 success: function(res) {
+                    const sortedProducts = res.sort((a, b) => {
+
+                        const nameA = a.name.toUpperCase()
+                        const nameB = b.name.toUpperCase()
+
+                        if (nameA < nameB) {
+                            return -1;
+                        }
+                        if (nameA > nameB) {
+                            return 1;
+                        }
+                        return 0;
+                    })
+
+
                     products = []
-                    // console.log(res)
+
                     // Clear existing checkboxes
                     $('#product-list').html("");
                     const Toast = Swal.mixin({
@@ -376,17 +391,21 @@
                         icon: "success",
                         title: `${selectedName} Selected`
                     });
-                    $.each(res, function(k, v) {
+                    sortedProducts.forEach(function(i) {
+
                         $('#product-list').append(
                             "<div class='d-flex gap-2 text-capitalize ' data-product-id='" +
-                            v.id + "'>" +
-                            "<input type='checkbox'  value='" + v.id +
+                            i.id + "'>" +
+                            "<input type='checkbox'  value='" + i.id +
                             "' class='cursor-pointer product-items'" +
                             " />" +
-                            v.name +
+                            i.name +
                             "</div>"
                         );
+
+
                     });
+
                     $('.product-items').on('click', function() {
                         const productId = $(this).attr('value')
                         if ($(this).is(':checked')) {
@@ -459,7 +478,7 @@
 
         var rows = document.querySelector('.blog-data');
         var allPage = 0;
-        var perPage = 6;
+        var perPage = 15;
         var currentPage = 1;
         var cid = 64;
         var type = ['ma'];
@@ -525,7 +544,7 @@
                 return e.status == 1;
             })
             let htmlItem = '';
-            const onItem = `<div class="col-lg-12 text-center"><p>ไม่พบข้อมูล</p></div>`;
+            const onItem = `<div class="col-lg-12 text-center"><p>Item not Found</p></div>`;
             if (blog.length == 0) {
                 rows.innerHTML = onItem;
             } else {
@@ -540,7 +559,7 @@
                     <div class="col-md-6 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="blog-item">
                             <div class="position-relative">
-                                    ${v.opportunity == 1 ? "<div class='corner-buy'><span>TO BUY</span></div>" : "<div class='corner-sale'><span>TO SALE</span></div>"}
+                                    ${v.opportunity == 1 ? "<div class='corner-buy'><span>TO BUY</span></div>" : "<div class='corner-sale'><span>TO SELL</span></div>"}
                                 <img class="img-fluid blog-card-img" src="${v.cover}" alt="">
                                 <div class="blog-overlay">
                                     <a class="btn btn-square btn-primary rounded-circle m-1" target="_blank" href="${v.url}"> <i class="far fa-eye fa-lg"></i></a>
@@ -565,8 +584,8 @@
         function loadPaginate(e) {
             if (e.links.allPage == 0) return false;
             let select = `
-                <div class="pagination-control prev-page invisible"><a href="javascript:" class="font-weight-bold control-item" action="prev">ก่อนหน้า</a></div>
-                <div class="select-option d-flex align-items-center"><span class="mr-2">หน้า</span><select class="form-control pagination-select w-25" name="pagination">
+                <div class="pagination-control prev-page invisible"><a href="javascript:" class="font-weight-bold control-item" action="prev">Previous</a></div>
+                <div class="select-option d-flex align-items-center"><span class="mr-2">Page</span><select class="form-control pagination-select w-25" name="pagination">
             `;
             const links = e.links;
 
@@ -576,9 +595,9 @@
             select +=
                 `
                         </select>
-                    <span class="ml-2 width-100">ของ ${links.allPage}</span>
+                    <span class="ml-2 width-100">of ${links.allPage}</span>
                 </div>
-            <div class="pagination-control next-page"><a href="javascript:" class="font-weight-bold control-item" action="next">ถัดไป</a></div>`;
+            <div class="pagination-control next-page"><a href="javascript:" class="font-weight-bold control-item" action="next">Next</a></div>`;
             const paginateion = document.querySelector('.pagination');
             paginateion.innerHTML == '';
             paginateion.innerHTML = select;

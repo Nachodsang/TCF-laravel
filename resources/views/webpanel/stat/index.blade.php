@@ -16,6 +16,7 @@
     <!-- Custom fonts for this template-->
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="admin/vendor/daterangepicker/css/daterangepicker.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -74,7 +75,8 @@
 
     <!-- Core plugin JavaScript-->
     <script src="admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    <script src="admin/vendor/daterangepicker/js/moment.min.js"></script>
+    <script src="admin/vendor/daterangepicker/js/daterangepicker.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="admin/js/sb-admin-2.min.js"></script>
     <script src="admin/js/jquery.validate.min.js"></script>
@@ -85,6 +87,23 @@
         @endforeach
     @endif
     <script></script>
+
+    <script type="text/javascript">
+        $('input[name="date"]').daterangepicker({
+            locale: {
+                format: 'YYYY/MM/DD',
+                cancelLabel: 'Clear'
+            }
+        });
+
+        $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
+            $(this).val(picker.startDate.format('YYYY/MM/DD') + ' - ' + picker.endDate.format('YYYY/MM/DD'));
+        });
+
+        $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
+            $(this).val('');
+        });
+    </script>
 
 
 </body>
