@@ -5,6 +5,7 @@ namespace App\Http\Controllers\webpanel;
 use App\Http\Controllers\Controller;
 use App\Models\AboutServiceMd;
 use App\Models\ConsultantMd;
+use App\Models\EmailContactMd;
 use App\Models\TaskMd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,10 +14,17 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class StatCtrl extends Controller
 {
-    public function index()
+    public function index(request $request)
     {
+
+        $date = $request->date;
+        $date = explode('-', $date);
         try {
-            $description = AboutServiceMd::find(1);
+            $emailAmount = EmailContactMd::when($request->date, function ($query) use ($date) {
+                $query->whereDate('created_at', '>=', $date[0])
+                    ->whereDate('created_at', '<=', $date[1]);
+            })->count();
+
             $data = ConsultantMd::select([
                 'consultant.*',
                 'users.name as userUpload'
@@ -25,10 +33,11 @@ class StatCtrl extends Controller
                 ->paginate(10);
 
             return view('webpanel.stat.index', [
+                'emailAmount' => $emailAmount,
                 'module' => 'stat',
                 'page' => 'page-index',
                 'consultant' => $data,
-                'description' => @$description->consultant_page_description
+
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();

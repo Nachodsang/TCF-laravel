@@ -48,7 +48,7 @@
 
     @include(config('web.folder_prefix') . '/header')
     @include(config('web.folder_prefix') . '/banner')
-    @include(config('web.folder_prefix') . '/cookies')
+    {{-- @include(config('web.folder_prefix') . '/cookies') --}}
 
 
 

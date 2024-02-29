@@ -12,7 +12,7 @@ class MaCtrl extends Controller
     public function getIndustry()
     {
         try {
-            $data = MaIndustryMd::get();
+            $data = MaIndustryMd::orderBy('sort')->get();
             return $data;
         } catch (\Exception $e) {
             return response()->json([
@@ -25,7 +25,7 @@ class MaCtrl extends Controller
     public function getProduct($id = NULL)
     {
         try {
-            $data = MaProductMd::where('industry_id', $id)->get();
+            $data = MaProductMd::where('industry_id', $id)->orderBy('name')->get();
             return $data;
         } catch (\Exception $e) {
             return response()->json([

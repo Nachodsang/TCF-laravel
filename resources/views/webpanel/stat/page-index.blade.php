@@ -8,20 +8,7 @@
 
         </div>
     </div>
-    <div>
-        <div class="collapse" id="collapseExample">
-            <form method="POST" id="consultantPageDescription" class="col-xl-12 mb-2">
-                @csrf
-                @method('POST')
-                <label for="description" class="form-label">Description : </label>
-                <textarea class="form-control mb-2" name="description" id="description" rows="3">{{ $description }}</textarea>
-                <div class="d-flex justify-content-end ">
-                    <button type="submit" class="btn-primary btn">Update</button>
-                </div>
-            </form>
 
-        </div>
-    </div>
 
     <div class="row">
         <div class="col">
@@ -32,7 +19,7 @@
                             <div
                                 class="bg-primary text-white w-75 text-center d-flex flex-column align-items-center py-2 rounded">
                                 <h2><i class="fas fa-eye"></i> Visits </h2>
-                                <h2>xxxxx</h2>
+                                <h2 class="h1"> xxxxx</h2>
                             </div>
                         </div>
                         <div class="col-4   d-flex justify-content-center">
@@ -40,14 +27,25 @@
                                 class="bg-info text-white  w-75 text-center  d-flex flex-column align-items-center py-2 rounded">
 
                                 <h2><i class="fas fa-inbox"></i> Messages</h2>
-                                <h2>xxxxx</h2>
+                                <h2 class="h1">{{ $emailAmount }}</h2>
 
                             </div>
                         </div>
                         <div class="col-4  d-flex justify-content-center">
-                            <div
-                                class="bg-success text-white w-75 text-center d-flex flex-column align-items-center py-2 rounded">
-                                Date</div>
+                            <form action=""
+                                class="bg-success text-white w-75 px-4 gap-2 text-center d-flex flex-column align-items-center py-2 rounded">
+                                <div class="">
+                                    <label for="date" class="form-label h3">Select Date</label>
+                                    <input id="date" name="date" class="form-control rounded-pill"
+                                        type="text" placeholder="Date" value="{{ Request::get('date') }}" />
+                                </div>
+                                <div class="w-75">
+
+                                    <input class="form-control btn btn-primary btn-small  rounded-pill" type="submit"
+                                        value="Search" />
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                     <table class="table caption-top table-hover">
