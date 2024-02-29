@@ -57,7 +57,7 @@
 
                                 <th scope="col" width="40%">Cities</th>
 
-                                <th scope="col" width="10%">Clicks</th>
+                                <th scope="col" width="10%">Visits</th>
                             </tr>
                         </thead>
                         <tbody>
