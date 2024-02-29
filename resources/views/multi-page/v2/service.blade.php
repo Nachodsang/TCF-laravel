@@ -41,7 +41,7 @@
 
 <body>
     @include(config('web.folder_prefix') . '/header')
-    @include(config('web.folder_prefix') . '/cookies')
+    {{-- @include(config('web.folder_prefix') . '/cookies') --}}
 
     <!-- Preloader -->
     <div id="preloader">

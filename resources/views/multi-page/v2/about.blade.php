@@ -41,7 +41,7 @@
     </div>
     <!-- /Preloader -->
     @include(config('web.folder_prefix') . '/header')
-    @include(config('web.folder_prefix') . '/cookies')
+    {{-- @include(config('web.folder_prefix') . '/cookies') --}}
 
 
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
