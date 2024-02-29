@@ -35,7 +35,8 @@
                             <form action=""
                                 class="bg-success text-white w-75 px-4 gap-2 text-center d-flex flex-column align-items-center py-2 rounded">
                                 <div class="">
-                                    <label for="date" class="form-label h4">Select Date</label>
+                                    <label for="date" class="form-label h4"><i class="far fa-calendar-alt"></i>
+                                        Select Date</label>
                                     <input id="date" name="date" class="form-control rounded-pill"
                                         type="text" placeholder="Date" value="{{ Request::get('date') }}" />
                                 </div>
