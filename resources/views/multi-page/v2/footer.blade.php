@@ -70,11 +70,7 @@
     </div>
 </footer>
 
-
-<a href="#" id="back-to-top" title="Back to top"><span class="material-symbols-outlined">
-        arrow_upward
-    </span></a>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<a href="#" id="back-to-top" title="Back to top"><span class="material-symbols-outlined">arrow_upward</span></a>
 <script type="text/javascript">
     $(document).ready(function() {
         // Show or hide the sticky footer button
@@ -95,4 +91,36 @@
             }, 300);
         })
     });
+
+    function makeid(length) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            counter += 1;
+        }
+        return result;
+    }
+
+    async function VisitorLog(data) {
+        const response = await fetch(`api/stats`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+    }
+
+    if (!sessionStorage.getItem("visit-tcf")) {
+        const geoIp = $.ajax({
+            url: "https://get.geojs.io/v1/ip/geo.json",
+            async: false
+        });
+        let response = geoIp.responseJSON;
+        VisitorLog(response);
+        sessionStorage.setItem("visit-tcf", makeid(20));
+    }
 </script>
