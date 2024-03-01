@@ -16,13 +16,18 @@ class ContactCtrl extends Controller
 
     public function index()
     {
-        $contact = ContactMd::find(1);
-        $map = AddressMd::all();
-        $data = [
-            'folder_prefix' => $this->config['folder_prefix'],
-            'contact' => $contact,
-            'map' => $map,
-        ];
-        return view($this->config['folder_prefix'] . "/contact", $data);
+        try {
+            $contact = ContactMd::find(1);
+            $map = AddressMd::all();
+            $data = [
+                'folder_prefix' => $this->config['folder_prefix'],
+                'contact' => $contact,
+                'map' => $map,
+            ];
+            return view($this->config['folder_prefix'] . "/contact", $data);
+        } catch (\Exception $e) {
+            abort(500);
+            // return $e->getMessage();
+        }
     }
 }

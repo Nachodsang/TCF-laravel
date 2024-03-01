@@ -16,11 +16,16 @@ class AboutCtrl extends Controller
     }
     public function index()
     {
-        $data = AboutUsMd::find(1);
-        $client = OurClientMd::all();
-        return view($this->config['folder_prefix'] . "/about", [
-            'row' => $data,
-            'ourClient' => $client,
-        ]);
+        try {
+            $data = AboutUsMd::find(1);
+            $client = OurClientMd::all();
+            return view($this->config['folder_prefix'] . "/about", [
+                'row' => $data,
+                'ourClient' => $client,
+            ]);
+        } catch (\Exception $e) {
+            abort(500);
+            // return $e->getMessage();
+        }
     }
 }
