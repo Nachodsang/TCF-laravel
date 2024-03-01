@@ -9,9 +9,16 @@
             <div class="card">
                 <div class="card-body">
                     <table class="table caption-top table-hover">
-                        <caption>List of Service<a href="{{ url('webpanel/service/add') }}"
-                                class="btn btn-primary btn-sm rounded-pill float-right"><i
+                        <caption>List of Service <!-- Button trigger modal -->
+
+                            <a href="{{ url('webpanel/service/add') }}"
+                                class="btn btn-primary btn-sm rounded-pill float-right "><i
                                     class="fas fa-plus fa-xs"></i> ADD</a>
+
+                        </caption>
+
+
+
                         </caption>
                         <thead>
                             <tr>
@@ -31,7 +38,7 @@
                                 @endphp
                                 @foreach ($service as $key => $v)
                                     <tr class="ServiceRow-{{ $v->id }}">
-                                        <td class="text-center">{{ $item + $key}}</td>
+                                        <td class="text-center">{{ $item + $key }}</td>
                                         <td>
                                             <div>
                                                 <h6><b>{{ $v->service }}</b></h6>

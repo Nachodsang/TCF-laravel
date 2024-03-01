@@ -27,6 +27,7 @@
             <link href="{{ $css }}" rel="stylesheet">
         @endforeach
     @endif
+    @livewireStyles
 </head>
 
 <body id="page-top">
@@ -67,6 +68,9 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v1.x.x/dist/livewire-sortable.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="admin/vendor/jquery/jquery.min.js"></script>
