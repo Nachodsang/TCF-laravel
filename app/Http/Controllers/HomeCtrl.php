@@ -19,7 +19,7 @@ class HomeCtrl extends Controller
     public function index()
     {
         $host = env('BLOG_API');
-        $cover = BannerMd::select(['image', 'title', 'alt', 'url'])->where(['status' => 1])->get();
+        $cover = BannerMd::select(['image', 'title', 'alt', 'url'])->where(['status' => 1])->orderBy('sort')->get();
         $service = ServiceMd::limit(4)->where('status', 1)->orderBy('created_at', 'desc')->get();
         $service_cats = \App\Models\ServiceCatMd::where('service_category.status', 1)->orderBy('sort')->get();
         $client = OurClientMd::all();

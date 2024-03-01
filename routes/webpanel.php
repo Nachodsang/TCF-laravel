@@ -44,6 +44,7 @@ Route::middleware(['Webpanel'])->group(function () {
     Route::prefix('banner')->group(function () {
         Route::get('/', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'index']);
         Route::get('/add', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'addBanner']);
+        Route::get('/sort', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'sortBanner']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'statusBanner']);
         Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\BannerCtrl::class, 'show'])->where(['id' => '[0-9]+']);
@@ -54,6 +55,7 @@ Route::middleware(['Webpanel'])->group(function () {
     Route::prefix('service')->group(function () {
         Route::get('/', [WebServiceCtrl::class, 'index']);
         Route::get('/add', [WebServiceCtrl::class, 'addService']);
+        Route::get('/sort', [WebServiceCtrl::class, 'sortService']);
         Route::post('/add', [WebServiceCtrl::class, 'store']);
         Route::post('/status', [WebServiceCtrl::class, 'statusService']);
         Route::get('/update/{id}', [WebServiceCtrl::class, 'show'])->where(['id' => '[0-9]+']);
@@ -67,6 +69,7 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::get('/', [ServiceCategoryCtrl::class, 'index']);
         Route::post('/', [ServiceCategoryCtrl::class, 'storeDescription']);
         Route::get('/add', [ServiceCategoryCtrl::class, 'add']);
+        Route::get('/sort', [ServiceCategoryCtrl::class, 'sortServiceCat']);
         Route::post('/add', [ServiceCategoryCtrl::class, 'store']);
         Route::get('/update/{id}', [ServiceCategoryCtrl::class, 'show'])->where(['id' => '[0-9]+']);
         Route::put('/update/{id}', [ServiceCategoryCtrl::class, 'update'])->where(['id' => '[0-9]+']);
@@ -121,6 +124,7 @@ Route::middleware(['Webpanel'])->group(function () {
     Route::prefix('consultant')->group(function () {
         Route::get('/', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'index']);
         Route::get('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'addConsultant']);
+        Route::get('/sort', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'sortConsultant']);
         Route::post('/add', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'store']);
         Route::post('/status', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'statusConsultant']);
         Route::get('/update/{id}', [\App\Http\Controllers\Webpanel\ConsultantCtrl::class, 'show'])->where(['id' => '[0-9]+']);

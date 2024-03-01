@@ -16,8 +16,7 @@ class ServiceCtrl extends Controller
     public function index(request $request)
     {
         $service = ServiceMd::where(['status' => 1])->orderBy('sort')->get();
-        // number = order of service category
-        $servicesArray = $service->sortBy('id');
+
         $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
 
 
@@ -25,9 +24,9 @@ class ServiceCtrl extends Controller
 
         $data = [
             'folder_prefix' => $this->config['folder_prefix'],
-            'check_type' => gettype($servicesArray),
 
-            'services' => $servicesArray,
+
+            'services' => $service,
             'service_detail' => @$about_service->service_page_detail,
             'links' => [
                 // 'allPage' => $allPage,

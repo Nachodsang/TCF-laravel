@@ -11,15 +11,16 @@
                     <table class="table caption-top table-hover">
                         <caption>List of Service <!-- Button trigger modal -->
 
+
                             <a href="{{ url('webpanel/service/add') }}"
                                 class="btn btn-primary btn-sm rounded-pill float-right "><i
                                     class="fas fa-plus fa-xs"></i> ADD</a>
+                            <a href="{{ url('webpanel/service/sort') }}"
+                                class="btn btn-warning btn-sm rounded-pill float-right mx-1 "><i
+                                    class="fas fa-bars"></i> SORT</a>
 
                         </caption>
-
-
-
-                        </caption>
+                        {{-- @livewire('service-sort') --}}
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center" width="5%">#</th>

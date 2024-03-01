@@ -23,6 +23,7 @@ class ServiceCtrl extends Controller
             $data = ServiceMd::select('service.*', 'users.name as userName', 'service_category.name')
                 ->leftJoin('users', 'service.upload_by', 'users.id')
                 ->leftJoin('service_category', 'service_category.id', 'service.cat_id')
+                ->orderBy('sort')
                 ->paginate(10); // $data = ServiceMd::select('service.*', 'users.name')->leftJoin('users', 'service.upload_by', 'users.id')->paginate(10);
 
             $serviceCats = ServiceCatMd::orderBy('sort', 'desc')->get();
@@ -176,7 +177,7 @@ class ServiceCtrl extends Controller
         try {
             $log = new TaskMd;
             $data = ServiceMd::find($id);
-            if($data->image) Storage::disk(env('disk', 'public'))->delete(@$data->image);
+            if ($data->image) Storage::disk(env('disk', 'public'))->delete(@$data->image);
             if ($data->delete()) {
                 $log->action = "delete-service-$id";
                 $log->module = "service";
@@ -213,6 +214,21 @@ class ServiceCtrl extends Controller
                 'module' => 'service',
                 'page' => 'add',
                 'service_cats' => $serviceCats,
+            ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function sortService()
+    {
+        try {
+
+            return view('webpanel.service.index', [
+
+                'module' => 'service',
+                'page' => 'sort',
+
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();

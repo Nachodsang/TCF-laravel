@@ -22,6 +22,7 @@ class ConsultantCtrl extends Controller
                 'users.name as userUpload'
             ])
                 ->leftJoin('users', 'consultant.upload_by', 'users.id')
+                ->orderBy('sort')
                 ->paginate(10);
 
             return view('webpanel.consultant.index', [
@@ -103,6 +104,20 @@ class ConsultantCtrl extends Controller
         }
     }
 
+    public function sortConsultant()
+    {
+        try {
+
+            return view('webpanel.consultant.index', [
+
+                'module' => 'consultant',
+                'page' => 'sort',
+
+            ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
     public function statusConsultant(request $request)
     {
         $consultant = ConsultantMd::find($request->id);

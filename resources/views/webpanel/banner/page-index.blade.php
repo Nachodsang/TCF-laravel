@@ -12,6 +12,9 @@
                         <caption>List of Banner<a href="{{ url('webpanel/banner/add') }}"
                                 class="btn btn-primary btn-sm float-right rounded-pill"><i
                                     class="fas fa-plus fa-xs"></i> ADD</a>
+                            <a href="{{ url('webpanel/banner/sort') }}"
+                                class="btn btn-warning btn-sm rounded-pill float-right mx-1 "><i
+                                    class="fas fa-bars"></i> SORT</a>
                         </caption>
                         <thead>
                             <tr>
