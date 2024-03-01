@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +32,6 @@
 </head>
 
 <body>
-
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
@@ -42,7 +39,6 @@
     <!-- /Preloader -->
     @include(config('web.folder_prefix') . '/header')
     @include(config('web.folder_prefix') . '/cookies')
-
 
     <section class="breadcrumbs-wrap" style="background-image: url('images/downtown-bangkok2.jpg');">
         <div class="overlay"></div>
@@ -63,18 +59,15 @@
     <section class="half-section my-4">
         <div class="container-fluid template-container ">
             <div class="container">
-
                 {!! @$row->detail_first !!}
             </div>
         </div>
-
     </section>
     {{-- company philosophy --}}
     <section class="why-us section philosophy-background c-bg-secondary">
         <div class="section position-relative">
             <div class="section w-100 h-100 position-absolute top-0"
                 style="background-image: url('images/bangkok-city.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center; position: relative; filter:blur(0px)">
-
             </div>
             <div class="position-absolute top-0 w-100 h-100  opacity-75 z-0  "
                 style="background-color: rgba(135, 80, 39);">
@@ -97,20 +90,15 @@
             </div>
         </div>
     </section>
-
     <section class="half-section my-4">
         <div class="container-fluid template-container ">
             <div class="container">
-
                 {!! @$row->detail_secondary !!}
             </div>
         </div>
-
     </section>
 
-
     @include(config('web.folder_prefix') . '/footer')
-
 
     <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/jquery-migrate-3.0.1.min.js"></script>
@@ -118,27 +106,14 @@
     <script src="{{ config('web.folder_prefix') }}/js/alime.bundle.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/wow.min.js"></script>
-
     <!-- Active -->
-
     <script src="{{ config('web.folder_prefix') }}/js/active.js"></script>
-
     <!-- Breadcrumbs -->
-
     <script src="{{ config('web.folder_prefix') }}/js/jquery.waypoints.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/main.js"></script>
-
-
     <!--Equal-Heights-->
     <script src="{{ config('web.folder_prefix') }}/js/jquery.matchHeight-min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/functions.js"></script>
-
-
-
-
-
-
-
 </body>
 
 </html>

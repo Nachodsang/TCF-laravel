@@ -71,6 +71,7 @@
 </footer>
 
 <a href="#" id="back-to-top" title="Back to top"><span class="material-symbols-outlined">arrow_upward</span></a>
+
 <script type="text/javascript">
     $(document).ready(function() {
         // Show or hide the sticky footer button

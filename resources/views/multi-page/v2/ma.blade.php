@@ -14,25 +14,19 @@
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="css/sweetalert2.min.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
-
-
-    <meta name="keywords"
-        content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
-    <meta name="description"
-        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta name="keywords" content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
+    <meta name="description" content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
     <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="TCF Thailand -" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Home - TCF Thailand" />
-    <meta property="og:description"
-        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta property="og:description" content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
     <meta property="og:url" content="https://www.tokyoconsultingfirm.com/thailand/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Home - TCF Thailand" />
-    <meta name="twitter:description"
-        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+    <meta name="twitter:description" content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
 </head>
 
 <body>
@@ -254,6 +248,7 @@
     </div>
     <!-- ======= Blog Section ======= -->
     @include(config('web.folder_prefix') . '/footer')
+    
     <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/owl.carousel.min.js"></script>
@@ -266,7 +261,6 @@
     <script>
         let industry, opportunity, min, max, search;
         let products = [];
-
         const industries = JSON.parse($('#allIndustries')?.attr('data-my-data'))
 
 
