@@ -72,7 +72,8 @@
 
                                         <td>
                                             <div>
-                                                <h6 class="fw-bold">{{ $v->city }} ,{{ $v->country }}</h6>
+                                                <h6 class="fw-bold">{{ $v->city ? $v->city : 'Unidentified' }}
+                                                    ,{{ $v->country ? $v->country : 'Unidentified' }}</h6>
 
                                             </div>
 
