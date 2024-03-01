@@ -37,7 +37,7 @@ class StatCtrl extends Controller
             $emailAmount = EmailContactMd::when($request->date, function ($query) use ($date) {
                 $query->whereDate('created_at', '>=', $date[0])
                     ->whereDate('created_at', '<=', $date[1]);
-            })->count();
+            })->withTrashed()->count();
 
             $data = ConsultantMd::select([
                 'consultant.*',
