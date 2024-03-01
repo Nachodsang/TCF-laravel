@@ -37,6 +37,9 @@
                         <caption>List of Consultant<a href="{{ url('webpanel/consultant/add') }}"
                                 class="btn btn-primary btn-sm rounded-pill float-right"><i
                                     class="fas fa-plus fa-xs"></i> ADD</a>
+                            <a href="{{ url('webpanel/consultant/sort') }}"
+                                class="btn btn-warning btn-sm rounded-pill float-right mx-1 "><i
+                                    class="fas fa-bars"></i> SORT</a>
                         </caption>
                         <thead>
                             <tr>

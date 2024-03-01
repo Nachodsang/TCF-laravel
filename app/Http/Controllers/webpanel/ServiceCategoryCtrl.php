@@ -16,7 +16,7 @@ class ServiceCategoryCtrl extends Controller
         try {
             $data = ServiceCatMd::select('service_category.*', 'users.name as userName')
                 ->leftJoin('users', 'service_category.upload_by', 'users.id')
-                // ->where('service_category.status', 1)
+                ->orderBy('sort')
                 ->paginate(10);
             $about_service = AboutServiceMd::find(1);
             return view('webpanel.service-category.index', [
@@ -219,6 +219,20 @@ class ServiceCategoryCtrl extends Controller
         return response()->json($query);
     }
 
+    public function sortServiceCat()
+    {
+        try {
+
+            return view('webpanel.service-category.index', [
+
+                'module' => 'service-category',
+                'page' => 'sort',
+
+            ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
     public function storeDescription(Request $request)
     {
         try {

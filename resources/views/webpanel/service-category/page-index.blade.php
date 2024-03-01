@@ -1,10 +1,13 @@
 <section>
     <div class="row">
-        <div class="col d-flex justify-content-between align-items-center">
-            <h2 class="m-0"><span class="badge bg-main"># Service Category</span></h2><a
-                class="btn btn-primary btn-sm rounded-pill" data-bs-toggle="collapse" href="#collapseDescription"
+        <div class="col ">
+            <h2 class="m-0"><span class="badge bg-main"># Service Category</span></h2>
+            <a class="btn btn-primary btn-sm rounded-pill float-end" data-bs-toggle="collapse" href="#collapseDescription"
                 role="button" aria-expanded="false" aria-controls="collapseDescription"><i class="fas fa-plus fa-xs"></i>
                 DESCRIPTION ALL SERVICE</a>
+            <a href="{{ url('webpanel/service-category/sort') }}"
+                class="btn btn-warning btn-sm rounded-pill float-right mx-1 "><i class="fas fa-bars"></i> SORT</a>
+
         </div>
     </div>
     <div class="collapse mt-3" id="collapseDescription">

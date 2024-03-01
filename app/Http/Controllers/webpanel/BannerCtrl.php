@@ -20,7 +20,7 @@ class BannerCtrl extends Controller
     {
 
         try {
-            $data = BannerMd::select('banner.*', 'users.name')->leftJoin('users', 'banner.upload_by', 'users.id')->paginate(10);
+            $data = BannerMd::select('banner.*', 'users.name')->leftJoin('users', 'banner.upload_by', 'users.id')->orderBy('sort')->paginate(10);
 
             return view('webpanel.banner.index', [
                 'module' => 'banner',
@@ -35,6 +35,21 @@ class BannerCtrl extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+    public function sortBanner()
+    {
+        try {
+
+            return view('webpanel.banner.index', [
+
+                'module' => 'banner',
+                'page' => 'sort',
+
+            ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
     public function store(Request $request)
     {
 
