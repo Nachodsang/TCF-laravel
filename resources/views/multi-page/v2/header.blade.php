@@ -13,7 +13,7 @@
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+            <div class="collapse navbar-collapse justify-content-center pb-4 pb-xl-0 " id="navbarCollapse">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a name="header-menu" class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
@@ -27,7 +27,7 @@
                             Service
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @foreach (\App\Models\ServiceCatMd::where('status', 1)-> orderBy('sort')->get() as $k => $v)
+                            @foreach (\App\Models\ServiceCatMd::where('status', 1)->orderBy('sort')->get() as $k => $v)
                                 @if ($v->type === 'sub-page')
                                     <li><a name="header-menu" class="header-dropdown dropdown-item text-muted"
                                             href="{{ url('/service/category/' . $v->url) }}"><small>{{ $v->name }}</small>
@@ -74,7 +74,6 @@
     var els = document.querySelectorAll(".navbar-nav a");
     els.forEach((i) => {
         (i?.href === url || url?.includes(i?.name)) && i.classList.add("active")
-
     })
 </script>
 
