@@ -474,10 +474,9 @@
         var allPage = 0;
         var perPage = 15;
         var currentPage = 1;
-        var cid = 64;
+        var cid = "{{ Config::get('web')['customerId'] }}";
         var type = ['ma'];
         let BLOG_API = "{{ env('BLOG_API') }}";
-
         getBlog().then(data => {
             loadItems(data);
             loadPaginate(data);
