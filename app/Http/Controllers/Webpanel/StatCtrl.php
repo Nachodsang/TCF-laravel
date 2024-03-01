@@ -32,6 +32,8 @@ class StatCtrl extends Controller
                         ->whereDate('created_at', '<=', $date[1]);
                 })
                 ->groupBy('city')
+                ->orderBy('count', 'desc')
+                ->orderBy('country')
                 ->get();
 
             $emailAmount = EmailContactMd::when($request->date, function ($query) use ($date) {
