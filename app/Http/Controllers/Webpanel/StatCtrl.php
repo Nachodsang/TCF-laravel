@@ -7,6 +7,7 @@ use App\Models\AboutServiceMd;
 use App\Models\ConsultantMd;
 use App\Models\EmailContactMd;
 use App\Models\TaskMd;
+use App\Models\VisitorLogMd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +21,19 @@ class StatCtrl extends Controller
         $date = $request->date;
         $date = explode('-', $date);
         try {
+            $visitorAmount =  VisitorLogMd::when($request->date, function ($query) use ($date) {
+                $query->whereDate('created_at', '>=', $date[0])
+                    ->whereDate('created_at', '<=', $date[1]);
+            })->count();
+
+            $visitorLogs = VisitorLogMd::selectRaw('city, country, COUNT(*) as count')
+                ->when($request->date, function ($query) use ($date) {
+                    $query->whereDate('created_at', '>=', $date[0])
+                        ->whereDate('created_at', '<=', $date[1]);
+                })
+                ->groupBy('city')
+                ->get();
+
             $emailAmount = EmailContactMd::when($request->date, function ($query) use ($date) {
                 $query->whereDate('created_at', '>=', $date[0])
                     ->whereDate('created_at', '<=', $date[1]);
@@ -37,6 +51,8 @@ class StatCtrl extends Controller
                 'module' => 'stat',
                 'page' => 'page-index',
                 'consultant' => $data,
+                'visitorAmount' => $visitorAmount,
+                'visitorLogs' => $visitorLogs,
 
             ]);
         } catch (\Exception $e) {

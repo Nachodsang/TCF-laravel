@@ -18,15 +18,15 @@
                         <div class="col-4  d-flex justify-content-center">
                             <div
                                 class="bg-primary text-white w-75 text-center d-flex flex-column align-items-center py-2 rounded">
-                                <h2><i class="fas fa-eye"></i> Visits </h2>
-                                <h2 class="h1"> xxxxx</h2>
+                                <h2 class="h4"><i class="fas fa-eye"></i> Visits </h2>
+                                <h2 class="h1"> {{ $visitorAmount }}</h2>
                             </div>
                         </div>
                         <div class="col-4   d-flex justify-content-center">
                             <div
                                 class="bg-info text-white  w-75 text-center  d-flex flex-column align-items-center py-2 rounded">
 
-                                <h2><i class="fas fa-inbox"></i> Messages</h2>
+                                <h2 class="h4"><i class="fas fa-inbox"></i> Messages</h2>
                                 <h2 class="h1">{{ $emailAmount }}</h2>
 
                             </div>
@@ -35,7 +35,8 @@
                             <form action=""
                                 class="bg-success text-white w-75 px-4 gap-2 text-center d-flex flex-column align-items-center py-2 rounded">
                                 <div class="">
-                                    <label for="date" class="form-label h3">Select Date</label>
+                                    <label for="date" class="form-label h4"><i class="far fa-calendar-alt"></i>
+                                        Select Date</label>
                                     <input id="date" name="date" class="form-control rounded-pill"
                                         type="text" placeholder="Date" value="{{ Request::get('date') }}" />
                                 </div>
@@ -57,33 +58,28 @@
 
                                 <th scope="col" width="40%">Cities</th>
 
-                                <th scope="col" width="10%">Clicks</th>
+                                <th scope="col" width="10%">Visits</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($consultant) > 0)
-                                @php
-                                    $item = $consultant->firstItem();
-                                @endphp
-                                @foreach ($consultant as $key => $v)
+                            @if (count($visitorLogs) > 0)
+                                {{-- @php
+                                    $item = $visitorLogs->firstItem();
+                                @endphp --}}
+                                @foreach ($visitorLogs as $key => $v)
                                     <tr class="ConsultantRow-{{ $v->id }}">
-                                        <td class="text-center">{{ $item + $key }}</td>
+                                        <td class="text-center">{{ $key + 1 }}</td>
 
                                         <td>
                                             <div>
-                                                <h6 class="fw-bold">{{ $v->name }}</h6>
+                                                <h6 class="fw-bold">{{ $v->city }} ,{{ $v->country }}</h6>
 
                                             </div>
 
                                         </td>
 
                                         <td class="text-left">
-                                            <a class="btn btn-warning rounded-pill btn-sm"
-                                                href="{{ url("webpanel/consultant/update/$v->id") }}" role="button"><i
-                                                    class="far fa-edit"></i></a>
-                                            <a class="btn btn-danger btn-sm rounded-pill deleteConsultant"
-                                                data-id="{{ $v->id }}" href="javascript:0" role="button"><i
-                                                    class="far fa-trash-alt"></i></a>
+                                            <h6 class="fw-bold">{{ $v->count }}</h6>
                                         </td>
                                     </tr>
                                 @endforeach

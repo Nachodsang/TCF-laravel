@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\TaskMd;
 use App\Models\HomeMd;
+use App\Models\VisitorLogMd;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class DashboardCtrl extends Controller
@@ -152,6 +153,7 @@ class DashboardCtrl extends Controller
         $module = $request->module;
 
         try {
+           
             $log = TaskMd::select('task.*', 'users.name')
                 ->leftJoin('users', 'task.action_by', '=', 'users.id')
                 ->when($request->module, function ($query) use ($module) {
