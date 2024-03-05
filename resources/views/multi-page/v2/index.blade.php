@@ -65,7 +65,7 @@
                                         <div style="min-height:200px;"
                                             class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                             <div class="service-icon btn-square">
-                                                <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                {!! $service_cats[$i]->icon !!}
                                             </div>
                                             <h3 class="h3 mb-3"> {{ $service_cats[$i]->name }}
                                             </h3>
@@ -95,7 +95,7 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        {!! $service_cats[$i]->icon !!}
                                                     </div>
                                                     <h3 class="h3 mb-3"> {{ $service_cats[$i]->name }}
                                                     </h3>
@@ -125,7 +125,7 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        {!! $service_cats[$i]->icon !!}
                                                     </div>
                                                     <h3 class="h3 mb-3">
                                                         {{ $service_cats[$i]->name }}
@@ -207,15 +207,17 @@
                                     data-wow-delay="0.{{ $i }}s">
                                     <div class="blog-item">
                                         <div class="position-relative">
-
+                                            @if ($v->opportunity == 1)
+                                                <div class='corner-buy'><span>TO BUY</span></div>
+                                            @else
+                                                <div class='corner-sale'><span>TO SELL</span></div>
+                                            @endif
                                             <img class="img-fluid blog-card-img" src="{{ $v->cover }}"
                                                 alt="">
                                             <div class="blog-overlay">
-                                                <a class="btn btn-square btn-primary opacity-75  rounded-circle m-1"
-                                                    href="{{ $v->url }}" target="_blank">
-
-                                                    <i class="far fa-eye fa-lg"></i>
-                                                </a>
+                                                <a class="btn btn-square btn-primary rounded-circle m-1"
+                                                    target="_blank" href="{{ $v->url }}"> <i
+                                                        class="far fa-eye fa-lg"></i></a>
                                             </div>
                                         </div>
                                         <div class="text-center p-3 blog-card-text">
