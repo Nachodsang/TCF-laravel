@@ -55,7 +55,7 @@ class UserCtrl extends Controller
             'email' => [
                 'required',
                 'regex:/^(([^<>()[\]\\`.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
-                Rule::unique('users')->whereNull('deleted_at')
+                Rule::unique('users', 'email'),
             ],
             'password' => 'required|confirmed',
             'password_confirmation' => 'required|same:password',
@@ -110,7 +110,7 @@ class UserCtrl extends Controller
             'email' => [
                 'required',
                 'regex:/^(([^<>()[\]\\`.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
-                Rule::unique('users')->whereNull('deleted_at')->ignore($id),
+                Rule::unique('users', 'email')->ignore($id),
             ],
             // 'password' => 'required|confirmed',
             'password_confirmation' => 'required_with:password|same:password',
