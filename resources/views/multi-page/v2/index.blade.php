@@ -65,7 +65,7 @@
                                         <div style="min-height:200px;"
                                             class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                             <div class="service-icon btn-square">
-                                                <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                {!! $service_cats[$i]->icon !!}
                                             </div>
                                             <h3 class="h3 mb-3"> {{ $service_cats[$i]->name }}
                                             </h3>
@@ -95,7 +95,7 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        {!! $service_cats[$i]->icon !!}
                                                     </div>
                                                     <h3 class="h3 mb-3"> {{ $service_cats[$i]->name }}
                                                     </h3>
@@ -125,7 +125,7 @@
                                                 <div style="min-height:200px;"
                                                     class="shadow service-item d-flex flex-column justify-content-center text-center rounded">
                                                     <div class="service-icon btn-square">
-                                                        <i class="fas {{ $service_cats[$i]->icon }} fa-lg"></i>
+                                                        {!! $service_cats[$i]->icon !!}
                                                     </div>
                                                     <h3 class="h3 mb-3">
                                                         {{ $service_cats[$i]->name }}
