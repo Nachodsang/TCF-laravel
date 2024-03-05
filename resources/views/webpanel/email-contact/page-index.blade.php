@@ -59,7 +59,6 @@
                                                 <td>{{ $v->company_name }}</td>
                                                 <td>{{ $v->name }}</td>
                                                 <td>{{ $v->phone }}</td>
-
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-primary btn-sm"
@@ -67,7 +66,6 @@
                                                         data-bs-target="#exampleModal{{ $v->id }}">
                                                         See Detail
                                                     </button>
-
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="exampleModal{{ $v->id }}"
                                                         tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -84,8 +82,7 @@
                                                                 </div>
                                                                 <div class="modal-body row">
                                                                     <div class="col-12 mb-4"
-                                                                        style="white-space: pre-line;
-overflow-wrap: break-word;">
+                                                                        style="white-space: pre-line; overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
                                                                     <i>
@@ -100,14 +97,12 @@ overflow-wrap: break-word;">
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Close</button>
-
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="text-left">
-
                                                     <a class="btn btn-success rounded-pill btn-sm status "
                                                         role="button" data-id="{{ $v->id }}">
                                                         <i class="far fa-check-square"></i></a>
@@ -118,8 +113,6 @@ overflow-wrap: break-word;">
                                                     <a class="btn btn-warning rounded-pill btn-sm favourite "
                                                         role="button" data-id="{{ $v->id }}">
                                                         <i class="fas fa-star"></i></a>
-
-
                                                 </td>
                                                 <td class="text-center">{{ $v->created_at }}</td>
                                                 <td> <a class="btn btn-danger btn-sm rounded-pill deleteItem "
@@ -138,9 +131,6 @@ overflow-wrap: break-word;">
                             </table>
                             {{-- {{ $email->appends(['tab' => 'email'] + $_GET)->links() }} --}}
                         </div>
-
-
-
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <table class="table caption-top table-hover">
                                 <caption class="text-warning h3"><i class="fas fa-star"></i>My Favourites</caption>
@@ -179,7 +169,6 @@ overflow-wrap: break-word;">
                                                 <td>{{ $v->company_name }}</td>
                                                 <td>{{ $v->name }}</td>
                                                 <td>{{ $v->phone }}</td>
-
                                                 <td>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-primary btn-sm"
@@ -187,7 +176,6 @@ overflow-wrap: break-word;">
                                                         data-bs-target="#exampleModal{{ $v->id }}f">
                                                         See Detail
                                                     </button>
-
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="exampleModal{{ $v->id }}f"
                                                         tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -205,8 +193,7 @@ overflow-wrap: break-word;">
                                                                 </div>
                                                                 <div class="modal-body row">
                                                                     <div class="col-12 mb-4"
-                                                                        style="white-space: pre-line;
-overflow-wrap: break-word;">
+                                                                        style="white-space: pre-line; overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
                                                                     <i>
@@ -221,7 +208,6 @@ overflow-wrap: break-word;">
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Close</button>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -238,7 +224,6 @@ overflow-wrap: break-word;">
                                                     <a class="btn btn-secondary rounded-pill btn-sm favourite"
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="fas fa-star"></i></a>
-
                                                 </td>
                                                 <td class="text-center">{{ $v->created_at }}</td>
                                                 <td> <a class="btn btn-danger btn-sm rounded-pill deleteItem "
@@ -289,7 +274,6 @@ overflow-wrap: break-word;">
                                                     @if ($v->favourite)
                                                         <i class="fas fa-star text-warning fa-2x"></i>
                                                     @endif
-
                                                 </td>
                                                 <td> {{ $v->email }}
                                                 </td>
@@ -303,7 +287,6 @@ overflow-wrap: break-word;">
                                                         data-bs-target="#exampleModal{{ $v->id }}d">
                                                         See Detail
                                                     </button>
-
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="exampleModal{{ $v->id }}d"
                                                         tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -321,8 +304,7 @@ overflow-wrap: break-word;">
                                                                 </div>
                                                                 <div class="modal-body row">
                                                                     <div class="col-12 mb-4"
-                                                                        style="white-space: pre-line;
-overflow-wrap: break-word;">
+                                                                        style="white-space: pre-line; overflow-wrap: break-word;">
                                                                         {{ $v->details }}
                                                                     </div>
                                                                     <i>
@@ -337,7 +319,6 @@ overflow-wrap: break-word;">
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Close</button>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -354,7 +335,6 @@ overflow-wrap: break-word;">
                                                     <a class="btn {{ $v->favourite ? 'btn-secondary' : 'btn-warning' }}  rounded-pill btn-sm favourite"
                                                         data-id="{{ $v->id }}" role="button">
                                                         <i class="fas fa-star"></i></a>
-
                                                 </td>
                                                 <td class="text-center">{{ $v->created_at }}</td>
                                                 <td> <a class="btn btn-danger btn-sm rounded-pill deleteItem "
@@ -374,8 +354,6 @@ overflow-wrap: break-word;">
                             {{-- {{ $done->appends(['tab' => 'done'] + $_GET)->links() }} --}}
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>

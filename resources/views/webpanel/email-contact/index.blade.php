@@ -125,56 +125,50 @@
                             date.toLocaleTimeString([], {
                                 hour12: false
                             });
-
                         $('#inbox-table').append(
-
                             `<tr class='emailRow-${v.id}'>
-        <td class='text-center'>${k + 1}</td>
-        <td>${v.email}</td>
-        <td>${v.company_name}</td>
-        <td>${v.name}</td>
-        <td>${v.phone}</td>
-        <td>
-            <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}i'>
-                See Detail
-            </button>
-            <div class='modal fade' id='exampleModal${v.id}i' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body row'>
-                            <div class='col-12 mb-4' style="white-space: pre-line;
-overflow-wrap: break-word;">${v.details}</div>
-                            <i><b>${v.name}</b></i>
-                            <i>${v.email}</i>
-                            <i>${v.phone}</i>
-                            <i>${formattedDate}</i>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td class='text-left'>
-            <a class='btn btn-success rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
-            <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
-        </td>
-        <td class='text-center'>${formattedDate}</td>
-        <td>
-            <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
-        </td>
-    </tr>`
-
-
+                                <td class='text-center'>${k + 1}</td>
+                                <td>${v.email}</td>
+                                <td>${v.company_name}</td>
+                                <td>${v.name}</td>
+                                <td>${v.phone}</td>
+                                <td>
+                                    <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}i'>
+                                        See Detail
+                                    </button>
+                                    <div class='modal fade' id='exampleModal${v.id}i' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body row'>
+                                                    <div class='col-12 mb-4' style="white-space: pre-line; overflow-wrap: break-word;">${v.details}</div>
+                                                    <i><b>${v.name}</b></i>
+                                                    <i>${v.email}</i>
+                                                    <i>${v.phone}</i>
+                                                    <i>${formattedDate}</i>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='text-left'>
+                                    <a class='btn btn-success rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+                                    <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
+                                    <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+                                </td>
+                                <td class='text-center'>${formattedDate}</td>
+                                <td>
+                                    <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
+                                </td>
+                            </tr>`
                         );
                     });
-
 
                     $('#favourite-table').empty()
                     $.each(res?.favourite, function(k, v) {
@@ -185,58 +179,55 @@ overflow-wrap: break-word;">${v.details}</div>
                                 hour12: false
                             });
                         $('#favourite-table').append(
-
                             `
-    <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }">
-        <td class=''>
-            ${k + 1}
-            ${v.status == 1 ? "<i class='far fa-check-circle fa-2x text-success'></i>" : ""}
-        </td>
-        <td>${v.email}</td>
-        <td>${v.company_name}</td>
-        <td>${v.name}</td>
-        <td>${v.phone}</td>
-        <td>
-            <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}f'>
-                See Detail
-            </button>
-            <div class='modal fade' id='exampleModal${v.id}f' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body row'>
-                            <div class='col-12 mb-4'  style="white-space: pre-line;
-overflow-wrap: break-word;">
-                                ${v.details}
-                            </div>
-                            <i><b>${v.name}</b></i>
-                            <i>${v.email}</i>
-                            <i>${v.phone}</i>
-                            <i>${formattedDate}</i>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td class='text-left'>
-            <a class='btn ${ v.status == 1? 'btn-secondary' : 'btn-success' } rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
-            <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
-        </td>
-        <td class='text-center'>${formattedDate}</td>
-        <td>
-            <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
-        </td>
-    </tr>
-`
-
-
+                            <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }">
+                                <td class=''>
+                                    ${k + 1}
+                                    ${v.status == 1 ? "<i class='far fa-check-circle fa-2x text-success'></i>" : ""}
+                                </td>
+                                <td>${v.email}</td>
+                                <td>${v.company_name}</td>
+                                <td>${v.name}</td>
+                                <td>${v.phone}</td>
+                                <td>
+                                    <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}f'>
+                                        See Detail
+                                    </button>
+                                    <div class='modal fade' id='exampleModal${v.id}f' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body row'>
+                                                    <div class='col-12 mb-4'  style="white-space: pre-line;
+                        overflow-wrap: break-word;">
+                                                        ${v.details}
+                                                    </div>
+                                                    <i><b>${v.name}</b></i>
+                                                    <i>${v.email}</i>
+                                                    <i>${v.phone}</i>
+                                                    <i>${formattedDate}</i>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='text-left'>
+                                    <a class='btn ${ v.status == 1? 'btn-secondary' : 'btn-success' } rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+                                    <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
+                                    <a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+                                </td>
+                                <td class='text-center'>${formattedDate}</td>
+                                <td>
+                                    <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
+                                </td>
+                            </tr>
+                        `
                         );
                     });
 
@@ -249,57 +240,51 @@ overflow-wrap: break-word;">
                                 hour12: false
                             });
                         $('#done-table').append(
-
                             `
-    <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }">
-        <td class=''>${k + 1}${v.favourite == 1 ? " <i class='fas fa-star fa-2x text-warning'></i>" : ""}</td>
-        <td>${v.email}</td>
-        <td>${v.company_name}</td>
-        <td>${v.name}</td>
-        <td>${v.phone}</td>
-        <td>
-            <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}d'>
-                See Detail
-            </button>
-            <div class='modal fade' id='exampleModal${v.id}d' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body row'>
-                            <div class='col-12 mb-4'  style="white-space: pre-line;
-overflow-wrap: break-word;" >${v.details}</div>
-                            <i><b>${v.name}</b></i>
-                            <i>${v.email}</i>
-                            <i>${v.phone}</i>
-                            <i>${formattedDate}</i>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td class='text-left'>
-            <a class='btn btn-secondary rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
-            <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn  ${ v.favourite == 1 ? 'btn-secondary' : 'btn-warning' } rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
-        </td>
-        <td class='text-center'>${formattedDate}</td>
-        <td>
-            <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
-        </td>
-    </tr>`
-
-
+                            <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }">
+                                <td class=''>${k + 1}${v.favourite == 1 ? " <i class='fas fa-star fa-2x text-warning'></i>" : ""}</td>
+                                <td>${v.email}</td>
+                                <td>${v.company_name}</td>
+                                <td>${v.name}</td>
+                                <td>${v.phone}</td>
+                                <td>
+                                    <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}d'>
+                                        See Detail
+                                    </button>
+                                    <div class='modal fade' id='exampleModal${v.id}d' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body row'>
+                                                    <div class='col-12 mb-4'  style="white-space: pre-line;
+                        overflow-wrap: break-word;" >${v.details}</div>
+                                                    <i><b>${v.name}</b></i>
+                                                    <i>${v.email}</i>
+                                                    <i>${v.phone}</i>
+                                                    <i>${formattedDate}</i>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='text-left'>
+                                    <a class='btn btn-secondary rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+                                    <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
+                                    <a class='btn  ${ v.favourite == 1 ? 'btn-secondary' : 'btn-warning' } rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+                                </td>
+                                <td class='text-center'>${formattedDate}</td>
+                                <td>
+                                    <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
+                                </td>
+                            </tr>`
                         );
                     });
-
-
-
                 },
                 error: (res) => {
                     Swal.fire({
@@ -340,7 +325,6 @@ overflow-wrap: break-word;" >${v.details}</div>
                         title: "Change Status Success"
                     })
 
-
                     $('#inbox-table').empty()
                     $.each(res?.email, function(k, v) {
                         const date = new Date(v?.created_at)
@@ -350,56 +334,52 @@ overflow-wrap: break-word;" >${v.details}</div>
                                 hour12: false
                             });
                         $('#inbox-table').append(
-
                             `
-    <tr class='emailRow-${v.id}'>
-        <td class='text-center'>${k + 1}</td>
-        <td>${v.email}</td>
-        <td>${v.company_name}</td>
-        <td>${v.name}</td>
-        <td>${v.phone}</td>
-        <td>
-            <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}i'>
-                See Detail
-            </button>
-            <div class='modal fade' id='exampleModal${v.id}i' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body row'>
-                            <div class='col-12 mb-4' style="white-space: pre-line;
-overflow-wrap: break-word;" >${v.details}</div>
-                            <i><b>${v.name}</b></i>
-                            <i>${v.email}</i>
-                            <i>${v.phone}</i>
-                            <i>${formattedDate}</i>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td class='text-left'>
-            <a class='btn btn-success rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
-            <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
-        </td>
-        <td class='text-center'>${formattedDate}</td>
-        <td>
-            <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
-        </td>
-    </tr>
-`
-
-
+                            <tr class='emailRow-${v.id}'>
+                                <td class='text-center'>${k + 1}</td>
+                                <td>${v.email}</td>
+                                <td>${v.company_name}</td>
+                                <td>${v.name}</td>
+                                <td>${v.phone}</td>
+                                <td>
+                                    <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}i'>
+                                        See Detail
+                                    </button>
+                                    <div class='modal fade' id='exampleModal${v.id}i' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body row'>
+                                                    <div class='col-12 mb-4' style="white-space: pre-line;
+                        overflow-wrap: break-word;" >${v.details}</div>
+                                                    <i><b>${v.name}</b></i>
+                                                    <i>${v.email}</i>
+                                                    <i>${v.phone}</i>
+                                                    <i>${formattedDate}</i>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='text-left'>
+                                    <a class='btn btn-success rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+                                    <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
+                                    <a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+                                </td>
+                                <td class='text-center'>${formattedDate}</td>
+                                <td>
+                                    <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
+                                </td>
+                            </tr>
+                        `
                         );
                     });
-
 
                     $('#favourite-table').empty()
                     $.each(res?.favourite, function(k, v) {
@@ -411,52 +391,50 @@ overflow-wrap: break-word;" >${v.details}</div>
                             });
                         $('#favourite-table').append(
                             `
-    <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }">
-        <td class=''>${k + 1}${v.status == 1 ? "<i class='far fa-check-circle fa-2x text-success'></i>" : ""}</td>
-        <td>${v.email}</td>
-        <td>${v.company_name}</td>
-        <td>${v.name}</td>
-        <td>${v.phone}</td>
-        <td>
-            <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}f'>
-                See Detail
-            </button>
-            <div class='modal fade' id='exampleModal${v.id}f' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body row'>
-                            <div class='col-12 mb-4' style="white-space: pre-line;
-overflow-wrap: break-word;" >${v.details}</div>
-                            <i><b>${v.name}</b></i>
-                            <i>${v.email}</i>
-                            <i>${v.phone}</i>
-                            <i>${formattedDate}</i>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td class='text-left'>
-            ${ v.status == 1 ? ` <a class='btn btn-secondary  rounded-pill btn-sm status' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>` : ` <a class='btn btn-success  rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>` }
-           
-            <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            <a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
-        </td>
-        <td class='text-center'>${formattedDate}</td>
-        <td>
-            <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
-        </td>
-    </tr>
-`
-
-
+                            <tr class='emailRow-${v.id}' style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#FFFEDF' }">
+                                <td class=''>${k + 1}${v.status == 1 ? "<i class='far fa-check-circle fa-2x text-success'></i>" : ""}</td>
+                                <td>${v.email}</td>
+                                <td>${v.company_name}</td>
+                                <td>${v.name}</td>
+                                <td>${v.phone}</td>
+                                <td>
+                                    <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}f'>
+                                        See Detail
+                                    </button>
+                                    <div class='modal fade' id='exampleModal${v.id}f' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body row'>
+                                                    <div class='col-12 mb-4' style="white-space: pre-line;
+                        overflow-wrap: break-word;" >${v.details}</div>
+                                                    <i><b>${v.name}</b></i>
+                                                    <i>${v.email}</i>
+                                                    <i>${v.phone}</i>
+                                                    <i>${formattedDate}</i>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='text-left'>
+                                    ${ v.status == 1 ? ` <a class='btn btn-secondary  rounded-pill btn-sm status' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>` : ` <a class='btn btn-success  rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>` }
+                                
+                                    <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
+                                    <a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>
+                                </td>
+                                <td class='text-center'>${formattedDate}</td>
+                                <td>
+                                    <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
+                                </td>
+                            </tr>
+                        `
                         );
                     });
 
@@ -469,53 +447,50 @@ overflow-wrap: break-word;" >${v.details}</div>
                                 hour12: false
                             });
                         $('#done-table').append(
-
                             `
-    <tr class='emailRow-${v.id}'  style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }">
-        <td class=''>${k + 1}${v.favourite == 1 ? "<i class='fas fa-star fa-2x text-warning'></i>" : ""}</td>
-        <td>${v.email}</td>
-        <td>${v.company_name}</td>
-        <td>${v.name}</td>
-        <td>${v.phone}</td>
-        <td>
-            <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}d'>
-                See Detail
-            </button>
-            <div class='modal fade' id='exampleModal${v.id}d' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body row'>
-                            <div class='col-12 mb-4' style="white-space: pre-line;
-overflow-wrap: break-word;" >${v.details}</div>
-                            <i><b>${v.name}</b></i>
-                            <i>${v.email}</i>
-                            <i>${v.phone}</i>
-                            <i>${formattedDate}</i>
-                        </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </td>
-        <td class='text-left'>
-            <a class='btn btn-secondary rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
-            <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
-            ${ v.favourite == 1 ? `<a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>` : `<a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>` }  
-        </td>
-        <td class='text-center'>${formattedDate}</td>
-        <td>
-            <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
-        </td>
-    </tr>
-`
-
-
+                            <tr class='emailRow-${v.id}'  style= "${ k % 2 == 0 ? 'background-color:white' : 'background-color:#E8F5E9' }">
+                                <td class=''>${k + 1}${v.favourite == 1 ? "<i class='fas fa-star fa-2x text-warning'></i>" : ""}</td>
+                                <td>${v.email}</td>
+                                <td>${v.company_name}</td>
+                                <td>${v.name}</td>
+                                <td>${v.phone}</td>
+                                <td>
+                                    <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#exampleModal${v.id}d'>
+                                        See Detail
+                                    </button>
+                                    <div class='modal fade' id='exampleModal${v.id}d' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                        <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+                                            <div class='modal-content'>
+                                                <div class='modal-header'>
+                                                    <h1 class='modal-title fs-5' id='exampleModalLabel'>From: ${v.company_name}</h1>
+                                                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                                </div>
+                                                <div class='modal-body row'>
+                                                    <div class='col-12 mb-4' style="white-space: pre-line;
+                        overflow-wrap: break-word;" >${v.details}</div>
+                                                    <i><b>${v.name}</b></i>
+                                                    <i>${v.email}</i>
+                                                    <i>${v.phone}</i>
+                                                    <i>${formattedDate}</i>
+                                                </div>
+                                                <div class='modal-footer'>
+                                                    <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class='text-left'>
+                                    <a class='btn btn-secondary rounded-pill btn-sm status ' role='button' data-id='${v.id}'><i class='far fa-check-square'></i></a>
+                                    <a class='btn btn-primary btn-sm rounded-pill ' data-id='${v.id}' href='mailto:${v.email}' role='button'><i class='fas fa-paper-plane'></i></a>
+                                    ${ v.favourite == 1 ? `<a class='btn btn-secondary rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>` : `<a class='btn btn-warning rounded-pill btn-sm favourite' role='button' data-id='${v.id}'><i class='fas fa-star'></i></a>` }  
+                                </td>
+                                <td class='text-center'>${formattedDate}</td>
+                                <td>
+                                    <a class='btn btn-danger btn-sm rounded-pill deleteItem' data-id='${v.id}' href='javascript:0' role='button'><i class='far fa-trash-alt'></i></a>
+                                </td>
+                            </tr>
+                        `
                         );
                     });
                 },
@@ -529,11 +504,8 @@ overflow-wrap: break-word;" >${v.details}</div>
             });
         })
 
-
-
         $(document).on('click', ".deleteItem", function(e) {
             e.preventDefault();
-
             let id = $(this).attr('data-id');
             Swal.fire({
                 title: "Do you want to Delete Service ?",
@@ -577,11 +549,8 @@ overflow-wrap: break-word;" >${v.details}</div>
                     });
                 }
             })
-
-
         });
     </script>
-
 
 </body>
 
