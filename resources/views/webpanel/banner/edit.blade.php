@@ -54,8 +54,10 @@
                             <div class="col-xl-6">
                                 <div class="">
                                     <label for="imgBanner" class="form-label mb-0">
-                                        <h6>Select Image : <small class="text-danger">Desktop: 1920x528, Tablet:
-                                                1024x748, Mobile: 1000x1200</small></h6>
+                                        <h6>Select Image :
+                                            {{-- <small class="text-danger">Desktop: 1920x528, Tablet:
+                                                1024x748, Mobile: 1000x1200</small> --}}
+                                        </h6>
                                     </label>
                                     <input class="form-control" accept="image/*" type="file" id="imgBanner"
                                         name="imgBanner">
