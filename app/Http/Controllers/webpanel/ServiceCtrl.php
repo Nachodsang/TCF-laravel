@@ -67,6 +67,7 @@ class ServiceCtrl extends Controller
             $service->seo_description = $request->seo_description;
             $service->seo_keyword = $request->seo_keyword;
             $service->cat_id = $request->service_category;
+            $service->sort = $service->max('sort') + 1;
             $service->status = 0;
             $service->upload_by = Auth::user()->id;
 
