@@ -314,7 +314,7 @@ class ContactCtrl extends Controller
                     'status' => true,
                     'message' => 'Data has been saved.'
                 ];
-            }
+            } 
         }
         return response()->json($res);
     }

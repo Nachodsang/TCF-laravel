@@ -117,11 +117,11 @@
                 <div class="col-lg-6 map-item mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn-close delete-map d-none"></button><span
-                                class="text-danger float-right">*กำหนด width="100%"</span>
+                            {{-- <button type="button" class="btn-close delete-map d-none"></button> --}}
+                            <span class="text-danger float-right">*กำหนด width="100%"</span>
                             <div class="form-group mt-2 d-none">
                                 <input name="name" id="name" type="text" class="form-control"
-                                    old="{{ $v->name }}" @readonly(true) value="{{ $v->name }}">
+                                    old="{{ @$v->name }}" @readonly(true) value="main" />
                             </div>
                             <div class="form-group">
                                 <textarea name="address" id="address" rows="4" class="form-control" old="{{ $v->address }}"
@@ -148,11 +148,12 @@
             <div class="col-lg-6 map-item">
                 <div class="card">
                     <div class="card-body">
-                        <button type="button" class="btn-close delete-map"></button><span
-                            class="text-danger float-right">*กำหนด width="100%"</span>
+                        {{-- <button type="button" class="btn-close delete-map"></button> --}}
+                        <span class="text-danger float-right">*กำหนด width="100%"</span>
                         @method('PUT')
-                        <div class="form-group mt-2">
-                            <input name="name" id="name" type="text" class="form-control">
+                        <div class="form-group mt-2 d-none">
+                            <input name="name" id="name" type="text" value="main"
+                                class="form-control">
                         </div>
                         <div class="form-group">
                             <textarea name="address" id="address" rows="4" class="form-control"></textarea>
