@@ -62,8 +62,8 @@ class HomeCtrl extends Controller
                 'ourClient' => $client,
                 'blog' => $blog,
                 'ma' => $ma,
-                'detail_first' => \App\Models\HomeMd::find(1),
-                'detail_secondary' => \App\Models\HomeMd::find(2)
+                'detail_first' => \App\Models\HomeMd::where('type', 'first')->first(),
+                // 'detail_secondary' => \App\Models\HomeMd::find(2)
             ];
             return view($this->config['folder_prefix'] . "/index", $data);
         } catch (\Exception $e) {

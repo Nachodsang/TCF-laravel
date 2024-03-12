@@ -53,11 +53,12 @@ class DashboardCtrl extends Controller
     {
         $type = $request->type;
         if ($type == 'first') {
-            $data = HomeMd::find(1);
+            // $data = HomeMd::find(1);
+            $data = HomeMd::where('type', 'first')->first();
             if (!@$data->id) {
                 HomeMd::insert(['created_at' => date('Y-m-d H:i:s')]);
             }
-            $data = HomeMd::find(1);
+            // $data = HomeMd::find(1);
             @$data->detail = $request->detail_first;
             @$data->type = $type;
             if ($data->save()) {
@@ -153,7 +154,7 @@ class DashboardCtrl extends Controller
         $module = $request->module;
 
         try {
-           
+
             $log = TaskMd::select('task.*', 'users.name')
                 ->leftJoin('users', 'task.action_by', '=', 'users.id')
                 ->when($request->module, function ($query) use ($module) {
