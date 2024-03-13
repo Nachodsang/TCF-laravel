@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::post('login', [\App\Http\Controllers\api\AuthCtrl::class, 'login']);
 
 Route::prefix('contact')->group(function () {
-    // Route::post('sendemail', [\App\Http\Controllers\api\ContactCtrl::class, 'sendEmail']);
+    Route::post('sendemail', [\App\Http\Controllers\api\ContactCtrl::class, 'sendEmail']);
 });
 
 Route::prefix('get')->group(function () {

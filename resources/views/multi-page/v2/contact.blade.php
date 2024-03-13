@@ -109,6 +109,12 @@
                                                         style="height:100px;"></textarea>
                                                 </div>
                                             </div>
+                                            @if (env('GOOGLE_RECAPTCHA_KEY'))
+                                                <div class="col-md-12 text-right form-group">
+                                                    <div class="g-recaptcha"
+                                                        data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                                                </div>
+                                            @endif
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <input type="submit" value="Send Message"
@@ -172,7 +178,7 @@
     </section>
 
     @include(config('web.folder_prefix') . '/footer')
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="{{ config('web.folder_prefix') }}/js/jquery.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/jquery.validate.min.js"></script>
     <script src="{{ config('web.folder_prefix') }}/js/bootstrap.bundle.min.js"></script>
@@ -234,6 +240,8 @@
             submitHandler: function(form) {
                 inputs = $('#contactForm')[0];
                 const formData = new FormData(inputs);
+
+
                 $.ajax({
                     method: 'POST',
                     url: 'api/contact/sendemail',
@@ -263,8 +271,10 @@
                             icon: "success",
                             title: "Email Sent Successfully"
                         }).then(() => {
-                            $('.alert').removeClass('d-none').removeClass('alert-danger')
-                                .addClass(`alert-${result.status}`).addClass('d-flex').html(
+                            $('.alert').removeClass('d-none').removeClass(
+                                    'alert-danger')
+                                .addClass(`alert-${result.status}`).addClass('d-flex')
+                                .html(
                                     result.msg);
                             $(inputs).find("input").removeClass("is-valid");
                             $(inputs).find("textarea").removeClass("is-valid");
@@ -283,6 +293,7 @@
                         });
                     }
                 });
+
             }
         });
     </script>
