@@ -37,7 +37,7 @@
                                             @endif
                                         </select>
                                         @error('type')
-                                            <small class="is-invalid">{{ $message }}</small>
+                                            <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                 </div>
