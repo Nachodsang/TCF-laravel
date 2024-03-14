@@ -71,4 +71,12 @@ class HomeCtrl extends Controller
             // return $e->getMessage();
         }
     }
+
+
+    public function mail()
+    {
+
+
+        return view($this->config['folder_prefix'] . "/mail",);
+    }
 }
