@@ -3,15 +3,9 @@
 namespace App\Http\Controllers\webpanel;
 
 use App\Http\Controllers\Controller;
-use App\Models\AboutServiceMd;
-use App\Models\ConsultantMd;
 use App\Models\EmailContactMd;
-use App\Models\TaskMd;
 use App\Models\VisitorLogMd;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class StatCtrl extends Controller
 {
@@ -41,18 +35,10 @@ class StatCtrl extends Controller
                     ->whereDate('created_at', '<=', $date[1]);
             })->withTrashed()->count();
 
-            $data = ConsultantMd::select([
-                'consultant.*',
-                'users.name as userUpload'
-            ])
-                ->leftJoin('users', 'consultant.upload_by', 'users.id')
-                ->paginate(10);
-
             return view('webpanel.stat.index', [
                 'emailAmount' => $emailAmount,
                 'module' => 'stat',
                 'page' => 'page-index',
-                'consultant' => $data,
                 'visitorAmount' => $visitorAmount,
                 'visitorLogs' => $visitorLogs,
 
