@@ -224,6 +224,9 @@
                 seo_keyword: {
                     required: true,
                 },
+                seo_title: {
+                    required: true,
+                },
             },
             messages: {
                 // imgTitle: {
@@ -255,6 +258,9 @@
                     required: "กรุณากรอกข้อมูล"
                 },
                 seo_keyword: {
+                    required: "กรุณากรอกข้อมูล"
+                },
+                seo_title: {
                     required: "กรุณากรอกข้อมูล"
                 },
             },

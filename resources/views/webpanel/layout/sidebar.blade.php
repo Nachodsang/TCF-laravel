@@ -30,12 +30,23 @@
     </div>
     <!-- Nav Item -->
     @foreach ($menu as $v)
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url("$v->url") }}">
-                {!! $v->icon !!}
-                <span>{{ $v->name }}</span>
-            </a>
-        </li>
+        @if ($v->name == 'SEO')
+            @if (Auth::user()->type == 'super')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url("$v->url") }}">
+                        {!! $v->icon !!}
+                        <span>{{ $v->name }}</span>
+                    </a>
+                </li>
+            @endif
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url("$v->url") }}">
+                    {!! $v->icon !!}
+                    <span>{{ $v->name }}</span>
+                </a>
+            </li>
+        @endif
     @endforeach
 
     <!-- Divider -->

@@ -4,10 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords"
-        content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
-
-    <title>Home - TCF Thailand</title>
+    @include(config('web.folder_prefix') . '/seoTag')
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">

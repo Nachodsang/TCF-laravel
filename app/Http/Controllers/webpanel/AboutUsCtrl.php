@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutUsMd;
 use App\Models\OurClientMd;
 use App\Models\TaskMd;
+use App\Models\SeoMd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,8 @@ class AboutUsCtrl extends Controller
     {
         $about = AboutUsMd::find(1);
         try {
+            
+
             return view("$this->folderPrefix.aboutus.index", [
                 'css' => [
                     'css/skEditor.css'
@@ -38,7 +41,8 @@ class AboutUsCtrl extends Controller
                 ],
                 'module' => 'aboutus',
                 'page' => 'edit',
-                'row' => $about
+                'row' => $about,
+             
             ]);
         } catch (\Exception $e) {
             return $e->getMessage();

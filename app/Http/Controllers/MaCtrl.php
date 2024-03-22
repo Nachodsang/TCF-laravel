@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use App\Models\MaIndustryMd;
 use App\Models\MaProductMd;
 use App\Models\ServiceCatMd;
+use App\Models\SeoMd;
 
 class MaCtrl extends Controller
 {
@@ -18,6 +19,7 @@ class MaCtrl extends Controller
 
     public function index(Request $request)
     {
+        $maTag = SeoMd::where('name', 'ma')->first();
         $service_cat = ServiceCatMd::where(['id' => 5])->first();
         $ma_industries = MaIndustryMd::where(['status' => true])->orderBy('sort')->get();
         $all_ma_industries = MaIndustryMd::get();
@@ -27,6 +29,7 @@ class MaCtrl extends Controller
             'ma_industries' => $ma_industries,
             'all_ma_industries' => $all_ma_industries,
             'products' => [],
+            'seo' => $maTag,
         ];
         return view($this->config['folder_prefix'] . "/ma", $with);
     }

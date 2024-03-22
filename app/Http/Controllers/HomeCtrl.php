@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BannerMd;
 use App\Models\OurClientMd;
 use App\Models\ServiceMd;
+use App\Models\SeoMd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Config;
@@ -20,6 +21,7 @@ class HomeCtrl extends Controller
     {
 
         try {
+            $homeTag = SeoMd::where('name', 'home')->first();
             $cover = BannerMd::select(['image', 'title', 'alt', 'url'])->where(['status' => 1])->orderBy('sort')->get();
             $service = ServiceMd::limit(4)->where('status', 1)->orderBy('created_at', 'desc')->get();
             $service_cats = \App\Models\ServiceCatMd::where('service_category.status', 1)->orderBy('sort')->get();
@@ -62,6 +64,7 @@ class HomeCtrl extends Controller
                 'ourClient' => $client,
                 'blog' => $blog,
                 'ma' => $ma,
+                'seo' => $homeTag,
                 'detail_first' => \App\Models\HomeMd::where('type', 'first')->first(),
                 // 'detail_secondary' => \App\Models\HomeMd::find(2)
             ];

@@ -143,6 +143,11 @@ Route::middleware(['Webpanel'])->group(function () {
         Route::put('/update', [WebmaCtrl::class, 'update'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
         Route::delete('/delete/{type}/{id}', [WebmaCtrl::class, 'destroy'])->where(['type' => '[0-9A-Za-zก-๙,.()!?"“”_-]+', 'id' => '[0-9]+']);
     });
+
+    Route::prefix('seo')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Webpanel\SeoCtrl::class, 'index']);
+        Route::post('/edit', [\App\Http\Controllers\Webpanel\SeoCtrl::class, 'edit']);
+    });
 });
 
 Route::prefix('media')->group(function () {

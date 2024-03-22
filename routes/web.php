@@ -14,6 +14,7 @@ use App\Http\Controllers\SendEmailController;
 |
 */
 
+
 Route::get('/', [\App\Http\Controllers\HomeCtrl::class, 'index']);
 Route::get('/about', [\App\Http\Controllers\AboutCtrl::class, 'index']);
 Route::get('/service', [\App\Http\Controllers\ServiceCtrl::class, 'index']);

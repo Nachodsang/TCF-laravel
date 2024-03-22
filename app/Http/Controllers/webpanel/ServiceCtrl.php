@@ -64,6 +64,7 @@ class ServiceCtrl extends Controller
             $service->service = $request->service;
             $service->description = $request->description;
             $service->details = $request->detail_th;
+            $service->seo_title = $request->seo_title;
             $service->seo_description = $request->seo_description;
             $service->seo_keyword = $request->seo_keyword;
             $service->cat_id = $request->service_category;
@@ -146,6 +147,7 @@ class ServiceCtrl extends Controller
             $update->service = $request->service;
             $update->description = $request->description;
             $update->details = $request->detail_th;
+            $update->seo_title = $request->seo_title;
             $update->seo_description = $request->seo_description;
             $update->seo_keyword = $request->seo_keyword;
             $update->cat_id = $request->service_category;

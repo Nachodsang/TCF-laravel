@@ -73,6 +73,11 @@
                                 </div>
                             </div>
                             <div class="col-xl-12 mb-2">
+                                <label for="seo_title" class="form-label">SEO Title : </label>
+                                <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                    value="{{ $service->seo_title }}">
+                            </div>
+                            <div class="col-xl-12 mb-2">
                                 <label for="seo_description" class="form-label">SEO Description : </label>
                                 <input type="text" class="form-control" id="seo_description" name="seo_description"
                                     value="{{ $service->seo_description }}">

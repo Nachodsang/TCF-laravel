@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Consultants - TCF Thailand</title>
+    @include(config('web.folder_prefix') . '/seoTag')
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
     <link rel="canonical" href="https://www.at-once.info">
     <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
@@ -13,10 +13,7 @@
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="admin/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 
-    <meta name="keywords"
-        content="accounting consulting firms in Thailand, consulting firm in Thailand, cpa firm in Thailand">
-    <meta name="description"
-        content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
+
     <meta name="robots" content="max-image-preview:large" />
     <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
     <meta property="og:locale" content="en_US" />
@@ -86,7 +83,8 @@
                                         <h3 class="h3">{{ $consultants[$i]->name }}</h3>
                                         <span class="">{{ $consultants[$i]->role }}</span>
                                         <p>{{ $consultants[$i]->description }}</p>
-                                        <a class="btn px-3 mt-auto mx-auto" href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read More</a>
+                                        <a class="btn px-3 mt-auto mx-auto"
+                                            href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read More</a>
                                     </div>
                                 </div>
                             @endfor
@@ -109,7 +107,9 @@
                                                     <h3 class="h3">{{ $consultants[$i]->name }}</h3>
                                                     <span class="">{{ $consultants[$i]->role }}</span>
                                                     <p>{{ $consultants[$i]->description }}</p>
-                                                    <a class="btn px-3 mt-auto mx-auto" href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read More</a>
+                                                    <a class="btn px-3 mt-auto mx-auto"
+                                                        href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
+                                                        More</a>
                                                 </div>
                                             </div>
                                         @endif
@@ -134,7 +134,9 @@
                                                     <h3 class="mb-3 h3">{{ $consultants[$i]->name }}</h3>
                                                     <span class="">{{ $consultants[$i]->role }}</span>
                                                     <p>{{ $consultants[$i]->description }}</p>
-                                                    <a class="btn px-3 mt-auto mx-auto" href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read More</a>
+                                                    <a class="btn px-3 mt-auto mx-auto"
+                                                        href="{{ url('/consultant/' . $consultants[$i]->url) }}">Read
+                                                        More</a>
                                                 </div>
                                             </div>
                                         @endif
