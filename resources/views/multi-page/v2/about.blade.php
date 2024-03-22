@@ -11,14 +11,14 @@
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
     <meta name="robots" content="max-image-preview:large" />
-    <link rel="canonical" href="https://www.tokyoconsultingfirm.com/thailand/" />
+
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="TCF Thailand -" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Home - TCF Thailand" />
     <meta property="og:description"
         content="Accounting Consulting Firms in Thailand: TCF Thailand provides professional services in the fields of Accounting, Taxation, Payroll, Audit, HR, Legal Services." />
-    <meta property="og:url" content="https://www.tokyoconsultingfirm.com/thailand/" />
+    <meta property="og:url" content="https://tokyoconsulting-thailand.tokyoconsulting-group.com" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Home - TCF Thailand" />
