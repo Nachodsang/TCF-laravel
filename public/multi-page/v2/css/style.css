@@ -29,7 +29,8 @@
     /* --c-text-primary: #3793db; */
     --c-text-primary: var(--c-secondary);
     --c-text-secondary: #1f1f1f;
-    --c-text-tertiary: #808080;
+    /* --c-text-tertiary: #808080; */
+    --c-text-tertiary: #1d1d1d;
     --c-text-fouth:#BFBFBF;
 
     --font-h3: 1.3rem !important;

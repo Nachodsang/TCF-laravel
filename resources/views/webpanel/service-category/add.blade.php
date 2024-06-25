@@ -17,7 +17,8 @@
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <label for="imgTitle" class="form-label">Icon : <small class="text-muted"><a
-                                            href="https://fontawesome.com/v5/search?o=r&m=free" target=”_blank”>fontawesome.com</a></small></label>
+                                            href="https://fontawesome.com/v5/search?o=r&m=free"
+                                            target=”_blank”>fontawesome.com</a></small></label>
                                 <input type="text" class="form-control" id="icon" name="icon">
                             </div>
                             <div class="col-xl-6 mb-2">
@@ -45,6 +46,19 @@
                                 <div class="sk-area" data-lang="th">
                                     <textarea name="detail_th" id="detail_th" class="sk-editor" hidden=""></textarea>
                                 </div>
+                            </div>
+                            <div class="col-xl-12 mb-2">
+                                <label for="seo_title" class="form-label">SEO Title : </label>
+                                <input type="text" class="form-control" id="seo_title" name="seo_title">
+                            </div>
+                            <div class="col-xl-12 mb-2">
+                                <label for="seo_description" class="form-label">SEO Description : </label>
+                                <input type="text" class="form-control" id="seo_description" name="seo_description">
+                            </div>
+                            <div class="col-xl-12 mb-4">
+                                <label for="seo_keyword" class="form-label">SEO Keywords : <span
+                                        class="text-danger">first, second</span></label>
+                                <input type="text" class="form-control" id="seo_keyword" name="seo_keyword">
                             </div>
                             <div class="col">
                                 <button type="submit"

@@ -138,13 +138,18 @@ class ServiceCtrl extends Controller
             $service_cat = \App\Models\ServiceCatMd::where(['url' => $url])->first();
             $service_cats = \App\Models\ServiceCatMd::orderBy('sort')->get();
             $services = \App\Models\ServiceMd::where(['cat_id' => $service_cat->id, 'status' => 1])->get();
-            $serviceCatTag = SeoMd::where('name', 'serviceCat')->first();
+
+            $seo = (object) [
+                'title' => $service_cat->seo_title,
+                'meta_keyword' => $service_cat->seo_keyword,
+                'meta_description' => $service_cat->seo_description
+            ];
             $data = [
                 'folder_prefix' => $this->config['folder_prefix'],
                 'service_cat' => $service_cat,
                 'services' => $services,
                 'service_cats' => $service_cats,
-                'seo' => $serviceCatTag
+                'seo' => $seo
             ];
             return view($this->config['folder_prefix'] . "/serviceCat", $data);
         } catch (\ErrorException $e) {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @include(config('web.folder_prefix') . '/seoTag')
     <link href="images/logo/tcf-tab-logo.jpg" rel="icon">
-    <link rel="canonical" href="https://tokyoconsulting-thailand.tokyoconsulting-group.com">
+
     <link href="{{ config('web.folder_prefix') }}/css/bootstrap.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/style.css" rel="stylesheet">
     <link href="{{ config('web.folder_prefix') }}/css/color.css" rel="stylesheet">
@@ -166,8 +166,7 @@
                                 <div class="blog-item">
                                     <div class="position-relative">
 
-                                        <img class="img-fluid blog-card-img" src="{{ $v->cover }}"
-                                            alt="">
+                                        <img class="img-fluid blog-card-img" src="{{ $v->cover }}" alt="">
                                         <div class="blog-overlay">
                                             <a class="btn btn-square btn-primary rounded-circle m-1"
                                                 href="{{ $v->url }}" target="_blank">

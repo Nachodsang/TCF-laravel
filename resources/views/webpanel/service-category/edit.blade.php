@@ -51,6 +51,22 @@
                                     <textarea name="detail_th" id="detail_th" class="sk-editor" hidden="">{{ $serviceCat->detail }}</textarea>
                                 </div>
                             </div>
+                            <div class="col-xl-12 mb-2">
+                                <label for="seo_title" class="form-label">SEO Title : </label>
+                                <input type="text" class="form-control" id="seo_title" name="seo_title"
+                                    value="{{ $serviceCat->seo_title }}">
+                            </div>
+                            <div class="col-xl-12 mb-2">
+                                <label for="seo_description" class="form-label">SEO Description : </label>
+                                <input type="text" class="form-control" id="seo_description" name="seo_description"
+                                    value="{{ $serviceCat->seo_description }}">
+                            </div>
+                            <div class="col-xl-12 mb-4">
+                                <label for="seo_keyword" class="form-label">SEO Keywords : <span
+                                        class="text-danger">first, second</span></label>
+                                <input type="text" class="form-control" id="seo_keyword" name="seo_keyword"
+                                    value="{{ $serviceCat->seo_keyword }}">
+                            </div>
                             <div class="col">
                                 <button type="submit"
                                     class="btn btn-primary btn-sm rounded-pill float-right">Upload</button>

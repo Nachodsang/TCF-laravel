@@ -98,6 +98,9 @@ class ServiceCategoryCtrl extends Controller
             $serviceCat->description = $request->description;
             $serviceCat->icon = $request->icon;
             $serviceCat->url = $request->url;
+            $serviceCat->seo_title = $request->seo_title;
+            $serviceCat->seo_description = $request->seo_description;
+            $serviceCat->seo_keyword = $request->seo_keyword;
             $serviceCat->sort = $serviceCat->max('sort') + 1;
             $serviceCat->upload_by = Auth::user()->id;
             if ($serviceCat->save()) {
@@ -129,6 +132,9 @@ class ServiceCategoryCtrl extends Controller
             $serviceCat->description = $request->description;
             $serviceCat->icon = $request->icon;
             $serviceCat->url = $request->url;
+            $serviceCat->seo_title = $request->seo_title;
+            $serviceCat->seo_description = $request->seo_description;
+            $serviceCat->seo_keyword = $request->seo_keyword;
             $serviceCat->upload_by = Auth::user()->id;
             if ($serviceCat->save()) {
                 $log = new TaskMd();
